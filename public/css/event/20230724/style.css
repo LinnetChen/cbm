@@ -1,0 +1,977 @@
+@charset "UTF-8";
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+     -moz-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+  font-size: 100%;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+:focus {
+  outline: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section {
+  display: block;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:after, blockquote:before, q:after, q:before {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td:empty, th:empty {
+  opacity: 0;
+}
+
+input, input:required {
+  box-shadow: none;
+}
+
+input:-webkit-autofill, input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autofill:hover {
+  box-shadow: 0 0 0 30px #fff inset;
+}
+
+input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration, input[type=search]::-webkit-search-results-button, input[type=search]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input[type=search] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-sizing: content-box;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+  resize: vertical;
+}
+
+audio, canvas, video {
+  display: inline-block;
+  max-width: 100%;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden] {
+  display: none;
+}
+
+a:active, a:hover {
+  outline: 0;
+}
+
+img {
+  border: 0;
+  max-width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  height: auto;
+}
+
+picture {
+  display: inline-block;
+}
+
+figure {
+  margin: 0;
+}
+
+button, input {
+  line-height: normal;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+  border: 0;
+  background: 0 0;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+button[disabled], html input[disabled] {
+  cursor: default;
+}
+
+input[type=checkbox], input[type=radio] {
+  padding: 0;
+}
+
+input[type=search] {
+  -webkit-appearance: textfield;
+  box-sizing: content-box;
+}
+
+input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+button {
+  border: 0;
+  background: 0 0;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+  resize: vertical;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+hr {
+  box-sizing: content-box;
+  overflow: visible;
+  background: #000;
+  border: 0;
+  height: 1px;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+  page-break-after: always;
+  width: 100%;
+}
+
+pre {
+  font-family: monospace, monospace;
+  font-size: 100%;
+}
+
+a {
+  background-color: transparent;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+code, kbd, samp {
+  font-family: monospace, monospace;
+  font-size: 100%;
+}
+
+small {
+  font-size: 75%;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -5px;
+}
+
+sup {
+  top: -5px;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+button, input {
+  overflow: visible;
+}
+
+button, select {
+  text-transform: none;
+}
+
+[type=button], [type=reset], [type=submit], button {
+  -webkit-appearance: button;
+}
+
+[type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner, button::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+  outline: 0;
+}
+
+legend {
+  color: inherit;
+  white-space: normal;
+  display: block;
+  border: 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+fieldset {
+  min-width: 0;
+}
+
+body:not(:-moz-handler-blocked) fieldset {
+  display: block;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+[type=number]::-webkit-inner-spin-button, [type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type=search] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+summary {
+  display: list-item;
+}
+
+template {
+  display: none;
+}
+
+* {
+  position: relative;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.container {
+  width: 95%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 4vh 0 9vh 0;
+}
+
+.wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden !important;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  background: url("../../../img/event/20230724/mainBG.png") no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  font-family: arial, "Microsoft JhengHei", "微軟正黑體", sans-serif !important;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+  width: 10px;
+}
+body::-webkit-scrollbar-button {
+  background: transparent;
+}
+body::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgb(70, 70, 70);
+  border: 1px solid rgb(255, 255, 255);
+}
+body::-webkit-scrollbar-track {
+  box-shadow: none;
+}
+
+/*========header bar========*/
+header {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+}
+header .bar {
+  width: 100%;
+  height: 80px;
+}
+header .bar .mobel_mask {
+  display: none;
+}
+header .bar .barBG {
+  position: absolute;
+  width: 100%;
+  height: 80px;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.25));
+  border-bottom: #ffffff 3px solid;
+  display: none;
+}
+header .bar .digeamwlogo {
+  position: absolute;
+  left: 7%;
+  width: 200px;
+  height: 80px;
+  background-image: url("../../../img/event/20230724/header/LOGO_white.png") no-repeat;
+  background-size: contain;
+  background-position: center;
+  transition: 0.3s;
+  opacity: 0;
+  animation: itemfadeIn 1s 0.5s 1 ease-out;
+  animation-fill-mode: forwards;
+}
+header .bar .digeamwlogo:hover {
+  filter: drop-shadow(0px 0px 5px rgba(255, 96, 244, 0.5)) drop-shadow(0px 0px 10px rgba(255, 0, 238, 0.5));
+}
+
+/*========主要內容========*/
+.main {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  /*========toppage========*/
+}
+.main .toppage {
+  width: 100%;
+  height: 100vh;
+}
+.main .toppage .topBG {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../../img/event/20230724/topBG1.png") no-repeat;
+  background-position: top;
+  background-size: cover;
+  animation: topBGIn 0.4s 1 ease-out;
+  animation-fill-mode: forwards;
+}
+.main .toppage .topBG::before {
+  position: absolute;
+  content: "";
+  top: -100px;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../../img/event/20230724/event/20230724/topBG2.png") no-repeat;
+  background-position: top;
+  background-size: cover;
+  z-index: -1;
+  animation: topBGIn 0.4s 0.05s 1 ease-out;
+  animation-fill-mode: forwards;
+}
+.main .toppage .title {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  translate: -50%;
+  width: 946px;
+  height: 324px;
+  background-image: url("../../../img/event/20230724/event/20230724/title.png") no-repeat;
+  background-position: center;
+  opacity: 0;
+  animation: itemfadeIn 1s 0.5s 1 ease-out;
+  animation-fill-mode: forwards;
+}
+.main .toppage .startbtn {
+  position: absolute;
+  left: 50%;
+  top: 75%;
+  translate: -50%;
+  width: 398px;
+  height: 78px;
+  background-image: url("../../../img/event/20230724/event/20230724/startbtn.png") no-repeat;
+  filter: drop-shadow(0px 0px 2px rgb(255, 255, 255)) drop-shadow(0px 0px 6px rgb(255, 255, 255));
+  opacity: 0;
+  animation: floatBtn 1.3s infinite ease-in-out alternate, itemfadeIn 1s 0.75s 1 ease-out;
+  animation-fill-mode: forwards;
+  transition: 0.3s;
+}
+.main .toppage .startbtn:hover {
+  filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.5)) drop-shadow(0px 0px 20px rgb(255, 255, 255));
+}
+
+/*==========進場動畫==========*/
+@keyframes topBGIn {
+  0% {
+    top: -975px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+@keyframes titleLightL {
+  0% {
+    top: -208px;
+    left: -738px;
+  }
+  10% {
+    top: 31px;
+    left: -300px;
+  }
+  50%, 60% {
+    top: 100px;
+    left: 325px;
+    width: 150px;
+    height: 150px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 50px 50px rgb(255, 255, 255);
+  }
+  100% {
+    top: 300px;
+    left: -738px;
+    opacity: 0.5;
+  }
+}
+@keyframes titleLightR {
+  0% {
+    top: -208px;
+    right: -738px;
+  }
+  10% {
+    top: 31px;
+    right: -300px;
+  }
+  50%, 60% {
+    top: 100px;
+    right: 325px;
+    width: 150px;
+    height: 150px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 50px 50px rgb(255, 255, 255);
+  }
+  100% {
+    top: 300px;
+    right: -738px;
+    width: 80px;
+    height: 80px;
+    opacity: 0.5;
+  }
+}
+@keyframes itemfadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes floatBtn {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+@media (max-width: 425px) {
+  /*========header bar========*/
+  header .bar .barBG::after {
+    top: 35%;
+    width: 30px;
+    height: 3px;
+  }
+  header .bar .barBG::before {
+    top: 53%;
+    width: 30px;
+    height: 3px;
+  }
+  header .bar .digeamwlogo {
+    top: -3vw;
+    left: 0vw;
+    scale: 0.8;
+  }
+  header .bar .links a {
+    font-size: 1.6rem;
+  }
+  header .bar .sociallink a {
+    margin: 0 2.5%;
+  }
+  header .bar .sociallink .fblink {
+    scale: 0.8;
+  }
+  header .bar .sociallink .bhlink {
+    scale: 1;
+  }
+  /*========主要內容========*/
+  .main {
+    /*========toppage========*/
+    /*========p2========*/
+  }
+  .main .toppage .title {
+    top: 35vh;
+    background-size: contain;
+  }
+  .main .toppage .startbtn {
+    top: 75vh;
+    width: 100vw;
+    height: 20vw;
+    background-size: contain;
+    background-position: top;
+  }
+  .main .toppage .startbtn::after {
+    top: 100%;
+    left: 50%;
+    translate: -50%;
+    width: 10vh;
+    background-size: contain;
+  }
+  .main .page2 {
+    overflow: hidden;
+  }
+  .main .page2 .mainpic {
+    position: relative;
+    left: -100px;
+    top: 6vh;
+    width: 130vw;
+    height: 130vw;
+    background-size: contain;
+    background-position: top;
+    z-index: 0;
+  }
+  .main .page2 .mainpic::before {
+    left: 100px;
+    width: 100vw;
+    height: 26vw;
+    background-size: contain;
+  }
+  .main .page2 .mainpic::after {
+    top: 68%;
+    left: 38%;
+    width: 70vw;
+    background-size: contain;
+  }
+  .main .page2 .step1 a {
+    scale: 0.7;
+  }
+  .main .page2 .step1 h2 {
+    font-size: 25px;
+  }
+  .main .page2 .step1 .step1Text {
+    font-size: 20px;
+  }
+  .main .page2 .step1 .step1_login {
+    top: 45%;
+  }
+  .main .page2 .step1 .step1_register {
+    top: 65%;
+  }
+  .main .page2 .step2 .step2noticebtn {
+    top: 50%;
+    scale: 0.7;
+  }
+  .main .page2 .step2 h2 {
+    font-size: 25px;
+  }
+  .main .page2 .step2 .step2Text {
+    font-size: 20px;
+  }
+  .main .page2 .step2 form {
+    left: 8%;
+    translate: 0% -50%;
+    scale: 0.7;
+  }
+  .main .page2 .step3 .step3checkbtn {
+    scale: 0.7;
+  }
+  .main .page2 .step3 .step3checkbox {
+    font-size: 25px;
+  }
+  .main .page2 .step3 .step3checkbox input {
+    width: 20px;
+    height: 20px;
+  }
+  .main .page2 .doublecheck .doublecheckframe .doublecheckText {
+    font-size: 20px;
+  }
+  .main .page2 .doublecheck .doublecheckframe .checkbtn {
+    left: 50%;
+    translate: -50%;
+    bottom: 20vh;
+    scale: 0.8;
+  }
+  .main .page2 .doublecheck .doublecheckframe .cancelbtn {
+    right: 50%;
+    translate: 50%;
+    bottom: 10vh;
+    scale: 0.8;
+  }
+  .main .page2 .notice .noticeframe h2 {
+    font-size: 25px;
+  }
+  .main .page2 .notice .noticeframe ul {
+    width: 90%;
+    font-size: 20px;
+    line-height: 40px;
+  }
+  .main .page2 .notice .noticeframe .XX {
+    right: 3vw;
+    top: 3vw;
+    scale: 0.9;
+  }
+  .main .page2 .notice .noticeframe .checkbtn {
+    scale: 0.8;
+  }
+  /*========topbtn========*/
+  .topbtn {
+    bottom: -20px;
+    right: -10px;
+    scale: 0.6;
+  }
+}
+@media (max-width: 820px) {
+  /*========header bar========*/
+  header .bar .mobel_mask {
+    position: absolute;
+    left: -100vw;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: block;
+  }
+  header .bar .barBG {
+    width: 100%;
+    height: 80px;
+    background-image: none;
+    border-bottom: none;
+  }
+  header .bar .barBG::after {
+    position: absolute;
+    content: "";
+    top: 40%;
+    right: 8vw;
+    width: 40px;
+    height: 5px;
+    background-color: #FFF;
+    transition: 0.3s;
+  }
+  header .bar .barBG::before {
+    position: absolute;
+    content: "";
+    top: 55%;
+    right: 8vw;
+    width: 40px;
+    height: 5px;
+    background-color: #FFF;
+    transition: 0.3s;
+  }
+  header .bar .digeamwlogo {
+    left: 7vw;
+    width: 200px;
+    height: 80px;
+  }
+  header .bar .links {
+    position: static;
+    padding-top: 40%;
+    width: 100%;
+    opacity: 1;
+    line-height: 80px;
+    animation: none;
+    display: none;
+  }
+  header .bar .links a {
+    font-size: 2rem;
+    text-align: center;
+    display: block;
+  }
+  header .bar .sociallink {
+    position: static;
+    text-align: center;
+    width: 100%;
+    right: 3vw;
+    display: none;
+  }
+  header .bar .sociallink a {
+    margin: 0 3%;
+  }
+  header .bar .sociallink .fblink {
+    scale: 1;
+    opacity: 1;
+    animation: none;
+  }
+  header .bar .sociallink .bhlink {
+    scale: 1.25;
+    opacity: 1;
+    animation: none;
+  }
+  /*========主要內容========*/
+  .main {
+    /*========toppage========*/
+  }
+  .main .toppage .title {
+    top: 30vh;
+    scale: 1;
+    width: 100vw;
+    height: 76vw;
+    background: url(../img/title_m.png) no-repeat;
+    background-position: center;
+  }
+  .main .toppage .startbtn {
+    top: 75vh;
+    width: 100vw;
+    height: 15vw;
+    scale: 1;
+    background-size: contain;
+    background-position: top;
+  }
+  /*========topbtn========*/
+  .topbtn {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 100px;
+    height: 100px;
+    z-index: 999;
+    scale: 0.8;
+    display: none;
+    filter: drop-shadow(1px 1px 0px #ffffff) drop-shadow(-1px -1px 0px #FFF) drop-shadow(-1px 1px 0px #FFF) drop-shadow(1px -1px 0px #FFF);
+  }
+  .topbtn::before {
+    position: absolute;
+    content: "";
+    top: 20px;
+    right: 3px;
+    width: 58px;
+    height: 10px;
+    rotate: 45deg;
+    border-radius: 5px;
+    background-color: #000000;
+  }
+  .topbtn::after {
+    position: absolute;
+    content: "";
+    top: 20px;
+    left: 3px;
+    width: 58px;
+    height: 10px;
+    rotate: -45deg;
+    border-radius: 5px;
+    background-color: #000000;
+  }
+}
+@media (max-width: 1024px) {
+  /*========header bar========*/
+  header .bar .barBG {
+    width: 100vw;
+    height: 60px;
+  }
+  header .bar .digeamwlogo {
+    left: 3vw;
+    width: 150px;
+    height: 60px;
+  }
+  header .bar .links {
+    line-height: 60px;
+  }
+  header .bar .links a {
+    font-size: 1.1rem;
+  }
+  header .bar .sociallink {
+    width: 20vw;
+  }
+  header .bar .sociallink a {
+    margin: auto 3%;
+  }
+  header .bar .sociallink .fblink {
+    height: 60px;
+  }
+  header .bar .sociallink .bhlink {
+    height: 60px;
+  }
+  /*========主要內容========*/
+  .main {
+    /*========toppage========*/
+    /*========p2========*/
+  }
+  .main .toppage .title {
+    top: 20%;
+    scale: 0.9;
+  }
+  .main .toppage .startbtn {
+    scale: 0.8;
+  }
+  .main .toppage .startbtn::after {
+    top: 105%;
+  }
+  .main .page2 .mainpic {
+    left: -100px;
+    width: 53vw;
+  }
+  .main .page2 .mainpic::before {
+    left: 100px;
+    width: 35vw;
+  }
+  .main .page2 .mainpic::after {
+    left: 30%;
+    width: 30vw;
+  }
+  .main .page2 .step1 {
+    top: 10vh;
+    right: 36vw;
+    scale: 0.65;
+    margin: -81.725px;
+  }
+  .main .page2 .step2 {
+    top: 10vh;
+    right: 2vw;
+    scale: 0.65;
+    margin: -81.725px;
+  }
+  .main .page2 .step3 {
+    top: 85vh;
+    right: 2vw;
+    scale: 0.65;
+    margin: -176.225px;
+  }
+  .main .page2 .doublecheck .doublecheckframe {
+    scale: 0.9;
+  }
+  .main .page2 .notice .noticeframe {
+    scale: 0.65;
+  }
+}
+@media (max-width: 1440px) {
+  /*========header bar========*/
+  header .bar .barBG {
+    width: 100vw;
+    height: 80px;
+  }
+  header .bar .digeamwlogo {
+    left: 3vw;
+  }
+  header .bar .sociallink {
+    right: 3vw;
+    width: 15vw;
+  }
+  /*========主要內容========*/
+  .main {
+    /*========toppage========*/
+    /*========p2========*/
+  }
+  .main .page2 {
+    overflow-y: hidden;
+  }
+  .main .page2 .mainpic {
+    top: 50px;
+    left: -120px;
+    width: 55vw;
+    height: 55vw;
+    background-position: top;
+  }
+  .main .page2 .mainpic::before {
+    left: 120px;
+    width: 40vw;
+    background-size: contain;
+  }
+  .main .page2 .mainpic::after {
+    top: 65%;
+    left: 40%;
+    width: 30vw;
+    background-size: contain;
+  }
+  .main .page2 .step1 {
+    top: 13vh;
+    right: 33vw;
+    scale: 0.8;
+    margin: -46.7px;
+  }
+  .main .page2 .step2 {
+    top: 13vh;
+    right: 3vw;
+    scale: 0.8;
+    margin: -46.7px;
+  }
+  .main .page2 .step3 {
+    top: 70vh;
+    right: 3vw;
+    scale: 0.8;
+    margin: -100.7px;
+  }
+  .main .page2 .doublecheck .doublecheckframe {
+    scale: 0.9;
+  }
+  .main .page2 .notice .noticeframe {
+    scale: 0.9;
+  }
+}/*# sourceMappingURL=style.css.map */

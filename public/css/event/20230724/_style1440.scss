@@ -1,0 +1,91 @@
+@media(max-width:1440px){
+    /*========header bar========*/
+
+    header{
+
+        .bar{
+            .barBG{
+                width: 100vw;
+                height: 80px;
+            }
+
+            .digeamwlogo{
+                left: 3vw;
+            }
+
+            .sociallink{
+                right: 3vw;
+                width: 15vw;
+            }
+        }
+    }
+
+    /*========主要內容========*/
+
+    .main{
+    
+        /*========toppage========*/
+
+
+        /*========p2========*/
+
+        .page2{
+            overflow-y: hidden;
+
+            .mainpic{
+                top: 50px;
+                left: -120px;
+                width: 55vw;
+                height: 55vw;
+                background-position: top;
+
+                &::before{
+                    left: 120px;
+                    width: 40vw;
+                    background-size: contain;
+                }
+                &::after{
+                    top: 65%;
+                    left: 40%;
+                    width: 30vw;
+                    background-size: contain;
+                }
+            }
+
+            .step1{
+                top: 13vh;
+                right: 33vw;
+                scale: 0.8;
+                margin: -46.7px;
+            }
+
+            .step2{
+                top: 13vh;
+                right: 3vw;
+                scale: 0.8;
+                margin: -46.7px;
+            }
+
+            .step3{
+                top: 70vh;
+                right: 3vw;
+                scale: 0.8;
+                margin: -100.7px;
+            }
+
+            .doublecheck{
+
+                .doublecheckframe{
+                    scale: 0.9;
+                }
+            }
+
+            .notice{
+
+                .noticeframe{
+                    scale: 0.9;
+                }
+            }
+        }
+    }
+}
