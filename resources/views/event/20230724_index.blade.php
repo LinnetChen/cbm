@@ -27,17 +27,25 @@
 <body>
     <header>
         <div class="bar">
-            <div class="mobel_mask"></div>
-            <div class="barBG"></div>
             <a class="digeamwlogo" href="https://digeam.com/index"  target="_blank"></a>
+            <div class="estlogo"></div>
         </div>
     </header>
 
+    <div class="pop mask" id="pop">
+        <div class="blacklayer"></div>
+        <div class="box">
+            <div class="popText"></div>
+            <button class="btnClose popup_close">關閉</button>
+        </div>
+    </div>
+    
     <div class="main">
         <div class="toppage">
             <div class="topBG"></div>
             <div class="title"></div>
-            <a class="startbtn" href="#starttochange"></a>
+            <button class="startbtn" onclick="jumpToReserve()"></button>
+            <p class="text">帳號轉移時，將不會保留原持有的遊戲點數、力量晶石與力量晶石禮包。</p>
         </div>
     </div>
 
