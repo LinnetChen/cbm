@@ -21,5 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //確認是否已綁定
 Route::post('checkAccount', 'API\transferPageController@checkAccount');
 //帳號綁定
-Route::any('transpage', 'API\transferPageController@transfer');
+Route::post('transpage', 'API\transferPageController@transfer');
 
