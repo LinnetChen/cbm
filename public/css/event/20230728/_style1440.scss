@@ -1,0 +1,58 @@
+@media(max-width:1440px){
+
+    header{
+
+        .bar{
+            .barBG{
+                width: 100vw;
+                height: 80px;
+            }
+
+            .digeamwlogo{
+                left: 3vw;
+            }
+
+            .sociallink{
+                right: 3vw;
+                width: 15vw;
+            }
+        }
+    }
+
+    .main{
+
+        .page2{
+
+            .mainpic{
+                top: 50px;
+                left: -120px;
+                width: 55vw;
+                height: 55vw;
+                background-position: top;
+
+                &::before{
+                    left: 120px;
+                    width: 40vw;
+                    background-size: contain;
+                }
+                &::after{
+                    top: 65%;
+                    left: 40%;
+                    width: 30vw;
+                    background-size: contain;
+                }
+            }
+            .stepBox1{
+                top: 14%;
+                right: 10%;
+            }
+
+            .notice{
+
+                .noticeframe{
+                    scale: 0.9;
+                }
+            }
+        }
+    }
+}

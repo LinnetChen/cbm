@@ -1,0 +1,78 @@
+/*==========進場動畫==========*/
+@keyframes topBGIn{
+    0%{
+        top: -975px;
+    }
+    100%{
+        top: -18px;
+    }
+}
+
+@keyframes titleLightL{
+    0%{
+        top: -208px;
+        left: -738px;
+    }
+    10%{
+        top: 31px;
+        left: -300px;
+    }
+    50%,60%{
+        top: 100px;
+        left: 325px;
+        width: 150px;
+        height: 150px;
+        // background-color: rgb(255, 255, 255);
+        // box-shadow: 0 0 50px 50px rgb(255, 255, 255);
+    }
+    100%{
+        top: 300px;
+        left: -738px;
+        opacity: .5;
+    }
+}
+
+@keyframes titleLightR{
+    0%{
+        top: -208px;
+        right: -738px;
+    }
+    10%{
+        top: 31px;
+        right: -300px;
+    }
+    50%,60%{
+        top: 100px;
+        right: 325px;
+        width: 150px;
+        height: 150px;
+        // background-color: rgb(255, 255, 255);
+        // box-shadow: 0 0 50px 50px rgb(255, 255, 255);
+    }
+    100%{
+        top: 300px;
+        right: -738px;
+        width: 80px;
+        height: 80px;
+        opacity: .5;
+    }
+}
+
+@keyframes itemfadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+@keyframes floatBtn{
+    0%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(-10px);
+    }
+}

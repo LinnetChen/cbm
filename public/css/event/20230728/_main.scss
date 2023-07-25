@@ -1,0 +1,667 @@
+body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    background: url('../../../img/event/20230728/mainBG.png')no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: arial, "Microsoft JhengHei", "微軟正黑體", sans-serif !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-button {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-track-piece {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgb(70, 70, 70);
+        border: 1px solid rgb(255, 255, 255);
+    }
+
+    &::-webkit-scrollbar-track {
+        box-shadow: none;
+    }
+}
+
+header {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 100;
+
+    .bar {
+        width: 100%;
+        height: 80px;
+
+        .mobel_mask {
+            display: none;
+        }
+
+        .barBG {
+            position: absolute;
+            width: 100%;
+            height: 63px;
+            background-image: linear-gradient(to bottom, #464646cd, #4a4a4a57);
+            border-bottom: #ffffff 1px solid;
+            display: none;
+        }
+
+        .digeamwlogo {
+            position: absolute;
+            left: 7%;
+            top: 14%;
+            width: 174px;
+            height: 40px;
+            background: url('../../../img/event/20230728/header/LOGO_white.png')no-repeat;
+            background-size: contain;
+            background-position: center;
+            transition: .3s;
+            opacity: 0;
+            animation: itemfadeIn 1s .5s 1 ease-out;
+            animation-fill-mode: forwards;
+
+            &:hover {
+                filter: drop-shadow(0px 0px 5px rgba(255, 207, 96, 0.5)) drop-shadow(0px 0px 10px rgb(255, 207, 96, 0.5));
+            }
+        }
+
+        .links {
+            display: flex;
+            position: absolute;
+            top: 0;
+            left: 19%;
+            width: 50%;
+            line-height: 62px;
+            opacity: 0;
+            animation: itemfadeIn 1s .8s 1 ease-out;
+            animation-fill-mode: forwards;
+
+            a {
+                font-size: 18px;
+                text-decoration: none;
+                font-weight: bold;
+                letter-spacing: 0.3rem;
+                color: #ffffff;
+                margin: auto 1%;
+                filter: drop-shadow(0px 0px 5px rgba(99, 99, 99, 1)) drop-shadow(0px 0px 10px rgb(99, 99, 99, 0.5));
+                transition: .3s;
+
+                &:hover {
+                    filter: drop-shadow(0px 0px 5px rgba(255, 207, 96, 0.5)) drop-shadow(0px 0px 10px rgb(255, 207, 96, 0.5));
+                }
+            }
+        }
+
+        .sociallink {
+            position: absolute;
+            top: 6px;
+            right: 7%;
+            text-align: right;
+            display: flex;
+
+            a {
+                display: inline-block;
+                transition: .3s;
+                margin-right: 20px;
+
+                &:hover {
+                    filter: drop-shadow(0px 0px 5px rgb(255, 207, 96, 0.5)) drop-shadow(0px 0px 10px rgb(255, 207, 96, 0.5));
+                }
+            }
+
+            .fblink {
+                transform: scale(.8);
+                opacity: 0;
+                animation: itemfadeIn 1s 1s 1 ease-out;
+                animation-fill-mode: forwards;
+            }
+
+            .bhlink {
+                transform: scale(.8);
+                opacity: 0;
+                animation: itemfadeIn 1s 1.2s 1 ease-out;
+                animation-fill-mode: forwards;
+            }
+        }
+    }
+}
+
+.main {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    .toppage {
+        width: 100%;
+        height: 100vh;
+
+        .topBG {
+            position: absolute;
+            // top: 0px;
+            max-width: 1920px;
+            max-height: 863px;
+            width: 100%;
+            height: 100vh;
+            background: url('../../../img/event/20230728/topBG1.png') no-repeat;
+            background-position: top;
+            background-size: cover;
+            animation: topBGIn 0.4s 1 ease-out;
+            animation-fill-mode: forwards;
+
+            &::before {
+                position: absolute;
+                content: "";
+                // top: -50px;
+                // top: -5px;
+                max-width: 1920px;
+                max-height: 950px;
+                width: 100%;
+                height: 100vh;
+                background: url('../../../img/event/20230728/topBG2.png') no-repeat;
+                background-position: top;
+                background-size: cover;
+                z-index: -1;
+                animation: topBGIn 0.4s 0.05s 1 ease-out;
+                animation-fill-mode: forwards;
+            }
+        }
+
+        .title {
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            translate: -50%;
+            max-width: 946px;
+            max-height: 324px;
+            width: 100%;
+            height: 100%;
+            background: url('../../../img/event/20230728/title.png') no-repeat;
+            background-position: center;
+            opacity: 0;
+            animation: itemfadeIn 1s 0.5s 1 ease-out;
+            animation-fill-mode: forwards;
+        }
+
+        .startbtn {
+            position: absolute;
+            left: 50%;
+            top: 72%;
+            translate: -50%;
+            width: 398px;
+            height: 151px;
+            background: url('../../../img/event/20230728/startbtn.png') no-repeat;
+            opacity: 0;
+            animation:
+                floatBtn 1.3s infinite ease-in-out alternate,
+                itemfadeIn 1s 0.75s 1 ease-out;
+            animation-fill-mode: forwards;
+            transition: 0.3s;
+
+            &:hover {
+                filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.5)) drop-shadow(0px 0px 20px rgba(255, 255, 255, 1));
+            }
+        }
+    }
+
+    .page2 {
+        // position: relative;
+        position: absolute;
+        top: 94%;
+        width: 100%;
+        height: 100vh;
+
+        .mainpic {
+            position: absolute;
+            bottom: -2%;
+            width: 900px;
+            height: 920px;
+            background: url('../../../img/event/20230728/mainpic2.png')no-repeat;
+            background-size: contain;
+            background-position: bottom;
+            z-index: 1;
+            pointer-events: none;
+            transform: scale(0.86);
+        }
+
+        .stepBox1 {
+            display: flex;
+            position: absolute;
+            top: 23%;
+            left: 31.5%;
+            z-index: 1;
+            flex-direction: column;
+            align-items: flex-end;
+
+            .awardText {
+                max-width: 650px;
+                max-height: 260px;
+                width: 100%;
+            }
+
+            .stepBox2 {
+                display: flex;
+
+                .step1,
+                .step2,
+                .step3 {
+                    margin-right: 23px;
+                    font-weight: bolder;
+                    font-size: 24px;
+                    width: 327px;
+                    height: 332px;
+                    color: #fff;
+                }
+
+                .step1 {
+                    background: url('../../../img/event/20230728/step1frame.png')no-repeat;
+                    color: #FFF;
+
+                    .btnBox {
+                        display: flex;
+                        position: absolute;
+                        flex-direction: column;
+                        left: 50%;
+                        transform: translate(-50%);
+                        margin-top: 19%;
+                    }
+
+                    .step1_login,
+                    .step1_register {
+                        width: 128px;
+                        height: 34px;
+                        font-size: 18.92px;
+                        font-weight: 500;
+                        color: #ffffff;
+                        text-align: center;
+                        line-height: 35px;
+                        letter-spacing: 2px;
+                        cursor: pointer;
+                        text-decoration: none;
+                        background: url('../../../img/event/20230728/btn_blue1.png')no-repeat;
+                        filter: drop-shadow(0px 4px 5px #000000);
+                        transition: 0.5s;
+                        margin-bottom: 16px;
+
+                        &:hover {
+                            transform: translateY(-3%);
+                            filter: drop-shadow(0px 1px 1px #ffffff);
+                        }
+                    }
+
+                    .titleText1 {
+                        text-align: center;
+                        padding-top: 82px;
+                        text-shadow: 0 0 10px #000;
+                    }
+
+                    .step1Text {
+                        margin: auto;
+                        text-align: center;
+                        line-height: 36px;
+                        font-size: 20px;
+                        font-weight: 500;
+                        letter-spacing: 1px;
+
+                        p {
+                            margin-top: 15%;
+                        }
+
+                        span {
+                            color: #adfffb;
+                        }
+
+                        .logout {
+                            line-height: 20px;
+                            font-size: 10.79px;
+                            width: 43px;
+                            height: 18px;
+                            display: flex;
+                            position: absolute;
+                            flex-direction: column;
+                            left: 50%;
+                            top: 110%;
+                            transform: translate(-50%);
+                        }
+                    }
+                }
+
+                .step2 {
+                    background: url('../../../img/event/20230728/step2frame.png')no-repeat;
+
+                    .step2noticebtn {
+                        position: absolute;
+                        top: 55%;
+                        left: 50%;
+                        translate: -50%;
+                        width: 336px;
+                        height: 86px;
+                        font-size: 27px;
+                        font-weight: bold;
+                        text-align: center;
+                        line-height: 86px;
+                        letter-spacing: 2px;
+                        background: url('../../../img/event/20230728/btn_black1.png')no-repeat;
+                        filter: drop-shadow(0px 4px 5px #000000);
+                    }
+
+                    .titleText2 {
+                        text-align: center;
+                        padding-top: 82px;
+                        text-shadow: 0 0 10px #000;
+                    }
+
+                    .step2Text {
+                        margin: auto;
+                        text-align: center;
+                        line-height: 36px;
+                        font-size: 20px;
+                        font-weight: 500;
+                        letter-spacing: 1px;
+
+                        p {
+                            margin-top: 13%;
+                        }
+
+                        span {
+                            color: #adfffb;
+                        }
+                    }
+
+                    form {
+                        width: fit-content;
+                        margin: auto;
+                        text-align: right;
+                        margin-top: 6%;
+
+                        label {
+                            display: inline-block;
+                            font-size: 20px;
+                            font-weight: 500;
+                            margin: 0 0 1% 0;
+
+                            input {
+                                font-size: 20px;
+                                width: 141px;
+                                height: 22px;
+                            }
+                        }
+                    }
+
+                }
+
+                .step3 {
+                    background: url('../../../img/event/20230728/step3frame.png')no-repeat;
+
+                    .step3checkbox {
+                        padding-top: 82px;
+                        text-align: center;
+                        line-height: 30px;
+                        font-weight: bold;
+                        letter-spacing: 1px;
+                        font-size: 24px;
+                        text-shadow: 0 0 10px #000;
+                        display: flex;
+                        justify-content: center;
+
+                        // input {
+                        //     width: 25px;
+                        //     height: 25px;
+                        //     margin-right: 10px;
+                        // }
+
+                        .step3checkText {
+                            text-align: left;
+
+                            .step3notice {
+                                font-size: 20.8px;
+                                color: #adfffb;
+                                cursor: pointer;
+                                border-bottom: 1px solid #adfffb;
+                            }
+                        }
+
+                        a {
+                            text-decoration: none;
+                            color: #f8b300;
+                        }
+
+                        .btnReadAll {
+                            margin-top: -32px;
+                            margin-right: 10px;
+                        }
+                    }
+
+                    .step3checkbtn {
+                        position: absolute;
+                        top: 59%;
+                        left: 50%;
+                        translate: -50%;
+                        width: 153px;
+                        height: 40px;
+                        font-size: 24px;
+                        font-weight: 500;
+                        text-align: center;
+                        letter-spacing: 2px;
+                        filter: drop-shadow(0px 4px 5px #000000);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .step3checkbtnA {
+                        background: url('../../../img/event/20230728/btn_black.png')no-repeat;
+                    }
+
+                    .step3checkbtnB {
+                        background: url('../../../img/event/20230728/btn_blue3.png')no-repeat;
+                        cursor: pointer;
+                    }
+
+                    .step3Success {
+                        padding-top: 82px;
+                        text-align: center;
+                        line-height: 30px;
+                        font-weight: bold;
+                        letter-spacing: 1px;
+                        font-size: 24px;
+                        text-shadow: 0 0 10px #000;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        line-height: 35px;
+
+                        .hrefFB {
+                            display: inline;
+                            color: #F8B300;
+                            border-bottom: 1px solid #F8B300;
+                        }
+
+                        .step3notice {
+                            font-size: 20.8px;
+                            color: #adfffb;
+                            cursor: pointer;
+                            border-bottom: 1px solid #adfffb;
+                        }
+                    }
+
+                    .step3SuccessText {
+                        margin-bottom: 25px;
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+// 注意跳窗
+.notice {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: none;
+
+    .noticeframe {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        width: 1092px;
+        height: 814px;
+        background: url('../../../img/event/20230728/noticeframe2.png')no-repeat;
+        color: #ffffff;
+
+        .noticeTitle {
+            font-size: 29.4px;
+            font-weight: bold;
+            text-align: center;
+            padding: 50px 0 10px 0;
+        }
+
+        ul {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            translate: -50%;
+            width: 82%;
+            height: 68%;
+            padding-right: 9.5%;
+            padding-left: 8%;
+            list-style-type: decimal;
+            font-size: 22px;
+            line-height: 40px;
+            overflow-y: auto;
+            overscroll-behavior: none;
+
+            li {
+                padding: 15px 0;
+                letter-spacing: 0.01em;
+            }
+
+            a {
+                color: #adfffb;
+                text-decoration: none;
+                display: inline;
+            }
+
+            table {
+                // margin: auto;
+                width: 100%;
+                // height: 300px;
+
+                thead {
+                    td {
+                        background-color: #fff;
+                        color: #000;
+                    }
+                }
+
+                img {
+                    height: 194px;
+                    margin-bottom: 5px;
+                }
+
+                td {
+                    border: 1px solid #FFF;
+                    text-align: center;
+                    width: 50%;
+                    vertical-align: middle;
+                }
+            }
+
+            &::-webkit-scrollbar {
+                width: 7px;
+            }
+
+            &::-webkit-scrollbar-button {
+                background: transparent;
+            }
+
+            &::-webkit-scrollbar-track-piece {
+                border-radius: 4px;
+                background-color: rgba(70, 70, 70, 0);
+                border: 1px solid rgb(255, 255, 255);
+            }
+
+            &::-webkit-scrollbar-thumb {
+                border-radius: 4px;
+                background-color: rgb(255, 255, 255);
+            }
+
+            &::-webkit-scrollbar-track {
+                box-shadow: none;
+            }
+        }
+
+        .XX {
+            position: absolute;
+            right: 5%;
+            top: 5%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: .3s;
+
+            &::after,
+            &::before {
+                position: absolute;
+                content: '';
+                left: 50%;
+                translate: -50%;
+                width: 3px;
+                height: 40px;
+                background-color: #ffffff;
+            }
+
+            &::after {
+                rotate: 45deg;
+            }
+
+            &::before {
+                rotate: -45deg;
+            }
+
+            &:hover {
+                rotate: -180deg;
+            }
+        }
+
+        .checkbtn {
+            position: absolute;
+            bottom: 7%;
+            left: 50%;
+            translate: -50%;
+            width: 86px;
+            height: 34px;
+            font-size: 18.92px;
+            font-weight: 500;
+            text-align: center;
+            line-height: 36px;
+            cursor: pointer;
+            background: url('../../../img/event/20230728/btn_blue2.png')no-repeat;
+            filter: drop-shadow(0px 4px 5px #000000);
+            transition: 0.5s;
+
+            &:hover {
+                transform: translateY(-3%);
+                filter: drop-shadow(0px 1px 1px #ffffff);
+            }
+        }
+    }
+}
+

@@ -1,0 +1,88 @@
+@media(max-width:1024px){
+
+    header{
+
+        .bar{
+            .barBG{
+                width: 100vw;
+                height: 60px;
+            }
+
+            .digeamwlogo{
+                left: 3vw;
+                width: 150px;
+                height: 40px;
+            }
+
+            .links{
+                line-height: 60px;
+                a{
+                    font-size: 1.1rem;
+                }
+            }
+
+            .sociallink{
+                width: 20vw;
+
+                a{
+                    margin: auto 3%;
+                }
+
+                .fblink{
+                    height: 60px;
+                }
+
+                .bhlink{
+                    height: 60px;
+                }
+            }
+        }
+    }
+
+    .main{
+
+        .toppage{
+    
+            .title{
+                top: 20%;
+                scale: 0.9;
+            }
+    
+            .startbtn{
+                scale: 0.8;
+                &::after{
+                    top: 105%;
+                }    
+            }
+        }
+
+        .page2{
+            .mainpic{
+                left: -100px;
+                width: 53vw;
+
+                &::before{
+                    left: 100px;
+                    width: 35vw;
+                }
+                &::after{
+                    left: 30%;
+                    width: 30vw;
+                }
+            }
+
+            .stepBox1{
+                top: 14%;
+                right: 0%;
+                scale: 0.8;
+            }
+
+            .notice{
+
+                .noticeframe{
+                    scale: 0.65;
+                }
+            }
+        }
+    }
+}

@@ -19,3 +19,6 @@ Route::get('/', function () {
 Route::get('/20230724', function () {
     return view('event/20230724_index');
 });
+Route::get('/20230728', function () {
+    return view('event/20230728_index');
+});
