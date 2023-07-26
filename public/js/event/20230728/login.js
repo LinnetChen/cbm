@@ -37,7 +37,7 @@ function get_setting() {
         }else if ( res.status == 1 ){
             // 已登入
             $('.step1Text').html(`
-            <p >您已登入掘夢網帳號<span>digeamAccount</span>
+            <p >您已登入掘夢網帳號<span><?php echo $_COOKIE['StrID']?></span>
             <button class="step1_register logout" href="">登出</button></p>
             `);
             $('.step3checkbtn').removeClass('step3checkbtnA');
