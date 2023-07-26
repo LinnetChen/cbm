@@ -596,10 +596,11 @@ header .bar .sociallink .bhlink {
   filter: drop-shadow(0px 4px 5px #000000);
   transition: 0.5s;
   margin-bottom: 16px;
+  align-items: center;
 }
 .main .page2 .stepBox1 .stepBox2 .step1 .step1_login:hover,
 .main .page2 .stepBox1 .stepBox2 .step1 .step1_register:hover {
-  transform: translateY(-3%);
+  transform: translateY(-2%);
   filter: drop-shadow(0px 1px 1px #ffffff);
 }
 .main .page2 .stepBox1 .stepBox2 .step1 .titleText1 {
@@ -899,7 +900,7 @@ header .bar .sociallink .bhlink {
   transition: 0.5s;
 }
 .notice .noticeframe .checkbtn:hover {
-  transform: translateY(-3%);
+  transform: translateY(-2%);
   filter: drop-shadow(0px 1px 1px #ffffff);
 }
 
@@ -1022,6 +1023,7 @@ header .bar .sociallink .bhlink {
   }
   header .bar .links {
     line-height: 60px;
+    left: 25%;
   }
   header .bar .links a {
     font-size: 1.1rem;
@@ -1096,7 +1098,7 @@ header .bar .sociallink .bhlink {
     height: 63px;
     position: fixed;
     top: 0px;
-    right: 29px;
+    right: 5%;
   }
   header .bar .rwdMenuBtn .one {
     position: absolute;
@@ -1214,11 +1216,11 @@ header .bar .sociallink .bhlink {
   .main .page2 .stepBox1 .awardText {
     background-color: rgba(0, 0, 0, 0.462745098);
   }
-  .main .page2 .stepBox2 {
+  .main .page2 .stepBox1 .stepBox2 {
     flex-direction: column;
     margin-bottom: 200px;
   }
-  .main .page2 .stepBox2 .step1, .main .page2 .stepBox2 .step2, .main .page2 .stepBox2 .step3 {
+  .main .page2 .stepBox1 .stepBox2 .step1, .main .page2 .stepBox1 .stepBox2 .step2, .main .page2 .stepBox1 .stepBox2 .step3 {
     margin-bottom: 30px;
     scale: 1;
     margin-right: 0px;
@@ -1303,7 +1305,6 @@ header .bar .sociallink .bhlink {
     height: 3px;
   }
   header .bar .digeamwlogo {
-    top: -3vw;
     left: 0vw;
     scale: 0.8;
   }
@@ -1318,6 +1319,9 @@ header .bar .sociallink .bhlink {
   }
   header .bar .sociallink .bhlink {
     scale: 1;
+  }
+  header .bar .rwdMenuBtn {
+    right: 55px;
   }
   .main .toppage .title {
     top: 35vh;
@@ -1339,66 +1343,15 @@ header .bar .sociallink .bhlink {
     background-size: contain;
   }
   .main .page2 .mainpic {
+    scale: 1.5;
     position: relative;
-    left: -100px;
-    top: 6vh;
-    width: 130vw;
-    height: 130vw;
+    left: -36px;
+    top: 14vh;
+    width: 100vw;
+    height: 100vw;
     background-size: contain;
     background-position: top;
     z-index: 0;
-  }
-  .main .page2 .mainpic::before {
-    left: 100px;
-    width: 100vw;
-    height: 26vw;
-    background-size: contain;
-  }
-  .main .page2 .mainpic::after {
-    top: 68%;
-    left: 38%;
-    width: 70vw;
-    background-size: contain;
-  }
-  .main .page2 .step1 a {
-    scale: 0.7;
-  }
-  .main .page2 .step1 h2 {
-    font-size: 25px;
-  }
-  .main .page2 .step1 .step1Text {
-    font-size: 20px;
-  }
-  .main .page2 .step1 .step1_login {
-    top: 45%;
-  }
-  .main .page2 .step1 .step1_register {
-    top: 65%;
-  }
-  .main .page2 .step2 .step2noticebtn {
-    top: 50%;
-    scale: 0.7;
-  }
-  .main .page2 .step2 h2 {
-    font-size: 25px;
-  }
-  .main .page2 .step2 .step2Text {
-    font-size: 20px;
-  }
-  .main .page2 .step2 form {
-    left: 8%;
-    translate: 0% -50%;
-    scale: 0.7;
-  }
-  .main .page2 .step3 .step3checkbtn {
-    scale: 0.7;
-  }
-  .main .page2 .step3 .step3checkbox {
-    font-size: 25px;
-  }
-  .main .page2 .step3 .step3checkbox input {
-    width: 20px;
-    height: 20px;
   }
   .main .page2 .notice .noticeframe h2 {
     font-size: 25px;

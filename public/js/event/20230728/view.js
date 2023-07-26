@@ -1,21 +1,21 @@
 // 帳號假資料
 
 var resLogin = 
-// {
-//     status :-99
-// }
+{
+    status :-99
+}
 // {
 //     //未綁定黑契
 //     status :1,
 //     cabal_status:-99,
 //     account_locking:null
 // }
-{
-    //已綁定黑契
-    status :1,
-    cabal_status:1,
-    account_locking:'cabal123456abc'
-}
+// {
+//     //已綁定黑契
+//     status :1,
+//     cabal_status:1,
+//     account_locking:'cabal123456abc'
+// }
 
 // {
 //     // 未登入

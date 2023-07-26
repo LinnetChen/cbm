@@ -167,10 +167,6 @@ $('.footer-btnbox').on('click',function(){
         },500);
     }
 });
-if(screen.width <= 820){
-    $('.footer-btn').hide();
-    $('footer').show();
-}
 
 
 

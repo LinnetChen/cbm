@@ -38,7 +38,7 @@ function get_setting() {
             // 已登入
             $('.step1Text').html(`
             <p >您已登入掘夢網帳號<span>digeamAccount</span>
-            <a class="step1_register logout" href="">登出</a></p>
+            <button class="step1_register logout" href="">登出</button></p>
             `);
             $('.step3checkbtn').removeClass('step3checkbtnA');
             $('.step3checkbtn').addClass('step3checkbtnB');
@@ -53,11 +53,11 @@ function get_setting() {
                     </label><br/>
                     <label>
                         遊戲密碼
-                        <input name="pwd">
+                        <input name="pwd" type="password">
                     </label><br/>
                     <label>
                         二次密碼
-                        <input name="pwd2">
+                        <input name="pwd2"  type="password">
                     </label>
                 </form>
                 `);

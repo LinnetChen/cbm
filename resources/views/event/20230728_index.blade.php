@@ -113,7 +113,20 @@
                             {{-- <div class="step1" data-aos="fade-up"> --}}
                             <div class="step1">
                                 <div class="titleText1">請登入掘夢網帳號</div>
-                                <div class="step1Text"></div>
+
+
+                                <?php if(isset($_COOKIE['StrID']) && $_COOKIE['StrID'] != null){?>
+                                    <?php if($_COOKIE["StrID"]){ ?>
+                                        <form id="logout-form" action="https://www.digeam.com/logout" method="POST" style="display: none;">
+                                            <input type="hidden" name="return_url" id="return_url" value="<?php echo base64_encode('https://'.$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI]); ?>">
+                                        </form>
+                                        <?php } ?>
+                                        <div class="step1Text"></div>
+                                <?php }else{?>
+                                    <div class="step1Text"></div>
+                                <?php }?>
+
+
                             </div>
                             <div class="step2">
                                 <div class="titleText2">請輸入黑色契約<br>遊戲帳號密碼</div>

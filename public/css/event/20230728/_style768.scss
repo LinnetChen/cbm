@@ -28,7 +28,7 @@
                 height: 63px;
                 position: fixed;
                 top: 0px;
-                right: 29px;
+                right: 5%;
                 .one {
                     position: absolute;
                     content: '';
@@ -172,14 +172,14 @@
                 .awardText{
                     background-color: #00000076;
                 }
-            }
-            .stepBox2{
-                flex-direction: column;
-                margin-bottom: 200px;
-                .step1, .step2, .step3{
-                    margin-bottom: 30px;
-                    scale: 1;
-                    margin-right: 0px;
+                .stepBox2{
+                    flex-direction: column;
+                    margin-bottom: 200px;
+                    .step1, .step2, .step3{
+                        margin-bottom: 30px;
+                        scale: 1;
+                        margin-right: 0px;
+                    }
                 }
             }
 

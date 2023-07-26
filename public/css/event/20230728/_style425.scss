@@ -19,7 +19,6 @@
             }
     
             .digeamwlogo{
-                top: -3vw;
                 left: 0vw;
                 scale: 0.8;                
             }
@@ -44,6 +43,9 @@
                 .bhlink{
                     scale: 1;
                 }
+            }
+            .rwdMenuBtn{
+                right: 55px;
             }
         }
     }
@@ -77,88 +79,91 @@
         .page2{
     
             .mainpic{
+                scale: 1.5;
                 position: relative;
-                left: -100px;
-                top: 6vh;
-                width: 130vw;
-                height: 130vw;
+                left: -36px;
+                top: 14vh;
+                width: 100vw;
+                height: 100vw;
                 background-size: contain;
                 background-position: top;
                 z-index: 0;
     
-                &::before{
-                    left: 100px;
-                    width: 100vw;
-                    height: 26vw;
-                    background-size: contain;
-                }
-                &::after{
-                    top: 68%;
-                    left: 38%;
-                    width: 70vw;
-                    background-size: contain;
-                }
+                // &::before{
+                //     left: 100px;
+                //     width: 100vw;
+                //     height: 26vw;
+                //     background-size: contain;
+                // }
+                // &::after{
+                //     top: 68%;
+                //     left: 38%;
+                //     width: 70vw;
+                //     background-size: contain;
+                // }
             }
     
-            .step1{
+            // .step1{
+            //     margin-right: 0px;
+            //     a{
+            //         scale: 0.7;
+            //     }
+                
+            //     h2{
+            //         font-size: 25px;
+            //     }
+                
+            //     .step1Text{
+            //         font-size: 20px;
+            //     }
+                
+            //     .step1_login{
+            //         top: 45%;
+            //     }
     
-                & a{
-                    scale: 0.7;
-                }
-                
-                & h2{
-                    font-size: 25px;
-                }
-                
-                .step1Text{
-                    font-size: 20px;
-                }
-                
-                .step1_login{
-                    top: 45%;
-                }
+            //     .step1_register{
+            //         top: 65%;
+            //     }
+            // }
     
-                .step1_register{
-                    top: 65%;
-                }
-            }
-    
-            .step2{
+            // .step2{
+            //     margin-right: 0px;
                 
-                .step2noticebtn{
-                    top: 50%;
-                    scale: 0.7;
-                }
+            //     .step2noticebtn{
+            //         top: 50%;
+            //         scale: 0.7;
+            //     }
                 
-                & h2{
-                    font-size: 25px;
-                }
+            //     h2{
+            //         font-size: 25px;
+            //     }
                 
-                .step2Text{
-                    font-size: 20px;
-                }
+            //     .step2Text{
+            //         font-size: 20px;
+            //     }
             
-                & form{
-                    left: 8%;
-                    translate: 0% -50%;
-                    scale: 0.7;
-                }
-            }
+            //     form{
+            //         left: 8%;
+            //         translate: 0% -50%;
+            //         scale: 0.7;
+            //     }
+            // }
     
-            .step3{
+            // .step3{
+            //     margin-right: 0px;
                 
-                .step3checkbtn{
-                    scale: 0.7;
-                }
-                .step3checkbox{
-                    font-size: 25px;
+            //     .step3checkbtn{
+            //         scale: 0.7;
+            //     }
+            //     .step3checkbox{
+            //         font-size: 25px;
     
-                    & input{
-                        width: 20px;
-                        height: 20px;
-                    }
-                }
-            }
+            //         input{
+            //             width: 20px;
+            //             height: 20px;
+            //         }
+            //     }
+            // }
     
             .notice{
     
