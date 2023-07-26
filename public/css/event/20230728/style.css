@@ -369,7 +369,7 @@ body::-webkit-scrollbar-track {
 header {
   position: fixed;
   top: 0px;
-  width: 100%;
+  width: 100vw;
   z-index: 100;
 }
 header .bar {
@@ -666,7 +666,7 @@ header .bar .sociallink .bhlink {
   letter-spacing: 1px;
 }
 .main .page2 .stepBox1 .stepBox2 .step2 .step2Text p {
-  margin-top: 13%;
+  margin-top: 16%;
 }
 .main .page2 .stepBox1 .stepBox2 .step2 .step2Text span {
   color: #adfffb;
@@ -676,7 +676,7 @@ header .bar .sociallink .bhlink {
   width: fit-content;
   margin: auto;
   text-align: right;
-  margin-top: 6%;
+  margin-top: 5%;
 }
 .main .page2 .stepBox1 .stepBox2 .step2 form label {
   display: inline-block;
@@ -775,7 +775,7 @@ header .bar .sociallink .bhlink {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 1000;
@@ -1218,7 +1218,7 @@ header .bar .sociallink .bhlink {
   }
   .main .page2 .stepBox1 .stepBox2 {
     flex-direction: column;
-    margin-bottom: 200px;
+    margin-bottom: 408px;
   }
   .main .page2 .stepBox1 .stepBox2 .step1, .main .page2 .stepBox1 .stepBox2 .step2, .main .page2 .stepBox1 .stepBox2 .step3 {
     margin-bottom: 30px;
@@ -1379,8 +1379,8 @@ header .bar .sociallink .bhlink {
   }
 }
 .mask {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.45);
   z-index: 3;
 }
@@ -1389,15 +1389,15 @@ header .bar .sociallink .bhlink {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 1000;
   display: none;
 }
 .pop .box {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   max-width: 822px;
   max-height: 489px;
   background-color: rgba(0, 0, 0, 0.8);
@@ -1457,17 +1457,17 @@ header .bar .sociallink .bhlink {
 .popB {
   position: fixed;
   z-index: 10;
-  width: 100%;
-  height: 100%;
+  width: 100vW;
+  height: 100vh;
   top: 0;
   display: none;
   text-align: center;
 }
 .popB .boxB {
   max-width: 500px;
-  width: 100%;
+  width: 100vw;
   max-height: 350px;
-  height: 100%;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
   border: 3px solid #fff;
   position: fixed;
@@ -1553,7 +1553,7 @@ footer {
   left: 0px;
   background-size: contain;
   background: #000;
-  width: 100%;
+  width: 100vw;
   height: auto;
   padding: 20px 0 20px 0;
   display: flex;

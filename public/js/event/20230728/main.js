@@ -35,15 +35,16 @@ function confirm(){
 function cabal_login(){
     $('.pop').hide();
 
-    // $.post(api,{
-    // type : 'cabal_login',
-    // cabal_user :$('input[name="user"]').val() ,
-    // cabal_pwd :$('input[name="pwd"]').val() ,
-    // cabal_pwd2 :$('input[name="pwd2"]').val()
+    $.post(api,{
+    type : 'cabal_login',
+    user :$(".step1Text span").text() ,
+    cabal_user :$('input[name="user"]').val() ,
+    cabal_pwd :$('input[name="pwd"]').val() ,
+    cabal_pwd2 :$('input[name="pwd2"]').val()
 
-    // },function(_res){
-        let res = resCabal;
-        //     let res = JSON.parse(_res);
+    },function(_res){
+        // let res = resCabal;
+            let res = JSON.parse(_res);
 
         if( res.status == -99 ){
             // 帳密錯誤
@@ -78,7 +79,7 @@ function cabal_login(){
             },2000)
         }
 
-    // })
+    })
 }
 
 

@@ -1,6 +1,6 @@
 .mask {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.45);
     z-index: 3;
 }
@@ -9,15 +9,15 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1000;
     display: none;
 
     .box {
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         max-width: 822px;
         max-height: 489px;
         background-color: rgba(0, 0, 0, 0.8);
@@ -88,17 +88,17 @@
 .popB {
     position: fixed;
     z-index: 10;
-    width: 100%;
-    height: 100%;
+    width: 100vW;
+    height: 100vh;
     top: 0;
     display: none;
     text-align: center;
 
     .boxB {
         max-width: 500px;
-        width: 100%;
+        width: 100vw;
         max-height: 350px;
-        height: 100%;
+        height: 100vh;
         background-color: rgba(0, 0, 0, 0.8);
         border: 3px solid #fff;
         position: fixed;

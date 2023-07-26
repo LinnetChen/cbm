@@ -13,13 +13,13 @@ function loginAccount() {
 get_setting();
 
 function get_setting() {
-    // $.post(api,{
-    //     type : 'login',
-    //     user : $(".step1Text span").text() // 抓帳號
+    $.post(api,{
+        type : 'login',
+        user : $(".step1Text span").text() // 抓帳號
     
-    // },function(_res){
-        let res = resLogin;
-        // let res = JSON.parse(_res);
+    },function(_res){
+        // let res = resLogin;
+        let res = JSON.parse(_res);
 
         if ( res.status == -99 ){
             // 未登入
@@ -79,5 +79,5 @@ function get_setting() {
             }
         }
         
-    // })
+    })
 }

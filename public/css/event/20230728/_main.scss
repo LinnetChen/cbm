@@ -36,7 +36,7 @@ body {
 header {
     position: fixed;
     top: 0px;
-    width: 100%;
+    width: 100vw;
     z-index: 100;
 
     .bar {
@@ -371,7 +371,7 @@ header {
                         letter-spacing: 1px;
 
                         p {
-                            margin-top: 13%;
+                            margin-top: 16%;
                         }
 
                         span {
@@ -383,7 +383,7 @@ header {
                         width: fit-content;
                         margin: auto;
                         text-align: right;
-                        margin-top: 6%;
+                        margin-top: 5%;
 
                         label {
                             display: inline-block;
@@ -511,7 +511,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1000;
