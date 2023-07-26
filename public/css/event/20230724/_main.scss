@@ -1,0 +1,170 @@
+body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    background: url('../../../img/event/20230724/mainBG.png') no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: arial, "Microsoft JhengHei", "微軟正黑體", sans-serif !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-button {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-track-piece {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgb(70, 70, 70);
+        border: 1px solid rgb(255, 255, 255);
+    }
+
+    &::-webkit-scrollbar-track {
+        box-shadow: none;
+    }
+}
+
+header {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 1;
+
+    .bar {
+        width: 100%;
+        height: 80px;
+        display: flex;
+
+        .digeamwlogo {
+            position: absolute;
+            // left: 7%;
+            left: 92px;
+            width: 200px;
+            height: 80px;
+            background: url('../../../img/event/20230724/header/LOGO_white.png') no-repeat;
+            background-size: contain;
+            background-position: center;
+            transition: 0.3s;
+            opacity: 0;
+            animation: itemfadeIn 1s 0.5s 1 ease-out;
+            animation-fill-mode: forwards;
+
+            &:hover {
+                filter: drop-shadow(0px 0px 5px rgba(255, 207, 96, 0.5)) drop-shadow(0px 0px 10px rgb(255, 207, 96, 0.5));
+            }
+        }
+        .estlogo {
+            position: absolute;
+            // left: 20%;
+            left: 336px;
+            width: 200px;
+            height: 80px;
+            background: url('../../../img/event/20230724/header/ESTgames_logo.png') no-repeat;
+            background-size: contain;
+            background-position: center;
+            transition: 0.3s;
+            opacity: 0;
+            animation: itemfadeIn 1s 0.5s 1 ease-out;
+            animation-fill-mode: forwards;
+        }
+    }
+}
+
+.main {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    .toppage {
+        width: 100%;
+        height: 100vh;
+
+        .topBG {
+            position: absolute;
+            // top: 0px;
+            max-width: 1920px;
+            max-height: 863px;
+            width: 100%;
+            height: 100vh;
+            background: url('../../../img/event/20230724/topBG1.png') no-repeat;
+            background-position: top;
+            background-size: cover;
+            animation: topBGIn 0.4s 1 ease-out;
+            animation-fill-mode: forwards;
+
+            &::before {
+                position: absolute;
+                content: "";
+                // top: -50px;
+                // top: -5px;
+                max-width: 1920px;
+                max-height: 950px;
+                width: 100%;
+                height: 100vh;
+                background: url('../../../img/event/20230724/topBG2.png') no-repeat;
+                background-position: top;
+                background-size: cover;
+                z-index: -1;
+                animation: topBGIn 0.4s 0.05s 1 ease-out;
+                animation-fill-mode: forwards;
+            }
+        }
+
+        .title {
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            translate: -50%;
+            max-width: 946px;
+            max-height: 324px;
+            width: 100%;
+            height: 100%;
+            background: url('../../../img/event/20230724/title.png') no-repeat;
+            background-position: center;
+            opacity: 0;
+            animation: itemfadeIn 1s 0.5s 1 ease-out;
+            animation-fill-mode: forwards;
+        }
+
+        .startbtn {
+            position: absolute;
+            left: 50%;
+            top: 72%;
+            translate: -50%;
+            width: 398px;
+            height: 78px;
+            background: url('../../../img/event/20230724/startbtn.png') no-repeat;
+            filter: drop-shadow(0px 0px 2px rgb(255, 255, 255)) drop-shadow(0px 0px 6px rgba(255, 255, 255, 1));
+            opacity: 0;
+            animation:
+                floatBtn 1.3s infinite ease-in-out alternate,
+                itemfadeIn 1s 0.75s 1 ease-out;
+            animation-fill-mode: forwards;
+            transition: 0.3s;
+
+            &:hover {
+                filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.5))
+                    drop-shadow(0px 0px 20px rgba(255, 255, 255, 1));
+            }
+        }
+
+        .text{
+            position: absolute;
+            left: 50%;
+            bottom: 1.5%;
+            translate: -50%;
+            color: #fff;
+            font-size: 18px;
+        }
+    }
+}

@@ -16,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('transfer','API\transferPageController@transfer');
-
+Route::get('/20230724', function () {
+    return view('event/20230724_index');
+});
+Route::get('/20230728', function () {
+    return view('event/20230728_index');
+});

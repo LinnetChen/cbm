@@ -1,0 +1,163 @@
+// 版權聲明開關
+.footer-btn {
+    position: fixed;
+    z-index: 100;
+    bottom: 33px;
+    left: 65px;
+    color: rgb(67, 67, 67);
+    font-weight: 600;
+    cursor: default;
+
+    .footer-btnbox {
+        position: fixed;
+        z-index: 100;
+        bottom: 30px;
+        left: 135px;
+        width: 50px;
+        height: 24px;
+        border-radius: 12px;
+        background-color: rgb(194, 194, 194);
+        box-shadow: 0px 3px 0px rgba(0, 0, 0, .13) inset;
+        cursor: pointer;
+
+        .footer-btnball {
+            width: 18px;
+            height: 18px;
+            margin: 3px;
+            border-radius: 10px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 1px 2px 5px rgba(0, 0, 0, .3);
+            text-align: center;
+            line-height: 18px;
+            color: #a3a3a3;
+        }
+    }
+}
+
+$lg-media: 1024px;
+@mixin lg() {
+    @media all and (max-width: $lg-media) {
+        @content;
+    }
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0px;
+    background-size: contain;
+    background: #000;
+    width: 100%;
+    height: auto;
+    padding: 20px 0 20px 0;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    z-index: 1;
+    display: none;
+}
+
+.footerbox {
+    max-width: 1316px;
+    font-size: 9px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.footerbox_logo {
+    display: flex;
+    justify-content: center;
+}
+
+a.logo_digeam {
+    width: 168px;
+    height: 40px;
+    pointer-events: none;
+}
+
+a.logo_rw {
+    width: 216px;
+    height: 38px;
+    margin-left: 20px;
+    pointer-events: none;
+}
+
+.spec {
+    line-height: 1.2rem;
+    margin-left: 20px;
+}
+
+.spec a {
+    color: orange;
+    text-decoration: underline;
+    display: inline-block;
+    margin-left: 7px;
+}
+
+.spec a:hover {
+    color: #fff;
+}
+
+.classlavel {
+    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.classlavel img {
+    width: 70px;
+    height: 70px;
+}
+
+.classlavel ul {
+    margin-left: 10px;
+}
+
+.classlavel li {
+    line-height: 1.2rem;
+}
+
+.classlavel li:nth-child(4) {
+    color: orange;
+}
+
+@include lg {
+    .footer {
+        align-items: center;
+    }
+
+    .footerbox {
+        max-width: 90%;
+        font-size: 9px;
+        line-height: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footerbox_logo {
+        width: 100%;
+        align-items: center;
+    }
+
+    .spec {
+        width: 100%;
+        text-align: center;
+        order: 1;
+    }
+
+    .spec,
+    .classlavel {
+        margin: 20px 0;
+    }
+
+    a.logo_rw,
+    .classlavel {
+        margin: 10px auto;
+    }
+
+    .footerbox_logo {
+        flex-direction: column;
+    }
+}
