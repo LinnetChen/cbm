@@ -16,8 +16,8 @@ function get_setting() {
     $.post(api,{
         type : 'login',
         user : $(".step1Text span").text() // 抓帳號
-
-    },function(_res){
+    
+    },function(res){
         // let res = resLogin;
         // let res = JSON.parse(_res);
 
