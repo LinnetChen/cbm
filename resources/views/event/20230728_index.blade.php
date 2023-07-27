@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,10 +22,10 @@
     <link rel="pingback" href="" />
     <title>《黑色契約CABAL Online》會員轉移</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
-        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/event/20230728/style.css">
 </head>
+
 <body>
     <header>
         <div class="bar">
@@ -34,15 +35,17 @@
                 <div class="one"></div>
                 <div class="two"></div>
             </button>
-            <a class="digeamwlogo" href="https://digeam.com/index"  target="_blank"></a>
+            <a class="digeamwlogo" href="https://digeam.com/index" target="_blank"></a>
             <div class="links">
                 <a href="https://digeam.com/register" target="_blank">會員註冊</a>
                 <a href="https://digeam.com/cs" target="_blank">客服中心</a>
                 <a href="https://digeam.com/cs/faq" target="_blank">常見問題</a>
             </div>
             <div class="sociallink">
-                <a class="fblink" href="https://www.facebook.com/DiGeamCabal" target="_blank"><img src="../../../img/event/20230728/header/fb_icon.png"></a>
-                <a class="bhlink" href="https://forum.gamer.com.tw/A.php?bsn=9189" target="_blank"><img src="../../../img/event/20230728/header/bh_icon.png"></a>
+                <a class="fblink" href="https://www.facebook.com/DiGeamCabal" target="_blank"><img
+                        src="../../../img/event/20230728/header/fb_icon.png"></a>
+                <a class="bhlink" href="https://forum.gamer.com.tw/A.php?bsn=9189" target="_blank"><img
+                        src="../../../img/event/20230728/header/bh_icon.png"></a>
             </div>
         </div>
     </header>
@@ -54,7 +57,7 @@
             <div class="popText"></div>
             <div class="btnBox">
                 <button class="btnClose" onclick="popClose()">取&nbsp;消</button>
-                <button class="btnYes" >確&nbsp;認</button>
+                <button class="btnYes">確&nbsp;認</button>
             </div>
         </div>
     </div>
@@ -98,64 +101,67 @@
             <div class="checkbtn">確&nbsp;認</div>
         </div>
     </div>
-    
+
     <div class="main">
         <div class="toppage">
             <div class="topBG"></div>
             <div class="title"></div>
             <button class="startbtn" onclick="move()"></button>
             <div class="page2" id="starttochange">
-                    <div class="mainpic " data-aos="fade-up"></div>
-                    <div class="stepBox1">
-                        <img  class="awardText" src="../../../img/event/20230728/mainpicslogn.png">
-                        <div class="stepBox2">
-                            {{-- <div class="step1" data-aos="fade-up"> --}}
-                            <div class="step1">
-                                <div class="titleText1">請登入掘夢網帳號</div>
+                <div class="mainpic " data-aos="fade-up"></div>
+                <div class="stepBox1">
+                    <img class="awardText" src="../../../img/event/20230728/mainpicslogn.png">
+                    <div class="stepBox2">
+                        {{-- <div class="step1" data-aos="fade-up"> --}}
+                        <div class="step1">
+                            <div class="titleText1">請登入掘夢網帳號</div>
 
 
-                                @if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null)
-                                    <form id="logout-form" action="https://www.digeam.com/logout" method="POST"
-                                        style="display: none;">
-                                        <input type="hidden" name="return_url" id="return_url"
-                                            value={{ base64_encode('https://cbo.digeam.com/MembershipTransfer') }}>
-                                    </form>
-                                    <div class="step1Text">
-                                        <div class="btnBox">
-                                            <a class="step1_login" href="https://digeam.com/login">前往登入</a>
-                                            <a class="step1_register" href="https://digeam.com/register">立即申請</a>
-                                        </div>
-                                    </div>
-                                @else
-                                    <div class="step1Text">
-                                        <p>您已登入掘夢網帳號
-                                            <span class='StrID'
-                                            data-val={{ $_COOKIE['StrID'] }}>{{ $_COOKIE['StrID'] }}</span>
-                                            <button class="step1_register logout" href="">登出</button></p>
-                                    </div>
-                                @endif
-
-
-                            </div>
-                            <div class="step2">
-                                <div class="titleText2">請輸入黑色契約<br>遊戲帳號密碼</div>
-                                <div class="step2Text"></div>
-                            </div>
-                            <div class="step3">
-                                <div class="step3checkbox">
-                                    <button class="btnReadAll" onclick="allRead()">
-                                        <div data-allRead="false" class="allRead"><i class="fa-regular fa-square" style="color: #fff"></i>
-                                        </div> 
-                                    </button>
-                                    <div class="step3checkText">
-                                        <p>我已閱讀並同意<br>
-                                        <span class="step3notice" onclick="noticeIn()">會員轉移注意事項</span></p>
+                            @if (!isset($_COOKIE['StrID']) || isset($_COOKIE['StrID']) == null)
+                                <form id="logout-form" action="https://www.digeam.com/logout" method="POST"
+                                    style="display: none;">
+                                    <input type="hidden" name="return_url" id="return_url"
+                                        value={{ base64_encode('https://cbo.digeam.com/MembershipTransfer') }}>
+                                </form>
+                                <div class="step1Text">
+                                    <div class="btnBox">
+                                        <a class="step1_login" href="https://digeam.com/login">前往登入</a>
+                                        <a class="step1_register" href="https://digeam.com/register">立即申請</a>
                                     </div>
                                 </div>
-                                <div class="step3checkbtn" id="step3checkbtn">確認綁定</div>
+                            @else
+                                <div class="step1Text">
+                                    <p>您已登入掘夢網帳號
+                                        <span class='StrID'
+                                            data-val={{ $_COOKIE['StrID'] }}>{{ $_COOKIE['StrID'] }}</span>
+                                        <button class="step1_register logout" href="">登出</button>
+                                    </p>
+                                </div>
+                            @endif
+
+
+                        </div>
+                        <div class="step2">
+                            <div class="titleText2">請輸入黑色契約<br>遊戲帳號密碼</div>
+                            <div class="step2Text"></div>
+                        </div>
+                        <div class="step3">
+                            <div class="step3checkbox">
+                                <button class="btnReadAll" onclick="allRead()">
+                                    <div data-allRead="false" class="allRead"><i class="fa-regular fa-square"
+                                            style="color: #fff"></i>
+                                    </div>
+                                </button>
+                                <div class="step3checkText">
+                                    <p>我已閱讀並同意<br>
+                                        <span class="step3notice" onclick="noticeIn()">會員轉移注意事項</span>
+                                    </p>
+                                </div>
                             </div>
+                            <div class="step3checkbtn" id="step3checkbtn">確認綁定</div>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
 
@@ -171,14 +177,18 @@
     <footer>
         <div class="footerbox">
             <div class="footerbox_logo">
-                <a class="logo_digeam"><img class="digeamlogo" src="../../../img/event/20230728/footer/digeam_logo.png"></a>
-                <a class="logo_rw"><img class="ESTlogo" src="../../../img/event/20230728/footer/ESTgames_logo.png"></a>
+                <a class="logo_digeam"><img class="digeamlogo"
+                        src="../../../img/event/20230728/footer/digeam_logo.png"></a>
+                <a class="logo_rw"><img class="ESTlogo"
+                        src="../../../img/event/20230728/footer/ESTgames_logo.png"></a>
             </div>
             <div class="spec">
                 <a href="https://www.digeam.com/terms">會員服務條款</a>
                 <a href="https://www.digeam.com/terms2">隱私條款</a>
                 <a href="https://www.digeam.com/cs">客服中心</a>
-                <p class="Copyright">Copyright © ESTgames Corp. All rights reserved.<br/>2023 Licensed and published for Taiwan, Hong Kong and Macau by DiGeam Co.,Ltd<br/>CABAL Online is a registered trademark of ESTgames Corp (and the logo of ESTgames).</p>
+                <p class="Copyright">Copyright © ESTgames Corp. All rights reserved.<br />2023 Licensed and published
+                    for Taiwan, Hong Kong and Macau by DiGeam Co.,Ltd<br />CABAL Online is a registered trademark of
+                    ESTgames Corp (and the logo of ESTgames).</p>
             </div>
             <div class="classlavel">
                 <img src="../../../img/event/20230728/footer/15plus.png" alt="輔15級">
@@ -194,7 +204,8 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init();</script>
+        AOS.init();
+    </script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
     <script src="js/event/20230728/view.js"></script>
     <script src="js/event/20230728/login.js"></script>
