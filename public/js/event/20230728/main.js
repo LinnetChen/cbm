@@ -48,9 +48,9 @@ function cabal_login(){
     cabal_pwd :$('input[name="pwd"]').val() ,
     cabal_pwd2 :$('input[name="pwd2"]').val()
 
-    },function(res){
+    },function(_res){
         // let res = resCabal;
-            // let res = JSON.parse(_res);
+            let res = JSON.parse(_res);
 
         if( res.status == -99 ){
             // 帳密錯誤
@@ -85,7 +85,8 @@ function cabal_login(){
             },2000)
         }
 
-    },"json")
+    // },"json")
+    })
 }
 
 

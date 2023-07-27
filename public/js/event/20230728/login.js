@@ -17,9 +17,9 @@ function get_setting() {
         type : 'login',
         user : $(".step1Text span").text() // 抓帳號
     
-    },function(res){
+    },function(_res){
         // let res = resLogin;
-        // let res = JSON.parse(_res);
+        let res = JSON.parse(_res);
 
         if ( res.status == -99 ){
             // 未登入
@@ -79,5 +79,6 @@ function get_setting() {
             }
         }
         
-    },"json")
+    // },"json")
+    })
 }
