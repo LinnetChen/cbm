@@ -1,9 +1,10 @@
 // 登出
-
 function logout_dg() {
     console.log("登出");
     $("#logout-form").submit();
 }
+
+
 
 var _read = 'false';
 

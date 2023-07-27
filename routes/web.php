@@ -19,7 +19,6 @@ Route::get('/', function () {
 Route::get('/20230724', function () {
     return view('event/20230724_index');
 });
-
-Route::middleware(['setReturnUrl'])->group(function () {
-    Route::get('MembershipTransfer', 'front\transferController@index');
+Route::get('/MembershipTransfer', function () {
+    return view('event/20230728_index');
 });

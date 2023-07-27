@@ -1,0 +1,207 @@
+@media(max-width:425px){
+    header{
+    
+        .bar{
+
+            .barBG{
+
+                &::after{
+                    top: 35%;
+                    width: 30px;
+                    height: 3px;
+                }
+
+                &::before{
+                    top: 53%;
+                    width: 30px;
+                    height: 3px;
+                }
+            }
+    
+            .digeamwlogo{
+                left: 0vw;
+                scale: 0.8;                
+            }
+    
+            .links{
+
+                & a{
+                    font-size: 1.6rem;
+                }
+            }
+    
+            .sociallink{
+    
+                & a{                
+                    margin: 0 2.5%;
+                }
+    
+                .fblink{
+                    scale: 0.8;
+                }
+    
+                .bhlink{
+                    scale: 1;
+                }
+            }
+            .rwdMenuBtn{
+                right: 55px;
+            }
+        }
+    }
+    .main{
+    
+        .toppage{
+
+            .title{
+                top: 24vh;
+                background-size: contain;
+            }
+    
+            .startbtn{
+                top: 65vh;
+                width: 80vw;
+                height: 20vw;
+                background-size: contain;
+                background-position: top;
+                scale: 1.2;
+
+                &::after{
+                    top: 100%;
+                    left: 50%;
+                    translate: -50%;
+                    width: 10vh;
+                    background-size: contain;
+                }
+            }
+        }
+    
+        .page2{
+    
+            .mainpic{
+                scale: 1.5;
+                position: relative;
+                left: -36px;
+                top: 14vh;
+                width: 100vw;
+                height: 100vw;
+                background-size: contain;
+                background-position: top;
+                z-index: 0;
+    
+                // &::before{
+                //     left: 100px;
+                //     width: 100vw;
+                //     height: 26vw;
+                //     background-size: contain;
+                // }
+                // &::after{
+                //     top: 68%;
+                //     left: 38%;
+                //     width: 70vw;
+                //     background-size: contain;
+                // }
+            }
+    
+            // .step1{
+            //     margin-right: 0px;
+            //     a{
+            //         scale: 0.7;
+            //     }
+                
+            //     h2{
+            //         font-size: 25px;
+            //     }
+                
+            //     .step1Text{
+            //         font-size: 20px;
+            //     }
+                
+            //     .step1_login{
+            //         top: 45%;
+            //     }
+    
+            //     .step1_register{
+            //         top: 65%;
+            //     }
+            // }
+    
+            // .step2{
+            //     margin-right: 0px;
+                
+            //     .step2noticebtn{
+            //         top: 50%;
+            //         scale: 0.7;
+            //     }
+                
+            //     h2{
+            //         font-size: 25px;
+            //     }
+                
+            //     .step2Text{
+            //         font-size: 20px;
+            //     }
+            
+            //     form{
+            //         left: 8%;
+            //         translate: 0% -50%;
+            //         scale: 0.7;
+            //     }
+            // }
+    
+            // .step3{
+            //     margin-right: 0px;
+                
+            //     .step3checkbtn{
+            //         scale: 0.7;
+            //     }
+            //     .step3checkbox{
+            //         font-size: 25px;
+    
+            //         input{
+            //             width: 20px;
+            //             height: 20px;
+            //         }
+            //     }
+            // }
+    
+            .notice{
+    
+                .noticeframe{
+    
+                    & h2{
+                        font-size: 25px;
+                    }
+    
+                    & ul{
+                        width: 90%;
+                        font-size: 20px;
+                        line-height: 40px;
+                    }
+    
+                    .XX{
+                        right: 3vw;
+                        top: 3vw;
+                        scale: 0.9;
+                    }
+    
+                    .checkbtn{
+                        scale: 0.8;
+                    }
+                }
+            }
+        }
+    }
+
+    .notice{
+        .noticeframe{
+            width: 350px;
+        }
+    }
+
+    .topbtn{
+        bottom: -20px;
+        right: -10px;
+        scale: .6;
+    }
+}

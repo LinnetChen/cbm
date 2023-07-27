@@ -131,11 +131,10 @@
                                 </div>
                             @else
                                 <div class="step1Text">
-                                    <p>您已登入掘夢網帳號
+                                    <p>您已登入掘夢網帳號<br>
                                         <span class='StrID'
                                             data-val={{ $_COOKIE['StrID'] }}>{{ $_COOKIE['StrID'] }}</span>
-                                        <button class="step1_register logout" href=""
-                                            onclick="logout_dg()">登出</button>
+                                        <button class="step1_register logout" onclick="logout_dg()">登出</button>
                                     </p>
                                 </div>
                             @endif
@@ -209,8 +208,9 @@
     </script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
     <script src="js/event/20230728/view.js"></script>
-    <script src="js/event/20230728/login.js?v1.0"></script>
+    <script src="js/event/20230728/login.js?v1.2"></script>
     <script src="js/event/20230728/main.js"></script>
+
 </body>
 
 </html>
