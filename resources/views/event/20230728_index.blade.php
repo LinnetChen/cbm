@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta property="og:title" content="首頁 &#038;《黑色契約Online》; 《黑色契約》" />
+    <meta property="og:title" content="《黑色契約CABAL Online》會員轉移" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="《黑色契約Online》" />
+    <meta property="og:description" content="歡迎回到涅瓦雷斯大陸，我們的旅途尚未結束..." />
     <meta property="og:url" content="" />
     <meta property="og:site_name" content="" />
     <meta property="og:locale" content="zh_tw" />
@@ -17,10 +17,9 @@
     <meta name="author" content="DiGeam" />
     <meta name="Resource-type" content="Document" />
     <link rel="icon" sizes="192x192" href="../../../img/event/20230728/favicon.ico">
-    <meta name="description" content="首頁 &#8211; 《黑色契約》" />
+    <meta name="description" content="《黑色契約CABAL Online》會員轉移" />
     <link rel="pingback" href="" />
-    <title>《黑色契約》會員轉移</title>
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"> --}}
+    <title>《黑色契約CABAL Online》會員轉移</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
         crossorigin="anonymous"></script>
@@ -71,7 +70,7 @@
         <div class="noticeframe">
             <p class="noticeTitle">會員轉移注意事項</p>
             <ul>
-                <li>轉移登記期間為7/28~10/30。每個掘夢網帳號僅能綁定一個黑色契約遊戲帳號，且一經綁定後即無法更改</li>
+                <li>轉移登記期間為7/28~10/31。每個掘夢網帳號僅能綁定一個黑色契約遊戲帳號，且一經綁定後即無法更改</li>
                 <li>遊戲帳號資料轉移時，不會轉移原持有的遊戲點數或力量晶石。遊戲點數或力量晶石將於重新開服時歸零，請特別留意。</li>
                 <li>在伺服器重新開啟前，具時效性的道具仍會正常計時。​​</li>
                 <li>因違反遊戲規章而受到封禁懲處的帳號，於轉移後仍會繼續受到封禁。</li>
@@ -115,16 +114,26 @@
                                 <div class="titleText1">請登入掘夢網帳號</div>
 
 
-                                <?php if(isset($_COOKIE['StrID']) && $_COOKIE['StrID'] != null){?>
-                                    <?php if($_COOKIE["StrID"]){ ?>
-                                        <form id="logout-form" action="https://www.digeam.com/logout" method="POST" style="display: none;">
-                                            <input type="hidden" name="return_url" id="return_url" value="<?php echo base64_encode('https://'.$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI]); ?>">
-                                        </form>
-                                        <?php } ?>
-                                        <div class="step1Text"></div>
-                                <?php }else{?>
-                                    <div class="step1Text"></div>
-                                <?php }?>
+                                @if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null)
+                                    <form id="logout-form" action="https://www.digeam.com/logout" method="POST"
+                                        style="display: none;">
+                                        <input type="hidden" name="return_url" id="return_url"
+                                            value={{ base64_encode('https://cbo.digeam.com/MembershipTransfer') }}>
+                                    </form>
+                                    <div class="step1Text">
+                                        <div class="btnBox">
+                                            <a class="step1_login" href="https://digeam.com/login">前往登入</a>
+                                            <a class="step1_register" href="https://digeam.com/register">立即申請</a>
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="step1Text">
+                                        <p>您已登入掘夢網帳號
+                                            <span class='StrID'
+                                            data-val={{ $_COOKIE['StrID'] }}>{{ $_COOKIE['StrID'] }}</span>
+                                            <button class="step1_register logout" href="">登出</button></p>
+                                    </div>
+                                @endif
 
 
                             </div>
@@ -183,7 +192,6 @@
         </div>
     </footer>
 
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script> --}}
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();</script>

@@ -35,15 +35,16 @@ function confirm(){
 function cabal_login(){
     $('.pop').hide();
 
-    // $.post(api,{
-    // type : 'cabal_login',
-    // cabal_user :$('input[name="user"]').val() ,
-    // cabal_pwd :$('input[name="pwd"]').val() ,
-    // cabal_pwd2 :$('input[name="pwd2"]').val()
+    $.post(api,{
+    type : 'cabal_login',
+    user :$(".step1Text span").text() ,
+    cabal_user :$('input[name="user"]').val() ,
+    cabal_pwd :$('input[name="pwd"]').val() ,
+    cabal_pwd2 :$('input[name="pwd2"]').val()
 
-    // },function(_res){
-        let res = resCabal;
-        //     let res = JSON.parse(_res);
+    },function(_res){
+        // let res = resCabal;
+            let res = JSON.parse(_res);
 
         if( res.status == -99 ){
             // 帳密錯誤
@@ -78,7 +79,7 @@ function cabal_login(){
             },2000)
         }
 
-    // })
+    })
 }
 
 
@@ -92,25 +93,31 @@ $(window).scroll(function () {
     screen.width > 820 ? scrollTop >= scrollHeight ? $('.barBG').fadeIn(300) : $('.barBG').hide() : $('.barBG').fadeIn(300);
 
     if(screen.width <= 820){
-        if(scrollTop >= scrollHeight){
-            $('.barBG').css({
-                backgroundImage:`linear-gradient(to bottom, rgb(0, 0, 0, 0.5), rgba(0, 0, 0, 0.25))`,
-                borderBottom: `#ffffff 3px solid`
-            })
-            if(screen.width <= 425){
-                $('.barBG').css({
-                    backgroundImage:`linear-gradient(to bottom, rgb(0, 0, 0, 0.5), rgba(0, 0, 0, 0.25))`,
-                    borderBottom: `#ffffff 3px solid`,
-                    height:'60px'
-                })
-            }
-        }else{
-            $('.barBG').css({
-                backgroundImage:`none`,
-                borderBottom: `none`
-            })
-        }
+        $('.barBG').css({
+            backgroundImage:`none`,
+            borderBottom: `none`
+        })
     }
+    // if(screen.width <= 820){
+    //     if(scrollTop >= scrollHeight){
+    //         $('.barBG').css({
+    //             backgroundImage:`linear-gradient(to bottom, rgb(0, 0, 0, 0.5), rgba(0, 0, 0, 0.25))`,
+    //             borderBottom: `#ffffff 3px solid`
+    //         })
+    //         if(screen.width <= 425){
+    //             $('.barBG').css({
+    //                 backgroundImage:`linear-gradient(to bottom, rgb(0, 0, 0, 0.5), rgba(0, 0, 0, 0.25))`,
+    //                 borderBottom: `#ffffff 3px solid`,
+    //                 height:'60px'
+    //             })
+    //         }
+    //     }else{
+    //         $('.barBG').css({
+    //             backgroundImage:`none`,
+    //             borderBottom: `none`
+    //         })
+    //     }
+    // }
 });
 
 // rwdMenu開關
