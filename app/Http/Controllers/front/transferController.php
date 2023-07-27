@@ -14,7 +14,7 @@ class transferController extends Controller
         } else {
             $real_ip = $_SERVER["REMOTE_ADDR"];
         }
-        if($real_ip == '211.23.144.219'){
+        if($real_ip == 211.23.144.219){
             return view('event/20230728_index');
         }else{
             return redirect('https://digeam.com/index');
