@@ -34,13 +34,6 @@
     }
 }
 
-$lg-media: 1024px;
-@mixin lg() {
-    @media all and (max-width: $lg-media) {
-        @content;
-    }
-}
-
 footer {
     position: fixed;
     bottom: 0;

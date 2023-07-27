@@ -28,6 +28,10 @@
         transform: translate(-50%, -50%);
         animation: popup 0.3s ease-in-out;
         text-align: center;
+        @include xs{
+            width: 90vw;
+            height: 90vh;
+        }
 
         .popText {
             top: 30%;
@@ -59,6 +63,9 @@
                 transition: 0.5s;
                 color: #fff;
                 margin: 0 100px;
+                @include xs{
+                    margin: 0 50px;
+                }
 
                 &:hover {
                     filter: drop-shadow(0px 1px 1px #ffffff);
@@ -107,6 +114,10 @@
         transform: translate(-50%, -50%);
         margin: 0 auto;
         animation: popup 0.3s ease-in-out;
+        @include xs{
+            width: 90vw;
+            height: 90vh;
+        }
 
         .popBText {
             top: 30%;
@@ -147,3 +158,4 @@
         }
     }
 }
+

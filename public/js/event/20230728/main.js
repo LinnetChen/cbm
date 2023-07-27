@@ -93,25 +93,31 @@ $(window).scroll(function () {
     screen.width > 820 ? scrollTop >= scrollHeight ? $('.barBG').fadeIn(300) : $('.barBG').hide() : $('.barBG').fadeIn(300);
 
     if(screen.width <= 820){
-        if(scrollTop >= scrollHeight){
-            $('.barBG').css({
-                backgroundImage:`linear-gradient(to bottom, rgb(0, 0, 0, 0.5), rgba(0, 0, 0, 0.25))`,
-                borderBottom: `#ffffff 3px solid`
-            })
-            if(screen.width <= 425){
-                $('.barBG').css({
-                    backgroundImage:`linear-gradient(to bottom, rgb(0, 0, 0, 0.5), rgba(0, 0, 0, 0.25))`,
-                    borderBottom: `#ffffff 3px solid`,
-                    height:'60px'
-                })
-            }
-        }else{
-            $('.barBG').css({
-                backgroundImage:`none`,
-                borderBottom: `none`
-            })
-        }
+        $('.barBG').css({
+            backgroundImage:`none`,
+            borderBottom: `none`
+        })
     }
+    // if(screen.width <= 820){
+    //     if(scrollTop >= scrollHeight){
+    //         $('.barBG').css({
+    //             backgroundImage:`linear-gradient(to bottom, rgb(0, 0, 0, 0.5), rgba(0, 0, 0, 0.25))`,
+    //             borderBottom: `#ffffff 3px solid`
+    //         })
+    //         if(screen.width <= 425){
+    //             $('.barBG').css({
+    //                 backgroundImage:`linear-gradient(to bottom, rgb(0, 0, 0, 0.5), rgba(0, 0, 0, 0.25))`,
+    //                 borderBottom: `#ffffff 3px solid`,
+    //                 height:'60px'
+    //             })
+    //         }
+    //     }else{
+    //         $('.barBG').css({
+    //             backgroundImage:`none`,
+    //             borderBottom: `none`
+    //         })
+    //     }
+    // }
 });
 
 // rwdMenu開關
