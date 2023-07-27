@@ -114,16 +114,26 @@
                                 <div class="titleText1">請登入掘夢網帳號</div>
 
 
-                                <?php if(isset($_COOKIE['StrID']) && $_COOKIE['StrID'] != null){?>
-                                    <?php if($_COOKIE["StrID"]){ ?>
-                                        <form id="logout-form" action="https://www.digeam.com/logout" method="POST" style="display: none;">
-                                            <input type="hidden" name="return_url" id="return_url" value="<?php echo base64_encode('https://'.$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI]); ?>">
-                                        </form>
-                                        <?php } ?>
-                                        <div class="step1Text"></div>
-                                <?php }else{?>
-                                    <div class="step1Text"></div>
-                                <?php }?>
+                                @if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null)
+                                    <form id="logout-form" action="https://www.digeam.com/logout" method="POST"
+                                        style="display: none;">
+                                        <input type="hidden" name="return_url" id="return_url"
+                                            value={{ base64_encode('https://cbo.digeam.com/MembershipTransfer') }}>
+                                    </form>
+                                    <div class="step1Text">
+                                        <div class="btnBox">
+                                            <a class="step1_login" href="https://digeam.com/login">前往登入</a>
+                                            <a class="step1_register" href="https://digeam.com/register">立即申請</a>
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="step1Text">
+                                        <p>您已登入掘夢網帳號
+                                            <span class='StrID'
+                                            data-val={{ $_COOKIE['StrID'] }}>{{ $_COOKIE['StrID'] }}</span>
+                                            <button class="step1_register logout" href="">登出</button></p>
+                                    </div>
+                                @endif
 
 
                             </div>
