@@ -78,6 +78,6 @@ function get_setting() {
                 `);
             }
         }
-
+        
     },"json")
 }
