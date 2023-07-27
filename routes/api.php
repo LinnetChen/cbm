@@ -18,8 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//確認是否已綁定
-Route::post('checkAccount', 'API\transferPageController@checkAccount');
+//登入判斷是否已綁定
+Route::post('login', 'API\transferPageController@login');
 //帳號綁定
-Route::any('transpage', 'API\transferPageController@transfer');
+Route::post('cabal_login', 'API\transferPageController@cabal_login');
 
