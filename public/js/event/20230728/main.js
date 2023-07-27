@@ -96,7 +96,7 @@ $(window).scroll(function () {
     var scrollTop = $(this).scrollTop(); //頁面top位置
     var scrollHeight = $(".title").height();//p1高度
 
-    
+
     screen.width > 820 ? scrollTop >= scrollHeight ? $('.barBG').fadeIn(300) : $('.barBG').hide() : $('.barBG').fadeIn(300);
 
     if(screen.width <= 820){
@@ -186,7 +186,7 @@ $('.footer-btnbox').on('click',function(){
 
 //注意事項
 function noticeIn(){
-    
+
     $('.XX,.noticeframe .checkbtn').on("click", function() {
         $('.notice').fadeOut(500);
     });

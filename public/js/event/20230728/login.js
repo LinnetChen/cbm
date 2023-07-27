@@ -63,7 +63,7 @@ function get_setting() {
                 `);
 
                 $('.step3checkbtn').attr('onclick','confirm()');
-                
+
             }else if ( res.cabal_status == 1 ){
                 // 已綁
                 $('.step2Text').html(`
