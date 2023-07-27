@@ -16,7 +16,7 @@ function get_setting() {
     $.post(api,{
         type : 'login',
         user : $(".step1Text span").text() // 抓帳號
-    
+
     },function(_res){
         // let res = resLogin;
         // let res = JSON.parse(_res);
@@ -63,7 +63,7 @@ function get_setting() {
                 `);
 
                 $('.step3checkbtn').attr('onclick','confirm()');
-                
+
             }else if ( res.cabal_status == 1 ){
                 // 已綁
                 $('.step2Text').html(`
@@ -78,6 +78,6 @@ function get_setting() {
                 `);
             }
         }
-        
+
     },"json")
 }
