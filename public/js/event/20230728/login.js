@@ -1,5 +1,5 @@
-var api = 'get_setting.php';
-var api2 = 'get_setting.php';
+var api = 'api/login';
+var api2 = 'api/cabal_login';
 
 
 // 登出
@@ -19,7 +19,7 @@ function get_setting() {
     
     },function(_res){
         // let res = resLogin;
-        let res = JSON.parse(_res);
+        // let res = JSON.parse(_res);
 
         if ( res.status == -99 ){
             // 未登入
@@ -67,7 +67,7 @@ function get_setting() {
             }else if ( res.cabal_status == 1 ){
                 // 已綁
                 $('.step2Text').html(`
-                <div class="step2Text"><p>您已登入黑色契約遊戲帳號<span>`+res.account_locking+`</span></p></div>
+                <div class="step2Text"><p>您已登入黑色契約遊戲帳號<br><span>`+res.account_locking+`</span></p></div>
                 `);
                 $('.step3').html(`
                 <div class="step3Success">
@@ -79,5 +79,5 @@ function get_setting() {
             }
         }
         
-    })
+    },"json")
 }
