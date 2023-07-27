@@ -1,3 +1,9 @@
+// 登出
+function logout_dg() {
+    console.log("登出");
+    $("#logout-form").submit();
+}
+
 
 
 var _read = 'false';
@@ -35,7 +41,7 @@ function confirm(){
 function cabal_login(){
     $('.pop').hide();
 
-    $.post(api,{
+    $.post(api2,{
     type : 'cabal_login',
     user :$(".step1Text span").text() ,
     cabal_user :$('input[name="user"]').val() ,
