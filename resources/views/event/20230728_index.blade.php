@@ -117,25 +117,25 @@
                             <div class="titleText1">請登入掘夢網帳號</div>
 
 
-                            @if (!isset($_COOKIE['StrID']) || isset($_COOKIE['StrID']) == null)
+                            @if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null)
                                 <form id="logout-form" action="https://www.digeam.com/logout" method="POST"
                                     style="display: none;">
                                     <input type="hidden" name="return_url" id="return_url"
                                         value={{ base64_encode('https://cbo.digeam.com/MembershipTransfer') }}>
                                 </form>
                                 <div class="step1Text">
-                                    <div class="btnBox">
-                                        <a class="step1_login" href="https://digeam.com/login">前往登入</a>
-                                        <a class="step1_register" href="https://digeam.com/register">立即申請</a>
-                                    </div>
-                                </div>
-                            @else
-                                <div class="step1Text">
                                     <p>您已登入掘夢網帳號<br>
                                         <span class='StrID'
                                             data-val={{ $_COOKIE['StrID'] }}>{{ $_COOKIE['StrID'] }}</span>
                                         <button class="step1_register logout" onclick="logout_dg()">登出</button>
                                     </p>
+                                </div>
+                            @else
+                                <div class="step1Text">
+                                    <div class="btnBox">
+                                        <a class="step1_login" href="https://digeam.com/login">前往登入</a>
+                                        <a class="step1_register" href="https://digeam.com/register">立即申請</a>
+                                    </div>
                                 </div>
                             @endif
 
@@ -208,7 +208,7 @@
     </script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
     <script src="js/event/20230728/view.js"></script>
-    <script src="js/event/20230728/login.js?v1.2"></script>
+    <script src="js/event/20230728/login.js?v1.6"></script>
     <script src="js/event/20230728/main.js"></script>
 
 </body>
