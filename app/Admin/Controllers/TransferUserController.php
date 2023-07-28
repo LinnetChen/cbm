@@ -24,7 +24,12 @@ class TransferUserController extends AdminController
         $grid = new Grid(new transfer_user());
         $grid->model()->orderBy('created_at','desc');
         $grid->column('user_id', __('帳號'));
-        $grid->column('status', __('狀態'));
+        $grid->column('cabal_id', __('綁定帳號'));
+        $grid->column('status', __('狀態'))->display(function(){
+            if($this->status =='N'){
+                return '上鎖';
+            }
+        });
         $grid->column('lock_time', __('上鎖時間'))->display(function(){
             if($this->status =='N'){
                 return $this->lock_time;

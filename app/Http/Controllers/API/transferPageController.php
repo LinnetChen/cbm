@@ -132,12 +132,6 @@ class transferPageController extends Controller
             } elseif ($code == 8002) {
                 //帳號已綁定
 
-                $update_user = transfer_user::where('user_id', $user)->first();
-                $update_user->user_id = $user;
-                $update_user->ip = $real_ip;
-                $update_user->cabal_id = $cabal_user;
-                $update_user->save();
-
                 $user_other = [];
                 array_push($user_other, substr($user, 0, 1));
                 array_push($user_other, substr($user, 1, 1));
