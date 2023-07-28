@@ -79,9 +79,9 @@
         .page2{
     
             .mainpic{
-                scale: 1.5;
+                scale: 1.1;
                 position: relative;
-                left: -36px;
+                left: -11px;
                 top: 14vh;
                 width: 100vw;
                 height: 100vw;
@@ -203,5 +203,15 @@
         bottom: -20px;
         right: -10px;
         scale: .6;
+    }
+}
+
+@media(max-width:375px){
+    .main{
+        .toppage{
+            .starbtn{
+                top: 78vh;
+            }
+        }
     }
 }
