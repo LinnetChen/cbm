@@ -30,7 +30,7 @@ class TransferUserController extends AdminController
                 return '上鎖';
             }
         });
-        $grid->column('lock_time', __('上鎖時間'))->display(function(){
+        $grid->column('lock_time', __('解鎖時間'))->display(function(){
             if($this->status =='Y'){
                 return $this->lock_time;
             }
