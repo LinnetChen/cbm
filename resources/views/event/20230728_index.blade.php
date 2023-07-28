@@ -211,9 +211,9 @@
         AOS.init();
     </script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-    <script src="js/event/20230728/view.js"></script>
-    <script src="js/event/20230728/login.js?v1.8"></script>
-    <script src="js/event/20230728/main.js"></script>
+    <script src="js/event/20230728/view.js?v1.0"></script>
+    <script src="js/event/20230728/login.js?v1.7"></script>
+    <script src="js/event/20230728/main.js?v1.0"></script>
 
 </body>
 

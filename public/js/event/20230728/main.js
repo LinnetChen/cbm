@@ -216,7 +216,7 @@ function noticecheck(){
 // 錯誤提示
 function error(){
     $('.popBText').html(`
-    遊戲帳號密碼或二次密碼輸入錯誤。<br>
+    遊戲帳號密碼或安全密碼輸入錯誤。<br>
     輸入錯誤次數過多可能導致您被暫時封鎖，請特別留意。`)
     $('.popB').show();
 }
