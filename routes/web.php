@@ -25,3 +25,6 @@ Route::get('/MembershipTransfer', function () {
 Route::get('/test_launcher', function () {
     return view('test_launcher');
 });
+Route::get('/launcher', function () {
+    return view('test_launcher');
+});
