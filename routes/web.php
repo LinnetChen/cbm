@@ -28,3 +28,9 @@ Route::get('/test_launcher', function () {
 Route::get('/launcher', function () {
     return view('test_launcher');
 });
+Route::middleware(['setReturnUrl'])->group(function () {
+    // 事前預約
+    Route::get('/MembershipTransfer', function () {
+        return view('event/20230728_index');
+    });
+});
