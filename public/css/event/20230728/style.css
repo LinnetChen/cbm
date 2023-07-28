@@ -1382,6 +1382,9 @@ header .bar .sociallink .bhlink {
   .main .toppage .starbtn {
     top: 78vh;
   }
+  .main .toppage .title {
+    top: 10vh;
+  }
 }
 .mask {
   width: 100vw;

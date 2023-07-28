@@ -223,7 +223,7 @@ if ($real_ip != '211.23.144.219') {
     </script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
     <script src="js/event/20230728/view.js"></script>
-    <script src="js/event/20230728/login.js?v1.6"></script>
+    <script src="js/event/20230728/login.js?v1.8"></script>
     <script src="js/event/20230728/main.js"></script>
 
 </body>
