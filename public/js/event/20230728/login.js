@@ -42,7 +42,7 @@ function get_setting() {
                         <input name="pwd" type="password">
                     </label><br/>
                     <label>
-                        二次密碼
+                        安全密碼
                         <input name="pwd2"  type="password">
                     </label>
                 </form>
