@@ -131,7 +131,7 @@ class transferPageController extends Controller
                 ]);
             } elseif ($code == 8002) {
                 //帳號已綁定
-                $findUser =transfer_user::where('user_id', $user)->first();
+                $findUser =transfer_user::where('cabal_id', $cabal_user)->first();
                 $user_other = [];
                 array_push($user_other, substr($findUser->user_id, 0, 1));
                 array_push($user_other, substr($findUser->user_id, 1, 1));
