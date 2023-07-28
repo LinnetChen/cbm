@@ -26,7 +26,7 @@ class TransferUserController extends AdminController
         $grid->column('user_id', __('帳號'));
         $grid->column('cabal_id', __('綁定帳號'));
         $grid->column('status', __('狀態'))->display(function(){
-            if($this->status =='N'){
+            if($this->status =='Y'){
                 return '上鎖';
             }
         });
