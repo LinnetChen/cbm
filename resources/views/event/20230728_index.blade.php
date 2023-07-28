@@ -1,4 +1,4 @@
-{{-- <?php
+<?php
 if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
     $real_ip = $_SERVER["HTTP_CF_CONNECTING_IP"];
 }else{
@@ -7,7 +7,7 @@ if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
 if($real_ip != '211.23.144.219'){
 exit();
 }
-?> --}}
+?>
 <!DOCTYPE html>
 <html lang="zh-TW">
 
@@ -218,7 +218,7 @@ exit();
     </script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
     <script src="js/event/20230728/view.js"></script>
-    <script src="js/event/20230728/login.js?v1.6"></script>
+    <script src="js/event/20230728/login.js?v1.8"></script>
     <script src="js/event/20230728/main.js"></script>
 
 </body>
