@@ -1,11 +1,11 @@
 <?php
-if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
-    $real_ip = $_SERVER["HTTP_CF_CONNECTING_IP"];
-}else{
-    $real_ip = $_SERVER["REMOTE_ADDR"];
+if (isset($_SERVER['HTTP_CF_CONNECTING_IP'])) {
+    $real_ip = $_SERVER['HTTP_CF_CONNECTING_IP'];
+} else {
+    $real_ip = $_SERVER['REMOTE_ADDR'];
 }
-if($real_ip != '211.23.144.219'){
-exit();
+if ($real_ip != '211.23.144.219') {
+    exit();
 }
 ?>
 <!DOCTYPE html>
@@ -141,6 +141,11 @@ exit();
                                     </p>
                                 </div>
                             @else
+                                <form id="logout-form" action="https://www.digeam.com/logout" method="POST"
+                                    style="display: none;">
+                                    <input type="hidden" name="return_url" id="return_url"
+                                        value={{ base64_encode('https://cbo.digeam.com/MembershipTransfer') }}>
+                                </form>
                                 <div class="step1Text">
                                     <div class="btnBox">
                                         <a class="step1_login" href="https://digeam.com/login">前往登入</a>
