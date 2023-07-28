@@ -37,55 +37,60 @@ function confirm(){
         $('.pop').show();
     }
 }
+var Clogin_lock = 'open';
 // 黑契判定
 function cabal_login(){
-    $('.pop').hide();
-
-    $.post(api2,{
-    type : 'cabal_login',
-    user :$(".step1Text span").text() ,
-    cabal_user :$('input[name="user"]').val() ,
-    cabal_pwd :$('input[name="pwd"]').val() ,
-    cabal_pwd2 :$('input[name="pwd2"]').val()
-
-    },function(res){
-        // let res = resCabal;
-            // let res = JSON.parse(_res);
-
-        if( res.status == -99 ){
-            // 帳密錯誤
-            if( res.error_times < 5 ){
-                error();
-            }else if( res.error_times >=5 ){
+    if( Clogin_lock == 'open' ){
+        Clogin_lock = 'lock';
+        $('.pop').hide();
+    
+        $.post(api2,{
+        type : 'cabal_login',
+        user :$(".step1Text span").text() ,
+        cabal_user :$('input[name="user"]').val() ,
+        cabal_pwd :$('input[name="pwd"]').val() ,
+        cabal_pwd2 :$('input[name="pwd2"]').val()
+    
+        },function(res){
+            // let res = resCabal;
+                // let res = JSON.parse(_res);
+            Clogin_lock = 'open';
+    
+            if( res.status == -99 ){
+                // 帳密錯誤
+                if( res.error_times < 5 ){
+                    error();
+                }else if( res.error_times >=5 ){
+                    $('.popBText').html(`
+                    帳號密碼輸入錯誤次數過多，無法登入。<br/>
+                    請<span>`+(res.error_CD/3600).toFixed(1)+`小時</span>稍後再嘗試
+                    `)
+                    $('.popB').show();
+                }
+    
+            }else if( res.status == -98 ){
+                // 已被綁定
+                console.log(123);
                 $('.popBText').html(`
-                帳號密碼輸入錯誤次數過多，無法登入。<br/>
-                請<span>`+(res.error_CD/3600).toFixed(1)+`小時</span>稍後再嘗試
+                該遊戲帳號已完成綁定，無法再進行綁定。<br/>綁定帳號：<span>`+res.user_other[0]+res.user_other[1]+`****`+res.user_other[2]+res.user_other[3]+`</span>
                 `)
                 $('.popB').show();
+            }else if( res.status == 1 ){
+                // 成功綁定
+                $('.boxB').html(`
+                <div class="popBText">
+                綁定完成!<br>
+                記得<a href="https://www.facebook.com/DiGeamCabal" target="_blank">追蹤粉絲專頁</a>隨時
+                <br>獲取遊戲最新消息。</div>
+                `)
+                $('.popB').show();
+                setTimeout(function(){
+                    location.reload()
+                },2000)
             }
-
-        }else if( res.status == -98 ){
-            // 已被綁定
-            console.log(123);
-            $('.popBText').html(`
-            該遊戲帳號已完成綁定，無法再進行綁定。<br/>綁定帳號：<span>`+res.user_other[0]+res.user_other[1]+`****`+res.user_other[2]+res.user_other[3]+`</span>
-            `)
-            $('.popB').show();
-        }else if( res.status == 1 ){
-            // 成功綁定
-            $('.boxB').html(`
-            <div class="popBText">
-            綁定完成!<br>
-            記得<a href="https://www.facebook.com/DiGeamCabal" target="_blank">追蹤粉絲專頁</a>隨時
-            <br>獲取遊戲最新消息。</div>
-            `)
-            $('.popB').show();
-            setTimeout(function(){
-                location.reload()
-            },2000)
-        }
-
-    },"json")
+    
+        },"json")
+    }
 }
 
 

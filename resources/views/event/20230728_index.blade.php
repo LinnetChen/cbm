@@ -1,4 +1,4 @@
-<?php
+{{-- <?php
 if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
     $real_ip = $_SERVER["HTTP_CF_CONNECTING_IP"];
 }else{
@@ -7,7 +7,7 @@ if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
 if($real_ip != '211.23.144.219'){
 exit();
 }
-?>
+?> --}}
 <!DOCTYPE html>
 <html lang="zh-TW">
 

@@ -11,7 +11,6 @@ function loginAccount() {
 }
 
 get_setting();
-
 function get_setting() {
     $.post(api,{
         type : 'login',
