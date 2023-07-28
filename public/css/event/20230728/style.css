@@ -1174,7 +1174,7 @@ header .bar .sociallink .bhlink {
     background-position: center;
   }
   .main .toppage .startbtn {
-    top: 75vh;
+    top: 78vh;
     width: 100vw;
     height: 15vw;
     scale: 1;
@@ -1343,9 +1343,9 @@ header .bar .sociallink .bhlink {
     background-size: contain;
   }
   .main .page2 .mainpic {
-    scale: 1.5;
+    scale: 1.1;
     position: relative;
-    left: -36px;
+    left: -11px;
     top: 14vh;
     width: 100vw;
     height: 100vw;
@@ -1376,6 +1376,11 @@ header .bar .sociallink .bhlink {
     bottom: -20px;
     right: -10px;
     scale: 0.6;
+  }
+}
+@media (max-width: 375px) {
+  .main .toppage .starbtn {
+    top: 78vh;
   }
 }
 .mask {
@@ -1449,6 +1454,11 @@ header .bar .sociallink .bhlink {
 @media all and (max-width: 425px) {
   .pop .box .btnBox .btnClose, .pop .box .btnBox .btnYes {
     margin: 0 50px;
+  }
+}
+@media all and (max-width: 320px) {
+  .pop .box .btnBox .btnClose, .pop .box .btnBox .btnYes {
+    margin: 0 37px;
   }
 }
 .pop .box .btnBox .btnClose:hover, .pop .box .btnBox .btnYes:hover {
