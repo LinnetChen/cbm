@@ -13,4 +13,6 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('home');
 
+    $router->resource('/transfer_user', 'TransferUserController');
+    $router->resource('/try_login', 'TryLoginController');
 });
