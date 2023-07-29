@@ -43,6 +43,7 @@ class TransferUserController extends AdminController
         $grid->filter(function ($filter) {
             $filter->disableIdFilter();
             $filter->equal('user_id', '帳號');
+            $filter->equal('cabal_id', 'cabal帳號');
         });
 
         $grid->actions(function($actions){
