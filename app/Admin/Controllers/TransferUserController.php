@@ -10,6 +10,7 @@ use Encore\Admin\Grid;
 use Encore\Admin\Show;
 use URL;
 use App\Models\transfer_user;
+use App\Admin\Excel\PostsExporter;
 class TransferUserController extends AdminController
 {
     public function index(Content $content){
@@ -51,10 +52,10 @@ class TransferUserController extends AdminController
         });
 
         $grid->disableRowSelector();
-        $grid->disableExport();
+        // $grid->disableExport();
         $grid->disableActions();
         $grid->disableCreateButton();
-
+        $grid->exporter(new PostsExporter());
         return $grid;
     }
 }

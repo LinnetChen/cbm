@@ -34,3 +34,7 @@ Route::middleware(['setReturnUrl'])->group(function () {
         return view('event/20230728_index');
     });
 });
+// 後台上傳圖片
+Route::post('delCKEImg', 'CkeditorUploadController@delCKEImg');
+Route::post('ckeditor/upload', 'CkeditorUploadController@uploadImage');
+Route::post('filePath', 'CkeditorUploadController@getImage')->name('filePath');

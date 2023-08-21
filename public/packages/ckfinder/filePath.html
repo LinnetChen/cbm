@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<title>CKFinder 3 - File Browser</title>
+
+    <style>
+
+        .inside{
+            border: 1px solid;
+           text-align:center;
+        }
+        .inputArea{
+        width:100%;
+           text-align:center;
+           z-index:999;
+        }
+        .stringURL{
+            width:80%;
+        }
+        .box{
+            display:inline-block;
+            width:17%;
+            text-align: center;
+            margin:1%;
+        }
+        .imgContent{
+            margin:1%;
+            width:100%;
+        }
+
+    </style>
+</head>
+<body>
+<div class='inputArea'>
+    <p>使用圖片:<p>
+        <img class ='previewImg' src>
+</br>
+    <input class='stringURL' type= 'text'>
+</br>
+    <button onclick='copyURL();'>複製網址</button>
+    <button onclick='delImg();'>刪除圖片</button>
+    </div>
+
+
+<div class ='outSide'>
+    <div class='inside'>
+    </div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script>
+$('.previewImg').attr('src','')
+    $.post('/filePath',{
+
+    },function(res){
+        var _count =res['imgUpload'].length
+        var _html =''
+        for( i = 0 ;i<_count;i++){
+            _html +="<div class = 'box'><img class ='imgContent' src =/upload/ckeditor/"+ res['imgUpload'][i]['file_name'] +"></div>"
+        }
+        $('.inside').append(_html)
+        $('.imgContent').on('click',function(){
+            var _src = $(this).attr('src')
+            $('.previewImg').attr('src',_src)
+            $('.stringURL').val('http://127.0.0.1:8000'+_src)
+        })
+    })
+    function copyURL(){
+        $('.stringURL').select();
+        document.execCommand("copy");
+        alert('已複製')
+    }
+    function delImg(){
+        if (confirm('確定要刪除圖片嗎')) {
+            $.post('/delCKEImg',{
+                url:$('.stringURL').val(),
+            },function(res){
+                if(res.status==1){
+                    location.reload()
+                }else{
+                    alert('刪除失敗,請交由開發人員刪除')
+                }
+            })
+        }
+    }
+</script>
+
+</body>
+</html>
+
