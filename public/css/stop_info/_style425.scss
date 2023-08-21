@@ -1,0 +1,48 @@
+@media(max-width:425px){
+
+    header {
+
+        .bar {
+
+            .digeamwlogo {
+                left: 32vw;
+                width: 150px;
+                height: 60px;
+            }
+            .estlogo {
+                top: 13vw;
+                left: 33vw;
+                width: 150px;
+                height: 60px;
+            }
+        }
+    }
+    
+    .main{
+        /*========toppage========*/
+    
+        .toppage{
+
+            .title{
+                top: 35vh;
+                background-size: contain;
+            }
+    
+            .startbtn{
+                top: 75vh;
+                width: 100vw;
+                height: 20vw;
+                background-size: contain;
+                background-position: top;
+
+                &::after{
+                    top: 100%;
+                    left: 50%;
+                    translate: -50%;
+                    width: 10vh;
+                    background-size: contain;
+                }
+            }
+        }
+    }
+}

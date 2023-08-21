@@ -1,0 +1,50 @@
+@media(max-width:820px) {
+
+    /*========header bar========*/
+
+    header {
+
+        .bar {
+
+            .digeamwlogo {
+                left: 18vw;
+                width: 150px;
+                height: 60px;
+            }
+            .estlogo {
+                left: 48vw;
+                width: 150px;
+                height: 60px;
+            }
+        }
+    }
+
+
+    .main {
+
+        .toppage {
+
+            .title {
+                max-height: 342px;
+                top: 30vh;
+                scale: 1;
+                width: 100vw;
+                height: 76vw;
+                background: url('/img/title_m.png')no-repeat;
+                background-position: center;
+            }
+
+            .startbtn {
+                top: 66vh;
+                width: 100vw;
+                height: 15vw;
+                scale: .7;
+                background-size: contain;
+                background-position: top;
+            }
+        }
+
+    }
+
+
+}
