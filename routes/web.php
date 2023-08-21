@@ -28,6 +28,9 @@ Route::get('/test_launcher', function () {
 Route::get('/launcher', function () {
     return view('test_launcher');
 });
+Route::get('/stop_info', function () {
+    return view('stop_info');
+});
 Route::middleware(['setReturnUrl'])->group(function () {
     // 事前預約
     Route::get('/MembershipTransfer', function () {

@@ -1,0 +1,40 @@
+@media(max-width:1024px) {
+    /*========header bar========*/
+
+    header {
+
+        .bar {
+
+            .digeamwlogo {
+                left: 3vw;
+                width: 150px;
+                height: 60px;
+            }
+            .estlogo {
+                left: 25vw;
+                width: 150px;
+                height: 60px;
+            }
+        }
+    }
+
+
+    .main {
+
+        .toppage {
+
+            .title {
+                top: 20%;
+                scale: 0.9;
+            }
+
+            .startbtn {
+                scale: 0.8;
+
+                &::after {
+                    top: 105%;
+                }
+            }
+        }
+    }
+}
