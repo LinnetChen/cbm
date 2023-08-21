@@ -15,4 +15,7 @@ Route::group([
 
     $router->resource('/transfer_user', 'TransferUserController');
     $router->resource('/try_login', 'TryLoginController');
+    $router->resource('{cate}/main_cate', 'MainCateController');
+    $router->resource('/{cate}/page', 'PageController');
+
 });

@@ -65,6 +65,21 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
         ],
 
+        'cke' => [
+            'driver' => 'local',
+            'root' => public_path('upload'),
+            'url' => env('APP_URL').'/public/upload',
+            'visibility' => 'public',
+        ],
+
+
+        'admin' => [
+            'driver' => 'local',
+            'root' => public_path('/'),
+            'visibility' => 'public',
+            'url' => ('/'),
+        ],
+
     ],
 
     /*
