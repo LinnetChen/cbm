@@ -28,12 +28,12 @@ Route::get('/launcher', function () {
 
 Route::middleware(['setReturnUrl'])->group(function () {
     // 事前預約
-    Route::get('/MembershipTransfer', function () {
-        return view('stop_info');
-    });
     // Route::get('/MembershipTransfer', function () {
-    //     return view('event/20230728_index');
+    //     return view('stop_info');
     // });
+    Route::get('/MembershipTransfer', function () {
+        return view('event/20230728_index');
+    });
 });
 // 後台上傳圖片
 Route::post('delCKEImg', 'CkeditorUploadController@delCKEImg');

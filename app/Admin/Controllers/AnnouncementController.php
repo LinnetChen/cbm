@@ -37,7 +37,7 @@ Admin::script($script);
         $grid->column('cate_id', __('分類名稱'))->display(function () {
             if ($this->cate_id != null) {
                 $cateName = Category::where('id', $this->cate_id)->first();
-                return $cateName['title'];
+                return $cateName['cate_title'];
             }
         });
         $grid->column('top', __('至頂'))->display(function () {
@@ -85,7 +85,7 @@ Admin::script($script);
         $form->text('title', __('標題'));
         $form->select('cate_id', __('分類'))->options($cate)->default($defaultCate['id']);
         $form->ckeditor('content', __('內容'));
-        $form->select('status', __('狀態'))->options(['N' => '關閉', 'Y' => '開啟'])->default('N');
+        $form->select('open', __('狀態'))->options(['N' => '關閉', 'Y' => '開啟'])->default('N');
         $form->number('sort', __('排序'))->default(0);
         $form->radio('top', __('Top標籤'))->options(['y' => '是', 'n' => '否'])->default('n')->help("點選'是',並儲存,會將先前的TOP文章取消TOP,並將TOP設定為目前的文章喔!");
         $form->radio('new', __('New標籤'))->options(['y' => '是', 'n' => '否'])->default('n');
