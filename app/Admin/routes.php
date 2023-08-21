@@ -17,5 +17,6 @@ Route::group([
     $router->resource('/try_login', 'TryLoginController');
     $router->resource('{cate}/main_cate', 'MainCateController');
     $router->resource('/{cate}/page', 'PageController');
-
+    $router->resource('/image', 'ImageController');
+    $router->resource('/announcement', 'AnnouncementController');
 });
