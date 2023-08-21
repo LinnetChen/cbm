@@ -52,10 +52,10 @@ class TransferUserController extends AdminController
         });
 
         $grid->disableRowSelector();
-        // $grid->disableExport();
+        $grid->disableExport();
         $grid->disableActions();
         $grid->disableCreateButton();
-        $grid->exporter(new PostsExporter());
+        // $grid->exporter(new PostsExporter());
         return $grid;
     }
 }
