@@ -3,7 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\category;
-use App\Models\Page;
+use App\Models\page;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Form;
@@ -17,15 +17,15 @@ class PageController extends AdminController
     public function __construct()
     {
 
-        $page = Page::get();
+        $page = page::get();
         foreach ($page as $value) {
             if ($value['cate_id'] == null) {
-                $getPage = Page::find($value['id']);
+                $getPage = page::find($value['id']);
                 $getPage->overall_sort = $value['sort'];
                 $getPage->save();
             } else if ($value['cate_id'] != null) {
                 $Category = category::find($value['cate_id']);
-                $getPage = Page::find($value['id']);
+                $getPage = page::find($value['id']);
                 $getPage->overall_sort = $Category->sort;
                 $getPage->save();
             }
