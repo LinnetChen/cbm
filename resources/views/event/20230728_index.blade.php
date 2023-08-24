@@ -39,6 +39,7 @@
                 <a href="https://digeam.com/register" target="_blank">會員註冊</a>
                 <a href="https://digeam.com/cs" target="_blank">客服中心</a>
                 <a href="https://digeam.com/cs/faq" target="_blank">常見問題</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScXfIVNDduoO46uvKcvtsEITDtqfYpLw2uqb01OGdBH26kJTg/viewform" target="_blank">填寫問卷</a>
             </div>
             <div class="sociallink">
                 <a class="fblink" href="https://www.facebook.com/DiGeamCabal" target="_blank"><img
