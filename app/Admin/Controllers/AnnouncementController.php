@@ -3,7 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Category;
-use App\Models\Page;
+use App\Models\page;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Form;
@@ -31,7 +31,7 @@ class AnnouncementController extends AdminController
         }
 SCRIPT;
 Admin::script($script);
-        $grid = new Grid(new Page());
+        $grid = new Grid(new page());
         $grid->model()->where('type', 'announcement')->orderBy('open', 'desc')->orderBy('top', 'desc')->orderBy('new', 'desc')->orderBy('created_at', 'desc')->orderBy('sort', 'desc');
         $grid->column('title', __('標題'));
         $grid->column('cate_id', __('分類名稱'))->display(function () {
@@ -80,7 +80,7 @@ Admin::script($script);
 
         $cate = Category::select('id', 'cate_title')->where('type', 'announcement')->orderBy('status', 'desc')->orderBy('sort', 'desc')->pluck('cate_title', 'id');
         $defaultCate = Category::where('type', 'announcement')->first();
-        $form = new Form(new Page());
+        $form = new Form(new page());
 
         $form->text('title', __('標題'));
         $form->select('cate_id', __('分類'))->options($cate)->default($defaultCate['id']);
