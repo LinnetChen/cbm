@@ -9,23 +9,33 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 use URL;
-use App\Models\try_login_log;
+use App\Models\serial_number;
 class SerialNumberController extends AdminController
 {
     public function index(Content $content){
         return $content
-        ->header('玩家轉移紀錄')
-        ->description('清單')
+        ->header('序號系統')
+        ->description('列表')
         ->body($this->grid($this));
     }
 
     protected function grid()
     {
-        $grid = new Grid(new try_login_log());
-        $grid->model()->orderBy('created_at','desc');
-        $grid->column('user_id', __('帳號'));
-        $grid->column('ip', __('IP'));
-        $grid->column('created_at', __('建立時間'))->date('Y-m-d');
+        $explodeURL = explode('/',URL::current());
+        $count = Count($explodeURL);
+
+        $grid = new Grid(new serial_number());
+        $grid->model()->where('type',$explodeURL[$count-2]);
+        $grid->column('type', __('序號分類'));
+        $grid->column('number', __('序號'));
+        $grid->column('status', __('使用狀態'))->display(function(){
+            if($this->status =='N'){
+                return '未使用';
+            }else{
+                return '已使用';
+            }
+        });
+        $grid->column('user_id', __('使用帳號'));
 
 
 
@@ -41,7 +51,6 @@ class SerialNumberController extends AdminController
         $grid->disableRowSelector();
         $grid->disableExport();
         $grid->disableActions();
-        $grid->disableCreateButton();
 
         return $grid;
     }
