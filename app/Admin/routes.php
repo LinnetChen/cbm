@@ -19,5 +19,6 @@ Route::group([
     $router->resource('/{cate}/page', 'PageController');
     $router->resource('/image', 'ImageController');
     $router->resource('/announcement', 'AnnouncementController');
-    $router->resource('/serial_number', 'SerialNumberController');
+    $router->resource('/{type}/serial_number', 'SerialNumberController');
+    $router->resource('/serial_number_cate', 'SerialNumberCateController');
 });

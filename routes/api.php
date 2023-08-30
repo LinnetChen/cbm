@@ -22,4 +22,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('login', 'API\transferPageController@login');
 //帳號綁定
 Route::post('cabal_login', 'API\transferPageController@cabal_login');
+// 刪除
+
 
