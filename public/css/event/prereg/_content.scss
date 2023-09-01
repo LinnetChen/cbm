@@ -1,0 +1,29 @@
+
+
+.book_wrap{
+
+    .post_l2 , .post_r2{
+        width: 41%;
+        height: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+        align-items: center;
+        justify-content: space-around;
+      
+
+        img{
+            width: 100%;
+        }
+
+    }
+
+    .post_l2{
+        margin-right: 2%;
+    }
+    .post_r2{
+        margin-left: 2%;
+    }
+
+
+}

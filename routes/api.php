@@ -24,4 +24,5 @@ Route::post('login', 'API\transferPageController@login');
 Route::post('cabal_login', 'API\transferPageController@cabal_login');
 // 刪除
 
-
+//事前預約
+Route::post('prereg_api', 'API\preregController@index');
