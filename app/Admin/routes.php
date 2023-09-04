@@ -19,8 +19,8 @@ Route::group([
     $router->resource('/{cate}/page', 'PageController');
     $router->resource('/image', 'ImageController');
     $router->resource('/announcement', 'AnnouncementController');
-    $router->resource('/serial_number', 'SerialNumberController');
-
+    $router->resource('/serial_number_cate', 'SerialNumberCateController');
+    $router->resource('{number}/serial_number', 'SerialNumberController');
     $router->resource('/prereguser', 'PreregUserController');
     $router->resource('/msgboard', 'MsgBoardController');
 });

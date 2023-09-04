@@ -139,7 +139,6 @@
                 display: flex;
                 justify-content: space-between;
                 flex-direction: column;
-                // align-items: flex-end;
                 cursor: pointer;
                 -webkit-user-select: none;
                 -moz-user-select: none;
@@ -147,6 +146,7 @@
                 user-select: none;
                 @extend %hover-box-1s;
                 position: relative;
+                word-break: break-all;
 
                 
                 &:hover{
@@ -265,6 +265,10 @@
         display: block;
     }
 
+    @include xxs(){
+        width: 95%;
+    }
+
     @include x4s() {
         width: 100%;
     }
@@ -361,6 +365,7 @@
                 width: 100%;
                 max-width: 580px;
                 height: auto;
+                max-height: 76px;
                 display: flex;
                 flex-direction: column;
                 background-image: url('../../../img/event/prereg/note.png');
@@ -374,19 +379,37 @@
                 -webkit-line-clamp: 3;
                 cursor: pointer;
                 position: relative;
+                justify-content: space-around;
+                word-break: break-all;
 
+                @include lg(){
+                    max-height: 83px;
+                }
 
-                @include x4s() {
-                    width: 70%;
+                @include xs(){
+                    max-height: 65px;
                 }
 
                 @include xxs() {
                     width: 87%;
+                    max-height: 76px;
                 }
 
+    
+
+                @include x4s() {
+                    width: 97%;
+                    border: 1px solid red;
+                }
+
+        
 
 
                 .txt {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    -webkit-line-clamp: 1;
+                
                     &.center {
                         text-align: center;
                         color: #da1717;

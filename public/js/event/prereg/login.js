@@ -1,14 +1,22 @@
 let api = '/api/prereg_api';
 let user = $('.StrID').data('val');
+
+// let api = 'http://192.168.0.41:8088/api/prereg_api'
+// let user = 'digeamnatw01';
 get_setting();
+
+function logout_dg() {
+    $("#logout-form").submit();
+}
 
 function showLoading() {
     var $loading = $('<div class="loading-spinner"><div class="dots"><div></div><div></div><div></div></div></div>').appendTo('body');
     return $loading;
 }
 
+
+
 function get_setting() {
-    var $loading = showLoading();
     $.post(
         api,
         {
@@ -16,22 +24,18 @@ function get_setting() {
             user: user,
         },
         function (res) {
-
             console.log(res);
             data = res.postBoard[0];
 
-            for (let i = 1; i <= 12; i++) {
-                $('.post_' + i).html(`<p class="txt">${res.postBoard[i]?.post_txt}</p>
-                <span class="name">By.${res.postBoard[i]?.post_name}</span>`)
-            }
 
             if (res.status == -99) {
                 $('.user_post , .rwd_user_post , .submit , .addPost').on('click', function () {
                     $('.mask , .pop_s').fadeIn();
                     $('.pop_txt').html(s1_login);
                 })
-                console.log(1);
+
             } else if (res.status == 1) {
+
                 if (res.reserve == false) {
                     $('.user_post, .rwd_user_post , .addPost').on('click', function () {
                         $('.mask , .pop_s').fadeIn();
@@ -40,34 +44,76 @@ function get_setting() {
                 } else {
 
                     if (data.post_name !== '' && data.post_txt !== '') {
-                        $('.user_post , .rwd_user_post').html(`<div class="txt">${res.postBoard[0]?.post_txt}</div>
-                        <span class="name">By.${res.postBoard[0]?.post_name}</span>`)
+                        let user_postTxt = res.postBoard[0]?.post_txt;
+                        let user_postName = res.postBoard[0]?.post_name;
+
+                        console.log(user_postTxt, user_postName);
+
+                        let user_decodedTxt = Base64.decode(user_postTxt);
+                        let user_decodedName = Base64.decode(user_postName);
+
+                        console.log(user_decodedTxt, user_decodedName);
+
+                        $('.user_post , .rwd_user_post').html(`<p class="txt">${user_decodedTxt}</p>
+                        <span class="name">By.${user_decodedName}</span>`)
                     } else {
                         $('.addPost').on('click', function () {
                             $('.mask ,.pop_page').fadeIn();
+                            console.log(res);
                         })
                     }
+
                 }
+            }
+
+            
+            for (let i = 1; i <= 12; i++) {
+                let postTxt = res.postBoard[i]?.post_txt;
+                let postName = res.postBoard[i]?.post_name;
+                console.log(postTxt);
+                console.log(postName);
+
+
+                let decodedTxt = Base64.decode(postTxt);
+                let decodedName = Base64.decode(postName);
+
+                console.log(decodedTxt, decodedName);
+
+                $('.post_' + i).html(`<p class="txt">${decodedTxt}</p>
+                <span class="name">By.${decodedName}</span>`)
             }
 
 
 
-
         }, "json"
-    ).always(function () {
-        $loading.remove();
-    });
+    )
 }
 
 $(".your_name").on("change", function () {
     var user_name = $(this).val();
     $('.none_name').text(user_name);
+    //轉譯
+    let txt = user_name;
+    let en = Base64.encode(txt);
+    console.log(en);
+    $('.none_name').attr('data-base', en);
+    let de = Base64.decode(en);
+    console.log(de);
 })
 
 $(".your_msg").on("change", function () {
     var user_msg = $(this).val();
     $('.none_msg').text(user_msg);
+    //轉譯
+    let txt = user_msg;
+    let en = Base64.encode(txt);
+    console.log(en);
+    $('.none_msg').attr('data-base', en);
+    let de = Base64.decode(en);
+    console.log(de);
 })
+
+
 
 //電話號碼檢查
 function checkMobile() {
@@ -109,11 +155,11 @@ function submit() {
 
     if (_agree != true) {
         $('.pop_s').fadeIn(200);
-        $('.pop_s_wrap').html(s1_read)
+        $('.pop_txt').html(s1_read)
         $('.mask').fadeIn(200)
     } else if (_phone == -99) {
         $('.pop_s').fadeIn(200);
-        $('.pop_s_wrap').html(s1_phone)
+        $('.pop_txt').html(s1_phone)
         $('.mask').fadeIn(200)
     } else {
         _send = true
@@ -124,26 +170,24 @@ function submit() {
             user: user,
             phone: _phone,
         }, function (res) {
-            console.log(res);
-            console.log(_phone);
             $('.pop_s').fadeIn(200);
             $('.mask').fadeIn(200);
             if (res.status == -99) {
-                $('.pop_s_wrap').html(s1_login)
+                $('.pop_txt').html(s1_login)
             } else if (res.status == -98) {
-                $('.pop_s_wrap').html(s1_phone)
+                $('.pop_txt').html(s1_phone)
             } else if (res.status == -97) {
-                $('.pop_s_wrap').html(s1_done)
+                $('.pop_txt').html(s1_acc_use)
             } else if (res.status == -96) {
-                $('.pop_s_wrap').html(s1_phone_use)
+                $('.pop_txt').html(s1_phone_use)
             } else if (res.status == 1) {
                 $('.mask').fadeOut(200);
-                $('.pop_s_wrap').html(s1_done);
+                $('.pop_txt').html(s1_done);
                 $('.maskR').fadeIn(200);
             } else if (res.status == 90) {
-                $('.pop_s_wrap').html('<h3>活動已結束</h3>')
+                $('.pop_txt').html('<h2>活動已結束</h2>')
             } else {
-                $('.pop_s_wrap').html('<h3>程式錯誤,請聯絡客服人員</h3>')
+                $('.pop_txt').html('<h2>程式錯誤,請聯絡客服人員</h2>')
             }
         })
     }
@@ -163,18 +207,19 @@ function addPost() {
         {
             type: 'post',
             user: user,
-            post_name: $('.none_name').text(),
-            post_txt: $('.none_msg').text()
+            post_name: $('.none_name').data('base'),
+            post_txt: $('.none_msg').data('base')
         },
         function (res) {
             console.log(res);
+
             if (res.status == 1) {
                 $('.mask').fadeOut();
                 $('.maskR').fadeIn();
                 $('.pop_page_wrap').html(post_done);
             } else if (res.status == -95) {
                 $('.maskR').fadeIn();
-                $('.pop_page_wrap').html('<h2>你已留言過!</h2>');
+                $('.pop_page_wrap').html(post_done_again);
             }
 
 

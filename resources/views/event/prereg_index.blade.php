@@ -25,16 +25,29 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/event/prereg/style.css">
+    <link rel="stylesheet" href="css/event/prereg/style.css?v=5">
 
     <script>
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PB8RXNM');
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PB8RXNM');
     </script>
 </head>
 
 <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PB8RXNM" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PB8RXNM" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <div class="mask"></div>
@@ -61,10 +74,10 @@
             <div class="page_tit"></div>
             <label for="your_name" class="u_name">你的名字</label>
             <input type="text" id="text" class="your_name" placeholder="最多8個字" maxlength="8">
-            <p class="none_name" style="display: none"></p>
+            <p class="none_name" style="display: none" data-base=""></p>
             <label for="your_msg">你的訊息</label>
             <textarea name="your_msg" class="your_msg" placeholder="最多22個字，留言內容一經送出後即無法修改。" maxlength="22" minlength="1"></textarea>
-            <p class="none_msg" style="display: none"></p>
+            <p class="none_msg" style="display: none" data-base=""></p>
             <span class="alret"></span>
             <button onclick="addPost()" class="add_msg">送出留言</button>
         </div>
@@ -96,9 +109,9 @@
                         <li>
                             <div class="logo"></div>
                         </li>
-                        <a href="#sec01" class="sec_01">事前預約</a>
-                        <a href="#sec02" class="sec_02">老戰友留言板</li>
-                            <a href="#sec03" class="sec_03">遊戲特色</li>
+                        <a href="#sec01" class="sec_01 sec">事前預約</a>
+                        <a href="#sec02" class="sec_02 sec ">老戰友留言板</li>
+                            <a href="#sec03" class="sec_03 sec">遊戲特色</li>
                                 <a href="https://cbo.digeam.com/MembershipTransfer" class="sec_04"
                                     target="_blank">老玩家會員轉移</li>
                     </ul>
@@ -130,7 +143,7 @@
                 <div class="step1">
                     <div class="num">01</div>
                     <div class="step_info">
-                        <h2>註冊並登入Digeam掘夢網平台帳號</h2>
+                        <h2>註冊並登入DiGeam掘夢網平台帳號</h2>
 
                         @if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null)
                             <form id="logout-form" action="https://www.digeam.com/logout" method="POST"
@@ -139,18 +152,19 @@
                                     value={{ base64_encode('https://cbo.digeam.com/prereg') }}>
                             </form>
                             <div class="done_acc">
-                                <span>您已登入掘夢網帳號<br>
-                                    <span class='StrID' data-val={{ $_COOKIE['StrID'] }}>{{ $_COOKIE['StrID'] }}</span>
-                                </span>
+                                <h3>您已登入掘夢網帳號 </h3>
+                                <span class='StrID' data-val={{ $_COOKIE['StrID'] }}>{{ $_COOKIE['StrID'] }}</span>
+
                                 <button class="logout" onclick="logout_dg()">登出</button>
                             </div>
                         @else
                             @php
-                                $_COOKIE_DOMAIN=".digeam.com";
-                                SetCookie("return_url",base64_encode("https://cbo.digeam.com/prereg"),0,"/",$_COOKIE_DOMAIN);
+                                $_COOKIE_DOMAIN = '.digeam.com';
+                                SetCookie('return_url', base64_encode('https://cbo.digeam.com/prereg'), 0, '/', $_COOKIE_DOMAIN);
                             @endphp
                             <a class="login" href="https://digeam.com/login"></a>
-                            <span>*新用戶註冊點這裡<a href="https://www.digeam.com/register_cbo">前往註冊</a></span>
+                            <span>*新用戶註冊點這裡<a href="https://www.digeam.com/register_cbo"
+                                    target="_blank">前往註冊</a></span>
                         @endif
 
                     </div>
@@ -190,7 +204,8 @@
                             frameborder="0" allowfullscreen="true"
                             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                         <span><input type="checkbox" name="privacy" value="disagree" class="check"
-                                id="checkbox">我已閱讀且同意<a href="http://">隱私權政策</a></span>
+                                id="checkbox">我已閱讀且同意<a href="https://www.digeam.com/terms2"
+                                target="_blank">隱私權政策</a></span>
                         <button class="submit" onclick="submit();">
                     </div>
                 </div>
@@ -204,13 +219,13 @@
 
                         <div class="gift gift_01 pop" data-pop="1">
                             <img src="../../../img/event/prereg/icon_1.png" alt="">
-                            <h3>【 時裝箱 】<br>
+                            <h3>【時裝箱】<br>
                                 軍事黑制服(30日)</h3>
                         </div>
 
                         <div class="gift gift_02 pop" data-pop="2">
                             <img src="../../../img/event/prereg/icon_2.png" alt="">
-                            <h3>【 祝福寶珠 】<br>
+                            <h3>【祝福寶珠】<br>
                                 經驗值增加(50%)</h3>
                         </div>
 
@@ -224,11 +239,9 @@
                 </div>
 
                 <div class="sec01_notice">
-
                     <h2 class="notice_tit"></h2>
-
                     <ul>
-                        <li>1.本活動自即日起至正式開服後一周為止。</li>
+                        <li>1.本活動自即日起至正式開服後一週為止。</li>
                         <li>2.每個掘夢網帳號僅能參加一次事前預約活動。</li>
                         <li>3.獎勵將於開服後7日內透過官網的領獎專區發放。</li>
                         <li>4.點擊獎勵圖示可開啟彈窗，查看各獎勵說明與使用期限。</li>
@@ -248,10 +261,10 @@
                 </br>
                 <h3 class="pc_sec02_info">只要在留言板留下足跡，即可獲得開服小禮<img src="../../../img/event/prereg/s2_icon.png"
                         alt="">喇叭 x 30<br>
-                    粉絲團周周加碼再抽電競周邊！</h3>
+                    粉絲團週週加碼再抽電競週邊！</h3>
                 <h3 class="rwd_sec02_info">只要在留言板留下足跡，</br>
                     即可獲得開服小禮<img src="../../../img/event/prereg/s2_icon.png" alt="">喇叭 x 30<br>
-                    粉絲團周周加碼再抽電競周邊！</h3>
+                    粉絲團週週加碼再抽電競週邊！</h3>
 
             </article>
             <article class="giftBox">
@@ -325,6 +338,7 @@
                         </div>
                     </div>
 
+
                 </div>
 
                 <div class="book_wrap tab_content" data-tab="tab2">
@@ -351,7 +365,7 @@
 
                     <div class="post_l">
                         <div class="rwd_user_post post addPost">
-                            <p class="txt center ">您尚未發表留言，點按此處留下足跡!</p>
+                            <p class="txt center ">您尚未發表留言，點按此處留下足跡！</p>
                         </div>
 
 
@@ -430,9 +444,9 @@
                         src="../../../img/event/20230728/footer/ESTgames_logo.png"></a>
             </div>
             <div class="spec">
-                <a href="https://www.digeam.com/terms">會員服務條款</a>
-                <a href="https://www.digeam.com/terms2">隱私條款</a>
-                <a href="https://www.digeam.com/cs">客服中心</a>
+                <a href="https://www.digeam.com/terms" target="_blank">會員服務條款</a>
+                <a href="https://www.digeam.com/terms2" target="_blank">隱私條款</a>
+                <a href="https://www.digeam.com/cs" target="_blank">客服中心</a>
                 <p class="Copyright">Copyright © ESTgames Corp. All rights reserved.<br />2023 Licensed and published
                     for Taiwan, Hong Kong and Macau by DiGeam Co.,Ltd<br />CABAL Online is a registered trademark of
                     ESTgames Corp (and the logo of ESTgames).</p>
@@ -451,15 +465,16 @@
 </body>
 
 <script src="js/event/base/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+{{-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> --}}
 <script src="
 https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js
 "></script>
+<script src="https://cdn.jsdelivr.net/npm/js-base64@3.7.5/base64.min.js"></script>
 <script src="js/event/prereg/particles.min.js" crossorigin="anonymous"></script>
 <script src="js/event/prereg/fire.js" crossorigin="anonymous"></script>
-<script src="js/event/prereg/main.js" crossorigin="anonymous"></script>
-<script src="js/event/prereg/login.js" crossorigin="anonymous"></script>
+<script src="js/event/prereg/main.js?v=5" crossorigin="anonymous"></script>
+<script src="js/event/prereg/login.js?v=12" crossorigin="anonymous"></script>
 
 
 </html>

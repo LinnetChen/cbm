@@ -41,6 +41,7 @@ class MsgBoardController extends AdminController
         $grid->filter(function ($filter) {
             $filter->disableIdFilter();
             $filter->equal('user_id', '帳號');
+            $filter->like('post_txt', '內容');
         });
 
         $grid->actions(function($actions){

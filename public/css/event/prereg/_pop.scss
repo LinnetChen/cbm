@@ -172,11 +172,11 @@
         transform: translate(-50%, -50%) scale(.7);
     }
 
-    @include x4s(){
+    @include x4s() {
         transform: translate(-50%, -50%) scale(.6);
     }
 
-    &_wrap{
+    &_wrap {
         transform: translate(-50%, -50%);
         top: 50%;
         left: 50%;
@@ -191,12 +191,16 @@
         font-family: 'sans-serif';
     }
 
-    a{
+    a {
         color: $link;
     }
 
-    span{
+    span {
         text-align: center;
+    }
+
+    .pop_txt {
+        @extend %f-c-c
     }
 
 
@@ -260,22 +264,18 @@
         width: 95%;
     }
 
-
-
-
     &_wrap {
-    
+
         @include size(655px, auto);
         margin: 2% 2.3%;
         border: 10px solid #b0a795;
+        padding: 4% 2%;
         @extend %f-c-c;
 
         @include lg() {
             width: 96%;
 
         }
-
-
 
         .page_tit {
             @include size(360px, 130px);
@@ -303,19 +303,39 @@
 
         }
 
-        h3{
+        h3 {
             text-align: center;
-            margin: 20px 0;
+            // margin-bottom: 50px;
             color: #877656;
-            
-            @include x4s(){
-                font-size: 18px;
+
+            @include x4s() {
+                font-size: 17px;
+                // margin-bottom: 17px;
             }
+
+
         }
 
-        a{
+        a {
+            font-family: 'SourceHanSerifTC-Heavy';
             margin: 0 5px;
-            color: darkblue;
+            color:#55559b;
+            size: 22px;
+
+            @include xl() {
+                font-size: 18px;
+            }
+
+
+            @include xs() {
+                font-size: 20px;
+            }
+
+            @include xxs() {
+                font-size: 18px;
+            }
+
+
         }
 
         input,
@@ -338,9 +358,9 @@
 
         input {
 
-            &:focus{
+            &:focus {
                 outline: none;
-    
+
             }
 
             @include xxs() {
@@ -354,9 +374,9 @@
             height: 90px;
             max-height: 100px;
 
-            &:focus{
+            &:focus {
                 outline: none;
-    
+
             }
         }
 
@@ -375,7 +395,7 @@
             }
         }
 
-        .u_name{
+        .u_name {
             margin-top: 0px;
         }
 
@@ -415,4 +435,5 @@
             }
         }
     }
+
 }
