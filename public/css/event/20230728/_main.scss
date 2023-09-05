@@ -8,7 +8,8 @@ body {
     background-position: center;
     font-family: arial, "Microsoft JhengHei", "微軟正黑體", sans-serif !important;
     overflow-y: scroll;
-    overflow-x: hidden;
+    overflow-x: scroll;
+    // overflow-x: hidden;
 
     &::-webkit-scrollbar {
         width: 10px;
@@ -136,29 +137,39 @@ header {
     }
 }
 
+.wrap{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden !important;
+    // min-width: 1903px;
+    margin: 0 auto;
+}
 .main {
     position: relative;
     width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
-
+    overflow-y: scroll;
     .toppage {
         width: 100%;
-        height: 100vh;
-
+        height: 100%;
+    
         .topBG {
-            position: absolute;
+            // position: absolute;
             // top: 0px;
+            margin: 0 auto;
             max-width: 1920px;
             max-height: 863px;
             width: 100%;
-            height: 100vh;
+            height: 100%;
             background: url('../../../img/event/20230728/topBG1.png') no-repeat;
             background-position: top;
             background-size: cover;
             animation: topBGIn 0.4s 1 ease-out;
             animation-fill-mode: forwards;
-
+    
             &::before {
                 position: absolute;
                 content: "";
@@ -176,12 +187,14 @@ header {
                 animation-fill-mode: forwards;
             }
         }
-
+    
         .title {
-            position: absolute;
-            left: 50%;
-            top: 40%;
-            translate: -50%;
+            margin: 0 auto;
+            padding-top: 50%;
+            // position: absolute;
+            // left: 50%;
+            // top: 40%;
+            // translate: -50%;
             max-width: 946px;
             max-height: 324px;
             width: 100%;
@@ -192,7 +205,7 @@ header {
             animation: itemfadeIn 1s 0.5s 1 ease-out;
             animation-fill-mode: forwards;
         }
-
+    
         .startbtn {
             position: absolute;
             left: 50%;
@@ -207,23 +220,22 @@ header {
                 itemfadeIn 1s 0.75s 1 ease-out;
             animation-fill-mode: forwards;
             transition: 0.3s;
-
+    
             &:hover {
                 filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.5)) drop-shadow(0px 0px 20px rgba(255, 255, 255, 1));
             }
         }
     }
-
+    
     .page2 {
-        // position: relative;
-        position: absolute;
-        top: 94%;
+        position: relative;
+        margin: 0 auto;
         width: 100%;
-        height: 100vh;
-
+        max-width: 1903px;
+        max-height: 900px;
+        height: 100%;
+    
         .mainpic {
-            position: absolute;
-            bottom: -2%;
             width: 900px;
             height: 920px;
             background: url('../../../img/event/20230728/mainpic2.png')no-repeat;
@@ -233,7 +245,7 @@ header {
             pointer-events: none;
             transform: scale(0.86);
         }
-
+    
         .stepBox1 {
             display: flex;
             position: absolute;
@@ -242,16 +254,16 @@ header {
             z-index: 1;
             flex-direction: column;
             align-items: flex-end;
-
+    
             .awardText {
                 max-width: 650px;
                 max-height: 260px;
                 width: 100%;
             }
-
+    
             .stepBox2 {
                 display: flex;
-
+    
                 .step1,
                 .step2,
                 .step3 {
@@ -262,11 +274,11 @@ header {
                     height: 332px;
                     color: #fff;
                 }
-
+    
                 .step1 {
                     background: url('../../../img/event/20230728/step1frame.png')no-repeat;
                     color: #FFF;
-
+    
                     .btnBox {
                         display: flex;
                         position: absolute;
@@ -275,7 +287,7 @@ header {
                         transform: translate(-50%);
                         margin-top: 19%;
                     }
-
+    
                     .step1_login,
                     .step1_register {
                         width: 128px;
@@ -293,19 +305,19 @@ header {
                         transition: 0.5s;
                         margin-bottom: 16px;
                         align-items: center;
-
+    
                         &:hover {
                             transform: translateY(-2%);
                             filter: drop-shadow(0px 1px 1px #ffffff);
                         }
                     }
-
+    
                     .titleText1 {
                         text-align: center;
                         padding-top: 82px;
                         text-shadow: 0 0 10px #000;
                     }
-
+    
                     .step1Text {
                         margin: auto;
                         text-align: center;
@@ -313,15 +325,15 @@ header {
                         font-size: 20px;
                         font-weight: 500;
                         letter-spacing: 1px;
-
+    
                         p {
                             margin-top: 15%;
                         }
-
+    
                         span {
                             color: #adfffb;
                         }
-
+    
                         .logout {
                             line-height: 20px;
                             font-size: 10.79px;
@@ -336,10 +348,10 @@ header {
                         }
                     }
                 }
-
+    
                 .step2 {
                     background: url('../../../img/event/20230728/step2frame.png')no-repeat;
-
+    
                     .step2noticebtn {
                         position: absolute;
                         top: 55%;
@@ -355,13 +367,13 @@ header {
                         background: url('../../../img/event/20230728/btn_black1.png')no-repeat;
                         filter: drop-shadow(0px 4px 5px #000000);
                     }
-
+    
                     .titleText2 {
                         text-align: center;
                         padding-top: 82px;
                         text-shadow: 0 0 10px #000;
                     }
-
+    
                     .step2Text {
                         margin: auto;
                         text-align: center;
@@ -369,28 +381,28 @@ header {
                         font-size: 20px;
                         font-weight: 500;
                         letter-spacing: 1px;
-
+    
                         p {
                             margin-top: 16%;
                         }
-
+    
                         span {
                             color: #adfffb;
                         }
                     }
-
+    
                     form {
                         width: fit-content;
                         margin: auto;
                         text-align: right;
                         margin-top: 5%;
-
+    
                         label {
                             display: inline-block;
                             font-size: 20px;
                             font-weight: 500;
                             margin: 0 0 1% 0;
-
+    
                             input {
                                 font-size: 20px;
                                 width: 141px;
@@ -398,12 +410,12 @@ header {
                             }
                         }
                     }
-
+    
                 }
-
+    
                 .step3 {
                     background: url('../../../img/event/20230728/step3frame.png')no-repeat;
-
+    
                     .step3checkbox {
                         padding-top: 82px;
                         text-align: center;
@@ -414,16 +426,16 @@ header {
                         text-shadow: 0 0 10px #000;
                         display: flex;
                         justify-content: center;
-
+    
                         // input {
                         //     width: 25px;
                         //     height: 25px;
                         //     margin-right: 10px;
                         // }
-
+    
                         .step3checkText {
                             text-align: left;
-
+    
                             .step3notice {
                                 font-size: 20.8px;
                                 color: #adfffb;
@@ -431,18 +443,18 @@ header {
                                 border-bottom: 1px solid #adfffb;
                             }
                         }
-
+    
                         a {
                             text-decoration: none;
                             color: #f8b300;
                         }
-
+    
                         .btnReadAll {
                             margin-top: -32px;
                             margin-right: 10px;
                         }
                     }
-
+    
                     .step3checkbtn {
                         position: absolute;
                         top: 59%;
@@ -459,16 +471,16 @@ header {
                         align-items: center;
                         justify-content: center;
                     }
-
+    
                     .step3checkbtnA {
                         background: url('../../../img/event/20230728/btn_black.png')no-repeat;
                     }
-
+    
                     .step3checkbtnB {
                         background: url('../../../img/event/20230728/btn_blue3.png')no-repeat;
                         cursor: pointer;
                     }
-
+    
                     .step3Success {
                         padding-top: 82px;
                         text-align: center;
@@ -481,13 +493,13 @@ header {
                         flex-direction: column;
                         align-items: center;
                         line-height: 35px;
-
+    
                         .hrefFB {
                             display: inline;
                             color: #F8B300;
                             border-bottom: 1px solid #F8B300;
                         }
-
+    
                         .step3notice {
                             font-size: 20.8px;
                             color: #adfffb;
@@ -495,11 +507,11 @@ header {
                             border-bottom: 1px solid #adfffb;
                         }
                     }
-
+    
                     .step3SuccessText {
                         margin-bottom: 25px;
                     }
-
+    
                 }
             }
         }
