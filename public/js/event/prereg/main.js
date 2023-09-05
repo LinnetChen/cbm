@@ -1,15 +1,5 @@
 
 
-// menu開關
-$(".menu_toggle , .sec").on('click', function () {
-  $('.menu_toggle').toggleClass("on");
-  $('.menu_section').toggleClass("on");
-});
-
-$('.your_name').maxLength = "8";
-$('.your_msg').maxLength = "22";
-
-
 $(function () {
   $('.tab_content , .rwd_tab_content').hide();
   $('.tab_content[data-tab="tab1"]').show().addClass('active');
@@ -22,6 +12,7 @@ $(function () {
     var tabData = $(this).data('tab');
 
     if (tabData == 'tab2') {
+ 
       $('.book_wrap').css('background-image', 'url(../../../img/event/prereg/book2.png)');
       $('.refresh').hide();
     } else if (tabData == 'tab1') {
@@ -47,6 +38,15 @@ $(function () {
   });
 });
 
+// menu開關
+$(".menu_toggle , .sec").on('click', function () {
+  $('.menu_toggle').toggleClass("on");
+  $('.menu_section').toggleClass("on");
+});
+
+
+
+
 
 $('.maskR').on("click", function () {
   reload();
@@ -68,9 +68,10 @@ $('.close , .mask2 , .mask').on("click", function () {
 
 let s1_phone = `
 <h2>請填寫正確的手機號碼</h2>
+<br>
 <span>請檢查是否符合以下限制：<br>
-    台灣玩家的號碼，請為不含特殊符號的半型數字10碼<br>
-    港/澳玩家的號碼，請為不含符號的半型數字8碼
+    台灣玩家的號碼，為不含特殊符號的半形數字10碼<br>
+    港/澳玩家的號碼，為不含符號的半形數字8碼
 </span>`
 
 let s1_login = `
@@ -119,7 +120,6 @@ let post_done_again = `  <div class="page_tit"></div>
 $('.pop').on("click", function () {
   var pop = $(this).data('pop');
   $('.mask , .pop_b').fadeIn();
-  console.log(pop);
   if (pop == 1) {
     $('.pop_b_wrap').html(`<h2>【時裝箱】軍事黑制服(30日)​</h2>
      <h3>開啟後，可獲得軍事黑制服服裝與頭飾(30日)。​</br>
