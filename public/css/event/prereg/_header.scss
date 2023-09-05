@@ -17,7 +17,7 @@ header {
     }
 
     @include mmd() {
-        // background-position: top center;
+        height: 80vh;
         background-image: url('../../../img/event/prereg/header_sm.png');
     }
 
@@ -240,9 +240,14 @@ header {
             position: relative;
             top: 50%;
             left: 0%;
-            height: 50%;
+            height: auto;
             scale: .7;
         }
+
+        @include xs(){
+            scale: .65;
+        }
+
 
         @include xxs(){
             scale: .6;

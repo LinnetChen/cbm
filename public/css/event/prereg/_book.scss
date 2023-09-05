@@ -258,7 +258,7 @@
     background-image: url(../../../img/event/prereg/iron.png);
 
     border-radius: 20px;
-    width: 90%;
+    width: 100%;
     border: 1px solid #ccc;
 
     @include sm() {
@@ -350,14 +350,14 @@
     }
 
     .rwd_book_wrap {
-        width: 95%;
+        width: 100%;
         @extend %f-c-c;
         margin: 10px auto;
 
 
         .post_l {
             @extend %f-c-c;
-            width: 100%;
+            width: 95%;
 
             .post {
                 font-family: sans-serif;
@@ -365,7 +365,7 @@
                 width: 100%;
                 max-width: 580px;
                 height: auto;
-                max-height: 76px;
+                max-height: 80px;
                 display: flex;
                 flex-direction: column;
                 background-image: url('../../../img/event/prereg/note.png');
@@ -382,27 +382,12 @@
                 justify-content: space-around;
                 word-break: break-all;
 
-                @include lg(){
-                    max-height: 83px;
-                }
-
-                @include xs(){
-                    max-height: 65px;
-                }
 
                 @include xxs() {
-                    width: 87%;
-                    max-height: 76px;
+                    width: 97%;
                 }
 
     
-
-                @include x4s() {
-                    width: 97%;
-                    border: 1px solid red;
-                }
-
-        
 
 
                 .txt {

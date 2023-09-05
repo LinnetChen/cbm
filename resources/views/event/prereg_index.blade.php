@@ -12,7 +12,7 @@
     <meta property="og:site_name" content="" />
     <meta property="og:locale" content="zh_tw" />
     <meta property="article:author" content="" />
-    <meta property="og:image" content="../../../img/event/20230728/fb_share.jpg" />
+    <meta property="og:image" content="../../../img/event/prereg/share_bg.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="628" />
     <meta name="author" content="DiGeam" />
@@ -21,11 +21,11 @@
     <meta name="description" content="《黑色契約CABAL Online》事前預約" />
     <link rel="pingback" href="" />
     <title>《黑色契約CABAL Online》事前預約</title>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/event/prereg/style.css?v=5">
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v17.0" nonce="m5ozWkZT"></script>
+    <link rel="stylesheet" href="css/event/prereg/style.css?v=35">
 
     <script>
         (function(w, d, s, l, i) {
@@ -50,22 +50,17 @@
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+    <div id="fb-root"></div>
+
     <div class="mask"></div>
     <div class="maskR"></div>
     <div class="pop_b">
         <div class="pop_b_wrap">
-
         </div>
     </div>
     <div class="pop_s">
         <div class="pop_s_wrap">
-
             <div class="pop_txt"></div>
-
-            {{-- <div class="btn_box">
-                <button class="close">確認</button>
-            </div> --}}
-
         </div>
 
     </div>
@@ -84,7 +79,7 @@
     </div>
 
     <main class="wrap">
-        <header>
+        <header class="header">
             <nav class="pc">
                 <div class="link_list">
                     <a href="#sec01">事前預約</a>
@@ -198,11 +193,14 @@
                     <div class="step_info">
                         <h2 class="pc_step3_info">按讚官方Facebook粉絲團，並同意接收遊戲相關簡訊</h2>
                         <h2 class="rwd_step3_info">按讚官方Facebook粉絲團，<br>並同意接收遊戲相關簡訊</h2>
-                        <iframe
-                            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FDiGeamCabal%2F&tabs=timeline&width=300&height=70&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-                            width="300" height="70" style="border:none;overflow:hidden" scrolling="no"
-                            frameborder="0" allowfullscreen="true"
-                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+
+                        <div class="fb-page" data-href="https://www.facebook.com/DiGeamCabal/" data-tabs="timeline"
+                            data-width="350" data-height="70" data-small-header="true"
+                            data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                            <blockquote cite="https://www.facebook.com/DiGeamCabal/" class="fb-xfbml-parse-ignore"><a
+                                    href="https://www.facebook.com/DiGeamCabal/">DiGeam 黑色契約Cabal Online</a>
+                            </blockquote>
+                        </div>
                         <span><input type="checkbox" name="privacy" value="disagree" class="check"
                                 id="checkbox">我已閱讀且同意<a href="https://www.digeam.com/terms2"
                                 target="_blank">隱私權政策</a></span>
@@ -421,60 +419,55 @@
                 <div><img src="../../../img/event/prereg/img03.png" alt="">
                 </div>
                 <div><img src="../../../img/event/prereg/img04.png" alt="">
-                    {{-- <div class="sin_box">
-                        <img src="../../../img/event/prereg/tit04.png" alt="" class="sin_tit">
-                        <h3 class="sin_txt">兩大賢者的分裂，為涅瓦雷斯大陸的未來投下更多變數。<br>
-                            選擇你的陣營，在名為榮耀的戰場上為信念而戰。</h3>
-                    </div> --}}
-
                 </div>
             </div>
 
 
         </section>
 
+        <footer>
+            <div class="footerbox">
+                <div class="footerbox_logo">
+                    <a class="logo_digeam"><img class="digeamlogo"
+                            src="../../../img/event/20230728/footer/digeam_logo.png"></a>
+                    <a class="logo_rw"><img class="ESTlogo"
+                            src="../../../img/event/20230728/footer/ESTgames_logo.png"></a>
+                </div>
+                <div class="spec">
+                    <a href="https://www.digeam.com/terms" target="_blank">會員服務條款</a>
+                    <a href="https://www.digeam.com/terms2" target="_blank">隱私條款</a>
+                    <a href="https://www.digeam.com/cs" target="_blank">客服中心</a>
+                    <p class="Copyright">Copyright © ESTgames Corp. All rights reserved.<br />2023 Licensed and published
+                        for Taiwan, Hong Kong and Macau by DiGeam Co.,Ltd<br />CABAL Online is a registered trademark of
+                        ESTgames Corp (and the logo of ESTgames).</p>
+                </div>
+                <div class="classlavel">
+                    <img src="../../../img/event/20230728/footer/15plus.png" alt="輔15級">
+                    <ul>
+                        <li>本遊戲為免費使用，部分內容涉及暴力情節。</li>
+                        <li>遊戲內另提供購買虛擬遊戲幣、物品等付費服務。</li>
+                        <li>請注意遊戲時間，避免沉迷。</li>
+                        <li>本遊戲服務區域包含台灣、香港、澳門。</li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
 
     </main>
-    <footer>
-        <div class="footerbox">
-            <div class="footerbox_logo">
-                <a class="logo_digeam"><img class="digeamlogo"
-                        src="../../../img/event/20230728/footer/digeam_logo.png"></a>
-                <a class="logo_rw"><img class="ESTlogo"
-                        src="../../../img/event/20230728/footer/ESTgames_logo.png"></a>
-            </div>
-            <div class="spec">
-                <a href="https://www.digeam.com/terms" target="_blank">會員服務條款</a>
-                <a href="https://www.digeam.com/terms2" target="_blank">隱私條款</a>
-                <a href="https://www.digeam.com/cs" target="_blank">客服中心</a>
-                <p class="Copyright">Copyright © ESTgames Corp. All rights reserved.<br />2023 Licensed and published
-                    for Taiwan, Hong Kong and Macau by DiGeam Co.,Ltd<br />CABAL Online is a registered trademark of
-                    ESTgames Corp (and the logo of ESTgames).</p>
-            </div>
-            <div class="classlavel">
-                <img src="../../../img/event/20230728/footer/15plus.png" alt="輔15級">
-                <ul>
-                    <li>本遊戲為免費使用，部分內容涉及暴力情節。</li>
-                    <li>遊戲內另提供購買虛擬遊戲幣、物品等付費服務。</li>
-                    <li>請注意遊戲時間，避免沉迷。</li>
-                    <li>本遊戲服務區域包含台灣、香港、澳門。</li>
-                </ul>
-            </div>
-        </div>
-    </footer>
+ 
 </body>
 
 <script src="js/event/base/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
-{{-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> --}}
+
 <script src="
 https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js
 "></script>
-<script src="https://cdn.jsdelivr.net/npm/js-base64@3.7.5/base64.min.js"></script>
+<script src="js/event/prereg/main.js?v=35" crossorigin="anonymous"></script>
 <script src="js/event/prereg/particles.min.js" crossorigin="anonymous"></script>
 <script src="js/event/prereg/fire.js" crossorigin="anonymous"></script>
-<script src="js/event/prereg/main.js?v=5" crossorigin="anonymous"></script>
-<script src="js/event/prereg/login.js?v=12" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-base64@3.7.5/base64.min.js"></script>
+<script src="js/event/prereg/login.js?v=32" crossorigin="anonymous"></script>
 
 
 </html>

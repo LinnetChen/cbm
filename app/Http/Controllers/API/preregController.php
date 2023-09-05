@@ -30,7 +30,7 @@ class preregController extends Controller
     public function login($request)
     {
         $postBoard_temp = MsgBoard::select('post_name','post_txt')->where([['is_show', '=', 'Y'],['user_id', '<>', $request->user]])->inRandomOrder()->limit(11)->get();
-        $checkMsg = MsgBoard::where([['is_show', '=', 'Y'],['user_id', '=', $request->user]])->first();
+        $checkMsg = MsgBoard::where([['user_id', '=', $request->user]])->first();
         if (!$checkMsg) {
             $postBoard[0]['post_name'] = $postBoard[0]['post_txt'] = '';
         } else {
@@ -44,6 +44,7 @@ class preregController extends Controller
             $postBoard[$i]['post_txt'] = $key->post_txt;
             $i++;
         }
+        
         if ($request->user == null) {
             return response()->json([
                 'status' => -99,

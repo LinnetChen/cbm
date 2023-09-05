@@ -26,6 +26,8 @@ Route::get('/launcher', function () {
     return view('test_launcher');
 });
 
+Route::get('/wiki/{id?}', 'front\FrontController@wiki')->name('wiki');
+
 Route::middleware(['setReturnUrl'])->group(function () {
     // 事前預約
     // Route::get('/MembershipTransfer', function () {
