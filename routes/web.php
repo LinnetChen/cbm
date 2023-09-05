@@ -25,6 +25,10 @@ Route::get('/test_launcher', function () {
 Route::get('/launcher', function () {
     return view('test_launcher');
 });
+// Route::get('/wiki', function () {
+//     return view('home_wiki');
+// });
+Route::get('/wiki/{id?}', 'front\FrontController@wiki')->name('wiki');
 
 Route::middleware(['setReturnUrl'])->group(function () {
     // 事前預約
