@@ -1,0 +1,142 @@
+.info {
+    width: 820px;
+    height: 553px;
+/*     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+/*     background-color: rgb(0, 163, 41); */
+}
+
+.info_tab {
+    width: 405px;
+    height: 35px;
+
+}
+
+.info_topbox {
+    width: 820px;
+    height: 36px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: top 10px;
+    align-items: flex-end;
+    border-bottom: 1px solid #ffffff;
+/*     background-color: rgb(163, 0, 0); */
+    margin-bottom: 20px;
+}
+
+.info_topbox a {
+    font-size: 1rem;
+}
+
+.info_topbox a:hover {
+    color: #83d0ff;
+}
+
+.tab_button {
+    border: 1px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+    font-size: 1.3rem;
+    width: 80px;
+    height: 36px;
+    margin-right: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tab_button:hover {
+    background: url(../../img/home_page/info_tab_h.jpg);
+    color: black;
+}
+
+.tab_button.active {
+    background: url(../../img/home_page/info_tab_h.jpg);
+    color: black;
+}
+
+
+.info_container {
+    width: 820px;
+/*     height: 250px; */
+    overflow: hidden;
+    margin-top: 12px;
+/*     background-color: rgb(192, 131, 0); */
+}
+
+.info_box {
+    display: none;
+    width: 820px;
+}
+
+.info_box.active {
+    display: block;
+}
+
+.textUITOP {
+    list-style-type: "TOP ";
+    color: #83d0ff;
+    margin: 8px 0px 16px;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 3px;
+}
+
+.textUINEW {
+    list-style-type: "NEW ";
+    color: #83d0ff;
+    margin: 8px 0px 16px;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 3px;
+}
+
+.textUInormal {
+    list-style-image: url(../../img/home_page/textUInormal.png);
+    color: #83d0ff;
+    margin: 8px 0px 16px;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 3px;
+}
+
+.textbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+
+.info_title {
+    font-size: 1rem;
+    display: inline;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.info_date {
+    font-size: 0.5rem;
+    display: inline;
+    color: #c3c3c3;
+}
+.info_title:hover{
+    color: #83d0ff;
+}
+/* .pagination{
+    text-align: center;
+    list-style: none;
+    background-color: #83d0ff;
+}
+nav ul{
+    font-size: 1.2rem;
+}
+.page-item{
+    color: #ffffff;
+    display: inline;
+}
+.page-link{
+    color: #ffffff;
+}
+.page-link{
+    color: #ffffff;
+} */
