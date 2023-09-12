@@ -25,7 +25,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v17.0" nonce="m5ozWkZT"></script>
-    <link rel="stylesheet" href="css/event/prereg/style.css?v=35">
+    <link rel="stylesheet" href="css/event/prereg/style.css?v=09061">
 
     <script>
         (function(w, d, s, l, i) {
@@ -159,7 +159,7 @@
                             @endphp
                             <a class="login" href="https://digeam.com/login"></a>
                             <span>*新用戶註冊點這裡<a href="https://www.digeam.com/register_cbo"
-                                    target="_blank">前往註冊</a></span>
+                                    target="_blank"><svg fill="#f6d62f" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M17.5 10L10 17.5V14H3V6h7V2.5l7.5 7.5z"></path></g></svg>前往註冊</a></span>
                         @endif
 
                     </div>
@@ -459,15 +459,14 @@
 </body>
 
 <script src="js/event/base/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
-
 <script src="
 https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js
 "></script>
-<script src="js/event/prereg/main.js?v=35" crossorigin="anonymous"></script>
+<script src="js/event/prereg/main.js?v=09061" crossorigin="anonymous"></script>
 <script src="js/event/prereg/particles.min.js" crossorigin="anonymous"></script>
 <script src="js/event/prereg/fire.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/js-base64@3.7.5/base64.min.js"></script>
-<script src="js/event/prereg/login.js?v=32" crossorigin="anonymous"></script>
+<script src="js/event/prereg/login.js?v=09061" crossorigin="anonymous"></script>
 
 
 </html>

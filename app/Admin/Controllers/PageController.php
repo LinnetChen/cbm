@@ -139,7 +139,7 @@ SCRIPT;
         $id = $explodeUrl[$count - 2];
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('赤壁百科編輯');
+            $content->header('CBO百科編輯');
             $content->description('編輯');
 
             $content->body($this->form($id)->edit($id));
