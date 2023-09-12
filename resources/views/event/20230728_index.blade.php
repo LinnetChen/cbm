@@ -50,7 +50,7 @@
                 </div>
             </div>
         </header>
-    
+
         {{-- 跳窗 --}}
         <div class="pop mask" id="pop">
             <div class="blacklayer"></div>
@@ -69,13 +69,13 @@
                 <button class="btnClose" onclick="popClose()">關&nbsp;閉</button>
             </div>
         </div>
-    
+
         <div class="notice">
             <div class="noticeframe">
                 <p class="noticeTitle">會員轉移注意事項</p>
                 <ul>
                     <li>轉移登記期間為7/28~10/31。每個掘夢網帳號僅能綁定一個黑色契約遊戲帳號，且一經綁定後即無法更改</li>
-                    <li>遊戲帳號資料轉移時，不會轉移原持有的遊戲點數或力量晶石(含力量晶石組合包)。遊戲點數或力量晶石將於重新開服時歸零，請特別留意。</li>
+                    <li>遊戲帳號資料轉移時，不會轉移原持有的遊戲點數或力量晶石(含力量晶石組合包、商品券等道具)。遊戲點數或力量晶石將於重新開服時歸零，請特別留意。</li>
                     <li>在伺服器重新開啟前，具時效性的道具仍會正常計時。​​</li>
                     <li>因違反遊戲規章而受到封禁懲處的帳號，於轉移後仍會繼續受到封禁。</li>
                     <li>玩家進行帳號轉移時所輸入的遊戲帳號密碼資料皆為九禾遊戲企業股份有限公司所有。掘夢網無法核實遊戲帳號的真實所有人，亦無法受理綁定時針對遊戲帳號的相關問題。（如忘記密碼、帳號盜用等）</li>
@@ -102,9 +102,9 @@
                 <div class="checkbtn">確&nbsp;認</div>
             </div>
         </div>
-    
+
         <a href="https://cbo.digeam.com/prereg" target="_blank" class="jump_prereg_btn"></a>
-        
+
         <div class="main">
             <div class="toppage">
                 <div class="topBG">
@@ -176,7 +176,7 @@
                 </div>
             </div>
         </div>
-    
+
         <!----- 版權聲明開關 --------->
         <div class="footer-btn">
             <p>版權訊息</p>
