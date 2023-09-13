@@ -95,8 +95,10 @@
             </ul>
         </div>
     </div>
-    <!--頁碼-->
-<!--     <nav>
+</div>
+{{-- 頁碼 --}}
+{!! $list->links() !!}
+<!-- <nav>
         <ul class="pagination">
             <li class="page-item disabled" aria-disabled="true" aria-label="« Previous">
                  <a class="page-link" href="" rel="next" aria-label="Next »">上一頁</span>
@@ -108,7 +110,6 @@
             </li>
         </ul>
     </nav> -->
-</div>
 @endsection
 
 @section('js')

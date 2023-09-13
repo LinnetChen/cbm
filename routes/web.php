@@ -44,6 +44,9 @@ Route::get('/suspension_list', function () {
 Route::get('/info', function () {
     return view('front/info');
 });
+Route::get('/info_content', function () {
+    return view('front/info_content');
+});
 //模板
 Route::get('/app2', function () {
     return view('layouts/app2');

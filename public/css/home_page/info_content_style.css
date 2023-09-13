@@ -1,0 +1,33 @@
+.content_box{
+    width: 820px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.text_box{
+    margin-top: 15px;
+    width: 820px;
+}
+.date{
+    color: #fff;
+    align-self: end;
+}
+.title{
+    font-size: 2.1rem;
+    font-weight: bold;
+    color: #83d0ff;
+    align-self: start;
+    margin-bottom: 15px;
+    margin-top: 25px;
+    line-height: 2.5rem;
+}
+.title_line{
+    background-image:url(../../img/home_page/GiftFlare.png) ;
+    width: 902px;
+    height: 21px;
+}
+p{
+    color: #fff;
+    line-height: 1.8rem;
+}

@@ -29,6 +29,37 @@ tr {
 .text_box{
     width: 820px;
 }
+.content_box{
+    width: 820px;
+    height: 500px;
+
+}
 .name{
+    color: #83d0ff;
+}
+/*頁碼*/
+.pagination {
+    text-align: center;
+    list-style: none;
+    margin-top: 40px;
+    margin-right: 45px;
+}
+
+.pagination li {
+    display: inline;
+}
+
+.pagination li .page-link {
+    color: #ffffff;
+    font-size: 18px;
+    margin: 0px 6px;
+}
+
+.page-item {
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.page-item.disabled,.page-item.active {
     color: #83d0ff;
 }
