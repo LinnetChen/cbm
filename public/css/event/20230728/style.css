@@ -346,7 +346,7 @@ body {
   background-position: center;
   font-family: arial, "Microsoft JhengHei", "微軟正黑體", sans-serif !important;
   overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-x: scroll;
 }
 body::-webkit-scrollbar {
   width: 10px;
@@ -456,22 +456,32 @@ header .bar .sociallink .bhlink {
   animation-fill-mode: forwards;
 }
 
+.wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden !important;
+  margin: 0 auto;
+}
+
 .main {
   position: relative;
   width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
+  overflow-y: scroll;
 }
 .main .toppage {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 .main .toppage .topBG {
-  position: absolute;
+  margin: 0 auto;
   max-width: 1920px;
   max-height: 863px;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: url("../../../img/event/20230728/topBG1.png") no-repeat;
   background-position: top;
   background-size: cover;
@@ -493,10 +503,8 @@ header .bar .sociallink .bhlink {
   animation-fill-mode: forwards;
 }
 .main .toppage .title {
-  position: absolute;
-  left: 50%;
-  top: 40%;
-  translate: -50%;
+  margin: 0 auto;
+  padding-top: 50%;
   max-width: 946px;
   max-height: 324px;
   width: 100%;
@@ -524,14 +532,14 @@ header .bar .sociallink .bhlink {
   filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.5)) drop-shadow(0px 0px 20px rgb(255, 255, 255));
 }
 .main .page2 {
-  position: absolute;
-  top: 94%;
+  position: relative;
+  margin: 0 auto;
   width: 100%;
-  height: 100vh;
+  max-width: 1903px;
+  max-height: 900px;
+  height: 100%;
 }
 .main .page2 .mainpic {
-  position: absolute;
-  bottom: -2%;
   width: 900px;
   height: 920px;
   background: url("../../../img/event/20230728/mainpic2.png") no-repeat;
@@ -904,6 +912,48 @@ header .bar .sociallink .bhlink {
   filter: drop-shadow(0px 1px 1px #ffffff);
 }
 
+.jump_prereg_btn {
+  background: url("../../../img/event/20230728/jump_prereg_btn.png") no-repeat;
+  width: 312px;
+  height: 256px;
+  position: fixed;
+  bottom: 40px;
+  right: 0;
+  z-index: 3;
+  filter: drop-shadow(-3px 3px 3px rgba(0, 0, 0, 0.4));
+  -webkit-filter: drop-shadow(-3px 3px 3px rgba(0, 0, 0, 0.4));
+  animation: move_du 3s infinite;
+}
+@media all and (max-width: 1024px) {
+  .jump_prereg_btn {
+    scale: 0.9;
+  }
+}
+@media all and (max-width: 960px) {
+  .jump_prereg_btn {
+    scale: 0.8;
+    right: -27px;
+  }
+}
+@media all and (max-width: 425px) {
+  .jump_prereg_btn {
+    scale: 0.5;
+    right: -77px;
+    bottom: -51px;
+  }
+}
+
+@keyframes move_du {
+  0% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
 /*==========進場動畫==========*/
 @keyframes topBGIn {
   0% {
@@ -985,9 +1035,12 @@ header .bar .sociallink .bhlink {
     right: 3vw;
     width: 15vw;
   }
+  .main .toppage .title {
+    padding-top: 60%;
+  }
   .main .page2 .mainpic {
     top: 50px;
-    left: -120px;
+    left: -51px;
     width: 55vw;
     height: 55vw;
     background-position: top;
@@ -1164,7 +1217,7 @@ header .bar .sociallink .bhlink {
     animation: none;
   }
   .main .toppage .title {
-    top: 30vh;
+    top: 29%;
     scale: 1;
     max-width: 586px;
     max-height: 418px;
@@ -1174,7 +1227,8 @@ header .bar .sociallink .bhlink {
     background-position: center;
   }
   .main .toppage .startbtn {
-    top: 78vh;
+    top: 84%;
+    padding-top: 20px;
     width: 100vw;
     height: 15vw;
     scale: 1;
@@ -1328,7 +1382,7 @@ header .bar .sociallink .bhlink {
     background-size: contain;
   }
   .main .toppage .startbtn {
-    top: 65vh;
+    top: 78%;
     width: 80vw;
     height: 20vw;
     background-size: contain;
@@ -1379,8 +1433,8 @@ header .bar .sociallink .bhlink {
   }
 }
 @media (max-width: 375px) {
-  .main .toppage .starbtn {
-    top: 78vh;
+  .main .toppage .startbtn {
+    top: 67%;
   }
   .main .toppage .title {
     top: 10vh;
@@ -1548,32 +1602,29 @@ header .bar .sociallink .bhlink {
   position: fixed;
   z-index: 100;
   bottom: 33px;
-  left: 65px;
+  left: 35px;
   color: rgb(67, 67, 67);
   font-weight: 600;
+  font-size: 13px;
   cursor: default;
 }
 .footer-btn .footer-btnbox {
-  position: fixed;
-  z-index: 100;
-  bottom: 30px;
-  left: 135px;
   width: 50px;
-  height: 24px;
+  height: 20px;
   border-radius: 12px;
   background-color: rgb(194, 194, 194);
   box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.13) inset;
   cursor: pointer;
+  display: flex;
 }
 .footer-btn .footer-btnbox .footer-btnball {
-  width: 18px;
-  height: 18px;
+  width: 15px;
+  height: 15px;
   margin: 3px;
   border-radius: 10px;
   background-color: rgb(255, 255, 255);
   box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
   text-align: center;
-  line-height: 18px;
   color: #a3a3a3;
 }
 

@@ -201,11 +201,13 @@ function noticeIn(){
 }
 
 // 移到page2
-function move() {
-    $('html,body').animate({
-        scrollTop: $('.page2').offset().top
-    }, 10);
-}
+// function move() {
+    
+//     $('html,body').animate({
+//         scrollTop: $('.page2').offset().top
+//     }, 1000);
+// }
+
 
 //請先閱讀注意事項
 function noticecheck(){

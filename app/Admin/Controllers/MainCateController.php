@@ -22,7 +22,7 @@ class MainCateController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new category());
-        $grid->model()->orderBy('created_at','desc');
+        $grid->model()->where('type','!=','announcement')->orderBy('created_at','desc');
         $grid->column('cate_title', __('分類標題'));
         $grid->column('status', __('狀態'))->display(function(){
             if($this->status =='Y'){
