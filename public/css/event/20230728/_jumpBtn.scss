@@ -1,0 +1,37 @@
+.jump_prereg_btn{
+    background: url('../../../img/event/20230728/jump_prereg_btn.png') no-repeat;
+    width: 312px;
+    height: 256px;
+    position: fixed;
+    bottom: 40px;
+    right: 0;
+    z-index: 3;
+    filter: drop-shadow(-3px 3px 3px rgba(0, 0, 0, .4));
+    -webkit-filter: drop-shadow(-3px 3px 3px rgba(0, 0, 0, .4));
+    animation: move_du 3s infinite;
+
+    @include lg{
+        scale: .9;
+    }
+    @include md{
+        scale: .8;
+        right: -27px;
+    }
+    @include xs{
+        scale: 0.5;
+        right: -77px;
+        bottom: -51px;
+    }
+}
+
+@keyframes move_du{
+    0% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}

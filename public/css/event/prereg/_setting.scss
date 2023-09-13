@@ -1,0 +1,254 @@
+@font-face {
+    font-family: 'SourceHanSerifTC-Bold';
+    src:
+        url(./fonts/SourceHanSerifTC-Bold.otf) format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SourceHanSerifTC-Heavy';
+    src:
+        url(./fonts/SourceHanSerifTC-Heavy.otf) format("opentype");
+    font-display: swap;
+}
+
+body {
+    font-family: 'SourceHanSerifTC-Bold', 'SourceHanSerifTC-Heavy';
+    background-color: #040404;
+    overflow-y: auto;
+    overflow-x: hidden !important;
+    line-height: normal;
+    font-size: 18px;
+
+    .wrap {
+        max-width: 1920px;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        @extend %bg-cover;
+        overflow: hidden !important;
+        background: url('../../../img/event/prereg/bg.png') no-repeat;
+    }
+
+    #particles-js {
+        width: 100vw;
+        height: 100vh;
+        @include ab-lt(0px, 0px);
+    }
+
+}
+
+$font: #fff;
+$link: #32cbf7;
+
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ced0e4;
+}
+
+::-webkit-scrollbar-track {
+    background: #d74e01;
+}
+
+// h1 {
+//     font: {
+//         family: 'SourceHanSerifTC-Bold';
+//         size: 32px;
+
+//     }
+
+//     color: $font;
+
+//     @include sm {
+//         font-size: 26px;
+//     }
+
+//     @include xs {
+//         font-size: 22px;
+//     }
+// }
+
+h2 {
+    font: {
+        family: 'SourceHanSerifTC-Heavy';
+        size: 23px;
+
+    }
+
+    line-height: auto;
+    color: $font;
+
+    @include xl() {
+        font-size: 21px;
+    }
+
+    @include lg {
+        font-size: 23px;
+    }
+
+    @include xxs() {
+        font-size: 18px;
+    }
+
+    @include x4s() {
+        font-size: 17px;
+    }
+
+}
+
+table,
+h3,
+li,
+a {
+    font: {
+        family: 'SourceHanSerifTC-Bold';
+        weight: bold;
+        size: 22px;
+        line-height: auto;
+    }
+
+    line-height: normal;
+    color: $font;
+
+    @include xl() {
+        font-size: 18px;
+    }
+
+
+    @include xs() {
+        font-size: 20px;
+    }
+
+    @include xxs() {
+        font-size: 18px;
+    }
+
+
+    // @include x4s(){
+    //     font-size: 14px;
+    // }
+
+}
+
+span {
+    font: {
+        family: 'SourceHanSerifTC-Bold';
+        weight: bold;
+        size: 18px;
+        line-height: auto;
+    }
+
+    line-height: normal;
+    color: $font;
+
+    @include xl() {
+        font-size: 17px;
+    }
+
+
+    @include xs() {
+        font-size: 20px;
+    }
+
+    @include xxs() {
+        font-size: 18px;
+    }
+
+}
+
+h4,
+li {
+    font: {
+
+        family: 'SourceHanSerifTC-Bold';
+        size: 18px;
+    }
+
+    line-height: normal;
+    color: $font;
+
+    @include sm {
+        font-size: 16px;
+    }
+}
+
+.post {
+
+    .txt,
+    .msg_box,
+    .name,
+    label,
+    .add_msg,
+    .your_name,
+    .your_msg {
+        font-size: 18px;
+
+        @include xs() {
+            font-size: 14px;
+        }
+
+        // @include x4s(){
+        //     font-size: 1px;
+        // }
+    }
+
+    h4,
+    span {
+        color: #332a2a;
+    }
+}
+
+
+
+.loading-spinner {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(54, 20, 20, 0.8));
+    z-index: 9999;
+
+    .dots {
+        @extend %ab-center;
+        width: 3.5em;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        div {
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            background-color: #ccc;
+            animation: fade 0.8s ease-in-out alternate infinite;
+
+            &:nth-of-type(1) {
+                animation-delay: -0.4s;
+            }
+
+            &:nth-of-type(2) {
+                animation-delay: -0.2s;
+            }
+        }
+    }
+}
+
+
+@keyframes fade {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

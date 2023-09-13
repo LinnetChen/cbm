@@ -63,3 +63,6 @@ Route::middleware(['setReturnUrl'])->group(function () {
 Route::post('delCKEImg', 'CkeditorUploadController@delCKEImg');
 Route::post('ckeditor/upload', 'CkeditorUploadController@uploadImage');
 Route::post('filePath', 'CkeditorUploadController@getImage')->name('filePath');
+
+Route::get('/prereg', 'front\preregController@index');
+Route::get('testApi','front\testController@testAPI');
