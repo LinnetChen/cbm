@@ -1,0 +1,1031 @@
+.main_box {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 1350px;
+    height: 410px;
+    position: relative;
+    top: 55%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+    box-sizing: border-box;
+    padding-bottom: 40px;
+}
+
+.main_box a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+
+.btn_two a {
+    font-size: 1.2rem;
+}
+
+/*主要按鈕*/
+.main_btn {
+    width: 253px;
+    height: 370px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.download {
+    background: url(../../img/home_page/download.png);
+    width: 253px;
+    height: 99px;
+    transition: 0.5s;
+}
+
+.download:hover {
+    background: url(../../img/home_page/download_h.png);
+    -webkit-filter: drop-shadow(0px 0px 10px #a4dcff);
+}
+
+.btn {
+    width: 245px;
+    height: 81px;
+    border: 1px solid #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn_two {
+    width: 247px;
+    height: 81px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.btn_small {
+    width: 118px;
+    height: 81px;
+    border: 1px solid #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_small:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/*輪播圖*/
+.banner {
+    width: 530px;
+    height: 350px;
+    border: #ffffff 1px solid;
+    overflow: hidden;
+}
+
+.swiper-container {
+    width: 530px;
+    height: 350px;
+}
+
+.swiper-pagination-custom .swiper-pagination-bullet {
+    width: 13px;
+    height: 13px;
+    background-color: #ccc;
+    margin: 0 5px;
+    border-radius: 0;
+}
+
+.swiper-pagination-custom .swiper-pagination-bullet-active {
+    background-color: #ffffff;
+}
+
+/*公告*/
+.info {
+    width: 495px;
+    height: 350px;
+    border: 1px solid #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.info_tab {
+    width: 405px;
+    height: 35px;
+
+}
+
+.info_topbox {
+    width: 445px;
+    height: 36px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: top 10px;
+    align-items: flex-end;
+    border-bottom: 1px solid #ffffff;
+}
+
+.info_topbox a {
+    font-size: 1rem;
+}
+
+.info_topbox a:hover {
+    color: #83d0ff;
+}
+
+.tab_button {
+    border: 1px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+    font-size: 1.3rem;
+    width: 80px;
+    height: 36px;
+    margin-right: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tab_button:hover {
+    background: url(../../img/home_page/info_tab_h.jpg);
+    color: black;
+}
+
+.tab_button.active {
+    background: url(../../img/home_page/info_tab_h.jpg);
+    color: black;
+}
+
+
+.info_container {
+    width: 445px;
+    height: 250px;
+    overflow: hidden;
+    margin-top: 12px;
+}
+
+
+.info_box {
+    display: none;
+    width: 445px;
+}
+
+.info_box.active {
+    display: block;
+}
+
+.textUITOP {
+    list-style-type: "TOP ";
+    color: #83d0ff;
+    margin: 6px 0px;
+}
+
+.textUINEW {
+    list-style-type: "NEW ";
+    color: #83d0ff;
+    margin: 6px 0px;
+}
+
+.textUInormal {
+    list-style-image: url(../../img/home_page/textUInormal.png);
+    color: #83d0ff;
+    margin: 6px 0px;
+}
+
+.textbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+
+.info_title {
+    font-size: 1rem;
+    display: inline;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.info_date {
+    font-size: 0.5rem;
+    display: inline;
+    color: #c3c3c3;
+}
+
+/*職業*/
+.section2 {
+    background: url(../../img/home_page/section2/section2bg.jpg);
+    width: 1920px;
+    height: 950px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.job_title {
+    position: absolute;
+    top: 140px;
+    left: 1030px;
+    width: 645px;
+    height: 155px;
+    background-image: url(../../img/home_page/section2/section2Title.png);
+}
+
+.job_tab {
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.job_box {
+    width: 1920px;
+    height: 950px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.job_mainbox {
+    display: none;
+}
+
+.job_mainbox.active {
+    display: block;
+}
+
+
+.job_left {
+    width: 1042px;
+    height: 950px;
+    position: relative;
+}
+
+.magic1 {
+    width: 1042px;
+    height: 950px;
+    background-image: url(../../img/home_page/section2/jobBling1.png);
+    mix-blend-mode: screen;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.magic2 {
+    width: 1042px;
+    height: 950px;
+    background-image: url(../../img/home_page/section2/jobBling2.png);
+    mix-blend-mode: screen;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.magic3 {
+    width: 1042px;
+    height: 950px;
+    background-image: url(../../img/home_page/section2/jobBling3.png);
+    mix-blend-mode: screen;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.magic4 {
+    width: 1042px;
+    height: 950px;
+    background-image: url(../../img/home_page/section2/jobBling4.png);
+    mix-blend-mode: screen;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.magic5 {
+    width: 1042px;
+    height: 950px;
+    background-image: url(../../img/home_page/section2/jobBling5.png);
+    mix-blend-mode: screen;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.magic6 {
+    width: 1042px;
+    height: 950px;
+    background-image: url(../../img/home_page/section2/jobBling6.png);
+    mix-blend-mode: screen;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.magic7 {
+    width: 1042px;
+    height: 950px;
+    background-image: url(../../img/home_page/section2/jobBling7.png);
+    mix-blend-mode: screen;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.magic8 {
+    width: 1042px;
+    height: 950px;
+    background-image: url(../../img/home_page/section2/jobBling8.png);
+    mix-blend-mode: screen;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.magic9 {
+    width: 1042px;
+    height: 950px;
+    background-image: url(../../img/home_page/section2/jobBling9.png);
+    mix-blend-mode: screen;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.character1 {
+    width: 1042px;
+    height: 950px;
+    background-image: url(../../img/home_page/section2/job1.png);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.character2 {
+    width: 1042px;
+    height: 950px;
+    background-image: url(../../img/home_page/section2/job2.png);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.character3 {
+    width: 1042px;
+    height: 950px;
+    background-image: url(../../img/home_page/section2/job3.png);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.character4 {
+    width: 1042px;
+    height: 950px;
+    background-image: url(../../img/home_page/section2/job4.png);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.character5 {
+    width: 1042px;
+    height: 950px;
+    background-image: url(../../img/home_page/section2/job5.png);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.character6 {
+    width: 1042px;
+    height: 950px;
+    background-image: url(../../img/home_page/section2/job6.png);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.character7 {
+    width: 1042px;
+    height: 950px;
+    background-image: url(../../img/home_page/section2/job7.png);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.character8 {
+    width: 1042px;
+    height: 950px;
+    background-image: url(../../img/home_page/section2/job8.png);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.character9 {
+    width: 1042px;
+    height: 950px;
+    background-image: url(../../img/home_page/section2/job9.png);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.job_right {
+    height: 400px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 34px;
+    margin-top: 90px;
+}
+
+.job_namebox {
+    width: 555px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /*     background-color: aqua; */
+}
+
+.job_icon1 {
+    width: 125px;
+    height: 117px;
+    background: url(../../img/home_page/section2/jobTextIcon1.png);
+}
+
+.job_icon2 {
+    width: 125px;
+    height: 117px;
+    background: url(../../img/home_page/section2/jobTextIcon2.png);
+}
+
+.job_icon3 {
+    width: 125px;
+    height: 117px;
+    background: url(../../img/home_page/section2/jobTextIcon3.png);
+}
+
+.job_icon4 {
+    width: 125px;
+    height: 117px;
+    background: url(../../img/home_page/section2/jobTextIcon4.png);
+}
+
+.job_icon5 {
+    width: 125px;
+    height: 117px;
+    background: url(../../img/home_page/section2/jobTextIcon5.png);
+}
+
+.job_icon6 {
+    width: 125px;
+    height: 117px;
+    background: url(../../img/home_page/section2/jobTextIcon6.png);
+}
+
+.job_icon7 {
+    width: 125px;
+    height: 117px;
+    background: url(../../img/home_page/section2/jobTextIcon7.png);
+}
+
+.job_icon8 {
+    width: 125px;
+    height: 117px;
+    background: url(../../img/home_page/section2/jobTextIcon8.png);
+}
+
+.job_icon9 {
+    width: 125px;
+    height: 117px;
+    background: url(../../img/home_page/section2/jobTextIcon9.png);
+}
+
+.job_name1 {
+    width: 430px;
+    height: 101px;
+    background: url(../../img/home_page/section2/jobTextTitle1.png);
+}
+
+.job_name2 {
+    width: 430px;
+    height: 101px;
+    background: url(../../img/home_page/section2/jobTextTitle2.png);
+}
+
+.job_name3 {
+    width: 430px;
+    height: 101px;
+    background: url(../../img/home_page/section2/jobTextTitle3.png);
+}
+
+.job_name4 {
+    width: 430px;
+    height: 101px;
+    background: url(../../img/home_page/section2/jobTextTitle4.png);
+}
+
+.job_name5 {
+    width: 430px;
+    height: 101px;
+    background: url(../../img/home_page/section2/jobTextTitle5.png);
+}
+
+.job_name6 {
+    width: 430px;
+    height: 101px;
+    background: url(../../img/home_page/section2/jobTextTitle6.png);
+}
+
+.job_name7 {
+    width: 430px;
+    height: 101px;
+    background: url(../../img/home_page/section2/jobTextTitle7.png);
+}
+
+.job_name8 {
+    width: 430px;
+    height: 101px;
+    background: url(../../img/home_page/section2/jobTextTitle8.png);
+}
+
+.job_name9 {
+    width: 430px;
+    height: 101px;
+    background: url(../../img/home_page/section2/jobTextTitle9.png);
+}
+
+.job_text {
+    width: 555px;
+    color: #ffffff;
+    font-size: 1rem;
+    margin: 15px 0px;
+}
+
+.job_info {
+    width: 555px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.job_star1 {
+    width: 270px;
+    height: 67px;
+    background: url(../../img/home_page/section2/jobText1.png);
+    margin-top: 16px;
+}
+
+.job_star2 {
+    width: 270px;
+    height: 67px;
+    background: url(../../img/home_page/section2/jobText2.png);
+    margin-top: 16px;
+}
+
+.job_star3 {
+    width: 270px;
+    height: 67px;
+    background: url(../../img/home_page/section2/jobText3.png);
+    margin-top: 16px;
+}
+
+.job_star4 {
+    width: 270px;
+    height: 67px;
+    background: url(../../img/home_page/section2/jobText4.png);
+    margin-top: 16px;
+}
+
+.job_star5 {
+    width: 270px;
+    height: 67px;
+    background: url(../../img/home_page/section2/jobText5.png);
+    margin-top: 16px;
+}
+
+.job_star6 {
+    width: 270px;
+    height: 67px;
+    background: url(../../img/home_page/section2/jobText6.png);
+    margin-top: 16px;
+}
+
+.job_star7 {
+    width: 270px;
+    height: 67px;
+    background: url(../../img/home_page/section2/jobText7.png);
+    margin-top: 16px;
+}
+
+.job_star8 {
+    width: 270px;
+    height: 67px;
+    background: url(../../img/home_page/section2/jobText8.png);
+    margin-top: 16px;
+}
+
+.job_star9 {
+    width: 270px;
+    height: 67px;
+    background: url(../../img/home_page/section2/jobText9.png);
+    margin-top: 16px;
+}
+
+.job_triangle1 {
+    width: 269px;
+    height: 196px;
+    background: url(../../img/home_page/section2/jobTriangle1.png);
+}
+
+.job_triangle2 {
+    width: 269px;
+    height: 196px;
+    background: url(../../img/home_page/section2/jobTriangle2.png);
+}
+
+.job_triangle3 {
+    width: 269px;
+    height: 196px;
+    background: url(../../img/home_page/section2/jobTriangle3.png);
+}
+
+.job_triangle4 {
+    width: 269px;
+    height: 196px;
+    background: url(../../img/home_page/section2/jobTriangle4.png);
+}
+
+.job_triangle5 {
+    width: 269px;
+    height: 196px;
+    background: url(../../img/home_page/section2/jobTriangle5.png);
+}
+
+.job_triangle6 {
+    width: 269px;
+    height: 196px;
+    background: url(../../img/home_page/section2/jobTriangle6.png);
+}
+
+.job_triangle7 {
+    width: 269px;
+    height: 196px;
+    background: url(../../img/home_page/section2/jobTriangle7.png);
+}
+
+.job_triangle8 {
+    width: 269px;
+    height: 196px;
+    background: url(../../img/home_page/section2/jobTriangle8.png);
+}
+
+.job_triangle9 {
+    width: 269px;
+    height: 196px;
+    background: url(../../img/home_page/section2/jobTriangle9.png);
+}
+
+.job_button {
+    border: 0;
+    background: url(../../img/home_page/section2/job_btn.png);
+    width: 139px;
+    height: 127px;
+    font-size: 1.3rem;
+    font-family: 'Noto Serif TC', serif;
+    color: #ffffff;
+    text-shadow: 0px 0px 5px black, 0px 0px 5px black, 0px 0px 5px black, 0px 0px 10px black;
+    transition: 0.3s;
+}
+
+.job_button_h1.active {
+    background: url(../../img/home_page/section2/Section02But1Hover.png);
+    color: transparent;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+.job_button_h1:hover {
+    background: url(../../img/home_page/section2/Section02But1Hover.png);
+    color: transparent;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+.job_button_h2.active {
+    background: url(../../img/home_page/section2/Section02But2Hover.png);
+    color: transparent;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+.job_button_h2:hover {
+    background: url(../../img/home_page/section2/Section02But2Hover.png);
+    color: transparent;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+.job_button_h3.active {
+    background: url(../../img/home_page/section2/Section02But3Hover.png);
+    color: transparent;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+.job_button_h3:hover {
+    background: url(../../img/home_page/section2/Section02But3Hover.png);
+    color: transparent;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+.job_button_h4.active {
+    background: url(../../img/home_page/section2/Section02But4Hover.png);
+    color: transparent;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+.job_button_h4:hover {
+    background: url(../../img/home_page/section2/Section02But4Hover.png);
+    color: transparent;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+.job_button_h5.active {
+    background: url(../../img/home_page/section2/Section02But5Hover.png);
+    color: transparent;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+.job_button_h5:hover {
+    background: url(../../img/home_page/section2/Section02But5Hover.png);
+    color: transparent;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+.job_button_h6.active {
+    background: url(../../img/home_page/section2/Section02But6Hover.png);
+    color: transparent;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+.job_button_h6:hover {
+    background: url(../../img/home_page/section2/Section02But6Hover.png);
+    color: transparent;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+.job_button_h7.active {
+    background: url(../../img/home_page/section2/Section02But7Hover.png);
+    color: transparent;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+.job_button_h7:hover {
+    background: url(../../img/home_page/section2/Section02But7Hover.png);
+    color: transparent;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+.job_button_h8.active {
+    background: url(../../img/home_page/section2/Section02But8Hover.png);
+    color: transparent;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+.job_button_h8:hover {
+    background: url(../../img/home_page/section2/Section02But8Hover.png);
+    color: transparent;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+.job_button_h9.active {
+    background: url(../../img/home_page/section2/Section02But9Hover.png);
+    color: transparent;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+.job_button_h9:hover {
+    background: url(../../img/home_page/section2/Section02But9Hover.png);
+    color: transparent;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+.armsL {
+    background: url(../../img/home_page/section2/ArmsBtnL.png);
+    width: 102px;
+    height: 51px;
+    transition: 0.3s;
+}
+
+.armsL:hover {
+    background: url(../../img/home_page/section2/ArmsBtnLHover.png);
+}
+
+.armsR {
+    background: url(../../img/home_page/section2/ArmsBtnR.png);
+    width: 102px;
+    height: 51px;
+    transition: 0.3s;
+}
+
+.armsR:hover {
+    background: url(../../img/home_page/section2/ArmsBtnRHover.png);
+}
+
+
+
+/*遊戲特色*/
+.section3 {
+    background: url(../../img/home_page/section3/section3bg.jpg);
+    width: 1920px;
+    height: 950px;
+}
+
+.title {
+    background: url(../../img/home_page/section3/section3Title.png);
+    width: 626px;
+    height: 128px;
+    position: relative;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 24%;
+}
+
+.swiper_fater {
+    position: relative;
+    margin-top: 60px;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 41%;
+}
+
+.swiper-container-game {
+    position: relative;
+    transform: translate(-50%, 0%);
+    left: 50%;
+    width: 1315px;
+    overflow: hidden;
+    --swiper-navigation-color: rgba(0, 0, 0, 0, );
+    --swiper-navigation-size: 50px;
+}
+
+.swiper-button-prev .swiper-button-disabled {
+    width: 101px;
+    height: 88px;
+}
+
+
+.swiper_fater .swiper-button-prev {
+    top: 43%;
+    left: 9%;
+    width: 101px;
+    height: 88px;
+    color: transparent;
+    background-size: 101px 88px;
+    background-image: url(../../img/home_page/section3/S3TriangleL.png);
+    transition: 0.8s;
+}
+
+.swiper_fater .swiper-button-prev:hover {
+    background-image: url(../../img/home_page/section3/S3TriangleLHover.png);
+}
+
+.swiper_fater .swiper-button-next {
+    top: 43%;
+    right: 9%;
+    width: 101px;
+    height: 88px;
+    background-size: 101px 88px;
+    color: transparent;
+    background-image: url(../../img/home_page/section3/S3TriangleR.png);
+    transition: 0.8s;
+}
+
+.swiper_fater .swiper-button-next:hover {
+    background-image: url(../../img/home_page/section3/S3TriangleRHover.png)
+}
+
+
+.swiper-slide-box {
+    width: 1315px;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.featureTX {
+    width: 578px;
+    height: 200px;
+    color: #ffffff;
+    font-size: 1.2rem;
+    line-height: 2.3rem;
+    box-sizing: border-box;
+    padding: -10px;
+}
+
+.feature_text {
+    width: 650px;
+    height: 306px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.feature_text img {
+    width: 620px;
+    height: 191px;
+}
+
+
+.game-swiper-pagination {
+    position: relative;
+    text-align: center;
+}
+
+.game-swiper-pagination-custom .swiper-pagination-bullet {
+    background-image: url(../../img/home_page/section3/carouselSquare.png) !important;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    opacity: 1;
+    border-radius: 0;
+    background: 0, 0;
+    margin: 0 10px !important;
+}
+
+.game-swiper-pagination-custom .swiper-pagination-bullet-active {
+    background-image: url(../../img/home_page/section3/carouselSquareHover.png) !important;
+}

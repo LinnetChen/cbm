@@ -26,7 +26,29 @@ Route::get('/launcher', function () {
     return view('test_launcher');
 });
 
-Route::get('/wiki/{id?}', 'front\FrontController@wiki')->name('wiki');
+Route::get('/home', function () {
+    return view('front/home_page');
+});
+Route::get('/wiki', function () {
+    return view('front/home_wiki');
+});
+Route::get('/wiki_search', function () {
+    return view('front/home_wiki_search');
+});
+Route::get('/game_religion', function () {
+    return view('front/game_religion');
+});
+Route::get('/suspension_list', function () {
+    return view('front/suspension_list');
+});
+Route::get('/info', function () {
+    return view('front/info');
+});
+//模板
+Route::get('/app2', function () {
+    return view('layouts/app2');
+});
+
 
 Route::middleware(['setReturnUrl'])->group(function () {
     // 事前預約

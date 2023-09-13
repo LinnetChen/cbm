@@ -1,0 +1,20 @@
+[2023/9/1 下午2:59:01] layer "Flare.png": Duplicate path: Flare.png
+[2023/9/1 下午2:59:01] layer "Flare.png": Duplicate path: Flare.png
+[2023/9/1 下午2:59:01] layer "DarkMage.png": Duplicate path: DarkMage.png
+[2023/9/1 下午2:59:01] layer "Flare.png": Duplicate path: Flare.png
+[2023/9/1 下午2:59:01] layer "ArmsBtnA1.png 拷貝": Expected end of input but "\u62F7" found.
+[2023/9/1 下午2:59:01] layer "ArmsBtnA1.png 拷貝 2": Expected end of input but "\u62F7" found.
+[2023/9/1 下午2:59:01] layer "ArmsBtnA1.png 拷貝 3": Expected end of input but "\u62F7" found.
+[2023/9/1 下午2:59:01] layer "ArmsBtnA1.png 拷貝 4": Expected end of input but "\u62F7" found.
+[2023/9/1 下午2:59:01] layer "ArmsBtnA1.png 拷貝 5": Expected end of input but "\u62F7" found.
+[2023/9/1 下午2:59:01] layer "ArmsBtnA1.png 拷貝 7": Expected end of input but "\u62F7" found.
+[2023/9/1 下午2:59:01] layer "Flare.png": Duplicate path: Flare.png
+[2023/9/1 下午2:59:01] layer "Flare.png": Duplicate path: Flare.png
+[2023/9/1 下午2:59:01] layer "Flare.png": Duplicate path: Flare.png
+[2023/9/1 下午2:59:01] layer "Flare.png": Duplicate path: Flare.png
+[2023/9/1 下午2:59:01] layer "Flare.png": Duplicate path: Flare.png
+[2023/9/1 下午2:59:01] layer "WizardTextTitle.png": Duplicate path: WizardTextTitle.png
+[2023/9/1 下午2:59:01] layer "WizardText.png": Duplicate path: WizardText.png
+[2023/9/1 下午2:59:01] layer "WizardTextIcon.png": Duplicate path: WizardTextIcon.png
+[2023/9/1 下午2:59:01] layer "WizardTriangle.png ": Duplicate path: WizardTriangle.png
+[2023/9/1 下午2:59:01] layer "Section02But1.png 拷貝": Expected end of input but "\u62F7" found.

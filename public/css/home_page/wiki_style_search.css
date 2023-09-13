@@ -1,0 +1,363 @@
+body {
+    overflow: hidden !important;
+    margin: 0;
+    width: 1920px;
+    height: 970px;
+    font-family: 'Noto Sans TC', sans-serif;
+    line-height: 1.8rem;
+    background-color: black;
+}
+
+
+.big_box {
+    width: 1580px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.bg {
+    background: url('../../img/home_page/wiki/wiki_bg2.jpg') no-repeat;
+    /*     height: 970px;
+    width: 1920px; */
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-width: 1920px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: top;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.menu {
+    width: 180px;
+    height: 90px;
+    /*     position: absolute;
+    left: 1725px;
+    top: 38px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.img {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.img:hover {
+    background-color: rgba(0, 157, 255, 0.4);
+}
+
+.leftbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 265px;
+    background-color: rgba(0, 157, 255, 0.4);
+    position: absolute;
+    left: 170px;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+}
+
+.logo {
+    width: 288px;
+    height: 99px;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+}
+
+.logo:hover {
+    background: url(../../img/home_page/CabalLogo.png);
+    width: 288px;
+    height: 99px;
+    transform: scale(1.05);
+    margin-bottom: 30px;
+}
+
+.search {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.search-bar {
+    font-size: 1.2rem;
+    margin: 0 auto;
+    width: 205px;
+    height: 37px;
+    border: 1px solid white;
+    background-color: rgba(255, 255, 255, 0);
+    color: #ffffff;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 200px;
+    height: 647px;
+    /*     background-color: black; */
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.font_title {
+    width: 200px;
+    margin-left: -40px;
+    margin-top: 10px;
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    /*     background-color: red; */
+}
+
+.libox {
+    text-align: left;
+    color: white;
+    /*     background-color: rgb(10, 128, 20); */
+    display: none;
+}
+
+.font_list {
+    margin-left: 20px;
+    font-size: 1rem;
+}
+
+.right_box {
+    display: flex;
+    flex-direction: column;
+    width: 1315px;
+    height: 910px;
+    position: absolute;
+    left: 435px;
+    bottom: 0px;
+}
+
+.topbox {
+    width: 1450px;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.box {
+    border-radius: 11px 11px 0px 0px;
+    width: 182px;
+    height: 70px;
+    background-color: #fff;
+    margin-left: 60px;
+    /*     position: absolute;
+    left: 495px;
+    top: 53px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.topbox p {
+    font-size: 1.7rem;
+    letter-spacing: 3px;
+}
+
+.bottombox {
+    width: 1315px;
+    height: 840px;
+    background-color: #fff;
+    /*     position: absolute;
+    left: 435px;
+    bottom: 0; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+}
+
+.title {
+    font-size: 2.3rem;
+    color: #0081d1;
+    font-weight: bold;
+    position: relative;
+    /*     left: 50px; */
+    /*     padding-top: 15px; */
+    padding: 20px 50px;
+    border-bottom: 1px #333333 solid;
+    /*     background-color: aquamarine; */
+    width: 1280px;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.contantbox {
+    width: 1280px;
+    height: 135px;
+    /*     background-color: aqua; */
+    position: relative;
+    /*     top: 130px; */
+    margin: 25px 0px;
+    box-sizing: border-box;
+    padding: 0 50px;
+}
+
+.contantbox p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.read {
+    width: 140px;
+    height: 45px;
+    background-color: #0081d1;
+    color: #fff;
+    border: 0;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.read:hover {
+    background-color: #fff;
+    color: #0081d1;
+    border: 1px solid #0081d1;
+}
+
+/*右邊文字區塊卷軸*/
+.textbox::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+
+.textbox::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 7px;
+}
+
+.textbox::-webkit-scrollbar-thumb:hover {
+    background: #333333;
+}
+
+.textbox::-webkit-scrollbar {
+    width: 8px;
+}
+
+/*左邊選單卷軸*/
+.container::-webkit-scrollbar-track {
+    background-color: rgba(0, 157, 255, 0);
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 7px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background: #ffffff;
+}
+
+.container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.footer {
+    width: 1275px;
+    height: 90px;
+    /*     background-color: aqua;  */
+    /*     position: absolute;
+    bottom: 0; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer p {
+    font-size: 0.6rem;
+    line-height: 0.3rem;
+}
+
+.linkp {
+    margin-right: 5px;
+    font-size: 0.6rem;
+    color: #0081d1;
+}
+
+.copyright {
+    margin-top: -10px;
+}
+
+.digeam {
+    background-image: url(../../img/home_page/digeam_logo.png);
+    width: 149px;
+    height: 36px;
+}
+
+.est {
+    background-image: url(../../img/home_page/est_icon.png);
+    width: 146px;
+    height: 17px;
+}
+
+.age {
+    background-image: url(../../img/home_page/15_icon.png);
+    width: 59px;
+    height: 59px;
+    margin-right: -22px;
+}
+
+.footer span {
+    color: #0081d1;
+}
+
+.footer a:hover {
+    color: black;
+}
+
+
+.hr2 {
+    width: 1280px;
+    /*     position: absolute;
+    bottom: 80px; */
+}
+
+/*搜尋欄字顏色*/
+::placeholder {
+    /* CSS 3 標準 */
+    color: rgba(255, 255, 255, 0.5);
+}
+
+::-webkit-input-placeholder {
+    /* Chrome, Safari */
+    color: rgba(255, 255, 255, 0.5);
+}
+
+:-ms-input-placeholder {
+    /* IE 10+ */
+    color: rgba(255, 255, 255, 0.5);
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+}
+
+li a {
+    text-decoration: none;
+    color: #fff;
+    transition: 0.2s;
+}
+
+li a:hover {
+    text-shadow: 0px 0px 10px #fff, 0px 0px 10px #fff;
+}

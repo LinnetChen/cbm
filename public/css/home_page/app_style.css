@@ -1,0 +1,158 @@
+body{
+    overflow-x: hidden!important;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Noto Sans TC', sans-serif;
+    line-height: 1.8rem;
+    background-color: black;
+}
+.bg{
+    background-color: black;
+    background: url(../../img/home_page/mainbg.jpg) no-repeat;
+    width: 1920px;
+    height: 950px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+/*     margin-bottom: -410px; */
+}
+.top_bar{
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 1920px;
+    height:110px ;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 9999;
+}
+.logo{
+    width: 288px;
+    height: 99px; 
+    margin-bottom: 15px;
+}
+.top_bar a{
+    color: #ffffff;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+.menu_box a{
+    color: #ffffff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: 0.5s;
+}
+.menu_box a:hover{
+    color: #83d0ff;
+    text-shadow: 0px 0px 8px #ffffff;
+}
+.top_box{
+    width: 1920px;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    transition: 0.8s;
+    z-index: 9998;
+    overflow: hidden;
+}
+.menu_box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 933px;
+    height:225px;
+/*     background-color: #ff8800; */
+    margin-left: 76px;
+    margin-top: 105px;
+}
+.menu_box_s{
+    width: 104px;
+    height: 225px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+/*     background-color: rgb(5, 131, 68); */
+}
+.icon_menu{
+    width: 160px;
+    height: 24px;
+/*     position: absolute;
+    right: 29px;
+    top: 38px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-right:50px ;
+}
+.menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 920px;
+    height: 110px;
+}
+.footer {
+    width: 1920px;
+    height: 100px;
+    background-color: black;
+/*     position: relative; */
+/* transform: translate(-50%,-50%); */
+/*     bottom: 0; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 255px;
+}
+
+.footer p {
+    font-size: 0.6rem;
+    line-height: 0.3rem;
+    color: #ffffff;
+}
+
+.linkp {
+    margin-right: 5px;
+    font-size: 0.6rem;
+    color: #ff8800;
+}
+
+.copyright {
+    margin-top: -10px;
+}
+
+.digeam {
+    background-image: url(../../img/home_page/digeam_logo.png);
+    width: 149px;
+    height: 36px;
+}
+
+.est {
+    background-image: url(../../img/home_page/est_icon_w.png);
+    width: 146px;
+    height: 17px;
+}
+
+.age {
+    background-image: url(../../img/home_page/15_icon.png);
+    width: 59px;
+    height: 59px;
+    margin-right: -70px;
+}
+
+.footer span {
+    color: #ff8800;
+}
+
+.footer a:hover {
+    color: #0081d1;
+}
