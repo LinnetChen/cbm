@@ -49,6 +49,7 @@ Route::get('/app2', function () {
     return view('layouts/app2');
 });
 
+Route::get('/wiki/{id?}', 'front\FrontController@wiki')->name('wiki');
 
 Route::middleware(['setReturnUrl'])->group(function () {
     // 事前預約
