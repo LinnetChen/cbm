@@ -1,0 +1,89 @@
+.content_box{
+    width: 820px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.text_box{
+    margin-top: 15px;
+    width: 643px;
+}
+.date{
+    color: #fff;
+    align-self: end;
+}
+.title{
+    font-size: 2.1rem;
+    font-weight: bold;
+    color: #83d0ff;
+    margin-bottom: 15px;
+    margin-top: 25px;
+    line-height: 2.5rem;
+}
+.title_line{
+    background-image:url(../../img/home_page/GiftFlare.png) ;
+    width: 902px;
+    height: 21px;
+}
+p{
+    color: #fff;
+    line-height: 1.3rem;
+}
+table{
+    color: #fff;
+    border: #fff 1px solid;
+    border-collapse: collapse;
+    width: 643px;
+    text-align: left;
+    font-size: 1.1rem;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+tr{
+    border: #fff 1px solid;
+}
+td{
+    border: #fff 1px solid;
+}
+.tab_head {
+    background-color: #0081d1;
+    text-align: center;
+}
+
+.tab_head_s {
+    background-color: #83d0ff;
+    text-align: center;
+}
+.tab_head_s td,
+.tab_head td {
+    color: black;
+    font-weight: bold;
+}
+td{
+    padding: 5px 10px;
+}
+.btn_box{
+    width: 643px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.btn_download{
+    width: 300px;
+    height: 60px;
+    color: #83d0ff;
+    border: 1px solid #83d0ff;
+    background-color: transparent;
+    font-size: 2.1rem;
+    font-weight: bold;
+    margin: 25px 0px;
+    cursor: pointer;
+}
+.btn_download:hover{
+    background-color: #83d0ff;
+    color: black;
+    border: 1px solid #ffffff;
+    font-weight: bold;
+}

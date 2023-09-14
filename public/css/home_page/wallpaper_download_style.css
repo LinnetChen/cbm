@@ -1,0 +1,47 @@
+.content_box {
+    width: 926px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+p {
+    color: #fff;
+    line-height: 1.8rem;
+}
+
+.box {
+    display: flex;
+    /*     width: 276px;
+    height: 207px; */
+    background-color: rgb(255, 255, 255);
+    margin: 15px;
+}
+
+.content_box a {
+    color: #fff;
+}
+
+.img {
+    opacity: 1;
+}
+
+.download_icon {
+    display: none;
+    background-image: url(../../img/home_page/wallpaper/SectionDownload.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 66px;
+    height: 69px;
+    position: absolute;
+    z-index: 99;
+    transition: 0.3s;
+    margin-left: 100px;
+    margin-top: 40px;
+}
+
+.download_icon:hover {
+    transform: scale(1.1);
+}
