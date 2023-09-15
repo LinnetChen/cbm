@@ -25,6 +25,10 @@ Route::get('/test_launcher', function () {
 Route::get('/launcher', function () {
     return view('test_launcher');
 });
+// Route::get('/wiki', function () {
+//     return view('home_wiki');
+// });
+Route::get('/wiki/{id?}', 'front\FrontController@wiki')->name('wiki');
 
 Route::get('/home', function () {
     return view('front/home_page');
