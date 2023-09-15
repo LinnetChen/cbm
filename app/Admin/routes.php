@@ -23,4 +23,5 @@ Route::group([
     $router->resource('{number}/serial_number', 'SerialNumberController');
     $router->resource('/prereguser', 'PreregUserController');
     $router->resource('/msgboard', 'MsgBoardController');
+    $router->resource('/suspension', 'SuspensionController');
 });

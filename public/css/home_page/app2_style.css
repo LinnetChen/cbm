@@ -11,6 +11,7 @@ p{
     color: #ffffff;
     line-height: 1rem;
     text-align: left;
+    font-size: 18px;
 }
 .bg{
     background: url(../../img/home_page/mainbg.jpg) no-repeat;

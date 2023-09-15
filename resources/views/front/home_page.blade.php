@@ -12,17 +12,17 @@
         <a href="">
             <div class="download"></div>
         </a>
-        <a href="">
+        <a href="https://www.digeam.com/register">
             <div class="btn"><img src="img/home_page/icon_rgister.png">帳號註冊</div>
         </a>
-        <a href="">
+        <a href="https://www.digeam.com/member/billing">
             <div class="btn"><img src="img/home_page/icon_add.png">儲值中心</div>
         </a>
         <div class="btn_two">
-            <a href="">
+            <a href="https://www.digeam.com/member/enable">
                 <div class="btn_small"><img src="img/home_page/icon_otp.png">OTP申請</div>
             </a>
-            <a href="">
+            <a href="https://www.digeam.com/cs">
                 <div class="btn_small"><img src="img/home_page/icon_customer.png">聯繫客服</div>
             </a>
         </div>
@@ -40,9 +40,7 @@
     <div class="info">
         <div class="info_topbox">
             <div class="info_tab">
-                <button class="active tab_button" data-target="#info_all">
-                    綜合
-                </button>
+                <button class="active tab_button" data-target="#info_all">綜合</button>
                 <button class="tab_button" data-target="#info_event">活動</button>
                 <button class="tab_button" data-target="#info_system">系統</button>
             </div>

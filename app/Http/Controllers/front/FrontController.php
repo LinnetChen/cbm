@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\category;
 use App\Models\page;
 use App\Models\Image;
-
+use App\Models\suspension;
 class FrontController extends Controller
 {
     public function index(){
@@ -22,10 +22,9 @@ class FrontController extends Controller
             'nd'=>$nd,
         ]);
     }
-    public function wiki($id = 0)
-    {
+    public function wiki($id = 0){
         if($id == 0){
-            $first =  page::where('open', 'Y')->where('type', 'wiki')->orderby('id', 'asc')->first();
+            $first =  page::where('open', 'Y')->where('type', 'wiki')->orderby('sort', 'desc')->first();
             $id = $first['id'];
         }
         // 撈出分類和頁面的正確排序
@@ -56,6 +55,12 @@ class FrontController extends Controller
             'side' => $sideSort, //側邊攔
             'page' => $page, //內容
             'sideContent' => $groupItem, //側邊攔分類子項
+        ]);
+    }
+    public function suspension_list(){
+        $list = suspension::orderBy('created_at','desc')->paginate(10);
+        return view('front.suspension_list',[
+            'list'=>$list,
         ]);
     }
 }

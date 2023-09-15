@@ -16,12 +16,14 @@
         <td>說明</td>
         <td>懲處結果</td>
     </tr>
+    @foreach($list as $value)
     <tr>
-        <td>2023/07/21</td>
-        <td class="name">姓名</td>
-        <td>XXXXXXXXXXXXXXXXXXXXX</td>
-        <td>停權三日</td>
+        <td>{{ date('Y/m/d', strtotime($value['lock_time'])) }}</td>
+        <td class="name">{{$value['user_id']}}</td>
+        <td>{{$value['description']}}</td>
+        <td>{{$value['punish']}}</td>
     </tr>
+    @endforeach
 </table>
 </div>
 {{-- 頁碼 --}}
