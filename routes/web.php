@@ -39,9 +39,21 @@ Route::get('/info', function () {
 Route::get('/info_content', function () {
     return view('front/info_content');
 });
+Route::get('/game', function () {
+    return view('front/game');
+});
+Route::get('/wallpaper_download', function () {
+    return view('front/wallpaper_download');
+});
+Route::get('/number_exchange', function () {
+    return view('front/number_exchange');
+});
+Route::get('/gift', function () {
+    return view('front/gift');
+});
 //模板
-Route::get('/app2', function () {
-    return view('layouts/app2');
+Route::get('/app3', function () {
+    return view('layouts/app3');
 });
 // 百科
 Route::get('/wiki/{id?}', 'front\FrontController@wiki')->name('wiki');
