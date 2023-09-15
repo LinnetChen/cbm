@@ -4,13 +4,27 @@ namespace App\Http\Controllers\front;
 use App\Http\Controllers\Controller;
 use App\Models\category;
 use App\Models\page;
-
+use App\Models\Image;
+use App\Models\suspension;
 class FrontController extends Controller
 {
-    public function wiki($id = 0)
-    {
+    public function index(){
+        $img = Image::where('status','Y')->where('type','index')->orderBy('sort','desc')->get();
+        $na = page::where('type', 'announcement')->where('open', 'Y')->where('created_at','<=',date('Y-m-d H:i:s'))->orderBy('top','desc')->orderBy('new','desc')->orderBy('created_at','desc')->orderBy('sort', 'desc')->limit(6)->get();
+        $nb = page::where('type', 'announcement')->where('cate_id', 17)->where('open', 'Y')->where('created_at','<=',date('Y-m-d H:i:s'))->orderBy('top','desc')->orderBy('new','desc')->orderBy('created_at','desc')->orderBy('sort', 'desc')->limit(6)->get();
+        $nc = page::where('type', 'announcement')->where('cate_id', 18)->where('open', 'Y')->where('created_at','<=',date('Y-m-d H:i:s'))->orderBy('top','desc')->orderBy('new','desc')->orderBy('created_at','desc')->orderBy('sort', 'desc')->limit(6)->get();
+        $nd = page::where('type', 'announcement')->where('cate_id', 24)->where('open', 'Y')->where('created_at','<=',date('Y-m-d H:i:s'))->orderBy('top','desc')->orderBy('new','desc')->orderBy('created_at','desc')->orderBy('sort', 'desc')->limit(6)->get();
+        return view('front.home_page',[
+            'img'=>$img,
+            'na'=>$na,
+            'nb'=>$nb,
+            'nc'=>$nc,
+            'nd'=>$nd,
+        ]);
+    }
+    public function wiki($id = 0){
         if($id == 0){
-            $first =  page::where('open', 'Y')->where('type', 'wiki')->orderby('id', 'asc')->first();
+            $first =  page::where('open', 'Y')->where('type', 'wiki')->orderby('sort', 'desc')->first();
             $id = $first['id'];
         }
         // 撈出分類和頁面的正確排序
@@ -41,6 +55,12 @@ class FrontController extends Controller
             'side' => $sideSort, //側邊攔
             'page' => $page, //內容
             'sideContent' => $groupItem, //側邊攔分類子項
+        ]);
+    }
+    public function suspension_list(){
+        $list = suspension::orderBy('created_at','desc')->paginate(10);
+        return view('front.suspension_list',[
+            'list'=>$list,
         ]);
     }
 }
