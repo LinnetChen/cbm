@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 Route::get('/20230724', function () {
     return view('event/20230724_index');
 });
@@ -25,10 +22,10 @@ Route::get('/test_launcher', function () {
 Route::get('/launcher', function () {
     return view('test_launcher');
 });
+//首頁
+Route::get('/', 'front\FrontController@index')->name('index');
 
-Route::get('/home', function () {
-    return view('front/home_page');
-});
+
 Route::get('/wiki', function () {
     return view('front/home_wiki');
 });
@@ -43,6 +40,9 @@ Route::get('/suspension_list', function () {
 });
 Route::get('/info', function () {
     return view('front/info');
+});
+Route::get('/info_content', function () {
+    return view('front/info_content');
 });
 //模板
 Route::get('/app2', function () {

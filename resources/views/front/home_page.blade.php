@@ -30,8 +30,9 @@
     <div class="banner">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="../../img/home_page/carouselImg.jpg"></div>
-                <div class="swiper-slide"><img src="../../img/home_page/carouselImg2.jpg"></div>
+                @foreach($img as $value)
+                <div class="swiper-slide"><img src="{{$value['file_name']}}"></div>
+                @endforeach
             </div>
             <div class="swiper-pagination swiper-pagination-custom"></div>
         </div>
