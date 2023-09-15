@@ -31,45 +31,45 @@
 
 <body>
     <div class="top_bar">
-        <a class="logo" href="https://cbo.digeam.com/MembershipTransfer" target="_blank"><img src="../../img/home_page/CabalLogo.png"></a>
+        <a class="logo" href="{{route('index')}}" 2><img src="../../img/home_page/CabalLogo.png"></a>
         <div class="menu">
-            <a href="https://cbo.digeam.com/MembershipTransfer">遊戲公告</a>
-            <a href="">遊戲百科</a>
+            <a href="{{route('info')}}">遊戲公告</a>
+            <a href="{{route('wiki')}}">遊戲百科</a>
             <a href="">下載專區</a>
             <a href="">國家戰爭</a>
             <a href="">獎勵專區</a>
             <a href="">會員中心</a>
         </div>
         <div class="icon_menu">
-            <a href="https://cbo.digeam.com/MembershipTransfer" target="_blank"><img src="../../img/home_page/dc_icon.png"></a>
-            <a href="https://cbo.digeam.com/MembershipTransfer" target="_blank"><img src="../../img/home_page/baha_icon.png"></a>
-            <a href="https://cbo.digeam.com/MembershipTransfer" target="_blank"><img src="../../img/home_page/fb_icon.png"></a>
+            <a href="https://discord.com/invite/YyPkJrwqvs" target="_blank"><img src="../../img/home_page/dc_icon.png"></a>
+            <a href="https://forum.gamer.com.tw/A.php?bsn=9189" target="_blank"><img src="../../img/home_page/baha_icon.png"></a>
+            <a href="https://www.facebook.com/DiGeamCabal/" target="_blank"><img src="../../img/home_page/fb_icon.png"></a>
         </div>
     </div>
     <div class="top_box">
         <div class="menu_box">
             <div class="menu_box_s">
-                <a href="https://cbo.digeam.com/MembershipTransfer">綜合公告</a>
-                <a href="https://cbo.digeam.com/MembershipTransfer">活動公告</a>
-                <a href="https://cbo.digeam.com/MembershipTransfer">系統公告</a>
+                <a href="{{route('info')}}">綜合公告</a>
+                <a href="{{route('info')}}">活動公告</a>
+                <a href="{{route('info')}}">系統公告</a>
             </div>
             <div class="menu_box_s"></div>
             <div class="menu_box_s">
-                <a href="https://cbo.digeam.com/MembershipTransfer">遊戲主程式</a>
-                <a href="https://cbo.digeam.com/MembershipTransfer">精選桌布</a>
+                <a href="">遊戲主程式</a>
+                <a href="">精選桌布</a>
             </div>
             <div class="menu_box_s"></div>
             <div class="menu_box_s">
-                <a href="https://cbo.digeam.com/MembershipTransfer">領獎專區</a>
-                <a href="https://cbo.digeam.com/MembershipTransfer">序號兌換</a>
+                <a href="">領獎專區</a>
+                <a href="">序號兌換</a>
             </div>
             <div class="menu_box_s">
-                <a href="https://cbo.digeam.com/MembershipTransfer">註冊會員</a>
-                <a href="https://cbo.digeam.com/MembershipTransfer">儲值中心</a>
-                <a href="https://cbo.digeam.com/MembershipTransfer">FAQ</a>
-                <a href="https://cbo.digeam.com/MembershipTransfer">遊戲規章</a>
-                <a href="https://cbo.digeam.com/MembershipTransfer">聯繫客服</a>
-                <a href="https://cbo.digeam.com/MembershipTransfer">停權名單</a>
+                <a href="https://www.digeam.com/register">註冊會員</a>
+                <a href="https://www.digeam.com/member/billing">儲值中心</a>
+                <a href="https://www.digeam.com/cs/faq">FAQ</a>
+                <a href="{{route('game_religion')}}">遊戲規章</a>
+                <a href="https://www.digeam.com/cs">聯繫客服</a>
+                <a href="{{route('suspension_list')}}">停權名單</a>
             </div>
         </div>
     </div>
@@ -79,17 +79,17 @@
                     <a href="https://rco.digeam.com/">
                         <div class="download"></div>
                     </a>
-                    <a href="https://rco.digeam.com/">
+                    <a href="https://www.digeam.com/register">
                         <div class="btn"><img src="img/home_page/icon_rgister.png">帳號註冊</div>
                     </a>
-                    <a href="https://rco.digeam.com/">
+                    <a href="https://www.digeam.com/member/billing">
                         <div class="btn"><img src="img/home_page/icon_add.png">儲值中心</div>
                     </a>
                     <div class="btn_two">
-                        <a href="https://rco.digeam.com/">
+                        <a href="https://www.digeam.com/member/enable">
                             <div class="btn_small"><img src="img/home_page/icon_otp.png">OTP申請</div>
                         </a>
-                        <a href="https://rco.digeam.com/">
+                        <a href="https://www.digeam.com/cs">
                             <div class="btn_small"><img src="img/home_page/icon_customer.png">聯繫客服</div>
                         </a>
                     </div>

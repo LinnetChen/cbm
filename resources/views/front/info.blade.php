@@ -97,7 +97,7 @@
     </div>
 </div>
 {{-- 頁碼 --}}
-{!! $list->links() !!}
+{{-- {!! $list->links() !!} --}}
 <!-- <nav>
         <ul class="pagination">
             <li class="page-item disabled" aria-disabled="true" aria-label="« Previous">

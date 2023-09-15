@@ -24,23 +24,18 @@ Route::get('/launcher', function () {
 });
 //首頁
 Route::get('/', 'front\FrontController@index')->name('index');
-
-
-Route::get('/wiki', function () {
-    return view('front/home_wiki');
-});
-Route::get('/wiki_search', function () {
-    return view('front/home_wiki_search');
-});
+Route::get('/index', 'front\FrontController@index');
+// 遊戲規章
 Route::get('/game_religion', function () {
     return view('front/game_religion');
-});
-Route::get('/suspension_list', function () {
-    return view('front/suspension_list');
-});
+})->name('game_religion');
+// 停權名單
+Route::get('/suspension_list', 'front\FrontController@suspension_list')->name('suspension_list');
+// 公告
 Route::get('/info', function () {
     return view('front/info');
-});
+})->name('info');
+// 公告內容
 Route::get('/info_content', function () {
     return view('front/info_content');
 });
@@ -48,9 +43,12 @@ Route::get('/info_content', function () {
 Route::get('/app2', function () {
     return view('layouts/app2');
 });
-
+// 百科
 Route::get('/wiki/{id?}', 'front\FrontController@wiki')->name('wiki');
-
+// 百科搜尋
+Route::get('/wiki_search', function () {
+    return view('front/home_wiki_search');
+});
 Route::middleware(['setReturnUrl'])->group(function () {
     // 事前預約
     // Route::get('/MembershipTransfer', function () {
