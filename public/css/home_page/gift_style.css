@@ -1,12 +1,220 @@
 .content_box {
+    margin-top: 35px;
     width: 820px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    height: 400px;
+}
+
+.select_box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 530px;
+    height: 44px;
+    /*     background-color: red; */
+    margin-top: 15px;
 }
 
 .login {
+    width: 102px;
+    height: 35px;
+    background-color: #0081d1;
+    border: 1px solid #fff;
+    font-size: 1.2rem;
+    text-align: center;
+    /*     margin-left: 25px; */
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+.section {
+    height: 40px;
+    border: 1px solid white;
+    background-color: transparent;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.option {
+    color: black;
+}
+
+.input {
+    width: 252px;
+    height: 37px;
+    font-size: 1.1rem;
+    border: 1px solid white;
+    background-color: transparent;
+    color: #fff;
+    margin-right: -34px;
+}
+
+/*搜尋欄字顏色*/
+::placeholder {
+    /* CSS 3 標準 */
+    color: rgba(255, 255, 255, 0.6);
+}
+
+::-webkit-input-placeholder {
+    /* Chrome, Safari */
+    color: rgba(255, 255, 255, 0.6);
+}
+
+:-ms-input-placeholder {
+    /* IE 10+ */
+    color: rgba(255, 255, 255, 0.6);
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: rgba(255, 255, 255, 0.6);
+    opacity: 1;
+}
+
+.btn_s {
+    width: 73px;
+    height: 29px;
+    background-color: #83d0ff;
+    border: 1px solid #fff;
+    font-size: 1.2rem;
+    text-align: center;
+    cursor: pointer;
+    color: black;
+    display: inline-block;
+}
+
+.btn_s_gray {
+    width: 73px;
+    height: 29px;
+    background-color: #535353;
+    border: 1px solid #fff;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #aaaaaa;
+    display: inline-block;
+}
+
+.btn_s:hover {
+    background-color: #0081d1;
+    color: #fff;
+    box-shadow: 0px 0px 7px #fff;
+}
+
+.main_btn {
+    display: none;
+}
+
+table {
+    color: #fff;
+    border: #fff 1px solid;
+    border-collapse: collapse;
+    width: 820px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+tr {
+    border: #fff 1px solid;
+}
+
+td {
+    border: #fff 1px solid;
+    padding: 10px 15px;
+}
+
+.tab_head_s {
+    background-color: #83d0ff;
+}
+
+.tab_head_s td {
+    color: black;
+    font-weight: bold;
+}
+
+.main_box a {
+    font-size: 1.1rem;
+}
+
+.event:hover {
+    color: #0081d1;
+    text-decoration: underline;
+}
+
+/*頁碼*/
+.pagination {
+    text-align: center;
+    list-style: none;
+    margin-top: 40px;
+    margin-right: 45px;
+}
+
+.pagination li {
+    display: inline;
+}
+
+.pagination li .page-link {
+    color: #ffffff;
+    font-size: 18px;
+    margin: 0px 6px;
+}
+
+.page-item {
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.page-item.disabled,
+.page-item.active {
+    color: #83d0ff;
+}
+
+.event_gift_box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.line {
+    background-image: url(../../img/home_page/GiftFlare.png);
+    width: 902px;
+    height: 21px;
+}
+.title{
+    font-size: 2.1rem;
+    font-weight: bold;
+    color: #83d0ff;
+    margin-bottom: 15px;
+    margin-top: 25px;
+    line-height: 2.5rem;
+}
+.logout_box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0px 30px 0px;
+    display: none;
+}
+.login_box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0px 30px 0px;
+}
+
+.login_text,.name {
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.login,.logout {
     width: 102px;
     height: 37px;
     background-color: #0081d1;
@@ -16,53 +224,4 @@
     margin-left: 25px;
     padding-top:5px ;
     cursor: pointer;
-}
-
-.input{
-    width: 252px;
-    height: 37px;
-    font-size: 1.1rem;
-    border: 1px solid white;
-    background-color: transparent;
-    color: #fff;
-}
-/*搜尋欄字顏色*/
-::placeholder {
-    /* CSS 3 標準 */
-    color: #fff;
-}
-
-::-webkit-input-placeholder {
-    /* Chrome, Safari */
-    color: #fff;
-}
-
-:-ms-input-placeholder {
-    /* IE 10+ */
-    color: #fff;
-}
-
-::-moz-placeholder {
-    /* Firefox 19+ */
-    color: #fff;
-    opacity: 1;
-}
-.btn_s{
-    width: 102px;
-    height: 37px;
-    background-color: #83d0ff;
-    border: 1px solid #fff;
-    font-size: 1.2rem;
-    text-align: center;
-    padding-top:5px ;
-    cursor: pointer;
-}
-.btn_s:hover{
-    background-color: #0081d1;
-    color: #fff;
-    box-shadow: 0px 0px 7px #fff;
-}
-
-.main_btn{
-    display: none;
 }

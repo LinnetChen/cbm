@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 @endsection
 @section('content1')
+<div id="particles-js"></div>
 <div class="main_box">
     <div class="main_btn">
         <a href="">
@@ -91,7 +92,7 @@
 
 <div class="section2">
     <div class="job_title" data-aos="fade-up"></div>
-    <div class="job_mainbox  active" id="job_box1">
+    <div class="job_mainbox  active" id="job_box0">
         <div class="job_box">
             <div class="job_left">
                 <div class="magic1 animate__animated animate__zoomIn animate__fast 800ms" data-aos="zoom-in-up">
@@ -111,7 +112,7 @@
             </div>
         </div>
     </div>
-    <div class="job_mainbox" id="job_box2">
+    <div class="job_mainbox" id="job_box1">
         <div class="job_box">
             <div class="job_left">
                 <div class="magic2 animate__animated animate__zoomIn animate__fast 800ms" data-aos="zoom-in-up">
@@ -131,7 +132,7 @@
             </div>
         </div>
     </div>
-    <div class="job_mainbox" id="job_box3">
+    <div class="job_mainbox" id="job_box2">
         <div class="job_box">
             <div class="job_left">
                 <div class="magic3 animate__animated animate__zoomIn animate__fast 800ms" data-aos="zoom-in-up">
@@ -151,7 +152,7 @@
             </div>
         </div>
     </div>
-    <div class="job_mainbox" id="job_box4">
+    <div class="job_mainbox" id="job_box3">
         <div class="job_box">
             <div class="job_left">
                 <div class="magic4 animate__animated animate__zoomIn animate__fast 800ms" data-aos="zoom-in-up">
@@ -171,7 +172,7 @@
             </div>
         </div>
     </div>
-    <div class="job_mainbox" id="job_box5">
+    <div class="job_mainbox" id="job_box4">
         <div class="job_box">
             <div class="job_left">
                 <div class="magic5 animate__animated animate__zoomIn animate__fast 800ms" data-aos="zoom-in-up">
@@ -191,7 +192,7 @@
             </div>
         </div>
     </div>
-    <div class="job_mainbox" id="job_box6">
+    <div class="job_mainbox" id="job_box5">
         <div class="job_box">
             <div class="job_left">
                 <div class="magic6 animate__animated animate__zoomIn animate__fast 800ms" data-aos="zoom-in-up">
@@ -211,7 +212,7 @@
             </div>
         </div>
     </div>
-    <div class="job_mainbox" id="job_box7">
+    <div class="job_mainbox" id="job_box6">
         <div class="job_box">
             <div class="job_left">
                 <div class="magic7 animate__animated animate__zoomIn animate__fast 800ms" data-aos="zoom-in-up">
@@ -231,7 +232,7 @@
             </div>
         </div>
     </div>
-    <div class="job_mainbox" id="job_box8">
+    <div class="job_mainbox" id="job_box7">
         <div class="job_box">
             <div class="job_left">
                 <div class="magic8 animate__animated animate__zoomIn animate__fast 800ms" data-aos="zoom-in-up">
@@ -251,7 +252,7 @@
             </div>
         </div>
     </div>
-    <div class="job_mainbox" id="job_box9">
+    <div class="job_mainbox" id="job_box8">
         <div class="job_box">
             <div class="job_left">
                 <div class="magic9 animate__animated animate__zoomIn animate__fast 800ms" data-aos="zoom-in-up">
@@ -272,17 +273,17 @@
         </div>
     </div>
     <div class="job_tab">
-        <div class="armsL"></div>
-        <button class="active job_button job_button_h1" data-target="#job_box1">狂劍士</button>
-        <button class="job_button job_button_h2" data-target="#job_box2">雙劍士</button>
-        <button class="job_button job_button_h3" data-target="#job_box3">盾劍士</button>
-        <button class="job_button job_button_h4" data-target="#job_box4">魔劍士</button>
-        <button class="job_button job_button_h5" data-target="#job_box5">角鬥士</button>
-        <button class="job_button job_button_h6" data-target="#job_box6">魔導師</button>
-        <button class="job_button job_button_h7" data-target="#job_box7">弓箭手</button>
-        <button class="job_button job_button_h8" data-target="#job_box8">銃槍手</button>
-        <button class="job_button job_button_h9" data-target="#job_box9">咒術師</button>
-        <div class="armsR"></div>
+        <div class="btnL" onclick="nextClick(-1)"></div>
+        <button class="active job_button0 job_button" data-target="#job_box0" onclick="textClick(0)">狂劍士</button>
+        <button class="job_button job_button1" data-target="#job_box1" onclick="textClick(1)">雙劍士</button>
+        <button class="job_button job_button2" data-target="#job_box2" onclick="textClick(2)">盾劍士</button>
+        <button class="job_button job_button3" data-target="#job_box3" onclick="textClick(3)">魔劍士</button>
+        <button class="job_button job_button4" data-target="#job_box4" onclick="textClick(4)">角鬥士</button>
+        <button class="job_button job_button5" data-target="#job_box5" onclick="textClick(5)">魔導師</button>
+        <button class="job_button job_button6" data-target="#job_box6" onclick="textClick(6)">弓箭手</button>
+        <button class="job_button job_button7" data-target="#job_box7" onclick="textClick(7)">銃槍手</button>
+        <button class="job_button job_button8" data-target="#job_box8" onclick="textClick(8)">咒術師</button>
+        <div class="btnR" onclick="nextClick(1)"></div>
     </div>
 </div>
 <div class="section3">
@@ -345,24 +346,23 @@
 @section('js')
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<!-- <script src="js/aos.js"></script> -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
     AOS.init();
+    //粒子特效
+    particlesJS.load('particles-js', '/js/home_page/particlesjs-config.json', function() {
+        console.log('callback - particles.js config loaded');
+    });
 
-
+    //公告切換
     $('.tab_button').click(function() {
         var target = $(this).data('target');
         $(target).show().siblings('.info_box').hide();
         $(this).addClass('active').siblings('.active').removeClass('active');
     });
-    $('.job_button').click(function() {
-        var target = $(this).data('target');
-        $('.job_mainbox').hide(); // 隱藏所有 .job_mainbox
-        $(target).show(); // 顯示目標 .job_mainbox
-        $(this).addClass('active').siblings('.active').removeClass('active');
-        AOS.init();
-    });
+
+    //公告輪播
     var mySwiper = new Swiper(".swiper-container", {
         direction: "horizontal", // 方向
         loop: true, // 循環
@@ -371,11 +371,10 @@
             el: ".swiper-pagination", // 分頁物件
             type: 'bullets',
             clickable: true,
-            /*             bulletClass: "pagination",
-                        bulletActiveClass: "pagination-active", */
-
         },
     });
+
+    //特色輪播
     var mySwiper = new Swiper(".swiper-container-game", {
         direction: "horizontal", // 方向
         loop: true, // 循環
@@ -398,12 +397,53 @@
             el: ".game-swiper-pagination", // 分頁物件
             type: 'bullets',
             clickable: true,
-            // bulletClass: "custom-pagination-bullet",
         },
         navigation: {
             nextEl: ".swiper-button-next", // 上一頁按鈕物件
             prevEl: ".swiper-button-prev", // 下一頁按鈕物件
         }
     });
+
+    //職業切換
+    $('.job_button').click(function() {
+        var target = $(this).data('target');
+        $('.job_mainbox').hide(); // 隱藏所有 .job_mainbox
+        $(target).show(); // 顯示目標 .job_mainbox
+        $(this).addClass('active').siblings('.active').removeClass('active');
+        AOS.init();
+    });
+
+    var slideIndex = 0;
+
+    function nextClick(i) {
+        showSlides((slideIndex += i));
+        textClick(slideIndex); //把值傳給textClick
+    }
+
+    function textClick(i) {
+        showSlides(i);
+        //選單
+        var _btnA = ".job_button" + i;
+        $(".job_button").removeClass("active");
+        $(_btnA).addClass("active");
+        //職業
+        var _target = "#job_box" + i;
+        $('.job_mainbox').hide();
+        $(_target).show();
+        $(_target).addClass('active').siblings('.active').removeClass('active');
+        AOS.init();
+    }
+
+
+    function showSlides(i) {
+        if (i > 8) {
+            slideIndex = 0;
+            //總共有9個TAB
+        } else if (i < 0) {
+            slideIndex = 8;
+        } else {
+            slideIndex = i;
+        }
+    }
 </script>
 @endsection
