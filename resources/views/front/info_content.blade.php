@@ -5,12 +5,12 @@
 @endsection
 @section('main_title',"遊戲公告")
 @section('content')
-<div class="date">2023/9/13 15:00</div>
+<div class="date">{{ date('Y/m/d H:i', strtotime($page->created_at)) }}</div>
 <div class="content_box">
-<div class="title">標題</div>
+<div class="title">{{$page->title}}</div>
 <div class="title_line"></div>
 <div class="text_box">
-    <p>你好！冒險者</p>
+    {!! $page->content !!}
 </div>
 </div>
 @endsection
