@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="zh-TW">
 
@@ -22,7 +20,7 @@
     <link rel="icon" sizes="192x192" href="../../../img/event/20230728/favicon.ico">
     <meta name="description" content="《黑色契約CABAL Online》" />
     <link rel="pingback" href="" />
-    <link href="css/home_page/app2_style.css" rel="stylesheet">
+    <link href="/css/home_page/app2_style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Noto+Serif+TC:wght@500&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.min.css" rel="stylesheet" />
@@ -43,9 +41,9 @@
             <a href="">會員中心</a>
         </div>
         <div class="icon_menu">
-            <a href="https://discord.com/invite/YyPkJrwqvs" target="_blank"><img src="../../img/home_page/dc_icon.png"></a>
-            <a href="https://forum.gamer.com.tw/A.php?bsn=9189" target="_blank"><img src="../../img/home_page/baha_icon.png"></a>
-            <a href="https://www.facebook.com/DiGeamCabal/" target="_blank"><img src="../../img/home_page/fb_icon.png"></a>
+            <a href="https://discord.com/invite/YyPkJrwqvs" target="_blank"><img src="/img/home_page/dc_icon.png"></a>
+            <a href="https://forum.gamer.com.tw/A.php?bsn=9189" target="_blank"><img src="/img/home_page/baha_icon.png"></a>
+            <a href="https://www.facebook.com/DiGeamCabal/" target="_blank"><img src="/img/home_page/fb_icon.png"></a>
         </div>
     </div>
     <div class="top_box">
@@ -75,60 +73,60 @@
             </div>
         </div>
     </div>
-    <div class="bg">
-        <div class="main_box">
-        <div class="main_btn">
+        <div class="bg">
+            <div class="main_box">
+                <div class="main_btn">
                     <a href="https://rco.digeam.com/">
                         <div class="download"></div>
                     </a>
                     <a href="https://www.digeam.com/register">
-                        <div class="btn"><img src="img/home_page/icon_rgister.png">帳號註冊</div>
+                        <div class="btn"><img src="/img/home_page/icon_rgister.png">帳號註冊</div>
                     </a>
                     <a href="https://www.digeam.com/member/billing">
-                        <div class="btn"><img src="img/home_page/icon_add.png">儲值中心</div>
+                        <div class="btn"><img src="/img/home_page/icon_add.png">儲值中心</div>
                     </a>
                     <div class="btn_two">
                         <a href="https://www.digeam.com/member/enable">
-                            <div class="btn_small"><img src="img/home_page/icon_otp.png">OTP申請</div>
+                            <div class="btn_small"><img src="/img/home_page/icon_otp.png">OTP申請</div>
                         </a>
                         <a href="https://www.digeam.com/cs">
-                            <div class="btn_small"><img src="img/home_page/icon_customer.png">聯繫客服</div>
+                            <div class="btn_small"><img src="/img/home_page/icon_customer.png">聯繫客服</div>
                         </a>
                     </div>
-                </div> 
-            <div class="container_box">
-                <div class="main_title">
+                </div>
+                <div class="container_box">
+                    <div class="main_title">
                     @yield('main_title')
-                </div>
-                <div class="container">
+                    </div>
+                    <div class="container">
                     @yield('content')
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <a href="https://www.digeam.com/index" target="_blank">
+                    <div class="digeam"></div>
+                </a>
+                <div class="est"></div>
+                <div>
+                    <a href="https://www.digeam.com/terms?_gl=1*prkbqn*_ga*MTI0MjkwMTA3Mi4xNjg3MjI2NjQx*_ga_3YHH2V2WHK*MTY5Mjc4MTA3My4xNy4wLjE2OTI3ODEwNzMuNjAuMC4w" target="_blank" class="linkp">會員服務條款</a>
+                    <a href="https://www.digeam.com/terms2?_gl=1*c9toqi*_ga*MTI0MjkwMTA3Mi4xNjg3MjI2NjQx*_ga_3YHH2V2WHK*MTY5Mjc4MTA3My4xNy4wLjE2OTI3ODEwNzMuNjAuMC4w" target="_blank" class="linkp">隱私條款</a>
+                    <a href="https://www.digeam.com/login" target="_blank" class="linkp">客服中心</a>
+                    <div class="copyright">
+                        <p>Copyright © ESTgames Corp. All rights reserved.</p>
+                        <p>2023 Licensed and published for Taiwan, Hong Kong and Macau by DiGeam Co.,Ltd</p>
+                        <p>CABAL Online is a registered trademark of ESTgames Corp (and the logo of ESTgames).</p>
+                    </div>
+                </div>
+                <div class="age"></div>
+                <div>
+                    <p>本遊戲為免費使用，部分內容涉及暴力情節。</p>
+                    <p>遊戲內另提供購買虛擬遊戲幣、物品等付費服務。</p>
+                    <p>請注意遊戲時間，避免沉迷。</p>
+                    <p><span>本遊戲服務區域包含台灣、香港、澳門。</span></p>
                 </div>
             </div>
         </div>
-        <div class="footer">
-            <a href="https://www.digeam.com/index" target="_blank">
-                <div class="digeam"></div>
-            </a>
-            <div class="est"></div>
-            <div>
-                <a href="https://www.digeam.com/terms?_gl=1*prkbqn*_ga*MTI0MjkwMTA3Mi4xNjg3MjI2NjQx*_ga_3YHH2V2WHK*MTY5Mjc4MTA3My4xNy4wLjE2OTI3ODEwNzMuNjAuMC4w" target="_blank" class="linkp">會員服務條款</a>
-                <a href="https://www.digeam.com/terms2?_gl=1*c9toqi*_ga*MTI0MjkwMTA3Mi4xNjg3MjI2NjQx*_ga_3YHH2V2WHK*MTY5Mjc4MTA3My4xNy4wLjE2OTI3ODEwNzMuNjAuMC4w" target="_blank" class="linkp">隱私條款</a>
-                <a href="https://www.digeam.com/login" target="_blank" class="linkp">客服中心</a>
-                <div class="copyright">
-                    <p>Copyright © ESTgames Corp. All rights reserved.</p>
-                    <p>2023 Licensed and published for Taiwan, Hong Kong and Macau by DiGeam Co.,Ltd</p>
-                    <p>CABAL Online is a registered trademark of ESTgames Corp (and the logo of ESTgames).</p>
-                </div>
-            </div>
-            <div class="age"></div>
-            <div>
-                <p>本遊戲為免費使用，部分內容涉及暴力情節。</p>
-                <p>遊戲內另提供購買虛擬遊戲幣、物品等付費服務。</p>
-                <p>請注意遊戲時間，避免沉迷。</p>
-                <p><span>本遊戲服務區域包含台灣、香港、澳門。</span></p>
-            </div>
-        </div>
-    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
         $(function() {

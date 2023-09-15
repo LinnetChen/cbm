@@ -49,19 +49,19 @@
     <div class="top_box">
         <div class="menu_box">
             <div class="menu_box_s">
-                <a href="{{route('info')}}">綜合公告</a>
-                <a href="{{route('info')}}">活動公告</a>
-                <a href="{{route('info')}}">系統公告</a>
+                <a href="{{route('info','all')}}">綜合公告</a>
+                <a href="{{route('info','active')}}">活動公告</a>
+                <a href="{{route('info','system')}}">系統公告</a>
             </div>
             <div class="menu_box_s"></div>
             <div class="menu_box_s">
-                <a href="">遊戲主程式</a>
-                <a href="">精選桌布</a>
+                <a href="{{route('suspension_list')}}">遊戲主程式</a>
+                <a href="{{route('suspension_list')}}">精選桌布</a>
             </div>
             <div class="menu_box_s"></div>
             <div class="menu_box_s">
-                <a href="">領獎專區</a>
-                <a href="">序號兌換</a>
+                <a href="{{route('suspension_list')}}">領獎專區</a>
+                <a href="{{route('suspension_list')}}">序號兌換</a>
             </div>
             <div class="menu_box_s">
                 <a href="https://www.digeam.com/register">註冊會員</a>

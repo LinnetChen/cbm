@@ -22,9 +22,7 @@ Route::get('/test_launcher', function () {
 Route::get('/launcher', function () {
     return view('test_launcher');
 });
-if(1 == 2) {
-
-
+if(1 == 1) {
     //首頁
     Route::get('/', 'front\FrontController@index')->name('index');
     Route::get('/index', 'front\FrontController@index');
@@ -35,25 +33,25 @@ if(1 == 2) {
     // 停權名單
     Route::get('/suspension_list', 'front\FrontController@suspension_list')->name('suspension_list');
     // 公告
-    Route::get('/info', function () {
-        return view('front/info');
-    })->name('info');
+    Route::get('/info/{cate?}', 'front\FrontController@info')->name('info');
     // 公告內容
-    Route::get('/info_content', function () {
-        return view('front/info_content');
-    });
+    Route::get('/info_content/{id?}', 'front\FrontController@info_content')->name('info_content');
+    // 遊戲主程式
     Route::get('/game', function () {
         return view('front/game');
-    });
+    })->name('download');
+    // 桌布下載
     Route::get('/wallpaper_download', function () {
         return view('front/wallpaper_download');
-    });
+    })->name('wallpaper_download');
+    // 序號兌換
     Route::get('/number_exchange', function () {
         return view('front/number_exchange');
-    });
+    })->name('number_exchange');
+    // 領獎專區
     Route::get('/gift', function () {
         return view('front/gift');
-    });
+    })->name('gift');
     //模板
     Route::get('/app3', function () {
         return view('layouts/app3');
