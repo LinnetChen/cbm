@@ -1,3 +1,6 @@
+<?php
+$_COOKIE['StrID'] = 'jacky0996';
+?>
 @extends('layouts.app2')
 @section('title', '《黑色契約CABAL Online》序號兌換')
 @section('link')
@@ -7,10 +10,10 @@
 @section('content')
     <div class="content_box">
         @if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null)
-        <form id="logout-form" action="https://www.digeam.com/logout" method="POST" style="display: none;">
-            <input type="hidden" name="return_url" id="return_url"
-                value={{ base64_encode('https://cbo.digeam.com/number_exchange') }}>
-        </form>
+            <form id="logout-form" action="https://www.digeam.com/logout" method="POST" style="display: none;">
+                <input type="hidden" name="return_url" id="return_url"
+                    value={{ base64_encode('https://cbo.digeam.com/number_exchange') }}>
+            </form>
             <div class="logout_box">
                 <div class="name">Hi! 目前登入的帳號是 ：{{ $_COOKIE['StrID'] }}</div>
                 <div class="logout">登出</div>
@@ -54,14 +57,26 @@
 @section('js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
-        $('.already_login').on('click',function(){
-            alert('兌換')
+        // 已登入
+        $('.already_login').on('click', function() {
+            $.post('api/exchange',{
+                'number': $('.input').val()
+            },function(res) {
+                console.log(res)
+            })
         })
-        $('.not_login').on('click',function(){
-           $.post('api/exchange',function(res{
-            console.log(res)
-           }))
+        // 未登入
+        $('.not_login').on('click', function() {
+            alert('請先登入')
         })
 
+        // 登出
+        $('.logout').on('click', function() {
+            $('#logout-form').submit()
+        })
+        // 登入
+        $('.login').on('click', function() {
+            location.href = 'https://digeam.com/login'
+        })
     </script>
 @endsection
