@@ -1,7 +1,7 @@
 @extends('layouts.app2')
 @section('title',"《黑色契約CABAL Online》序號兌換")
 @section('link')
-<link rel="stylesheet" href="/css/home_page/number_exchange_style.css">
+<link rel="stylesheet" href="/css/home_page/number_exchange_style.css?v1.0">
 @endsection
 @section('main_title',"序號兌換")
 @section('content')

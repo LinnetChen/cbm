@@ -20,7 +20,7 @@
     <link rel="icon" sizes="192x192" href="../../../img/event/20230728/favicon.ico">
     <meta name="description" content="《黑色契約CABAL Online》" />
     <link rel="pingback" href="" />
-    <link href="/css/home_page/app2_style.css" rel="stylesheet">
+    <link href="/css/home_page/app2_style.css?v1.0" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Noto+Serif+TC:wght@500&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.min.css" rel="stylesheet" />

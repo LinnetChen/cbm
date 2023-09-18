@@ -1,7 +1,7 @@
 @extends('layouts.app2')
 @section('title',"《黑色契約CABAL Online》領獎專區")
 @section('link')
-<link rel="stylesheet" href="/css/home_page/gift_style.css">
+<link rel="stylesheet" href="/css/home_page/gift_style.css?v1.0">
 @endsection
 @section('main_title',"領獎專區")
 @section('content')

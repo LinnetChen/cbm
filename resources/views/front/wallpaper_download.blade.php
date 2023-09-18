@@ -1,7 +1,7 @@
 @extends('layouts.app2')
 @section('title',"《黑色契約CABAL Online》精選桌布")
 @section('link')
-<link rel="stylesheet" href="/css/home_page/wallpaper_download_style.css">
+<link rel="stylesheet" href="/css/home_page/wallpaper_download_style.css?v1.0">
 @endsection
 @section('main_title',"精選桌布")
 @section('content')
@@ -70,7 +70,7 @@
         $(this).find('.download_icon').css('display', "block");
         $(this).find('.img').css('opacity', "0.7");
     }, function() {
-        $('.download_icon').css('display', "none"); 
+        $('.download_icon').css('display', "none");
         $('.box').find('.img').css('opacity', "1");
     });
 </script>

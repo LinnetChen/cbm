@@ -1,7 +1,7 @@
 @extends('layouts.app2')
 @section('title',"《黑色契約CABAL Online》停權名單")
 @section('link')
-<link rel="stylesheet" href="/css/home_page/suspension_list_style.css">
+<link rel="stylesheet" href="/css/home_page/suspension_list_style.css?v1.0">
 @endsection
 @section('main_title',"停權名單")
 @section('content')
