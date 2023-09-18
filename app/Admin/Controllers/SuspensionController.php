@@ -61,30 +61,4 @@ class SuspensionController extends AdminController
         return $form;
 
     }
-
-    // public function edit($type, Content $content)
-    // {
-    //     // 切開網址,定義id
-    //     $explodeUrl = explode('/', URL::current());
-    //     $count = COUNT($explodeUrl);
-    //     $id = $explodeUrl[$count - 2];
-    //     return Admin::content(function (Content $content) use ($id) {
-
-    //         $content->header('赤壁百科編輯');
-    //         $content->description('編輯');
-
-    //         $content->body($this->form($id)->edit($id));
-    //     });
-    // }
-
-    // public function update($type)
-    // {
-    //     $explodeUrl = explode('/', URL::current());
-    //     $count = COUNT($explodeUrl);
-    //     $id = $explodeUrl[$count - 1];
-    //     return $this->form()->update($id);
-    // }
-
-
-
 }
