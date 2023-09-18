@@ -57,10 +57,12 @@
         $('.already_login').on('click',function(){
             alert('兌換')
         })
-        $('.not_login').on('click',function(){
-           $.post('api/exchange',function(res{
-            console.log(res)
-           }))
+        // 登出
+        $('.logout').on('click',function(){
+            $('#logout-form').submit()
+        })
+        $('.login').on('click',function(){
+            location.href  = 'https://digeam.com/login'
         })
 
     </script>
