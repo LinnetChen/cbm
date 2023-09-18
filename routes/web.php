@@ -13,16 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/20230724', function () {
-    return view('event/20230724_index');
-});
-Route::get('/test_launcher', function () {
-    return view('test_launcher');
-});
-Route::get('/launcher', function () {
-    return view('test_launcher');
-});
-if(1 == 1) {
+if($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
     //首頁
     Route::get('/', 'front\FrontController@index')->name('index');
     Route::get('/index', 'front\FrontController@index');
@@ -52,17 +43,13 @@ if(1 == 1) {
     Route::get('/gift', function () {
         return view('front/gift');
     })->name('gift');
-    //模板
-    Route::get('/app3', function () {
-        return view('layouts/app3');
+    // 百科
+    Route::get('/wiki/{id?}', 'front\FrontController@wiki')->name('wiki');
+    // 百科搜尋
+    Route::get('/wiki_search', function () {
+        return view('front/home_wiki_search');
     });
 }
-// 百科
-Route::get('/wiki/{id?}', 'front\FrontController@wiki')->name('wiki');
-// 百科搜尋
-Route::get('/wiki_search', function () {
-    return view('front/home_wiki_search');
-});
 Route::middleware(['setReturnUrl'])->group(function () {
     // 事前預約
     // Route::get('/MembershipTransfer', function () {
@@ -72,6 +59,21 @@ Route::middleware(['setReturnUrl'])->group(function () {
         return view('event/20230728_index');
     });
 });
+
+
+Route::get('/20230724', function () {
+    return view('event/20230724_index');
+});
+
+
+Route::get('/test_launcher', function () {
+    return view('test_launcher');
+});
+Route::get('/launcher', function () {
+    return view('test_launcher');
+});
+
+
 // 後台上傳圖片
 Route::post('delCKEImg', 'CkeditorUploadController@delCKEImg');
 Route::post('ckeditor/upload', 'CkeditorUploadController@uploadImage');
