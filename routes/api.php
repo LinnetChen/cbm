@@ -26,3 +26,5 @@ Route::post('cabal_login', 'API\transferPageController@cabal_login');
 Route::post('del_serial', 'API\w@delSerial');
 //事前預約
 Route::post('prereg_api', 'API\preregController@index');
+// 兌換序號
+Route::post('exchange', 'API\frontController@exchange');
