@@ -97,8 +97,8 @@
                 </div>
                 <div class="sub"></div>
                 <div class="btn_link">
-                    <a href="https://www.digeam.com/register_cbo" class="register"></a>
-                    <a href="#sec01" class="reserve"></a>
+                    <a href="https://cbo.digeam.com" class="register pmBtn1" target="_blank"></a>
+                    <a href="https://digeam.com/register" class="reserve pmBtn2" target="_blank"></a>
                 </div>
 
             </section>

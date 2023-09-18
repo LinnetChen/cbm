@@ -19,4 +19,17 @@ header {
             }
         }
     }
+    .title_area{
+        .btn_link{
+            a{
+                &.pmBtn1{
+                    background: url(../../../img/event/prereg/BTN_official.png) no-repeat;
+                }
+                &.pmBtn2{
+                    background: url(../../../img/event/prereg/BTN_register.png) no-repeat;
+                }
+            }
+        }
+    }
+
 }

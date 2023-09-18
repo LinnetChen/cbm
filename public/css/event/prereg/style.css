@@ -2384,4 +2384,10 @@ header .menu_section.on .link_list a.menu_p3::after {
   position: absolute;
   right: -99px;
   top: 46px;
+}
+header .title_area .btn_link a.pmBtn1 {
+  background: url(../../../img/event/prereg/BTN_official.png) no-repeat;
+}
+header .title_area .btn_link a.pmBtn2 {
+  background: url(../../../img/event/prereg/BTN_register.png) no-repeat;
 }/*# sourceMappingURL=style.css.map */
