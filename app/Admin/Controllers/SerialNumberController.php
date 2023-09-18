@@ -36,8 +36,7 @@ class SerialNumberController extends AdminController
             }
         });
         $grid->column('user_id', __('使用帳號'));
-
-
+        $grid->column('updated_at', __('更新時間'))->date('Y-m-d');
 
         $grid->filter(function ($filter) {
             $filter->disableIdFilter();

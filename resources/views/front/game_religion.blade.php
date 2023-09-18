@@ -1,7 +1,7 @@
 @extends('layouts.app2')
 @section('title',"《黑色契約CABAL Online》遊戲規章")
 @section('link')
-<link rel="stylesheet" href="/css/home_page/game_religion_style.css">
+<link rel="stylesheet" href="/css/home_page/game_religion_style.css?v1.0">
 @endsection
 @section('main_btn')
 <div class="main_btn">
