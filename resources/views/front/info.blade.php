@@ -3,7 +3,7 @@
 @section('link')
     <link rel="stylesheet" href="/css/home_page/info_style.css">
 @endsection
-@section('main_title', '綜合公告')
+@section('main_title', )
 @section('content')
     <div class="info">
         <div class="info_topbox">
@@ -52,11 +52,11 @@
         if (addActive != 'all' && addActive != 'activity' && addActive != 'system') {
             $('.all').addClass('active')
         } else {
-            if (addActive == 'activity') {
+            if (addActive == 'all') {
                 $('.main_title').text('綜合公告')
-            } else if (addActive == 'systemBox') {
+            } else if (addActive == 'activity') {
                 $('.main_title').text('活動公告')
-            } else if (addActive == 'important') {
+            } else if (addActive == 'system') {
                 $('.main_title').text('系統公告')
             }
             $('.' + addActive).addClass('active')
