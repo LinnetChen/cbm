@@ -51,8 +51,8 @@ Route::get('/info_content', function () {
 Route::get('/app2', function () {
     return view('layouts/app2');
 });
-Route::get('/sale_use', function () {
-    return view('layouts/app2');
+Route::get('/promotion', function () {
+    return view('event/prereg_promotion');
 });
 
 Route::get('/wiki/{id?}', 'front\FrontController@wiki')->name('wiki');

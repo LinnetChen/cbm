@@ -1,0 +1,22 @@
+header {
+    .menu_section {
+
+        &.on {
+
+            .link_list {
+                a{
+                    &.menu_p2 {
+                        &::after {
+                            @include ab-rt(-68px, 43px);
+                        }
+                    }
+                    &.menu_p3 {
+                        &::after {
+                            @include ab-rt(-99px, 46px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
