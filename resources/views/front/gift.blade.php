@@ -37,16 +37,18 @@
             <td>活動名稱</td>
             <td>領獎時間</td>
         </tr>
+        @foreach($list as $value)
         <tr>
-            <td><a href="" class="event">XXXXX</a></td>
-            <td>2023/09/15~2023/10/15</td>
+            <td><a href="{{route('giftContent',$value['id'])}}" class="event">{{$value['title']}}</a></td>
+            <td>{{$value['start']}}　～　{{$value['end']}}</td>
         </tr>
+        @endforeach
     </table>
 </div>
 {{-- 頁碼 --}}
-{{-- {!! $list->links() !!} --}}
+{!! $list->links() !!}
 
-<div class="event_gift_box">
+{{-- <div class="event_gift_box">
     <div class="title">標題</div>
     <div class="line"></div>
     <div class="login_box">
@@ -88,7 +90,7 @@
             </td>
         </tr>
     </table>
-</div>
+</div> --}}
 
 @endsection
 

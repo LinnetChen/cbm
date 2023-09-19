@@ -28,3 +28,5 @@ Route::post('del_serial', 'API\w@delSerial');
 Route::post('prereg_api', 'API\preregController@index');
 // 兌換序號
 Route::post('exchange', 'API\frontController@exchange');
+// 領獎
+Route::post('gift', 'API\frontController@gift');

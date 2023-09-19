@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\serial_item;
 use App\Models\serial_number;
 use App\Models\serial_number_cate;
+use App\Models\giftContent;
+use App\Models\giftGroup;
+use App\Models\giftCreate;
+use App\Models\giftGetLog;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
@@ -66,6 +70,20 @@ class frontController extends Controller
         //
         dd();
     }
+    public function gift(Request $request){
+        if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
+            $real_ip = $_SERVER["HTTP_CF_CONNECTING_IP"];
+        } else {
+            $real_ip = $_SERVER["REMOTE_ADDR"];
+        }
+
+        $setDay = date('Y-m-d h:i:s');
+        $check = giftGetLog::where('user',$_COOKIE['StrID'])->first();
+
+        dd($request);
+
+    }
+
 
     // 獲取玩家資訊
     private function getUser($user_id)

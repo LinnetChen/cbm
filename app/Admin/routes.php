@@ -24,4 +24,7 @@ Route::group([
     $router->resource('/prereguser', 'PreregUserController');
     $router->resource('/msgboard', 'MsgBoardController');
     $router->resource('/suspension', 'SuspensionController');
+    $router->resource('/create_gift', 'GiftCreateController');
+    $router->resource('{gift_id}/create_gift_project', 'GiftProjectCreateController');
+    $router->resource('{gift_project_id}/create_gift_item', 'GiftItemCreateController');
 });

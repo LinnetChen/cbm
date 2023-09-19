@@ -26,7 +26,7 @@ Route::get('/suspension_list', 'front\FrontController@suspension_list')->name('s
 // 公告
 Route::get('/info/{cate?}', 'front\FrontController@info')->name('info');
 // 公告內容
-Route::get('/info_content/{id?}', 'front\FrontController@info_content')->name('info_content');
+Route::get('/announcementContent/{id?}', 'front\FrontController@info_content')->name('info_content');
 // 遊戲主程式
 Route::get('/game', function () {
     return view('front/game');
@@ -57,9 +57,8 @@ if($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
         return view('front/number_exchange');
     })->name('number_exchange');
     // 領獎專區
-    Route::get('/gift', function () {
-        return view('front/gift');
-    })->name('gift');
+    Route::get('/gift', 'front\FrontController@gift')->name('gift');
+    Route::get('/giftContent/{id}', 'front\FrontController@giftContent')->name('giftContent');
 }
 
 });
@@ -71,9 +70,8 @@ Route::get('/20230724', function () {
 Route::get('/test_launcher', function () {
     return view('test_launcher');
 });
-Route::get('/launcher', function () {
-    return view('test_launcher');
-});
+Route::get('/launcher', 'front\FrontController@launcher');
+
 
 // 後台上傳圖片
 Route::post('delCKEImg', 'CkeditorUploadController@delCKEImg');

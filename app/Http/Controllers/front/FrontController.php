@@ -6,6 +6,9 @@ use App\Models\category;
 use App\Models\page;
 use App\Models\Image;
 use App\Models\suspension;
+use App\Models\giftContent;
+use App\Models\giftGroup;
+use App\Models\giftCreate;
 class FrontController extends Controller
 {
     public function index(){
@@ -87,5 +90,30 @@ class FrontController extends Controller
         return view('front.suspension_list',[
             'list'=>$list,
         ]);
+    }
+    public function gift(){
+        $list  = giftCreate::where('status','y')->orderBy('created_at','desc')->paginate(6);
+
+        return view('front/gift',[
+            'list'=>$list,
+        ]);
+    }
+    public function giftContent($id = 0){
+        if($id == 0 ){
+            return redirect('/gift');
+        }else{
+            $list  = giftCreate::where('status','y')->orderBy('created_at','desc')->paginate(6);
+            $giftCreate = giftCreate::where('id',$id)->first();
+            $giftGroup = giftGroup::where('gift_id',$id)->get();
+            foreach($giftGroup as $key =>$value){
+                $giftContent = giftContent::where('gift_group_id',$value['id'])->get();
+                $giftGroup[$key]['item'] = $giftContent;
+            }
+            return view('front/gift_content',[
+                'list'=>$list,
+                'giftGroup'=>$giftGroup,
+                'giftCreate'=>$giftCreate,
+            ]);
+        }
     }
 }
