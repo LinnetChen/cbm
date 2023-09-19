@@ -1,6 +1,3 @@
-<?php
-$_COOKIE['StrID'] = 'jacky0996';
-?>
 @extends('layouts.app2')
 @section('title', '《黑色契約CABAL Online》序號兌換')
 @section('link')
@@ -65,18 +62,9 @@ $_COOKIE['StrID'] = 'jacky0996';
                 console.log(res)
             })
         })
-<<<<<<< HEAD
-        // 登出
-        $('.logout').on('click',function(){
-            $('#logout-form').submit()
-        })
-        $('.login').on('click',function(){
-            location.href  = 'https://digeam.com/login'
-=======
         // 未登入
         $('.not_login').on('click', function() {
             alert('請先登入')
->>>>>>> 47cc873cfff2bf9e1ca660751caec5b394ca5014
         })
 
         // 登出
