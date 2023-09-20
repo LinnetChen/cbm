@@ -27,4 +27,6 @@ Route::group([
     $router->resource('/create_gift', 'GiftCreateController');
     $router->resource('{gift_id}/create_gift_project', 'GiftProjectCreateController');
     $router->resource('{gift_project_id}/create_gift_item', 'GiftItemCreateController');
+    $router->resource('serial_number_log', 'SerialNumberLogController');
+    $router->resource('gift_get_log', 'GiftGetLogController');
 });
