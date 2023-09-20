@@ -142,7 +142,7 @@ class frontController extends Controller
             ]);
         }
 
-        frontController::giftSendItem($_COOKIE['StrID'],$request->gift_id,$ip);
+        frontController::giftSendItem($_COOKIE['StrID'],$request->gift_id,$real_ip);
         return response()->json([
             'status' => 1,
         ]);
