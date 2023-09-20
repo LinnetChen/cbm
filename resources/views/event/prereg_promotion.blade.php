@@ -26,7 +26,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v17.0"
         nonce="m5ozWkZT"></script>
-    <link rel="stylesheet" href="css/event/prereg/style.css?v=09061">
+    <link rel="stylesheet" href="css/event/prereg/style.css?v=09062">
 
     <script>
         (function(w, d, s, l, i) {
