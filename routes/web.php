@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-if($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
+// if($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
 //首頁
 Route::get('/', 'front\FrontController@index')->name('index');
 Route::get('/index', 'front\FrontController@index');
@@ -31,6 +31,7 @@ Route::get('/announcementContent/{id?}', 'front\FrontController@info_content')->
 Route::get('/game', function () {
     return view('front/game');
 })->name('download');
+
 // 桌布下載
 Route::get('/wallpaper_download', function () {
     return view('front/wallpaper_download');
@@ -39,10 +40,16 @@ Route::get('/wallpaper_download', function () {
 // 百科
 Route::get('/wiki/{id?}', 'front\FrontController@wiki')->name('wiki');
 // 百科搜尋
-Route::get('/wiki_search', function () {
-    return view('front/home_wiki_search');
+Route::get('/wiki_search/{search}', 'front\FrontController@wiki_search');
+
+// Route::get('/wiki_search/{search}', function () {
+//     return view('home_wiki_search');
+// });
+Route::get('/prereg_promotion', function () {
+    return view('event/prereg_promotion');
 });
-}
+
+// }
 Route::middleware(['setReturnUrl'])->group(function () {
     // 事前預約
     // Route::get('/MembershipTransfer', function () {
@@ -51,7 +58,7 @@ Route::middleware(['setReturnUrl'])->group(function () {
     Route::get('/MembershipTransfer', function () {
         return view('event/20230728_index');
     });
-if($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
+// if($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
     // 序號兌換
     Route::get('/number_exchange', function () {
         return view('front/number_exchange');
@@ -59,7 +66,7 @@ if($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
     // 領獎專區
     Route::get('/gift', 'front\FrontController@gift')->name('gift');
     Route::get('/giftContent/{id}', 'front\FrontController@giftContent')->name('giftContent');
-}
+// }
 
 });
 
@@ -67,10 +74,11 @@ Route::get('/20230724', function () {
     return view('event/20230724_index');
 });
 
-Route::get('/test_launcher', function () {
+
+Route::get('/launcher', function () {
     return view('test_launcher');
 });
-Route::get('/launcher', 'front\FrontController@launcher');
+Route::get('/test_launcher', 'front\FrontController@launcher');
 
 
 // 後台上傳圖片
