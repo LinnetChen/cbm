@@ -1,3 +1,6 @@
+<?php
+$_COOKIE['StrID'] = 'jacky0996';
+?>
 @extends('layouts.app2')
 @section('title', '《黑色契約CABAL Online》領獎專區')
 @section('link')
@@ -80,40 +83,18 @@
             </tr>
 
             @foreach ($giftGroup as $value)
-                {{-- @dd($value) --}}
-                {{-- 道具不只一個 --}}
-                @if ($value['rows'] > 1)
-                @foreach($value['item'] as $key => $value_2)
                 <tr>
-                    @if($key == 0)
-                    <td rowspan={{$value['rows']}}>{{$value['title']}}</td>
-                    @endif
-                    <td>{{ $value['item'][$key]['title']}}</td>
-                    <td>{{ $value['item'][$key]['description']}}</td>
+                    <td>{{ $value['title'] }}</td>
+                    <td>{!!nl2br($value['item'])!!}</td>
+                    <td>{!!nl2br($value['desc'])!!}</td>
                     <td>
                         @if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null)
-                        <div class="btn_s">領取</div>
+                            <div class="btn_s" data-val={{ $value['id'] }}>領取</div>
                         @else
-                        <div class="btn_s_gray">領取</div>
+                            <div class="btn_s_gray">領取</div>
                         @endif
                     </td>
                 </tr>
-                @endforeach
-                @else
-                    {{-- 道具只有一個 --}}
-                    <tr>
-                        <td>{{ $value['title'] }}</td>
-                        <td>{{ $value['item'][0]['title'] }}</td>
-                        <td>{{ $value['item'][0]['description'] }}</td>
-                        <td>
-                            @if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null)
-                            <div class="btn_s">領取</div>
-                            @else
-                            <div class="btn_s_gray">領取</div>
-                            @endif
-                        </td>
-                    </tr>
-                @endif
             @endforeach
 
 
@@ -135,6 +116,19 @@
         $('.login').on('click', function() {
             location.href = 'https://digeam.com/login'
         })
-
+        // 送獎
+        $('.btn_s').on('click', function() {
+            $.post('/api/gift',{
+                'gift_id': $(this).data('val')
+            },function(res) {
+                if(res.status == -99){
+                    alert('已經領取過了')
+                }else if(res.status == -98){
+                    alert('不在可領取時間內')
+                }else if(res.status ==1){
+                    alert('兌換成功')
+                }
+            })
+        })
     </script>
 @endsection
