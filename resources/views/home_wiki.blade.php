@@ -124,8 +124,7 @@
         if (_search == '') {
             alert('請輸入要找尋的關鍵字喔！')
         } else {
-        console.log(_search)
-            // document.location.href = '/wikiSearch/' + _search
+            document.location.href = '/wiki_search/' + _search
         }
     })
 </script>

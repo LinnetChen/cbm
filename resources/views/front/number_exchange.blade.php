@@ -1,7 +1,7 @@
 @extends('layouts.app2')
 @section('title', '《黑色契約CABAL Online》序號兌換')
 @section('link')
-    <link rel="stylesheet" href="/css/home_page/number_exchange_style.css?v1.1">
+    <link rel="stylesheet" href="/css/home_page/number_exchange_style.css?v1.2">
 @endsection
 @section('main_title', '序號兌換')
 @section('content')
@@ -28,9 +28,9 @@
                     <input type="text" placeholder="請輸入序號" class="input" />
                 </div>
                 <div class="btn_box_s">
-                    <a href="https://www.digeam.com/member/coupon" target="_blank">
+                    {{-- <a href="https://www.digeam.com/member/coupon" target="_blank">
                         <div class="btn_s">序號查詢</div>
-                    </a>
+                    </a> --}}
                     @if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null)
                         <div class="btn_s already_login">確定兌換</div>
                     @else

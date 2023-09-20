@@ -200,13 +200,17 @@ ul {
 
 .contantbox {
     width: 1280px;
-    height: 135px;
-    /*     background-color: aqua; */
+    height: 195px;
     position: relative;
-    /*     top: 130px; */
     margin: 25px 0px;
     box-sizing: border-box;
     padding: 0 50px;
+}
+.text_box{
+    width: 1180px;
+    height: 120px;
+    line-height: 1.2rem;
+    overflow: hidden;
 }
 
 .contantbox p {
@@ -215,15 +219,23 @@ ul {
     text-overflow: ellipsis;
 }
 
+.contantbox a{
+    text-decoration: none;
+}
+
 .read {
     width: 140px;
-    height: 45px;
+    height: 40px;
     background-color: #0081d1;
     color: #fff;
     border: 0;
     font-size: 1.2rem;
     border-radius: 10px;
     cursor: pointer;
+    margin-top: 20px;
+    text-align: center;
+    padding-top: 5px;
+    border: 1px solid #0081d1;
 }
 
 .read:hover {
@@ -233,20 +245,20 @@ ul {
 }
 
 /*右邊文字區塊卷軸*/
-.textbox::-webkit-scrollbar-track {
+.bottombox::-webkit-scrollbar-track {
     background-color: #fff;
 }
 
-.textbox::-webkit-scrollbar-thumb {
+.bottombox::-webkit-scrollbar-thumb {
     background-color: gray;
     border-radius: 7px;
 }
 
-.textbox::-webkit-scrollbar-thumb:hover {
+.bottombox::-webkit-scrollbar-thumb:hover {
     background: #333333;
 }
 
-.textbox::-webkit-scrollbar {
+.bottombox::-webkit-scrollbar {
     width: 8px;
 }
 

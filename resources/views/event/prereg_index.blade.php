@@ -139,7 +139,6 @@
                     <div class="num">01</div>
                     <div class="step_info">
                         <h2>註冊並登入DiGeam掘夢網平台帳號</h2>
-
                         @if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null)
                             <form id="logout-form" action="https://www.digeam.com/logout" method="POST"
                                 style="display: none;">
@@ -455,7 +454,7 @@
 
 
     </main>
- 
+
 </body>
 
 <script src="js/event/base/jquery-3.6.0.min.js" crossorigin="anonymous"></script>

@@ -31,6 +31,10 @@ Route::get('/announcementContent/{id?}', 'front\FrontController@info_content')->
 Route::get('/game', function () {
     return view('front/game');
 })->name('download');
+//國家戰爭
+Route::get('/war', function () {
+    return view('front/war');
+});
 
 // 桌布下載
 Route::get('/wallpaper_download', function () {
@@ -74,12 +78,10 @@ Route::get('/20230724', function () {
     return view('event/20230724_index');
 });
 
-
 Route::get('/launcher', function () {
     return view('test_launcher');
 });
 Route::get('/test_launcher', 'front\FrontController@launcher');
-
 
 // 後台上傳圖片
 Route::post('delCKEImg', 'CkeditorUploadController@delCKEImg');

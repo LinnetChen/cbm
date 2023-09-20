@@ -20,7 +20,7 @@
     <link rel="icon" sizes="192x192" href="../../../img/event/20230728/favicon.ico">
     <meta name="description" content="《黑色契約CABAL Online》維基百科" />
     <link rel="pingback" href="" />
-    <link href="css/home_page/wiki_style_search.css?v1.0" rel="stylesheet">
+    <link href="/css/home_page/wiki_style_search.css?v1.0" rel="stylesheet">
     <title>《黑色契約CABAL Online》維基百科</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
 </head>
@@ -29,17 +29,30 @@
     <div class="bg">
         <div class="big_box">
             <div class="leftbox">
-                <a class="logo" href="https://cbo.digeam.com/MembershipTransfer" target="_blank"><img src="../../img/home_page/CabalLogo.png"></a>
+                <a class="logo" href="https://cbo.digeam.com/MembershipTransfer" target="_blank"><img
+                        src="../../img/home_page/CabalLogo.png"></a>
                 <form method="post" action=".php">
                     <input class="search-bar" type="search" placeholder="輸入關鍵字搜尋" name="search">
                 </form>
                 <ul class="container">
                     <li>
-                        <ul class="font_title">大標題
-                            <div class="libox">
-                                <li class="font_list"><a href="">小標題</a></li>
-                            </div>
-                        </ul>
+                        @foreach ($side as $key => $value)
+                            @if ($value['have_cate'] == true)
+                                <ul class="font_title">{{ $value['cate_title'] }}
+                                    <div class="libox">
+                                        @foreach ($sideContent[$key] as $value_2)
+                                            <li class="font_list" data-id="{{ $value_2['id'] }}"><a
+                                                    href="{{ route('wiki', $value_2['id']) }}">{{ $value_2['title'] }}</a>
+                                            </li>
+                                        @endforeach
+                                    </div>
+                                </ul>
+                            @else
+                                <ul class="font_title">
+                                    <a href="{{ route('wiki', $value['id']) }}">{{ $value['cate_title'] }}</a>
+                                </ul>
+                            @endif
+                        @endforeach
                     </li>
                 </ul>
             </div>
@@ -49,17 +62,33 @@
                         <p>遊戲指南</p>
                     </div>
                     <div class="menu">
-                        <a href="https://cbo.digeam.com/MembershipTransfer" target="_blank"><img src="../../img/home_page/home_icon.png" class="img"></a>
-                        <a href="https://cbo.digeam.com/MembershipTransfer" target="_blank"><img src="../../img/home_page/dc_icon.png" class="img"></a>
-                        <a href="https://www.facebook.com/DiGeamCabal" target="_blank"><img src="../../img/home_page/fb_icon.png" class="img"></a>
+                        <a href="https://cbo.digeam.com/MembershipTransfer" target="_blank"><img
+                                src="../../img/home_page/home_icon.png" class="img"></a>
+                        <a href="https://cbo.digeam.com/MembershipTransfer" target="_blank"><img
+                                src="../../img/home_page/dc_icon.png" class="img"></a>
+                        <a href="https://www.facebook.com/DiGeamCabal" target="_blank"><img
+                                src="../../img/home_page/fb_icon.png" class="img"></a>
                     </div>
                 </div>
                 <div class="bottombox">
-                    <div class="title">標題</div>
-                    <div class="contantbox">
-                        <p>透過裝備升級系統，玩家可以消耗材料道具與材料裝備，藉此打造成更強的武器或防具。裝備升級是目前《赤壁》獲得後期裝備的主要途徑。升級時，依造消耗的材料不同，會獲得更高階級/更高稀有度/不同隨機屬性的新裝備，必且會保留原裝備的成長等級與秘文等強化屬性。</p>
-                    <button class="read">繼續閱讀→</button>
-                    </div>
+                    @if (count($page) == 0)
+                        <div class="title">找不到</div>
+                        <div class="contantbox">
+                            <p>您輸入的關鍵字找不到任何相關文章喔！！</p>
+                            {{-- <button class="read">繼續閱讀→</button> --}}
+                        </div>
+                    @else
+                        @foreach ($page as $value)
+                            <div class="title">{{ $value['title'] }}</div>
+                            <div class="contantbox">
+                                <div class = 'text_box'>
+                                <p>{!! $value['content'] !!}
+                                </div>
+                                <a><div class="read">繼續閱讀→</div></a>
+                            </div>
+                        @endforeach
+                    @endif
+
                     <hr class="hr2" />
                     <div class="footer">
                         <a href="https://www.digeam.com/index" target="_blank">
@@ -67,13 +96,16 @@
                         </a>
                         <div class="est"></div>
                         <div>
-                            <a href="https://www.digeam.com/terms?_gl=1*prkbqn*_ga*MTI0MjkwMTA3Mi4xNjg3MjI2NjQx*_ga_3YHH2V2WHK*MTY5Mjc4MTA3My4xNy4wLjE2OTI3ODEwNzMuNjAuMC4w" target="_blank" class="linkp">會員服務條款</a>
-                            <a href="https://www.digeam.com/terms2?_gl=1*c9toqi*_ga*MTI0MjkwMTA3Mi4xNjg3MjI2NjQx*_ga_3YHH2V2WHK*MTY5Mjc4MTA3My4xNy4wLjE2OTI3ODEwNzMuNjAuMC4w" target="_blank" class="linkp">隱私條款</a>
+                            <a href="https://www.digeam.com/terms?_gl=1*prkbqn*_ga*MTI0MjkwMTA3Mi4xNjg3MjI2NjQx*_ga_3YHH2V2WHK*MTY5Mjc4MTA3My4xNy4wLjE2OTI3ODEwNzMuNjAuMC4w"
+                                target="_blank" class="linkp">會員服務條款</a>
+                            <a href="https://www.digeam.com/terms2?_gl=1*c9toqi*_ga*MTI0MjkwMTA3Mi4xNjg3MjI2NjQx*_ga_3YHH2V2WHK*MTY5Mjc4MTA3My4xNy4wLjE2OTI3ODEwNzMuNjAuMC4w"
+                                target="_blank" class="linkp">隱私條款</a>
                             <a href="https://www.digeam.com/login" target="_blank" class="linkp">客服中心</a>
                             <div class="copyright">
                                 <p>Copyright © ESTgames Corp. All rights reserved.</p>
                                 <p>2023 Licensed and published for Taiwan, Hong Kong and Macau by DiGeam Co.,Ltd</p>
-                                <p>CABAL Online is a registered trademark of ESTgames Corp (and the logo of ESTgames).</p>
+                                <p>CABAL Online is a registered trademark of ESTgames Corp (and the logo of ESTgames).
+                                </p>
                             </div>
                         </div>
                         <div class="age"></div>
@@ -98,4 +130,15 @@
         _this.slideToggle();
         // $(this).find(".libox").slideToggle();
     });
+
+    // 表單送出停止冒泡
+    $('form').on('submit', function(e) {
+        e.preventDefault()
+        let _search = $('.search-bar').val();
+        if (_search == '') {
+            alert('請輸入要找尋的關鍵字喔！')
+        } else {
+            document.location.href = '/wiki_search/' + _search
+        }
+    })
 </script>
