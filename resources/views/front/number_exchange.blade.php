@@ -1,7 +1,7 @@
 @extends('layouts.app2')
 @section('title', '《黑色契約CABAL Online》序號兌換')
 @section('link')
-    <link rel="stylesheet" href="/css/home_page/number_exchange_style.css?v1.2">
+    <link rel="stylesheet" href="/css/home_page/number_exchange_style.css?v1.1">
 @endsection
 @section('main_title', '序號兌換')
 @section('content')
@@ -56,10 +56,22 @@
     <script>
         // 已登入
         $('.already_login').on('click', function() {
-            $.post('api/exchange',{
+            $.post('/api/exchange',{
                 'number': $('.input').val()
             },function(res) {
-                console.log(res)
+                if(res.status == -99){
+                    alert('此掘夢網帳號並無cbo帳號')
+                }else if(res.status == -98){
+                    alert('請確認輸入的序號是否正確')
+                }else if(res.status == -97){
+                    alert('此序號已被使用')
+                }else if(res.status == -96){
+                    alert('序號不在可使用時間內')
+                }else if(res.status == -95){
+                    alert('您已參加過活動')
+                }else if(res.status ==1){
+                    alert('兌換成功')
+                }
             })
         })
         // 未登入
