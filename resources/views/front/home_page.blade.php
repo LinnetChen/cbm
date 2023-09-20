@@ -2,27 +2,28 @@
 @section('title',"《黑色契約CABAL Online》")
 @section('link')
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-<link rel="stylesheet" href="/css/home_page/home_page_style.css">
+<link rel="stylesheet" href="/css/home_page/home_page_style.css?v1.0">
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 @endsection
 @section('content1')
+<div id="particles-js"></div>
 <div class="main_box">
     <div class="main_btn">
         <a href="">
             <div class="download"></div>
         </a>
-        <a href="">
+        <a href="https://www.digeam.com/register">
             <div class="btn"><img src="img/home_page/icon_rgister.png">帳號註冊</div>
         </a>
-        <a href="">
+        <a href="https://www.digeam.com/member/billing">
             <div class="btn"><img src="img/home_page/icon_add.png">儲值中心</div>
         </a>
         <div class="btn_two">
-            <a href="">
+            <a href="https://www.digeam.com/member/enable">
                 <div class="btn_small"><img src="img/home_page/icon_otp.png">OTP申請</div>
             </a>
-            <a href="">
+            <a href="https://www.digeam.com/cs">
                 <div class="btn_small"><img src="img/home_page/icon_customer.png">聯繫客服</div>
             </a>
         </div>
@@ -30,8 +31,9 @@
     <div class="banner">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="../../img/home_page/carouselImg.jpg"></div>
-                <div class="swiper-slide"><img src="../../img/home_page/carouselImg2.jpg"></div>
+                @foreach($img as $value)
+                <div class="swiper-slide"><img src="{{$value['file_name']}}"></div>
+                @endforeach
             </div>
             <div class="swiper-pagination swiper-pagination-custom"></div>
         </div>
@@ -39,9 +41,7 @@
     <div class="info">
         <div class="info_topbox">
             <div class="info_tab">
-                <button class="active tab_button" data-target="#info_all">
-                    綜合
-                </button>
+                <button class="active tab_button" data-target="#info_all">綜合</button>
                 <button class="tab_button" data-target="#info_event">活動</button>
                 <button class="tab_button" data-target="#info_system">系統</button>
             </div>
@@ -49,40 +49,58 @@
         </div>
         <div class="info_container">
             <div class="info_box active" id="info_all">
-                <ul class="textUITOP">
-                    <li><a class="textbox" href="https://rco.digeam.com/">
-                            <div class="info_title">公告內容內容內容內容內容內容內容內容內容內容</div>
-                            <div class="info_date">2023/08/29</div>
+                @foreach ($na as $value)
+                    @if ($value['top'] == 'y')
+                        <ul class="textUITOP">
+                        @elseif($value['new'] == 'y')
+                            <ul class="textUINEW">
+                            @else
+                                <ul class="textUInormal">
+                    @endif
+                    <li><a class="textbox" href="{{route('info_content',$value['id'])}}">
+                            @if ($value['cate_id'] == 1)
+                                <div class="info_title">【活動】{{ $value['title'] }}</div>
+                            @else
+                                <div class="info_title">【系統】{{ $value['title'] }}</div>
+                            @endif
+                            <div class="info_date">{{ date('Y/m/d', strtotime($value['created_at'])) }}</div>
                         </a></li>
-                </ul>
-                <ul class="textUINEW">
-                    <li><a class="textbox" href="https://rco.digeam.com/">
-                            <div class="info_title">公告內容內容內容內容內容內容內容內容內容內容</div>
-                            <div class="info_date">2023/08/29</div>
-                        </a></li>
-                </ul>
-                <ul class="textUInormal">
-                    <li><a class="textbox" href="https://rco.digeam.com/">
-                            <div class="info_title">公告內容內容內容內容內容內容內容內容內容內容</div>
-                            <div class="info_date">2023/08/29</div>
-                        </a></li>
-                </ul>
+                    </ul>
+                @endforeach
             </div>
+
             <div class="info_box" id="info_event">
-                <ul class="textUITOP">
-                    <li><a class="textbox" href="https://rco.digeam.com/">
-                            <div class="info_title">公告內容內容內容內容內容內容內容內容內容內容</div>
-                            <div class="info_date">2023/08/29</div>
+                @foreach ($nb as $value)
+                    @if ($value['top'] == 'y')
+                        <ul class="textUITOP">
+                        @elseif($value['new'] == 'y')
+                            <ul class="textUINEW">
+                            @else
+                                <ul class="textUInormal">
+                    @endif
+                    <li><a class="textbox" href="{{route('info_content',$value['id'])}}">
+                            <div class="info_title">【活動】{{ $value['title'] }}</div>
+                            <div class="info_date">{{ date('Y/m/d', strtotime($value['created_at'])) }}</div>
                         </a></li>
-                </ul>
+                    </ul>
+                @endforeach
             </div>
+
             <div class="info_box" id="info_system">
-                <ul class="textUINEW">
-                    <li><a class="textbox" href="https://rco.digeam.com/">
-                            <div class="info_title">公告內容內容內容內容內容內容內容內容內容內容</div>
-                            <div class="info_date">2023/08/29</div>
+                @foreach ($nc as $value)
+                    @if ($value['top'] == 'y')
+                        <ul class="textUITOP">
+                        @elseif($value['new'] == 'y')
+                            <ul class="textUINEW">
+                            @else
+                                <ul class="textUInormal">
+                    @endif
+                    <li><a class="textbox" href="{{route('info_content',$value['id'])}}">
+                            <div class="info_title">【系統】{{ $value['title'] }}</div>
+                            <div class="info_date">{{ date('Y/m/d', strtotime($value['created_at'])) }}</div>
                         </a></li>
-                </ul>
+                    </ul>
+                @endforeach
             </div>
         </div>
     </div>
@@ -92,7 +110,7 @@
 
 <div class="section2">
     <div class="job_title" data-aos="fade-up"></div>
-    <div class="job_mainbox  active" id="job_box1">
+    <div class="job_mainbox  active" id="job_box0">
         <div class="job_box">
             <div class="job_left">
                 <div class="magic1 animate__animated animate__zoomIn animate__fast 800ms" data-aos="zoom-in-up">
@@ -112,7 +130,7 @@
             </div>
         </div>
     </div>
-    <div class="job_mainbox" id="job_box2">
+    <div class="job_mainbox" id="job_box1">
         <div class="job_box">
             <div class="job_left">
                 <div class="magic2 animate__animated animate__zoomIn animate__fast 800ms" data-aos="zoom-in-up">
@@ -132,7 +150,7 @@
             </div>
         </div>
     </div>
-    <div class="job_mainbox" id="job_box3">
+    <div class="job_mainbox" id="job_box2">
         <div class="job_box">
             <div class="job_left">
                 <div class="magic3 animate__animated animate__zoomIn animate__fast 800ms" data-aos="zoom-in-up">
@@ -152,7 +170,7 @@
             </div>
         </div>
     </div>
-    <div class="job_mainbox" id="job_box4">
+    <div class="job_mainbox" id="job_box3">
         <div class="job_box">
             <div class="job_left">
                 <div class="magic4 animate__animated animate__zoomIn animate__fast 800ms" data-aos="zoom-in-up">
@@ -172,7 +190,7 @@
             </div>
         </div>
     </div>
-    <div class="job_mainbox" id="job_box5">
+    <div class="job_mainbox" id="job_box4">
         <div class="job_box">
             <div class="job_left">
                 <div class="magic5 animate__animated animate__zoomIn animate__fast 800ms" data-aos="zoom-in-up">
@@ -192,7 +210,7 @@
             </div>
         </div>
     </div>
-    <div class="job_mainbox" id="job_box6">
+    <div class="job_mainbox" id="job_box5">
         <div class="job_box">
             <div class="job_left">
                 <div class="magic6 animate__animated animate__zoomIn animate__fast 800ms" data-aos="zoom-in-up">
@@ -212,7 +230,7 @@
             </div>
         </div>
     </div>
-    <div class="job_mainbox" id="job_box7">
+    <div class="job_mainbox" id="job_box6">
         <div class="job_box">
             <div class="job_left">
                 <div class="magic7 animate__animated animate__zoomIn animate__fast 800ms" data-aos="zoom-in-up">
@@ -232,7 +250,7 @@
             </div>
         </div>
     </div>
-    <div class="job_mainbox" id="job_box8">
+    <div class="job_mainbox" id="job_box7">
         <div class="job_box">
             <div class="job_left">
                 <div class="magic8 animate__animated animate__zoomIn animate__fast 800ms" data-aos="zoom-in-up">
@@ -252,7 +270,7 @@
             </div>
         </div>
     </div>
-    <div class="job_mainbox" id="job_box9">
+    <div class="job_mainbox" id="job_box8">
         <div class="job_box">
             <div class="job_left">
                 <div class="magic9 animate__animated animate__zoomIn animate__fast 800ms" data-aos="zoom-in-up">
@@ -273,17 +291,17 @@
         </div>
     </div>
     <div class="job_tab">
-        <div class="armsL"></div>
-        <button class="active job_button job_button_h1" data-target="#job_box1">狂劍士</button>
-        <button class="job_button job_button_h2" data-target="#job_box2">雙劍士</button>
-        <button class="job_button job_button_h3" data-target="#job_box3">盾劍士</button>
-        <button class="job_button job_button_h4" data-target="#job_box4">魔劍士</button>
-        <button class="job_button job_button_h5" data-target="#job_box5">角鬥士</button>
-        <button class="job_button job_button_h6" data-target="#job_box6">魔導師</button>
-        <button class="job_button job_button_h7" data-target="#job_box7">弓箭手</button>
-        <button class="job_button job_button_h8" data-target="#job_box8">銃槍手</button>
-        <button class="job_button job_button_h9" data-target="#job_box9">咒術師</button>
-        <div class="armsR"></div>
+        <div class="btnL" onclick="nextClick(-1)"></div>
+        <button class="active job_button0 job_button" data-target="#job_box0" onclick="textClick(0)">狂劍士</button>
+        <button class="job_button job_button1" data-target="#job_box1" onclick="textClick(1)">雙劍士</button>
+        <button class="job_button job_button2" data-target="#job_box2" onclick="textClick(2)">盾劍士</button>
+        <button class="job_button job_button3" data-target="#job_box3" onclick="textClick(3)">魔劍士</button>
+        <button class="job_button job_button4" data-target="#job_box4" onclick="textClick(4)">角鬥士</button>
+        <button class="job_button job_button5" data-target="#job_box5" onclick="textClick(5)">魔導師</button>
+        <button class="job_button job_button6" data-target="#job_box6" onclick="textClick(6)">弓箭手</button>
+        <button class="job_button job_button7" data-target="#job_box7" onclick="textClick(7)">銃槍手</button>
+        <button class="job_button job_button8" data-target="#job_box8" onclick="textClick(8)">咒術師</button>
+        <div class="btnR" onclick="nextClick(1)"></div>
     </div>
 </div>
 <div class="section3">
@@ -346,24 +364,23 @@
 @section('js')
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<!-- <script src="js/aos.js"></script> -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
     AOS.init();
+    //粒子特效
+    particlesJS.load('particles-js', '/js/home_page/particlesjs-config.json', function() {
+        console.log('callback - particles.js config loaded');
+    });
 
-
+    //公告切換
     $('.tab_button').click(function() {
         var target = $(this).data('target');
         $(target).show().siblings('.info_box').hide();
         $(this).addClass('active').siblings('.active').removeClass('active');
     });
-    $('.job_button').click(function() {
-        var target = $(this).data('target');
-        $('.job_mainbox').hide(); // 隱藏所有 .job_mainbox
-        $(target).show(); // 顯示目標 .job_mainbox
-        $(this).addClass('active').siblings('.active').removeClass('active');
-        AOS.init();
-    });
+
+    //公告輪播
     var mySwiper = new Swiper(".swiper-container", {
         direction: "horizontal", // 方向
         loop: true, // 循環
@@ -372,11 +389,10 @@
             el: ".swiper-pagination", // 分頁物件
             type: 'bullets',
             clickable: true,
-            /*             bulletClass: "pagination",
-                        bulletActiveClass: "pagination-active", */
-
         },
     });
+
+    //特色輪播
     var mySwiper = new Swiper(".swiper-container-game", {
         direction: "horizontal", // 方向
         loop: true, // 循環
@@ -399,12 +415,53 @@
             el: ".game-swiper-pagination", // 分頁物件
             type: 'bullets',
             clickable: true,
-            // bulletClass: "custom-pagination-bullet",
         },
         navigation: {
             nextEl: ".swiper-button-next", // 上一頁按鈕物件
             prevEl: ".swiper-button-prev", // 下一頁按鈕物件
         }
     });
+
+    //職業切換
+    $('.job_button').click(function() {
+        var target = $(this).data('target');
+        $('.job_mainbox').hide(); // 隱藏所有 .job_mainbox
+        $(target).show(); // 顯示目標 .job_mainbox
+        $(this).addClass('active').siblings('.active').removeClass('active');
+        AOS.init();
+    });
+
+    var slideIndex = 0;
+
+    function nextClick(i) {
+        showSlides((slideIndex += i));
+        textClick(slideIndex); //把值傳給textClick
+    }
+
+    function textClick(i) {
+        showSlides(i);
+        //選單
+        var _btnA = ".job_button" + i;
+        $(".job_button").removeClass("active");
+        $(_btnA).addClass("active");
+        //職業
+        var _target = "#job_box" + i;
+        $('.job_mainbox').hide();
+        $(_target).show();
+        $(_target).addClass('active').siblings('.active').removeClass('active');
+        AOS.init();
+    }
+
+
+    function showSlides(i) {
+        if (i > 8) {
+            slideIndex = 0;
+            //總共有9個TAB
+        } else if (i < 0) {
+            slideIndex = 8;
+        } else {
+            slideIndex = i;
+        }
+    }
 </script>
 @endsection

@@ -12,15 +12,15 @@
     <meta property="og:site_name" content="" />
     <meta property="og:locale" content="zh_tw" />
     <meta property="article:author" content="" />
-    <meta property="og:image" content="../img/home_page/wiki/fb_share.jpg" />
+    <meta property="og:image" content="/../img/home_page/wiki/fb_share.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="628" />
     <meta name="author" content="DiGeam" />
     <meta name="Resource-type" content="Document" />
-    <link rel="icon" sizes="192x192" href="../../../img/event/20230728/favicon.ico">
+    <link rel="icon" sizes="192x192" href="/../img/event/20230728/favicon.ico">
     <meta name="description" content="《黑色契約CABAL Online》維基百科" />
     <link rel="pingback" href="" />
-    <link href="/css/wiki_style.css" rel="stylesheet">
+    <link href="/css/wiki_style.css?v1.0" rel="stylesheet">
     <title>《黑色契約CABAL Online》維基百科</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
 </head>
@@ -36,7 +36,6 @@
                 </form>
                 <ul class="container">
                     <li>
-
                         @foreach ($side as $key => $value)
                             @if ($value['have_cate'] == true)
                                 <ul class="font_title">{{ $value['cate_title'] }}
@@ -54,7 +53,6 @@
                                 </ul>
                             @endif
                         @endforeach
-
                     </li>
                 </ul>
             </div>
@@ -74,7 +72,6 @@
                 </div>
                 <div class="bottombox">
                     <p class="title">{{ $page['title'] }}</p>
-                    <hr class="hr1" />
                     <div class="textbox">
                         {!! $page['content'] !!}
                     </div>
@@ -119,4 +116,16 @@
         _this.slideToggle();
         // $(this).find(".libox").slideToggle();
     });
+
+    // 表單送出停止冒泡
+    $('form').on('submit', function(e) {
+        e.preventDefault()
+        let _search = $('.search-bar').val();
+        if (_search == '') {
+            alert('請輸入要找尋的關鍵字喔！')
+        } else {
+        console.log(_search)
+            // document.location.href = '/wikiSearch/' + _search
+        }
+    })
 </script>

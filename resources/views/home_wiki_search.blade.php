@@ -20,7 +20,7 @@
     <link rel="icon" sizes="192x192" href="../../../img/event/20230728/favicon.ico">
     <meta name="description" content="《黑色契約CABAL Online》維基百科" />
     <link rel="pingback" href="" />
-    <link href="css/home_page/wiki_style.css" rel="stylesheet">
+    <link href="css/home_page/wiki_style_search.css?v1.0" rel="stylesheet">
     <title>《黑色契約CABAL Online》維基百科</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
 </head>
@@ -55,8 +55,10 @@
                     </div>
                 </div>
                 <div class="bottombox">
-                    <p class="title">標題</p>
-                    <div class="textbox">
+                    <div class="title">標題</div>
+                    <div class="contantbox">
+                        <p>透過裝備升級系統，玩家可以消耗材料道具與材料裝備，藉此打造成更強的武器或防具。裝備升級是目前《赤壁》獲得後期裝備的主要途徑。升級時，依造消耗的材料不同，會獲得更高階級/更高稀有度/不同隨機屬性的新裝備，必且會保留原裝備的成長等級與秘文等強化屬性。</p>
+                    <button class="read">繼續閱讀→</button>
                     </div>
                     <hr class="hr2" />
                     <div class="footer">

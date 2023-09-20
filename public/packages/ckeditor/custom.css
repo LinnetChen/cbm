@@ -21,12 +21,12 @@ body
 
 .cke_editable
 {
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 1.6;
-    width:1046px;
+    width:1172px;
 	/* Fix for missing scrollbars with RTL texts. (#10488) */
 	word-wrap: break-word;
-    font-family: "微軟正黑體", sans-serif;
+    font-family: "Noto Sans TC", sans-serif;
     font-weight: bold;
 }
 

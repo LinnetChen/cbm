@@ -13,50 +13,36 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-Route::get('/20230724', function () {
-    return view('event/20230724_index');
-});
-Route::get('/test_launcher', function () {
-    return view('test_launcher');
-});
-Route::get('/launcher', function () {
-    return view('test_launcher');
-});
+if($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
+//首頁
+Route::get('/', 'front\FrontController@index')->name('index');
+Route::get('/index', 'front\FrontController@index');
+// 遊戲規章
+Route::get('/game_religion', function () {
+    return view('front/game_religion');
+})->name('game_religion');
+// 停權名單
+Route::get('/suspension_list', 'front\FrontController@suspension_list')->name('suspension_list');
+// 公告
+Route::get('/info/{cate?}', 'front\FrontController@info')->name('info');
+// 公告內容
+Route::get('/announcementContent/{id?}', 'front\FrontController@info_content')->name('info_content');
+// 遊戲主程式
+Route::get('/game', function () {
+    return view('front/game');
+})->name('download');
+// 桌布下載
+Route::get('/wallpaper_download', function () {
+    return view('front/wallpaper_download');
+})->name('wallpaper_download');
 
-Route::get('/home', function () {
-    return view('front/home_page');
-});
-Route::get('/wiki', function () {
-    return view('front/home_wiki');
-});
+// 百科
+Route::get('/wiki/{id?}', 'front\FrontController@wiki')->name('wiki');
+// 百科搜尋
 Route::get('/wiki_search', function () {
     return view('front/home_wiki_search');
 });
-Route::get('/game_religion', function () {
-    return view('front/game_religion');
-});
-Route::get('/suspension_list', function () {
-    return view('front/suspension_list');
-});
-Route::get('/info', function () {
-    return view('front/info');
-});
-Route::get('/info_content', function () {
-    return view('front/info_content');
-});
-//模板
-Route::get('/app2', function () {
-    return view('layouts/app2');
-});
-Route::get('/promotion', function () {
-    return view('event/prereg_promotion');
-});
-
-Route::get('/wiki/{id?}', 'front\FrontController@wiki')->name('wiki');
-
+}
 Route::middleware(['setReturnUrl'])->group(function () {
     // 事前預約
     // Route::get('/MembershipTransfer', function () {
@@ -65,11 +51,32 @@ Route::middleware(['setReturnUrl'])->group(function () {
     Route::get('/MembershipTransfer', function () {
         return view('event/20230728_index');
     });
+if($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
+    // 序號兌換
+    Route::get('/number_exchange', function () {
+        return view('front/number_exchange');
+    })->name('number_exchange');
+    // 領獎專區
+    Route::get('/gift', 'front\FrontController@gift')->name('gift');
+    Route::get('/giftContent/{id}', 'front\FrontController@giftContent')->name('giftContent');
+}
+
 });
+
+Route::get('/20230724', function () {
+    return view('event/20230724_index');
+});
+
+Route::get('/test_launcher', function () {
+    return view('test_launcher');
+});
+Route::get('/launcher', 'front\FrontController@launcher');
+
+
 // 後台上傳圖片
 Route::post('delCKEImg', 'CkeditorUploadController@delCKEImg');
 Route::post('ckeditor/upload', 'CkeditorUploadController@uploadImage');
 Route::post('filePath', 'CkeditorUploadController@getImage')->name('filePath');
 
 Route::get('/prereg', 'front\preregController@index');
-Route::get('testApi','front\testController@testAPI');
+Route::get('testApi', 'front\testController@testAPI');

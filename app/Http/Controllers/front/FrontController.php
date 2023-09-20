@@ -4,13 +4,28 @@ namespace App\Http\Controllers\front;
 use App\Http\Controllers\Controller;
 use App\Models\category;
 use App\Models\page;
-
+use App\Models\Image;
+use App\Models\suspension;
+use App\Models\giftContent;
+use App\Models\giftGroup;
+use App\Models\giftCreate;
 class FrontController extends Controller
 {
-    public function wiki($id = 0)
-    {
+    public function index(){
+        $img = Image::where('status','Y')->where('type','index')->orderBy('sort','desc')->get();
+        $na = page::where('type', 'announcement')->where('open', 'Y')->where('created_at','<=',date('Y-m-d H:i:s'))->orderBy('top','desc')->orderBy('new','desc')->orderBy('created_at','desc')->orderBy('sort', 'desc')->limit(6)->get();
+        $nb = page::where('type', 'announcement')->where('cate_id', 1)->where('open', 'Y')->where('created_at','<=',date('Y-m-d H:i:s'))->orderBy('top','desc')->orderBy('new','desc')->orderBy('created_at','desc')->orderBy('sort', 'desc')->limit(6)->get();
+        $nc = page::where('type', 'announcement')->where('cate_id', 2)->where('open', 'Y')->where('created_at','<=',date('Y-m-d H:i:s'))->orderBy('top','desc')->orderBy('new','desc')->orderBy('created_at','desc')->orderBy('sort', 'desc')->limit(6)->get();
+        return view('front.home_page',[
+            'img'=>$img,
+            'na'=>$na,
+            'nb'=>$nb,
+            'nc'=>$nc,
+        ]);
+    }
+    public function wiki($id = 0){
         if($id == 0){
-            $first =  page::where('open', 'Y')->where('type', 'wiki')->orderby('id', 'asc')->first();
+            $first =  page::where('open', 'Y')->where('type', 'wiki')->orderby('sort', 'desc')->first();
             $id = $first['id'];
         }
         // 撈出分類和頁面的正確排序
@@ -42,5 +57,63 @@ class FrontController extends Controller
             'page' => $page, //內容
             'sideContent' => $groupItem, //側邊攔分類子項
         ]);
+    }
+    public function info($cate = 'all'){
+        if($cate == 'all'){
+            $list = page::where('type', 'announcement')->where('open', 'Y')->where('created_at','<=',date('Y-m-d H:i:s'))->orderBy('top','desc')->orderBy('new','desc')->orderBy('created_at','desc')->orderBy('sort', 'desc')->paginate(10);
+        }else if($cate == 'activity'){
+            $list = page::where('type', 'announcement')->where('cate_id', 1)->where('open', 'Y')->where('created_at','<=',date('Y-m-d H:i:s'))->orderBy('top','desc')->orderBy('new','desc')->orderBy('created_at','desc')->orderBy('sort', 'desc')->paginate(10);
+        }else if($cate == 'system'){
+            $list = page::where('type', 'announcement')->where('cate_id', 2)->where('open', 'Y')->where('created_at','<=',date('Y-m-d H:i:s'))->orderBy('top','desc')->orderBy('new','desc')->orderBy('created_at','desc')->orderBy('sort', 'desc')->paginate(10);
+        }else{
+            $list = page::where('type', 'announcement')->where('open', 'Y')->where('created_at','<=',date('Y-m-d H:i:s'))->orderBy('top','desc')->orderBy('new','desc')->orderBy('created_at','desc')->orderBy('sort', 'desc')->paginate(10);
+        }
+        return view('front.info',[
+            'list'=>$list,
+        ]);
+    }
+    public function info_content($id = 0){
+        if($id == 0 ){
+            $page = page::where('open','y')->orderby('sort','desc')->first();
+        }else{
+            $page = page::where('id',$id)->where('open','y')->first();
+            if(!$page){
+                $page = page::where('open','y')->orderby('sort','desc')->first();
+            }
+        };
+        return view('front/info_content',[
+            'page'=>$page,
+        ]);
+    }
+    public function suspension_list(){
+        $list = suspension::orderBy('created_at','desc')->paginate(10);
+        return view('front.suspension_list',[
+            'list'=>$list,
+        ]);
+    }
+    public function gift(){
+        $list  = giftCreate::where('status','y')->orderBy('created_at','desc')->paginate(6);
+
+        return view('front/gift',[
+            'list'=>$list,
+        ]);
+    }
+    public function giftContent($id = 0){
+        if($id == 0 ){
+            return redirect('/gift');
+        }else{
+            $list  = giftCreate::where('status','y')->orderBy('created_at','desc')->paginate(6);
+            $giftCreate = giftCreate::where('id',$id)->first();
+            $giftGroup = giftGroup::where('gift_id',$id)->get();
+            foreach($giftGroup as $key =>$value){
+                $giftContent = giftContent::where('gift_group_id',$value['id'])->get();
+                $giftGroup[$key]['item'] = $giftContent;
+            }
+            return view('front/gift_content',[
+                'list'=>$list,
+                'giftGroup'=>$giftGroup,
+                'giftCreate'=>$giftCreate,
+            ]);
+        }
     }
 }

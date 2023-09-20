@@ -1,0 +1,261 @@
+@charset "utf-8";
+
+* {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+
+body {
+    font: normal 12px/180% "微軟正黑體", sans-serif;
+}
+
+img {
+    border: none
+}
+
+ul,
+li {
+    list-style-type: none;
+    padding: 0
+}
+
+a {
+    color: #fff;
+    text-decoration: none
+}
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+/* logo */
+
+.cabal{
+    background-image: url(/img/launcher/cabal.png);
+    width: 382px;
+    height: 183px;
+    top: 74px;
+    left: 412px;
+    position: absolute;
+}
+.digeam{
+    background-image: url(/img/launcher/digeam.png);
+    width: 96px;
+    height: 22px;
+    top: 5px;
+    left: 120px;
+    position: absolute;
+}
+.est{
+    background-image: url(/img/launcher/est.png);
+    width: 106px;
+    height: 12px;
+    top: 10px;
+    left: 5px;
+    position: absolute;
+}
+
+
+
+
+/* top */
+
+.launch {
+    width: 798px;
+    height: 503px;
+    float: left;
+    background: url(/img/launcher/back.png) no-repeat 0 0;
+}
+
+.links {
+    font-size: 14px;
+    width: 334px;
+    height: 34px;
+    background: url(/img/launcher/topBack.png) no-repeat;
+    top: 0px;
+    left: 464px;
+    letter-spacing: 1px;
+    padding: 6px 20px;
+    position: absolute;
+}
+
+.links li {
+    float: left;
+    border-right: 1px solid #fff;
+    line-height: 14px;
+    padding: 0 5px;
+    margin: 3px 0;
+}
+
+.links li:last-child {
+    border: 0
+}
+
+.links li a {
+    color: #e0e0e0;
+}
+
+.links li a:hover {
+    color: #fff
+}
+
+
+
+
+/* notice */
+
+.notice {
+    margin: 0;
+    padding: 15px 13px;
+    padding-top: 310px;
+}
+
+.notice li {
+    float: left;
+}
+
+
+/* carousel */
+
+#changeimg {
+    width: 265px;
+    height: 178px;
+    overflow: hidden;
+    position: relative;
+}
+
+#changeimg img {
+    width: 265px;
+    height: 178px;
+    cursor: pointer;
+}
+
+#changeimg a {
+    padding: 3px;
+    bottom: 7px;
+    display: block;
+    position: absolute;
+    text-decoration: none;
+    border: solid 1px #ffffff;
+    background-color: #004d9b;
+}
+
+.c1 {
+    right: 45px;
+    width:5px;
+    height:5px;
+}
+
+.c2 {
+    right: 25px;
+    width:5px;
+    height:5px;
+}
+
+.c3 {
+    right: 5px;
+    width:5px;
+    height:5px;
+}
+
+
+/* tabs */
+
+label{
+    color: #b81d22;
+}
+
+#tabs {
+    text-align: left;
+    width: 492px;
+    height: 172px;
+    padding-left: 15px;
+}
+
+.codeDemoUL {
+    list-style: none;
+    clear: right;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+
+.codeDemoUL li {
+    float: left;
+    display: inline;
+    border-bottom: none;
+    margin: 0;
+    overflow: visible;
+    width: 164px;
+    height: 28px;
+    line-height: 25px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.codeDemomouseOnMenu {
+    background: url(/img/launcher/noticeButHover.png) no-repeat 0 0;
+    color: #fff
+}
+
+.codeDemomouseOutMenu {
+    background: url(/img/launcher/noticeBut.png) no-repeat 0 0;
+    color: #fff
+}
+
+/* newlist */
+
+
+.codeDemoDiv {
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+div#newlist {
+    width: 99.5%;
+    margin: 0 auto;
+    max-height: 190px;
+    overflow: hidden;
+}
+
+
+.newslist2 ul li {
+    position: relative;
+    width: 100%;
+    font-size: 12px;
+    line-height: 24px;
+    height: 24px;
+    border-bottom: 1px dotted #3b4298;
+    text-indent: 5px;
+}
+
+.newslist2 ul li:last-child {
+    border-bottom: none;
+}
+
+.newslist2 ul li a {
+    position: absolute;
+    width: 330px;
+    color: #182346;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.newslist2 ul li a:hover {
+    text-decoration: underline
+}
+
+.newslist2 span {
+    position: absolute;
+    line-height: 24px;
+    right: 5px;
+    font-weight: 600;
+    color: #000000;
+}
+
+

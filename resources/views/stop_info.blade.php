@@ -19,7 +19,7 @@
     <link rel="icon" sizes="192x192" href="img/stop_info/favicon.ico">
     <meta name="description" content="首頁 &#8211; 《黑色契約》" />
     <title>《黑色契約》</title>
-    <link rel="stylesheet" href="css/stop_info/style.css">
+    <link rel="stylesheet" href="css/stop_info/style.css?v1.0">
 </head>
 <body>
     <header>
