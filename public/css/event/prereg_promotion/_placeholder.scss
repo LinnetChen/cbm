@@ -1,0 +1,291 @@
+%f-r-c{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%f-c-c{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+%flex-horizontal {
+    display: flex;
+    align-items: center;
+}
+
+%ab-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+%bg-contain {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+%bg-cover {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+%scrollbar-none {
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+}
+
+%box-center{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+// ------------------------------- position
+
+// 左上
+@mixin ab-lt($left, $top) {
+    position: absolute;
+    left: $left;
+    top: $top;
+    @content;
+}
+
+// 左下
+@mixin ab-lb($left, $bottom) {
+    position: absolute;
+    left: $left;
+    bottom: $bottom;
+    @content;
+}
+
+//右上
+@mixin ab-rt($right, $top) {
+    position: absolute;
+    right: $right;
+    top: $top;
+    @content;
+}
+
+//右下
+@mixin ab-rb($right, $bottom) {
+    position: absolute;
+    right: $right;
+    bottom: $bottom;
+    @content;
+}
+
+
+
+// ------------------------------- relative
+
+
+// 左上
+@mixin re-lt($left, $top) {
+    position: relative;
+    left: $left;
+    top: $top;
+    @content;
+}
+
+// 左下
+@mixin re-lb($left, $bottom) {
+    position: relative;
+    left: $left;
+    bottom: $bottom;
+    @content;
+}
+
+//右上
+@mixin re-rt($right, $top) {
+    position: relative;
+    right: $right;
+    top: $top;
+    @content;
+}
+
+//右下
+@mixin re-rb($right, $bottom) {
+    position: relative;
+    right: $right;
+    bottom: $bottom;
+    @content;
+}
+
+//fixed
+
+// 左上
+@mixin fixed-lt($left, $top) {
+    position: fixed;
+    left: $left;
+    top: $top;
+    @content;
+}
+
+// 左下
+@mixin fixed-lb($left, $bottom) {
+    position: fixed;
+    left: $left;
+    bottom: $bottom;
+    @content;
+}
+
+//右上
+@mixin fixed-rt($right, $top) {
+    position: fixed;
+    right: $right;
+    top: $top;
+    @content;
+}
+
+//右下
+@mixin fixed-rb($right, $bottom) {
+    position: fixed;
+    right: $right;
+    bottom: $bottom;
+    @content;
+}
+
+
+
+// 偽元素
+@mixin after($content, $width, $height) {
+    &::after {
+        display: block;
+        content: $content;
+        width: $width;
+        height: $height;
+        @content;
+    }
+}
+
+@mixin before($content, $width, $height) {
+    &::before {
+        display: block;
+        content: $content;
+        width: $width;
+        height: $height;
+        @content;
+    }
+}
+
+//盒子長寬設定
+
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+
+
+// 其他設定
+
+%hover {
+    transition: all ease-in-out .5s;
+
+    &:hover {
+        -webkit-filter: drop-shadow(0px 0px 7px rgba(255, 255, 255, 0.7));
+        filter: drop-shadow(0px 0px 7px rgba(255, 255, 255, 0.7))
+    }
+}
+
+%hover-box-1s {
+    transition: all ease-in-out .5s;
+
+    &:hover {
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
+    }
+
+}
+
+
+%ani-box-1s {
+
+    animation: active-box 0.5s;
+
+    @keyframes active-box {
+        0% {
+            box-shadow: 0 0 0px  #fff;
+        }
+
+        100% {
+            box-shadow: 0 0 3px  #fff;
+        }
+    }
+}
+
+
+%gb-item {
+    @extend %hover-box-1s;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+%drop {
+    position: relative;
+    top: -3px;
+    filter: drop-shadow(0px 3px 0px red);
+    cursor: pointer;
+
+    &:hover {
+        top: 0px;
+        filter: drop-shadow(0px 0px 0px red);
+        transition: .1s all;
+    }
+}
+
+%drop-text {
+    text-shadow: black 0em 0em 0.2em;
+    filter: drop-shadow(0px 3px 0px red);
+}
+
+%popup {
+    animation: popup ;
+
+    @keyframes popup {
+        0% {
+            transform: scale(0);
+        }
+
+        20% {
+            transform:  scale(1.1);
+        }
+
+        50% {
+            transform:  scale(0.95);
+        }
+
+        80% {
+            transform:  scale(1.05);
+        }
+
+        100% {
+            transform:  scale(1);
+        }
+    }
+}
+
+
+%post_ani {
+    animation: post_ani 1s infinite;
+
+    @keyframes post_ani {
+        0%, 100% {
+            transform: scale(1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+        50% {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.7);
+        }
+    }
+}

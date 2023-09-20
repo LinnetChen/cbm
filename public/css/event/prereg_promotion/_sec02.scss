@@ -1,0 +1,147 @@
+.sec02 {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+
+    @include lg() {
+        width: 100%;
+        scale: .9;
+
+    }
+
+    @include sm() {
+        width: 95%;
+        scale: 1;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    &_tit {
+        @include size(778px, 190px);
+        margin: 0 auto;
+        margin-top: 155px;
+        @extend %bg-contain;
+        background-image: url(../../../img/event/prereg/sec02_tit.png);
+
+        @include sm() {
+            width: 95%;
+            background-size: 80%;
+            margin-top: 50px;
+        }
+
+        @include xs() {
+            background-size: 150%;
+        }
+    }
+
+    &_info {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h3 {
+            text-align: center;
+        }
+
+        a {
+            color: $link;
+        }
+
+        img {
+            max-width: 8%;
+        }
+
+
+    }
+
+    .pc_sec02_info {
+
+        @include sm {
+            display: none;
+        }
+
+    }
+
+    .rwd_sec02_info {
+
+        display: none;
+
+        @include sm {
+            margin-top: 10px;
+            display: block;
+        }
+
+    }
+
+
+    .real_gift {
+        max-width: 90%;
+        width: 1117px;
+        height: 380px;
+        @extend %bg-cover;
+        margin: 0 auto;
+        background-image: url(../../../img/event/prereg/real_gift.png);
+
+        @include xs() {
+            width: 100vh;
+            height: 40vh;
+            background-image: url(../../../img/event/prereg/real_gift_rwd.png);
+            background-size: cover;
+        }
+    }
+
+    .giftBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        img {
+            margin: 0 auto;
+            max-width: 70%;
+
+            @include sm() {
+                max-width: 65%;
+            }
+
+            @include xs(){
+                max-width: 95%;
+            }
+        }
+
+        &_pc {
+            @include sm() {
+
+                display: none;
+            }
+        }
+
+        &_rwd {
+            display: none;
+
+            @include sm() {
+                display: block;
+            }
+        }
+    }
+
+
+ 
+
+
+   
+
+
+
+    @import '_book';
+
+    @import '_content';
+
+
+
+}
