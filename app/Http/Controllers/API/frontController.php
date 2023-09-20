@@ -62,7 +62,6 @@ class frontController extends Controller
             ]);
         }
         // 一對一資料更新
-        if ($check_number_cate->all_for_one == 'N') {
             // 派獎
             $send = frontController::sendItem($_COOKIE['StrID'], $check_number_cate['id'],$request->number,$real_ip);
             if($check_number_cate->all_for_one == 'N'){
@@ -75,7 +74,6 @@ class frontController extends Controller
             return response()->json([
                 'status' => 1,
             ]);
-        }
     }
     public function gift(Request $request){
         if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
