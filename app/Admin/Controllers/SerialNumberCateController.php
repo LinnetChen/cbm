@@ -30,18 +30,21 @@ class SerialNumberCateController extends AdminController
         $grid->column('type', __('前贅詞'));
         $grid->column('all_for_one', __('序號類型'))->using(['N' => '一組序號一人用', 'Y' => '一組序號多人用']);
         $grid->column('count', __('序號產出數量'));
-        $grid->column('remainder', __('可兌換次數(剩餘數量)'))->display(function () {
-            $cate = serial_number_cate::where('type', $this->type)->first();
-            if ($cate->all_for_one == 'N') {
-                return '';
-            } else {
-                $used = serial_number::where('type', $this->type)->count();
-                $not_use = $cate->remainder - $used + 1;
-                return $cate->remainder . "(" . $not_use . ")";
-            }
-        });
+        // $grid->column('remainder', __('可兌換次數(剩餘數量)'))->display(function () {
+        //     $cate = serial_number_cate::where('type', $this->type)->first();
+        //     if ($cate->all_for_one == 'N') {
+        //         return '';
+        //     } else {
+        //         $used = serial_number::where('type', $this->type)->count();
+        //         $not_use = $cate->remainder - $used + 1;
+        //         return $cate->remainder . "(" . $not_use . ")";
+        //     }
+        // });
         $grid->column('list', __('序號列表'))->display(function () {
             return '<a href =/admin/' . $this->type . '/serial_number>序號列表</a>';
+        });
+        $grid->column('item_set', __('道具設定'))->display(function () {
+            return '<a href =/admin/' . $this->id . '/serial_item>道具列表</a>';
         });
         $grid->column('start_date', __('開始日期'));
         $grid->column('end_date', __('截止日期'));

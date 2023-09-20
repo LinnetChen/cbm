@@ -21,6 +21,7 @@ Route::group([
     $router->resource('/announcement', 'AnnouncementController');
     $router->resource('/serial_number_cate', 'SerialNumberCateController');
     $router->resource('{number}/serial_number', 'SerialNumberController');
+    $router->resource('{id}/serial_item', 'SerialItemController');
     $router->resource('/prereguser', 'PreregUserController');
     $router->resource('/msgboard', 'MsgBoardController');
     $router->resource('/suspension', 'SuspensionController');
