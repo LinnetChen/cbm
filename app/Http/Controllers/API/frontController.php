@@ -75,21 +75,6 @@ class frontController extends Controller
                 'status' => 1,
             ]);
     }
-    public function gift(Request $request){
-        if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
-            $real_ip = $_SERVER["HTTP_CF_CONNECTING_IP"];
-        } else {
-            $real_ip = $_SERVER["REMOTE_ADDR"];
-        }
-
-        $setDay = date('Y-m-d h:i:s');
-        $check = giftGetLog::where('user',$_COOKIE['StrID'])->first();
-
-        dd($request);
-
-    }
-
-
     // 獲取玩家資訊
     private function getUser($user_id)
     {
@@ -133,4 +118,69 @@ class frontController extends Controller
             $newLog->save();
         }
     }
+
+    public function gift(Request $request){
+        if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
+            $real_ip = $_SERVER["HTTP_CF_CONNECTING_IP"];
+        } else {
+            $real_ip = $_SERVER["REMOTE_ADDR"];
+        }
+        $setDay = date('Y-m-d h:i:s');
+        // 已領過
+        $check = giftGetLog::where('user',$_COOKIE['StrID'])->where('gift',$request->gift_id)->first();
+        if($check){
+            return response()->json([
+                'status' => -99,
+            ]);
+        }
+        // 確認時間
+        $check_gift_group = giftGroup::where('id', $request->gift_id)->first();
+        $check_gift = giftCreate::where('id',$check_gift_group['gift_id'])->first();
+        if ($setDay < $check_gift['start'] || $setDay > $check_gift['end']) {
+            return response()->json([
+                'status' => -98,
+            ]);
+        }
+
+        frontController::giftSendItem($user,$request->gift_id,$ip);
+        return response()->json([
+            'status' => 1,
+        ]);
+
+
+    }
+
+    private function giftSendItem($user,$gift_id,$ip)
+    {
+        $getItem = giftContent::where('gift_group_id', $gift_id)->get();
+
+        foreach ($getItem as $value) {
+            $client = new Client();
+            $data = [
+                "userId" => $user,
+                "itemIdx" => $value['itemIdx'],
+                "itemOpt" => $value['itemOpt'],
+                "durationIdx" => $value['durationIdx'],
+                "prdId" => $value['prdId'],
+            ];
+
+            $headers = [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+            ];
+
+            $res = $client->request('POST', 'http://c1twapi.global.estgames.com/game/give/item/cash', [
+                'headers' => $headers,
+                'json' => $data,
+            ]);
+
+            $newLog = new giftGetLog();
+            $newLog->user = $user;
+            $newLog->gift = $gift;
+            $newLog->gift_item = $gift_item;
+            $newLog->ip = $ip;
+            $newLog->save();
+        }
+    }
+
 }

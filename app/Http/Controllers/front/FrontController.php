@@ -173,10 +173,6 @@ class FrontController extends Controller
             $list = giftCreate::where('status', 'y')->orderBy('created_at', 'desc')->paginate(6);
             $giftCreate = giftCreate::where('id', $id)->first();
             $giftGroup = giftGroup::where('gift_id', $id)->get();
-            foreach ($giftGroup as $key => $value) {
-                $giftContent = giftContent::where('gift_group_id', $value['id'])->get();
-                $giftGroup[$key]['item'] = $giftContent;
-            }
             return view('front/gift_content', [
                 'list' => $list,
                 'giftGroup' => $giftGroup,

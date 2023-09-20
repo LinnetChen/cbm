@@ -23,7 +23,7 @@ class GiftItemCreateController extends AdminController
         $getCate = giftCreate::where('id',$getGroup['gift_id'])->first();
         return $content
             ->header('領獎專區')
-            ->description($getCate['title'].'－'.$getGroup['title'].'（可設定'.$getGroup['rows'].'項道具）')
+            ->description($getCate['title'].'－'.$getGroup['title'])
             ->body($this->grid($this));
     }
 
@@ -34,7 +34,6 @@ class GiftItemCreateController extends AdminController
         $grid = new Grid(new giftContent());
         $grid->model()->where('gift_group_id',$cate_id)->orderBy('created_at', 'desc');
         $grid->column('title', __('標題'));
-        $grid->column('description', __('道具說明'));
         $grid->column('itemIdx', __('itemIdx'));
         $grid->column('itemOpt', __('itemOpt'));
         $grid->column('durationIdx', __('durationIdx'));
@@ -43,12 +42,7 @@ class GiftItemCreateController extends AdminController
         $grid->actions(function ($actions) {
             $actions->disableView();
         });
-        $getGroup = giftGroup::where('id',$cate_id)->first();
-        $getItem = giftContent::where('gift_group_id',$cate_id)->get();
-        $count  = count($getItem);
-        if($getGroup['rows'] <= $count){
-        $grid->disableCreateButton();
-        }
+
         $grid->disableRowSelector();
         $grid->disableExport();
         $grid->disableFilter();
@@ -65,7 +59,6 @@ class GiftItemCreateController extends AdminController
         $form->text('gift_group_id', __('分類ID'))->default($cate_id)->readonly();
 
         $form->text('title', __('標題'))->required();
-        $form->text('description', __('道具說明'))->required();
         $form->text('itemIdx', __('itemIdx'))->required();
         $form->text('itemOpt', __('itemOpt'))->required();
         $form->text('durationIdx', __('durationIdx'))->required();
