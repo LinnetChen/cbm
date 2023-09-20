@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-// if($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
+if($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
 //首頁
 Route::get('/', 'front\FrontController@index')->name('index');
 Route::get('/index', 'front\FrontController@index');
@@ -53,7 +53,7 @@ Route::get('/prereg_promotion', function () {
     return view('event/prereg_promotion');
 });
 
-// }
+}
 Route::middleware(['setReturnUrl'])->group(function () {
     // 事前預約
     // Route::get('/MembershipTransfer', function () {
@@ -62,7 +62,7 @@ Route::middleware(['setReturnUrl'])->group(function () {
     Route::get('/MembershipTransfer', function () {
         return view('event/20230728_index');
     });
-// if($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
+if($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
     // 序號兌換
     Route::get('/number_exchange', function () {
         return view('front/number_exchange');
@@ -70,7 +70,7 @@ Route::middleware(['setReturnUrl'])->group(function () {
     // 領獎專區
     Route::get('/gift', 'front\FrontController@gift')->name('gift');
     Route::get('/giftContent/{id}', 'front\FrontController@giftContent')->name('giftContent');
-// }
+}
 
 });
 
