@@ -46,7 +46,7 @@ class SerialNumberController extends AdminController
         $grid->actions(function($actions){
             $actions->disableView();
         });
-
+        $grid->disableCreateButton();
         $grid->disableRowSelector();
         $grid->disableExport();
         $grid->disableActions();

@@ -106,9 +106,6 @@ class frontController extends Controller
         $getItem = serial_item::where('cate_id', $cate)->get();
 
         foreach ($getItem as $value) {
-
-
-
             $client = new Client();
             $data = [
                 "userId" => $user,
