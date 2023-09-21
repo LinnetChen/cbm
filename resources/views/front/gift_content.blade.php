@@ -76,17 +76,17 @@ $_COOKIE['StrID'] = 'jacky0996';
 
         <table>
             <tr class="tab_head_s">
-                <td>活動名稱</td>
-                <td>活動獎勵</td>
-                <td>說明</td>
-                <td>領取狀態</td>
+                <td width='90'>活動名稱</td>
+                <td width='150'>活動獎勵</td>
+                <td width='150'>說明</td>
+                <td width='10'>領取狀態</td>
             </tr>
 
             @foreach ($giftGroup as $value)
                 <tr>
                     <td>{{ $value['title'] }}</td>
-                    <td>{!!nl2br($value['item'])!!}</td>
-                    <td>{!!nl2br($value['desc'])!!}</td>
+                    <td>{!! nl2br($value['item']) !!}</td>
+                    <td>{!! nl2br($value['desc']) !!}</td>
                     <td>
                         @if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null)
                             <div class="btn_s" data-val={{ $value['id'] }}>領取</div>
@@ -118,14 +118,14 @@ $_COOKIE['StrID'] = 'jacky0996';
         })
         // 送獎
         $('.btn_s').on('click', function() {
-            $.post('/api/gift',{
+            $.post('/api/gift', {
                 'gift_id': $(this).data('val')
-            },function(res) {
-                if(res.status == -99){
+            }, function(res) {
+                if (res.status == -99) {
                     alert('已經領取過了')
-                }else if(res.status == -98){
+                } else if (res.status == -98) {
                     alert('不在可領取時間內')
-                }else if(res.status ==1){
+                } else if (res.status == 1) {
                     alert('兌換成功')
                 }
             })

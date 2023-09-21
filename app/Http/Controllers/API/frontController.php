@@ -153,7 +153,6 @@ class frontController extends Controller
     private function giftSendItem($user,$gift_id,$ip)
     {
         $getItem = giftContent::where('gift_group_id', $gift_id)->get();
-
         foreach ($getItem as $value) {
             $client = new Client();
             $data = [
@@ -176,7 +175,7 @@ class frontController extends Controller
 
             $newLog = new giftGetLog();
             $newLog->user = $user;
-            $newLog->gift = $gift;
+            $newLog->gift = $gift_id;
             $newLog->gift_item = $gift_item;
             $newLog->ip = $ip;
             $newLog->save();
