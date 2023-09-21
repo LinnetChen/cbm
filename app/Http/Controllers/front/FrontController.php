@@ -191,6 +191,25 @@ class FrontController extends Controller
             ]);
         }
     }
+    public function giftSearch($year, $month, $keywords = null)
+    {
+        if ($year == 0) {
+            $year = date('Y');
+        }
+        if ($month == 0) {
+            $month = date('m');
+        }
+        $limit = $year . '-' . $month . '-31';
+        if ($keywords == null) {
+            $list = giftCreate::where('status', 'y')->where('created_at', '<', $limit)->orderby('created_at', 'desc')->paginate(6);
+        } else {
+            $fix_keywords = FrontController::escape_like_str($keywords);
+            $list = giftCreate::where('status', 'y')->where('created_at', '<', $limit)->where('title', 'like', "%" . $fix_keywords . "%")->orderby('created_at', 'desc')->paginate(6);
+        }
+        return view('front/gift_search', [
+            'list' => $list,
+        ]);
+    }
     public function launcher()
     {
         $na = page::where('type', 'announcement')->where('open', 'Y')->where('created_at', '<=', date('Y-m-d H:i:s'))->orderBy('top', 'desc')->orderBy('new', 'desc')->orderBy('created_at', 'desc')->orderBy('sort', 'desc')->limit(6)->get();
