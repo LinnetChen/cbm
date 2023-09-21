@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+@extends('layouts.app3')
 @section('title', '《黑色契約CABAL Online》遊戲公告')
 @section('link')
     <link rel="stylesheet" href="/css/home_page/info_content_style.css?v1.0">
@@ -18,6 +18,6 @@
 
 @section('js')
     <script>
-        $('.main_box a').css('font-size', '')
+        $('.main_box a').attr('font-size', '')
     </script>
 @endsection
