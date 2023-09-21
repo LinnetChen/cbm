@@ -14,6 +14,10 @@
         </div>
     </div>
 @endsection
-<script>
-    $('.main_box a').css('font-size', '')
-</script>
+
+
+@section('js')
+    <script>
+        $('.main_box a').css('font-size', '')
+    </script>
+@endsection
