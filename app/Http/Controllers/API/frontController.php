@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\giftContent;
+use App\Models\giftCreate;
+use App\Models\giftGetLog;
+use App\Models\giftGroup;
 use App\Models\serial_item;
 use App\Models\serial_number;
 use App\Models\serial_number_cate;
 use App\Models\serial_number_getlog;
-use App\Models\giftContent;
-use App\Models\giftGroup;
-use App\Models\giftCreate;
-use App\Models\giftGetLog;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
@@ -55,25 +55,25 @@ class frontController extends Controller
             ]);
         }
         // 檢查是否已參加過活動
-        $checkAlreadyJoin = serial_number_getlog::where('serial_cate_id',$check_number_cate['id'])->where('user',$_COOKIE['StrID'])->first();
-        if($checkAlreadyJoin){
+        $checkAlreadyJoin = serial_number_getlog::where('serial_cate_id', $check_number_cate['id'])->where('user', $_COOKIE['StrID'])->first();
+        if ($checkAlreadyJoin) {
             return response()->json([
                 'status' => -95,
             ]);
         }
         // 一對一資料更新
-            // 派獎
-            $send = frontController::sendItem($_COOKIE['StrID'], $check_number_cate['id'],$request->number,$real_ip);
-            if($check_number_cate->all_for_one == 'N'){
-                $check_number->status = 'Y';
-                $check_number->user_id = $_COOKIE['StrID'];
-                $check_number->user_ip = $real_ip;
-                $check_number->save();
-            }
-            // 派獎
-            return response()->json([
-                'status' => 1,
-            ]);
+        // 派獎
+        $send = frontController::sendItem($_COOKIE['StrID'], $check_number_cate['id'], $request->number, $real_ip);
+        if ($check_number_cate->all_for_one == 'N') {
+            $check_number->status = 'Y';
+            $check_number->user_id = $_COOKIE['StrID'];
+            $check_number->user_ip = $real_ip;
+            $check_number->save();
+        }
+        // 派獎
+        return response()->json([
+            'status' => 1,
+        ]);
     }
     // 獲取玩家資訊
     private function getUser($user_id)
@@ -86,7 +86,7 @@ class frontController extends Controller
         return $result;
     }
 
-    private function sendItem($user, $cate,$number,$ip)
+    private function sendItem($user, $cate, $number, $ip)
     {
         $getItem = serial_item::where('cate_id', $cate)->get();
 
@@ -119,7 +119,8 @@ class frontController extends Controller
         }
     }
 
-    public function gift(Request $request){
+    public function gift(Request $request)
+    {
         if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
             $real_ip = $_SERVER["HTTP_CF_CONNECTING_IP"];
         } else {
@@ -127,30 +128,29 @@ class frontController extends Controller
         }
         $setDay = date('Y-m-d h:i:s');
         // 已領過
-        $check = giftGetLog::where('user',$_COOKIE['StrID'])->where('gift',$request->gift_id)->first();
-        if($check){
+        $check = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->first();
+        if ($check) {
             return response()->json([
                 'status' => -99,
             ]);
         }
         // 確認時間
         $check_gift_group = giftGroup::where('id', $request->gift_id)->first();
-        $check_gift = giftCreate::where('id',$check_gift_group['gift_id'])->first();
+        $check_gift = giftCreate::where('id', $check_gift_group['gift_id'])->first();
         if ($setDay < $check_gift['start'] || $setDay > $check_gift['end']) {
             return response()->json([
                 'status' => -98,
             ]);
         }
 
-        frontController::giftSendItem($_COOKIE['StrID'],$request->gift_id,$real_ip);
+        frontController::giftSendItem($_COOKIE['StrID'], $request->gift_id, $real_ip);
         return response()->json([
             'status' => 1,
         ]);
 
-
     }
 
-    private function giftSendItem($user,$gift_id,$ip)
+    private function giftSendItem($user, $gift_id, $ip)
     {
         $getItem = giftContent::where('gift_group_id', $gift_id)->get();
         foreach ($getItem as $value) {
@@ -176,7 +176,7 @@ class frontController extends Controller
             $newLog = new giftGetLog();
             $newLog->user = $user;
             $newLog->gift = $gift_id;
-            $newLog->gift_item = $gift_item;
+            $newLog->gift_item = $value['title'];
             $newLog->ip = $ip;
             $newLog->save();
         }
