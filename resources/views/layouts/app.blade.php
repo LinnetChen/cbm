@@ -88,7 +88,7 @@
         <div>
             <a href="https://www.digeam.com/terms?_gl=1*prkbqn*_ga*MTI0MjkwMTA3Mi4xNjg3MjI2NjQx*_ga_3YHH2V2WHK*MTY5Mjc4MTA3My4xNy4wLjE2OTI3ODEwNzMuNjAuMC4w" target="_blank" class="linkp">會員服務條款</a>
             <a href="https://www.digeam.com/terms2?_gl=1*c9toqi*_ga*MTI0MjkwMTA3Mi4xNjg3MjI2NjQx*_ga_3YHH2V2WHK*MTY5Mjc4MTA3My4xNy4wLjE2OTI3ODEwNzMuNjAuMC4w" target="_blank" class="linkp">隱私條款</a>
-            <a href="https://www.digeam.com/login" target="_blank" class="linkp">客服中心</a>
+            <a href="https://www.digeam.com/cs" target="_blank" class="linkp">客服中心</a>
             <div class="copyright">
                 <p>Copyright © ESTgames Corp. All rights reserved.</p>
                 <p>2023 Licensed and published for Taiwan, Hong Kong and Macau by DiGeam Co.,Ltd</p>

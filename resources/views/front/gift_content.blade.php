@@ -8,28 +8,28 @@
     <p>達成活動條件後，可以在此頁面登入並領取活動獎勵。</p>
     <div class="line"></div>
     <div class="select_box">
-        <select class="section" name="select_year">
+        <select class="section year" name="select_year">
             <option class="option" value="0">年</option>
             <option class="option" value="2023">2023</option>
             <option class="option" value="2024">2024</option>
         </select>
-        <select class="section" name="select_month">
+        <select class="section month" name="select_month">
             <option class="option" value="0">月</option>
-            <option class="option" value="1">1</option>
-            <option class="option" value="2">2</option>
-            <option class="option" value="3">3</option>
-            <option class="option" value="4">4</option>
-            <option class="option" value="5">5</option>
-            <option class="option" value="6">6</option>
-            <option class="option" value="7">7</option>
-            <option class="option" value="8">8</option>
-            <option class="option" value="9">9</option>
+            <option class="option" value="01">01</option>
+            <option class="option" value="02">02</option>
+            <option class="option" value="03">03</option>
+            <option class="option" value="04">04</option>
+            <option class="option" value="05">05</option>
+            <option class="option" value="06">06</option>
+            <option class="option" value="07">07</option>
+            <option class="option" value="08">08</option>
+            <option class="option" value="09">09</option>
             <option class="option" value="10">10</option>
             <option class="option" value="11">11</option>
             <option class="option" value="12">12</option>
         </select>
-        <input type="text" placeholder="輸入活動關鍵字" class="input" />
-        <div class="login">搜尋</div>
+        <input type="text" placeholder="輸入活動關鍵字" class="input keyword" />
+        <div class="login search">搜尋</div>
     </div>
     <div class="content_box">
         <table>
@@ -66,7 +66,7 @@
         @else
             <div class="login_box">
                 <div class="login_text">請先登入</div>
-                <div class="login">登入</div>
+                <div class="login" id='login'>登入</div>
             </div>
         @endif
 
@@ -81,9 +81,9 @@
 
             @foreach ($giftGroup as $value)
                 <tr>
-                    <td>{{ $value['title'] }}</td>
-                    <td>{!! nl2br($value['item']) !!}</td>
-                    <td>{!! nl2br($value['desc']) !!}</td>
+                    <td style="text-align: left;">{{ $value['title'] }}</td>
+                    <td style="text-align: left;">{!! nl2br($value['item']) !!}</td>
+                    <td style="text-align: left;">{!! nl2br($value['desc']) !!}</td>
                     <td>
                         @if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null)
                             @if ($value['already_get'] == 'n')
@@ -100,7 +100,6 @@
 
 
 
-
         </table>
     </div>
 
@@ -113,10 +112,17 @@
         $('.logout').on('click', function() {
             $('#logout-form').submit()
         })
+
         // 登入
-        $('.login').on('click', function() {
+        $('#login').on('click', function() {
             location.href = 'https://digeam.com/login'
         })
+
+        $('.search').on('click', function() {
+            location.href = '/giftSearch/' + $('.year').val() + '/' + $('.month').val() +
+                '/' + $('.keyword').val()
+        })
+
         // 送獎
         $('.btn_s').on('click', function() {
             $.post('/api/gift', {

@@ -66,6 +66,7 @@ Route::middleware(['setReturnUrl'])->group(function () {
         // 領獎專區
         Route::get('/gift', 'front\FrontController@gift')->name('gift');
         Route::get('/giftContent/{id}', 'front\FrontController@giftContent')->name('giftContent');
+        Route::get('/giftSearch/{year}/{month}/{keyword?}', 'front\FrontController@giftSearch');
     }
 
 });
