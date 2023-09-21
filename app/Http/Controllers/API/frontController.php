@@ -153,7 +153,6 @@ class frontController extends Controller
     private function giftSendItem($user,$gift_id,$ip)
     {
         $getItem = giftContent::where('gift_group_id', $gift_id)->get();
-
         foreach ($getItem as $value) {
             $client = new Client();
             $data = [
