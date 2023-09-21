@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\category;
 use App\Models\giftContent;
 use App\Models\giftCreate;
+use App\Models\giftGetLog;
 use App\Models\giftGroup;
 use App\Models\Image;
 use App\Models\page;
@@ -173,6 +174,16 @@ class FrontController extends Controller
             $list = giftCreate::where('status', 'y')->orderBy('created_at', 'desc')->paginate(6);
             $giftCreate = giftCreate::where('id', $id)->first();
             $giftGroup = giftGroup::where('gift_id', $id)->get();
+            if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null) {
+                foreach ($giftGroup as $key => $value) {
+                    $check = giftGetLog::where('gift', $value['id'])->where('user', $_COOKIE['StrID'])->first();
+                    if ($check) {
+                        $giftGroup[$key]['already_get'] = 'y';
+                    } else {
+                        $giftGroup[$key]['already_get'] = 'n';
+                    }
+                }
+            }
             return view('front/gift_content', [
                 'list' => $list,
                 'giftGroup' => $giftGroup,

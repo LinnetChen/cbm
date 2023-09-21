@@ -89,7 +89,11 @@ $_COOKIE['StrID'] = 'jacky0996';
                     <td>{!! nl2br($value['desc']) !!}</td>
                     <td>
                         @if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null)
-                            <div class="btn_s" data-val={{ $value['id'] }}>領取</div>
+                            @if ($value['already_get'] == 'n')
+                                <div class="btn_s" data-val={{ $value['id'] }}>領取</div>
+                            @else
+                                <div class="btn_s_gray">已領取</div>
+                            @endif
                         @else
                             <div class="btn_s_gray">領取</div>
                         @endif
