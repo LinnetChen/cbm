@@ -55,10 +55,10 @@ class FrontController extends Controller
             }
         }
         // 撈出畫面
-        if($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
-            $page = page::where('id', $id)->where('type','wiki')->first();
-        }else{
-            $page = page::where('id', $id)->where('type','wiki')->where('open', 'y')->first();
+        if ($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
+            $page = page::where('id', $id)->where('type', 'wiki')->first();
+        } else {
+            $page = page::where('id', $id)->where('type', 'wiki')->where('open', 'y')->first();
         }
         if (!$page) {
             return redirect('https://cbo.digeam.com/');
@@ -137,10 +137,10 @@ class FrontController extends Controller
         if ($id == 0) {
             return redirect('https://cbo.digeam.com/');
         } else {
-            if($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
-                $page = page::where('id', $id)->where('type','announcement')->first();
-            }else{
-                $page = page::where('id', $id)->where('type','announcement')->where('open', 'y')->first();
+            if ($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
+                $page = page::where('id', $id)->where('type', 'announcement')->first();
+            } else {
+                $page = page::where('id', $id)->where('type', 'announcement')->where('open', 'y')->first();
             }
             if (!$page) {
                 return redirect('https://cbo.digeam.com/');
@@ -180,14 +180,15 @@ class FrontController extends Controller
             ]);
         }
     }
-    public function launcher(){
-        $na = page::where('type', 'announcement')->where('open', 'Y')->where('created_at','<=',date('Y-m-d H:i:s'))->orderBy('top','desc')->orderBy('new','desc')->orderBy('created_at','desc')->orderBy('sort', 'desc')->limit(6)->get();
-        $nb = page::where('type', 'announcement')->where('cate_id', 1)->where('open', 'Y')->where('created_at','<=',date('Y-m-d H:i:s'))->orderBy('top','desc')->orderBy('new','desc')->orderBy('created_at','desc')->orderBy('sort', 'desc')->limit(6)->get();
-        $nc = page::where('type', 'announcement')->where('cate_id', 2)->where('open', 'Y')->where('created_at','<=',date('Y-m-d H:i:s'))->orderBy('top','desc')->orderBy('new','desc')->orderBy('created_at','desc')->orderBy('sort', 'desc')->limit(6)->get();
-        return view('launcher',[
-            'na'=>$na,
-            'nb'=>$nb,
-            'nc'=>$nc,
+    public function launcher()
+    {
+        $na = page::where('type', 'announcement')->where('open', 'Y')->where('created_at', '<=', date('Y-m-d H:i:s'))->orderBy('top', 'desc')->orderBy('new', 'desc')->orderBy('created_at', 'desc')->orderBy('sort', 'desc')->limit(6)->get();
+        $nb = page::where('type', 'announcement')->where('cate_id', 1)->where('open', 'Y')->where('created_at', '<=', date('Y-m-d H:i:s'))->orderBy('top', 'desc')->orderBy('new', 'desc')->orderBy('created_at', 'desc')->orderBy('sort', 'desc')->limit(6)->get();
+        $nc = page::where('type', 'announcement')->where('cate_id', 2)->where('open', 'Y')->where('created_at', '<=', date('Y-m-d H:i:s'))->orderBy('top', 'desc')->orderBy('new', 'desc')->orderBy('created_at', 'desc')->orderBy('sort', 'desc')->limit(6)->get();
+        return view('launcher', [
+            'na' => $na,
+            'nb' => $nb,
+            'nc' => $nc,
         ]);
     }
 
