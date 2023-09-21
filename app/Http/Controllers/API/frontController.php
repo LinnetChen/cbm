@@ -175,7 +175,7 @@ class frontController extends Controller
 
             $newLog = new giftGetLog();
             $newLog->user = $user;
-            $newLog->gift = $gift;
+            $newLog->gift = $gift_id;
             $newLog->gift_item = $gift_item;
             $newLog->ip = $ip;
             $newLog->save();
