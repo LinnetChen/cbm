@@ -24,8 +24,9 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v17.0" nonce="m5ozWkZT"></script>
-    <link rel="stylesheet" href="css/event/prereg/style.css?v=09062">
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v17.0"
+        nonce="m5ozWkZT"></script>
+    <link rel="stylesheet" href="css/event/prereg/style.css?v=09064">
 
     <script>
         (function(w, d, s, l, i) {
@@ -157,8 +158,15 @@
                                 SetCookie('return_url', base64_encode('https://cbo.digeam.com/prereg'), 0, '/', $_COOKIE_DOMAIN);
                             @endphp
                             <a class="login" href="https://digeam.com/login"></a>
-                            <span>*新用戶註冊點這裡<a href="https://www.digeam.com/register_cbo"
-                                    target="_blank"><svg fill="#f6d62f" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M17.5 10L10 17.5V14H3V6h7V2.5l7.5 7.5z"></path></g></svg>前往註冊</a></span>
+                            <span>*新用戶註冊點這裡<a href="https://www.digeam.com/register_cbo" target="_blank"><svg
+                                        fill="#f6d62f" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path d="M17.5 10L10 17.5V14H3V6h7V2.5l7.5 7.5z"></path>
+                                        </g>
+                                    </svg>前往註冊</a></span>
                         @endif
 
                     </div>
@@ -436,7 +444,8 @@
                     <a href="https://www.digeam.com/terms" target="_blank">會員服務條款</a>
                     <a href="https://www.digeam.com/terms2" target="_blank">隱私條款</a>
                     <a href="https://www.digeam.com/cs" target="_blank">客服中心</a>
-                    <p class="Copyright">Copyright © ESTgames Corp. All rights reserved.<br />2023 Licensed and published
+                    <p class="Copyright">Copyright © ESTgames Corp. All rights reserved.<br />2023 Licensed and
+                        published
                         for Taiwan, Hong Kong and Macau by DiGeam Co.,Ltd<br />CABAL Online is a registered trademark of
                         ESTgames Corp (and the logo of ESTgames).</p>
                 </div>

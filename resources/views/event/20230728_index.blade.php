@@ -25,6 +25,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/event/20230728/style.css?v1.0">
 </head>
+
 <body>
     <div class="wrap">
         <header>
@@ -37,10 +38,11 @@
                 </button>
                 <a class="digeamwlogo" href="https://digeam.com/index" target="_blank"></a>
                 <div class="links">
+                    {{-- <a href="https://cbo.digeam.com/index" target="_blank">官方網站</a> --}}
                     <a href="https://digeam.com/register" target="_blank">會員註冊</a>
-                    <a href="https://digeam.com/cs" target="_blank">客服中心</a>
                     <a href="https://digeam.com/cs/faq" target="_blank">常見問題</a>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScXfIVNDduoO46uvKcvtsEITDtqfYpLw2uqb01OGdBH26kJTg/viewform" target="_blank">填寫問卷</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScXfIVNDduoO46uvKcvtsEITDtqfYpLw2uqb01OGdBH26kJTg/viewform"
+                        target="_blank">填寫問卷</a>
                 </div>
                 <div class="sociallink">
                     <a class="fblink" href="https://www.facebook.com/DiGeamCabal" target="_blank"><img
@@ -196,7 +198,8 @@
                     <a href="https://www.digeam.com/terms">會員服務條款</a>
                     <a href="https://www.digeam.com/terms2">隱私條款</a>
                     <a href="https://www.digeam.com/cs">客服中心</a>
-                    <p class="Copyright">Copyright © ESTgames Corp. All rights reserved.<br />2023 Licensed and published
+                    <p class="Copyright">Copyright © ESTgames Corp. All rights reserved.<br />2023 Licensed and
+                        published
                         for Taiwan, Hong Kong and Macau by DiGeam Co.,Ltd<br />CABAL Online is a registered trademark of
                         ESTgames Corp (and the logo of ESTgames).</p>
                 </div>
