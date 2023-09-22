@@ -20,7 +20,7 @@
     <link rel="icon" sizes="192x192" href="../../../img/event/20230728/favicon.ico">
     <meta name="description" content="《黑色契約CABAL Online》維基百科" />
     <link rel="pingback" href="" />
-    <link href="/css/home_page/wiki_style_search.css?v1.1" rel="stylesheet">
+    <link href="/css/home_page/wiki_style_search.css?v1.11" rel="stylesheet">
     <title>《黑色契約CABAL Online》維基百科</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
 </head>
@@ -84,7 +84,7 @@
                                 <div class='text_box'>
                                     <p>{!! $value['content'] !!}
                                 </div>
-                                <a>
+                                <a href={{ route('wiki', $value['id']) }}>
                                     <div class="read">繼續閱讀→</div>
                                 </a>
                             </div>
