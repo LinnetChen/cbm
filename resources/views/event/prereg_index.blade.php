@@ -89,7 +89,7 @@
                     <a href="https://cbo.digeam.com/MembershipTransfer" target="_blank">老玩家會員轉移</a>
                 </div>
                 <div class="link_icon">
-                    <a href="http://cbo.digeam.com" class="home"></a>
+                    <a href="https://cbo.digeam.com/" class="home" target="_blank"></a>
                     <a href="https://www.facebook.com/DiGeamCabal/" class="fb" target="_blank"></a>
                     <a href="https://discord.gg/YyPkJrwqvs" class="discord" target="_blank"></a>
                 </div>
@@ -112,7 +112,7 @@
                                     target="_blank">老玩家會員轉移</li>
                     </ul>
                     <div class="link_icon">
-                        <a href="http://http://cbo.digeam.com" class="home" target="_blank"></a>
+                        <a href="https://cbo.digeam.com/" class="home" target="_blank"></a>
                         <a href="https://www.facebook.com/DiGeamCabal/" class="fb" target="_blank"></a>
                         <a href="https://discord.gg/YyPkJrwqvs" class="discord" target="_blank"></a>
                     </div>
