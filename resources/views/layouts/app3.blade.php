@@ -150,6 +150,10 @@
                 $('.top_box').css('height', "390px");
             });
         });
+
+        $('.download').on('click', function() {
+            alert('主程式暫未開放下載,敬請期待')
+        })
     </script>
 
     <!-- 自定義js -->

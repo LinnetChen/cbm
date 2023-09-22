@@ -46,7 +46,7 @@
                     <button class="tab_button" data-target="#info_event">活動</button>
                     <button class="tab_button" data-target="#info_system">系統</button>
                 </div>
-                <a href="">More</a>
+                <a href="{{ route('info') }}">More</a>
             </div>
             <div class="info_container">
                 <div class="info_box active" id="info_all">

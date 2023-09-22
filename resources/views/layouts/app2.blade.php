@@ -78,7 +78,7 @@
     <div class="bg">
         <div class="main_box">
             <div class="main_btn">
-                <a href="https://rco.digeam.com/">
+                <a href="">
                     <div class="download"></div>
                 </a>
                 <a href="https://www.digeam.com/register">
@@ -150,6 +150,10 @@
                 $('.top_box').css('height', "390px");
             });
         });
+
+        $('.download').on('click', function() {
+            alert('主程式暫未開放下載,敬請期待')
+        })
     </script>
 
     <!-- 自定義js -->

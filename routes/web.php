@@ -14,19 +14,6 @@ use Illuminate\Support\Facades\Route;
  */
 
 if ($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
-//首頁
-    Route::get('/', 'front\FrontController@index')->name('index');
-    Route::get('/index', 'front\FrontController@index');
-// 遊戲規章
-    Route::get('/game_religion', function () {
-        return view('front/game_religion');
-    })->name('game_religion');
-// 停權名單
-    Route::get('/suspension_list', 'front\FrontController@suspension_list')->name('suspension_list');
-// 公告
-    Route::get('/info/{cate?}', 'front\FrontController@info')->name('info');
-// 公告內容
-    Route::get('/announcementContent/{id?}', 'front\FrontController@info_content')->name('info_content');
 // 遊戲主程式
     Route::get('/game', function () {
         return view('front/game');
@@ -35,12 +22,25 @@ if ($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
     Route::get('/war', function () {
         return view('front/war');
     });
+}
 
+//首頁
+Route::get('/', 'front\FrontController@index')->name('index');
+Route::get('/index', 'front\FrontController@index');
+// 遊戲規章
+Route::get('/game_religion', function () {
+    return view('front/game_religion');
+})->name('game_religion');
+// 停權名單
+Route::get('/suspension_list', 'front\FrontController@suspension_list')->name('suspension_list');
+// 公告
+Route::get('/info/{cate?}', 'front\FrontController@info')->name('info');
+// 公告內容
+Route::get('/announcementContent/{id?}', 'front\FrontController@info_content')->name('info_content');
 // 桌布下載
     Route::get('/wallpaper_download', function () {
         return view('front/wallpaper_download');
     })->name('wallpaper_download');
-
 // 百科
     Route::get('/wiki/{id?}', 'front\FrontController@wiki')->name('wiki');
 // 百科搜尋
@@ -48,8 +48,6 @@ if ($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
     Route::get('/prereg_promotion', function () {
         return view('event/prereg_promotion');
     });
-
-}
 Route::middleware(['setReturnUrl'])->group(function () {
     // 事前預約
     // Route::get('/MembershipTransfer', function () {
