@@ -36,7 +36,7 @@
         <div class="menu">
             <a href="{{ route('info') }}">遊戲公告</a>
             <a href="{{ route('wiki') }}">遊戲百科</a>
-            <a href="{{ route('download') }}">下載專區</a>
+            <a href="">下載專區</a>
             <a href="">敬請期待</a>
             <a href="" style='display:none'>獎勵專區</a>
             <a href="">會員中心</a>
