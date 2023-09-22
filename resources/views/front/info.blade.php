@@ -3,7 +3,7 @@
 @section('link')
     <link rel="stylesheet" href="/css/home_page/info_style.css?v1.0">
 @endsection
-@section('main_title', )
+@section('main_title')
 @section('content')
     <div class="info">
         <div class="info_topbox">
@@ -27,12 +27,12 @@
                     @endif
 
 
-                    <li><a class="textbox" href="{{route('info_content',$value['id'])}}">
-                        @if($value['cate_id']==1)
-                        <div class="info_title">【活動】{{ $value['title'] }}</div>
-                        @else
-                        <div class="info_title">【系統】{{ $value['title'] }}</div>
-                        @endif
+                    <li><a class="textbox" href="{{ route('info_content', $value['id']) }}">
+                            @if ($value['cate_id'] == 1)
+                                <div class="info_title">【活動】{{ $value['title'] }}</div>
+                            @else
+                                <div class="info_title">【系統】{{ $value['title'] }}</div>
+                            @endif
                             <div class="info_date">{{ date('Y/m/d', strtotime($value['created_at'])) }}</div>
                         </a></li>
                     </ul>
@@ -58,6 +58,8 @@
                 $('.main_title').text('活動公告')
             } else if (addActive == 'system') {
                 $('.main_title').text('系統公告')
+            } else {
+                $('.main_title').text('綜合公告')
             }
             $('.' + addActive).addClass('active')
         }

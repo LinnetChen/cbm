@@ -38,7 +38,7 @@
                 </button>
                 <a class="digeamwlogo" href="https://digeam.com/index" target="_blank"></a>
                 <div class="links">
-                    {{-- <a href="https://cbo.digeam.com/index" target="_blank">官方網站</a> --}}
+                    <a href="https://cbo.digeam.com/index" target="_blank">官方網站</a>
                     <a href="https://digeam.com/register" target="_blank">會員註冊</a>
                     <a href="https://digeam.com/cs/faq" target="_blank">常見問題</a>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLScXfIVNDduoO46uvKcvtsEITDtqfYpLw2uqb01OGdBH26kJTg/viewform"
