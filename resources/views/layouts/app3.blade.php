@@ -37,8 +37,8 @@
             <a href="{{ route('info') }}">遊戲公告</a>
             <a href="{{ route('wiki') }}">遊戲百科</a>
             <a href="{{ route('download') }}">下載專區</a>
-            <a href="">國家戰爭</a>
-            <a href="">獎勵專區</a>
+            <a href="" style='display:none'>國家戰爭</a>
+            <a href="" style='display:none'>獎勵專區</a>
             <a href="">會員中心</a>
         </div>
         <div class="icon_menu">
@@ -57,11 +57,11 @@
             </div>
             <div class="menu_box_s"></div>
             <div class="menu_box_s">
-                <a href="{{ route('download') }}">遊戲主程式</a>
+                <a href="{{ route('download') }}" style='display:none'>遊戲主程式</a>
                 <a href="{{ route('wallpaper_download') }}">精選桌布</a>
             </div>
             <div class="menu_box_s"></div>
-            <div class="menu_box_s">
+            <div class="menu_box_s" style='display:none'>
                 <a href="{{ route('gift') }}">領獎專區</a>
                 <a href="{{ route('number_exchange') }}">序號兌換</a>
             </div>
