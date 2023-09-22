@@ -62,7 +62,7 @@
                 <a href="{{ route('download') }}" style='display:none'>遊戲主程式</a>
                 <a href="{{ route('wallpaper_download') }}">精選桌布</a>
             </div>
-            <div class="menu_box_s"></div>
+            <div class="menu_box_s" style='display:none'></div>
             <div class="menu_box_s" style='display:none'>
                 <a href="{{ route('gift') }}">領獎專區</a>
                 <a href="{{ route('number_exchange') }}">序號兌換</a>

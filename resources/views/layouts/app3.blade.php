@@ -55,8 +55,8 @@
                 <a href="{{ route('info') }}">活動公告</a>
                 <a href="{{ route('info') }}">系統公告</a>
             </div>
-            <div class="menu_box_s"></div>
-            <div class="menu_box_s">
+            <div class="menu_box_s" style='display:none'></div>
+            <div class="menu_box_s" style='display:none'>
                 <a href="{{ route('download') }}" style='display:none'>遊戲主程式</a>
                 <a href="{{ route('wallpaper_download') }}">精選桌布</a>
             </div>
