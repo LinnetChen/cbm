@@ -3,11 +3,10 @@ body {
     margin: 0;
     width: 1920px;
     height: 970px;
-    font-family: 'Noto Sans TC', sans-serif;
+    font-family: "Noto Sans TC", sans-serif;
     line-height: 1.8rem;
     background-color: black;
 }
-
 
 .big_box {
     width: 1580px;
@@ -16,7 +15,7 @@ body {
 }
 
 .bg {
-    background: url('../../img/home_page/wiki/wiki_bg2.jpg') no-repeat;
+    background: url("../../img/home_page/wiki/wiki_bg2.jpg") no-repeat;
     /*     height: 970px;
     width: 1920px; */
     position: relative;
@@ -140,6 +139,7 @@ ul {
     position: absolute;
     left: 435px;
     bottom: 0px;
+    padding-bottom: 30px;
 }
 
 .topbox {
@@ -322,7 +322,6 @@ ul {
 .footer a:hover {
     color: black;
 }
-
 
 .hr2 {
     width: 1280px;
