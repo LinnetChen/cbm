@@ -29,7 +29,7 @@
     <div class="bg">
         <div class="big_box">
             <div class="leftbox">
-                <a class="logo" href="https://cbo.digeam.com/MembershipTransfer" target="_blank"><img
+                <a class="logo" href="https://cbo.digeam.com/" target="_blank"><img
                         src="../../img/home_page/CabalLogo.png"></a>
                 <form method="post" action=".php">
                     <input class="search-bar" type="search" placeholder="輸入關鍵字搜尋" name="search">
@@ -62,9 +62,9 @@
                         <p>遊戲指南</p>
                     </div>
                     <div class="menu">
-                        <a href="https://cbo.digeam.com/MembershipTransfer" target="_blank"><img
-                                src="../../img/home_page/home_icon.png" class="img"></a>
-                        <a href="https://cbo.digeam.com/MembershipTransfer" target="_blank"><img
+                        <a href="https://cbo.digeam.com/" target="_blank"><img src="../../img/home_page/home_icon.png"
+                                class="img"></a>
+                        <a href="https://discord.com/invite/YyPkJrwqvs" target="_blank"><img
                                 src="../../img/home_page/dc_icon.png" class="img"></a>
                         <a href="https://www.facebook.com/DiGeamCabal" target="_blank"><img
                                 src="../../img/home_page/fb_icon.png" class="img"></a>
