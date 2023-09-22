@@ -10,7 +10,7 @@
     <div id="particles-js"></div>
     <div class="main_box">
         <div class="main_btn">
-            <a href="">
+            <a>
                 <div class="download"></div>
             </a>
             <a href="https://www.digeam.com/register">
@@ -476,5 +476,9 @@
                 slideIndex = i;
             }
         }
+
+        $('.download').on('click', function() {
+            alert('主程式暫未開放下載,敬請期待')
+        })
     </script>
 @endsection
