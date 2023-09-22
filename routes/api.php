@@ -30,3 +30,6 @@ Route::post('prereg_api', 'API\preregController@index');
 Route::post('exchange', 'API\frontController@exchange');
 // 領獎
 Route::post('gift', 'API\frontController@gift');
+// 更新平台新聞
+Route::post('digeamIndexNews', 'API\DigeamController@IndexNews')->name('IndexNews');
+
