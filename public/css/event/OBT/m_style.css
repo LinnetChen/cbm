@@ -1,0 +1,572 @@
+@media screen and (max-width: 1300px) {
+
+    .top_page {
+        width: 100%;
+        height: 100vh;
+        background-size: contain;
+    }
+
+}
+
+@media screen and (max-width: 1199px) {
+
+    /* ========== container ========== */
+    .container {
+        min-width: 100%;
+        text-align: center;
+        /* padding: 50px 0; */
+    }
+
+    .bg_color {
+        max-width: 1200px;
+        height: 80px;
+    }
+
+    .container_box {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 50px 0;
+    }
+
+    .conbox {
+        max-width: 95%;
+        margin: 0 auto;
+        text-align: center;
+        margin: 80px auto;
+        padding: 0px 20px 50px;
+    }
+
+    /* ========== footer ========== */
+    .footer {
+        align-items: center;
+    }
+
+    .footerbox {
+        max-width: 90%;
+        font-size: 12px;
+        line-height: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footerbox_logo {
+        width: 100%;
+        align-items: center;
+    }
+
+    .spec {
+        width: 100%;
+        text-align: center;
+        order: 1;
+    }
+
+    .spec,
+    .classlavel {
+        margin: 20px 0;
+    }
+
+    a.logo_rw,
+    .classlavel {
+        margin-left: 40px;
+    }
+
+
+}
+
+@media screen and (max-width: 1024px) {
+
+    /* ========== menu ========== */
+    .topmenu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        cursor: pointer;
+        width: 70px;
+        height: 60px;
+        position: fixed;
+        top: 10px;
+        right: 20px;
+        z-index: 300;
+        filter: drop-shadow(0px 0px 2px black);
+    }
+
+    .topmenu span {
+        background: #fff;
+        width: 40px;
+        height: 4px;
+        border-radius: 4px;
+        margin: 6px 0px 3px 0px;
+        transition: margin 0.4s cubic-bezier(0.79, 0.21, 0.06, 0.81), transform 0.4s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+    }
+
+    .topmenu span:nth-child(2) {
+        transform-origin: 50% 50%;
+    }
+
+    .active .topmenu {
+        box-shadow: 0px 0px 0px 0px #fff9, 0px 0px 0px 0px #fff9, 0px 0px 0px 0px #0001, 0px 0px 0px 0px #0001, inset -7px -7px 20px 0px #fff9, inset -4px -4px 5px 0px #fff9, inset 7px 7px 20px 0px #0003, inset 4px 4px 5px 0px #0001;
+    }
+
+    .active .topmenu span {
+        margin: -2px;
+    }
+
+    .active .topmenu span:nth-child(1) {
+        transform: rotate(-45deg);
+    }
+
+    .active .topmenu span:nth-child(2) {
+        transform: scale(0);
+    }
+
+    .active .topmenu span:nth-child(3) {
+        transform: rotate(45deg);
+    }
+
+    .nav_bar {
+        /* display: none; */
+        background: rgba(0, 0, 0, .9);
+        width: 100%;
+        height: 100vh;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transform: translate3d(1200px, -50%, 0);
+    }
+
+    .nav_bar::before {
+        background: none;
+        border: 5px solid #f7decd;
+        width: 80%;
+        height: 90vh;
+    }
+
+    .nav_bar::after {
+        display: none;
+    }
+
+    .nav_bar #XX {
+        top: 16px;
+        right: 20px;
+        transform: scale(1.2);
+    }
+
+    .nav_bar_box {
+        width: 80%;
+        height: 47%;
+        top: 17px;
+    }
+
+    .nav_bar_box li {
+        font-size: 1.2rem;
+        margin: 13px 0;
+    }
+
+    .nav_bar_box>li.active::after {
+        background: none;
+    }
+
+    .nav_bar_box li:hover::before,
+    .nav_bar_box li.active a::before {
+        top: 15px;
+        transform: translate(-165%, -50%) scale(1.2);
+        transition: all .5s;
+    }
+
+    .item0 {
+        display: block;
+    }
+
+    ul.item1_box {
+        margin-top: 20px;
+        margin-left: 0;
+        align-items: center;
+    }
+
+    ul.item1_box li,
+    ul.item1_box li:last-child {
+        font-size: 1.25rem;
+        margin: 12px 0;
+    }
+
+    ul.item1_box li {
+        margin: 12px 0;
+    }
+
+    .btnIcon li {
+        transform: scale(1);
+    }
+
+
+    /* ========== top page ========== */
+    .top_page {
+        background: url(../../../img/event/OBT/BG720.webp) top center no-repeat;
+        width: 100%;
+        min-width: 100%;
+        height: 1321px;
+        background-size: cover;
+        overflow: hidden;
+    }
+
+    .logo {
+        background-image: url(../../../img/event/OBT/CabalLogo.webp);
+        height: 151px;
+        background-size: contain;
+        margin: 0 auto;
+        margin-top: 80px;
+        width: 375px;
+    }
+
+    .logo2 {
+        display: block;
+        background-image: url(../../../img/event/OBT/CabalLogo.webp);
+        background-size: contain;
+        margin: 0 auto;
+        z-index: 301;
+        background-repeat: no-repeat;
+        max-width: 315px;
+        max-height: 119px;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .logo:hover {
+        background-image: url(../../../img/event/OBT/CabalLogo.webp);
+    }
+
+
+    .kv_ti {
+        width: 100%;
+        height: 245px;
+        background-size: contain;
+        top: 500px;
+        margin: 0 auto;
+    }
+
+    .kv_ti::before,
+    .kv_ti::after {
+        display: none;
+    }
+
+    ul.btnBox {
+        top: 550px;
+    }
+
+    /* ========== container ========== */
+    .conbox img {
+        width: 90%;
+    }
+
+    .btn_schoolgame li,
+    .btn_schoolgame a {
+        height: 100px;
+    }
+
+    /* ========== lightbox ========== */
+    .popbg {
+        width: 90%;
+        padding: 20px 0 30px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .conbox img.tab4_ph {
+        width: 90%;
+    }
+
+    /* ========== menu ========== */
+    .topmenu {
+        top: 6px;
+        right: 10px;
+        transform: scale(.85);
+    }
+
+    .nav_bar_box {
+        width: 60%;
+        height: auto;
+        top: 0;
+    }
+
+    .nav_bar_box li {
+        font-size: 1.125rem;
+        margin: 15px 0;
+    }
+
+    .nav_bar_box li:hover::before,
+    .nav_bar_box li.active a::before {
+        transform: translate(-120%, -100%) scale(.8);
+        transition: all .5s;
+    }
+
+    .btnIcon {
+        margin-top: 70px;
+    }
+
+    .btnIcon li {
+        transform: scale(.9);
+    }
+
+    /* ========== top page ========== */
+    .top_page {
+        max-height: 1000px;
+    }
+
+    .logo,
+    .logo2 {
+        height: 214px;
+    }
+
+    .kv_ti {
+        top: 359px;
+        margin: 0 auto;
+    }
+
+    ul.btnBox {
+        top: 317px;
+    }
+
+    /* ========== container ========== */
+
+    .trbox {
+        width: 90%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .trbox_ph,
+    .trbox_txt {
+        width: 90%;
+    }
+
+    .conbox img.trbox_ph {
+        max-width: 294px;
+        height: 100%;
+    }
+
+    .trbox_txt h5 {
+        line-height: 1.8rem;
+    }
+
+    span.h5_txt {
+        font-size: 1.5rem;
+    }
+
+    .trbox_txt {
+        margin-top: 40px;
+        margin-left: 0px;
+    }
+
+    p.trbox_txt_p {
+        margin-top: 12px;
+    }
+
+    ul.btn_schoolgame {
+        width: 90%;
+        height: auto;
+    }
+
+    .tab5_btn a {
+        font-size: 1.2rem;
+        padding-top: 20px;
+    }
+
+    span.tab5_btnB {
+        font-size: 1.5rem;
+    }
+
+    span.tab5_btnS {
+        font-size: 1rem;
+    }
+
+
+}
+
+
+@media screen and (max-width: 573px) {
+
+    /* ========== menu ========== */
+    .topmenu {
+        top: 0;
+        right: 0px;
+        transform: scale(.7);
+    }
+
+    .btntop {
+        width: 55px;
+        height: 45px;
+        right: 30px;
+        bottom: 10%;
+        transform: rotate(0deg);
+        background-size: contain;
+    }
+
+    ul.item1_box li,
+    ul.item1_box li:last-child {
+        font-size: 1rem;
+    }
+
+    .btnIcon {
+        margin-top: 30px;
+    }
+
+    /* ========== top page ========== */
+    /* .top_page {
+        height: 100vh;
+    } */
+
+    .logo,
+    .logo2 {
+        height: 179px;
+        width: 300px;
+    }
+
+    .kv_ti {
+        height: 185px;
+        top: 289px;
+    }
+
+    ul.btnBox {
+        top: 263px;
+    }
+
+    .btnBox li,
+    .btnBox a {
+        width: 185px;
+        height: 80px;
+        background-size: contain;
+    }
+
+    .btnBox li {
+        margin: 0 10px;
+    }
+
+    .btnBox li:hover,
+    .btnBox a:hover {
+        width: 130px;
+        height: 45px;
+        background-size: 130px auto;
+    }
+
+    /* ========== container ========== */
+
+    .container_box {
+        padding: 0;
+    }
+
+    .conbox {
+        margin: 60px auto;
+    }
+
+    .conbox img {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    p.trbox_txt_p {
+        font-size: 1rem;
+        margin-top: 6px;
+    }
+
+    ul.btn_schoolgame {
+        width: 90%;
+        height: auto;
+        margin-top: 30px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn_schoolgame li,
+    .btn_schoolgame a {
+        width: 100%;
+        max-width: 297px;
+        height: 120px;
+        background-size: 100%;
+        margin: 15px 0;
+    }
+
+    .btn_schoolgame a {
+        width: 100%;
+        height: 120px;
+        padding-bottom: calc((118px / 279px) * 100 + '%');
+    }
+
+    li.tab5_ph1,
+    li.tab5_ph,
+    li.tab5_ph3 {
+        background-size: 100%;
+    }
+
+    .btn_schoolgame li:nth-child(2) {
+        margin: 0;
+    }
+
+    /* ========== footer ========== */
+    .classlavel {
+        background-size: 100% auto;
+        margin-left: 0;
+    }
+
+
+}
+
+@media screen and (max-width: 500px) {
+    .top_page {
+        background: url(../../../img/event/OBT/BG500.webp) top center no-repeat;
+    }
+
+    .logo{
+        margin-top: 37px;
+        height: 106px;
+        scale: .8;
+    }
+
+    .logo2{
+        scale: .8;
+    }
+
+    .kv_ti {
+        top: 397px;
+        height: 130px;
+    }
+
+    ul.btnBox {
+        top: 408px;
+    }
+}
+
+
+@media screen and (max-width: 375px) {
+    .logo , .logo2{
+        scale: .7;
+    }
+
+    .kv_ti {
+        height: 146px;
+    }
+
+    h2 , .long_h2{
+        font-size: 1.3rem;
+        padding-top: 4px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+
+
+    .kv_ti {
+        top: 452px;
+        height: 124px;
+    }
+
+    ul.btnBox {
+        top: 416px;
+    }
+
+
+}

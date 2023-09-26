@@ -1,0 +1,340 @@
+/* ========== 內文--標題 ========== */
+h1 {
+    color: #fff;
+    font-size: 3.125rem;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 60px;
+    position: relative;
+    display: inline-block;
+    font-family: 'SourceHanSerifTC-Bold';
+    text-shadow: 0px 0px 10px #0359c8, 0px 0px 10px #0359c8, 0px 0px 5px #0359c8;
+    z-index: 2;
+    top: 24px;
+}
+
+/* h1::before {
+    content: '';
+    background: url(../../../img/event/OBT/ti_from.png) no-repeat;
+    width: 47px;
+    height: 72px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-40px, -50%);
+} */
+/* h1::after {
+    content: '';
+    background: url(../../../img/event/OBT/ContentTitleBg.webp) no-repeat;
+    width: 1050px;
+    height: 47px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-71%, 10%);
+    z-index: -1;
+} */
+
+.h1_bg {
+    background: url(../../../img/event/OBT/ContentTitleBg.webp) no-repeat;
+    width: 100%;
+    max-width: 1050px;
+    height: 47px;
+    margin: 0 auto;
+    background-size: cover;
+    background-position: center;
+}
+
+h2,
+.long_h2 {
+    font-size: 1.625rem;
+    margin-top: 50px;
+    position: relative;
+    z-index: 2;
+    font-family: "微軟正黑";
+    font-weight: bold;
+}
+
+h2::after {
+    content: '';
+    background: url(../../../img/event/OBT/TextBg.webp) no-repeat;
+    width: 192px;
+    height: 48px;
+    position: absolute;
+    top: -334%;
+    left: 50%;
+    transform: translate(-50%, 150%);
+    z-index: -1;
+}
+
+.long_h2::after {
+    content: '';
+    background: url(../../../img/event/OBT/TextBg02.webp) no-repeat;
+    width: 346px;
+    height: 48px;
+    position: absolute;
+    top: -334%;
+    left: 50%;
+    transform: translate(-50%, 150%);
+    z-index: -1;
+}
+
+
+h4 {
+    font-size: 2.125rem;
+}
+
+h5 {
+    font-size: 1.375rem;
+}
+
+span.h5_txt {
+    font-size: 1.2rem;
+}
+
+
+/* ========== 內文--文字設定 ========== */
+p.text_center,
+p.text_left,
+ul.text_left {
+    width: 80%;
+    font-size: 1.125rem;
+    letter-spacing: 0.1rem;
+    line-height: 1.8rem;
+    margin: 0 auto;
+    margin-top: 70px;
+    font-family: "微軟正黑";
+}
+
+p.text_center {
+    text-align: center;
+}
+
+p.bold_blue {
+    font-weight: bold;
+    text-shadow: 0px 0px 10px #0359c8, 0px 0px 10px #0359c8, 0px 0px 5px #0359c8;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+}
+
+.m35 {
+    margin-top: 35px;
+}
+
+/* --- 內文文字--靠左設定 --- */
+p.text_left {
+    width: 60%;
+    text-align: left;
+}
+
+/* --- 項目文字--靠左設定 --- */
+ul.text_left {
+    width: 70%;
+    text-align: left;
+}
+
+ul li.green {
+    color: #00e2f3;
+    font-weight: bold;
+}
+
+
+/* ========== table--表格 ========== */
+.tableBox {
+    width: 80%;
+    letter-spacing: 0.1rem;
+    line-height: 1.8rem;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.tableBox th,
+.tableBox td {
+    border: 1px solid #fff;
+    vertical-align: middle;
+    padding: 7px;
+}
+
+.tableBox th {
+    background: #00296be0;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 2.5rem;
+}
+
+.tableBox td {
+    background: transparent;
+    font-size: 1rem;
+    color: #fff;
+    word-break: break-all;
+}
+
+.tableBox .td_h3 {
+    background: #d1a675;
+    color: #fff;
+    font-size: 1.125rem;
+}
+
+/* --- 表格標題--刮弧字樣式 --- */
+span.ex_txt {
+    font-size: 1.2rem;
+}
+
+/* --- 表格小標題--無icon設定 --- */
+.tableBox .td_h6 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #ffba00;
+}
+
+/* --- 表格小標題--有icon設定 --- */
+.tableBox .td_h7 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #ffba00;
+    border: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.tableBox .td_h7 img {
+    max-width: 40px;
+    margin-top: 0;
+    margin-right: 7px;
+}
+
+/* --- 表格bg--雙背景設定 --- */
+.tableBox td.color_odd {
+    background: #998b7b;
+}
+
+/* --- 表格文字--靠左設定 --- */
+.td_left {
+    text-align: left;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    /* ========== table--表格 ========== */
+    .tableBox {
+        width: 90%;
+    }
+
+    .tableBox th {
+        font-size: 1.2rem;
+    }
+
+    /* --- 內文文字--靠左設定 --- */
+    p.text_left {
+        width: 70%;
+    }
+
+    /* --- 項目文字--靠左設定 --- */
+    ul.text_left {
+        width: 70%;
+    }
+
+
+}
+
+
+
+@media screen and (max-width: 573px) {
+
+    /* ========== 內文--標題 ========== */
+    h1 {
+        font-size: 2.25rem;
+    }
+
+    h1::before {
+        height: 58px;
+        background-size: auto 58px;
+        transform: translate(-35px, -50%);
+    }
+
+    h1::after {
+        height: 58px;
+        background-size: auto 58px;
+    }
+
+    h4 {
+        font-size: 1.625rem;
+    }
+
+    h5 {
+        font-size: 1.3rem;
+    }
+
+    span.h5_txt {
+        font-size: 1rem;
+        display: block;
+    }
+
+    /* ========== table--表格 ========== */
+    .tableBox {
+        width: 100%;
+    }
+
+    .tableBox th {
+        line-height: 1.5rem;
+    }
+
+    .tableBox td {
+        font-size: .875rem;
+    }
+
+    .tableBox .td_h3 {
+        font-size: 1rem;
+    }
+
+    /* --- 表格標題--刮弧字樣式 --- */
+    span.ex_txt {
+        font-size: .875rem;
+        display: block;
+    }
+
+
+    /* ========== 內文--文字設定 ========== */
+    p.text_center,
+    p.text_left,
+    ul.text_left {
+        width: 80%;
+        font-size: .875rem;
+        letter-spacing: 0.1rem;
+        line-height: 1.8rem;
+        margin: 0 auto;
+        margin-top: 70px;
+    }
+
+
+
+
+}
+
+
+
+@media screen and (max-width: 425px) {
+
+    h2,
+    .long_h2 {
+        font-size: 1.3rem;
+        padding-top: 4px;
+    }
+
+    p.bold_blue {
+        font-size: 17px;
+    }
+}
+
+
+
+@media screen and (max-width: 320px) {
+
+    /* ========== 內文--標題 ========== */
+    h1 {
+        font-size: 2rem;
+    }
+
+}

@@ -19,6 +19,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/20230724', function () {
     return view('event/20230724_index');
 });
+
+Route::get('/OBT', function () {
+    if($real_ip == '211.23.144.219'){
+        return view('event/OBT');
+    }else{
+        return redirect('https://digeam.com/index');
+    }
+});
+
 Route::get('/test_launcher', function () {
     return view('test_launcher');
 });
@@ -63,6 +72,9 @@ Route::middleware(['setReturnUrl'])->group(function () {
         return view('event/20230728_index');
     });
 });
+
+
+
 // 後台上傳圖片
 Route::post('delCKEImg', 'CkeditorUploadController@delCKEImg');
 Route::post('ckeditor/upload', 'CkeditorUploadController@uploadImage');
