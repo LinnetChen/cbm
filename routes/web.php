@@ -21,7 +21,7 @@ Route::get('/20230724', function () {
 });
 
 Route::get('/OBT', function () {
-    if($real_ip == '211.23.144.219'){
+    if($_SERVER["HTTP_CF_CONNECTING_IP"] == '211.23.144.219'){
         return view('event/OBT');
     }else{
         return redirect('https://digeam.com/index');
