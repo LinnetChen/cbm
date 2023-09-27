@@ -18,9 +18,9 @@
     <meta name="author" content="DiGeam" />
     <meta name="Resource-type" content="Document" />
     <link rel="icon" sizes="192x192" href="/img/event/20230728/favicon.ico">
-    <meta name="description" content="《黑色契約CABAL Online》OBT" />
+    <meta name="description" content="代號：混沌黑星 10/5正式啟航" />
     <link rel="pingback" href="" />
-    <title>《黑色契約CABAL Online》OBT</title>
+    <title>《黑色契約CABAL Online》10/5正式啟航</title>
     <link rel="stylesheet" href="css/event/OBT/reset.css">
     <link rel="stylesheet" href="css/event/OBT/style.css">
     <link rel="stylesheet" href="css/event/OBT/m_style.css">
