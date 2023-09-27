@@ -13,13 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-// 遊戲主程式
-Route::get('/game', function () {
-    return view('front/game');
-})->name('download');
-//國家戰爭
-Route::get('/war', function () {
-    return view('front/war');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/20230724', function () {
+    return view('event/20230724_index');
+});
+
+Route::get('/OBT', function () {
+    if($_SERVER["HTTP_CF_CONNECTING_IP"] == '211.23.144.219'){
+        return view('event/OBT');
+    }else{
+        return redirect('https://digeam.com/index');
+    }
+});
+
+Route::get('/test_launcher', function () {
+    return view('test_launcher');
+});
+Route::get('/launcher', function () {
+    return view('test_launcher');
 });
 
 //首頁
