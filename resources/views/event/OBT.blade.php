@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta property="og:title" content="《黑色契約CABAL Online》會員轉移" />
+    <meta property="og:title" content="《黑色契約CABAL Online》10/5正式啟航" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="歡迎回到涅瓦雷斯大陸，我們的旅途尚未結束..." />
-    <meta property="og:url" content="" />
+    <meta property="og:description" content="代號：混沌黑星 10/5正式啟航" />
+    <meta property="og:url" content="代號：混沌黑星 10/5正式啟航" />
     <meta property="og:site_name" content="" />
     <meta property="og:locale" content="zh_tw" />
     <meta property="article:author" content="" />
@@ -67,7 +67,7 @@
             <div class="kv_ti"></div>
             <ul class="btnBox">
                 <li class="btnBox_b1"><a href="https://www.digeam.com/register" target="_blank"></a></li>
-                <li class="btnBox_b2"><a href="https://cbo.digeam.com/download/" target="_blank"></a></li>
+                <li class="btnBox_b2"><a href="https://cbo.digeam.com/game/" target="_blank"></a></li>
             </ul>
         </div>
         <!-- 主內容 -->
