@@ -27,7 +27,7 @@
         </ul>
         <div class="notice-container">
             <div class="container"id="DPic"style="overflow: hidden; position: relative">
-                <ul class="slider slider2" id="UPic" data-val="3"
+                <ul class="slider slider2" id="UPic" data-val="{{ count($img) }}"
                     style="position: absolute; left: 0px; top: 0px">
                     @foreach ($img as $value)
                         <li>
@@ -89,7 +89,8 @@
                                     <div class="newslist2">
                                         <ul>
                                             @foreach ($nb as $value)
-                                                <li><a target="_blank" href="{{ route('info_content', $value['id']) }}">
+                                                <li><a target="_blank"
+                                                        href="{{ route('info_content', $value['id']) }}">
                                                         <label>[活動]</label>{{ $value['title'] }}</a><span>{{ date('Y/m/d', strtotime($value['created_at'])) }}</span>
                                                 </li>
                                             @endforeach
