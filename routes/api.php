@@ -23,6 +23,13 @@ Route::post('login', 'API\transferPageController@login');
 //帳號綁定
 Route::post('cabal_login', 'API\transferPageController@cabal_login');
 // 刪除序號
-Route::post('del_serial', 'API\SerialNumberController@delSerial');
+Route::post('del_serial', 'API\w@delSerial');
 //事前預約
 Route::post('prereg_api', 'API\preregController@index');
+// 兌換序號
+Route::post('exchange', 'API\frontController@exchange');
+// 領獎
+Route::post('gift', 'API\frontController@gift');
+// 更新平台新聞
+Route::post('digeamIndexNews', 'API\DigeamController@IndexNews')->name('IndexNews');
+

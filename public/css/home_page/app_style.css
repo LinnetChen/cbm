@@ -17,6 +17,9 @@ body{
     align-items: center;
 /*     margin-bottom: -410px; */
 }
+p{
+    font-size: 18px;
+}
 .top_bar{
     background-color: rgba(0, 0, 0, 0.7);
     width: 1920px;

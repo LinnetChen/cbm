@@ -20,56 +20,60 @@
     <link rel="icon" sizes="192x192" href="../../../img/event/20230728/favicon.ico">
     <meta name="description" content="《黑色契約CABAL Online》" />
     <link rel="pingback" href="" />
-    <link href="css/home_page/app_style.css" rel="stylesheet">
+    <link href="css/home_page/app_style.css?v1.0" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Noto+Serif+TC:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Noto+Serif+TC:wght@500&display=swap"
+        rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.min.css" rel="stylesheet" />
     <!-- 自定義標題 -->
     <title>@yield('title')</title>
-    @yield("link")
+    @yield('link')
 </head>
 
 <body>
     <div class="top_bar">
-        <a class="logo" href="https://cbo.digeam.com/MembershipTransfer" target="_blank"><img src="../../img/home_page/CabalLogo.png"></a>
+        <a class="logo" href="{{ route('index') }}"><img src="../../img/home_page/CabalLogo.png"></a>
         <div class="menu">
-            <a href="https://cbo.digeam.com/MembershipTransfer">遊戲公告</a>
-            <a href="">遊戲百科</a>
+            <a href="{{ route('info') }}">遊戲公告</a>
+            <a href="{{ route('wiki') }}">遊戲百科</a>
             <a href="">下載專區</a>
-            <a href="">國家戰爭</a>
-            <a href="">獎勵專區</a>
+            {{-- <a href="" >國家戰爭</a>
+            <a href="" >獎勵專區</a> --}}
             <a href="">會員中心</a>
         </div>
         <div class="icon_menu">
-            <a href="https://cbo.digeam.com/MembershipTransfer" target="_blank"><img src="../../img/home_page/dc_icon.png"></a>
-            <a href="https://cbo.digeam.com/MembershipTransfer" target="_blank"><img src="../../img/home_page/baha_icon.png"></a>
-            <a href="https://cbo.digeam.com/MembershipTransfer" target="_blank"><img src="../../img/home_page/fb_icon.png"></a>
+            <a href="https://discord.com/invite/YyPkJrwqvs" target="_blank"><img
+                    src="../../img/home_page/dc_icon.png"></a>
+            <a href="https://forum.gamer.com.tw/A.php?bsn=9189" target="_blank"><img
+                    src="../../img/home_page/baha_icon.png"></a>
+            <a href="https://www.facebook.com/DiGeamCabal/" target="_blank"><img
+                    src="../../img/home_page/fb_icon.png"></a>
         </div>
     </div>
     <div class="top_box">
         <div class="menu_box">
             <div class="menu_box_s">
-                <a href="https://cbo.digeam.com/MembershipTransfer">綜合公告</a>
-                <a href="https://cbo.digeam.com/MembershipTransfer">活動公告</a>
-                <a href="https://cbo.digeam.com/MembershipTransfer">系統公告</a>
+                <a href="{{ route('info', 'all') }}">綜合公告</a>
+                <a href="{{ route('info', 'active') }}">活動公告</a>
+                <a href="{{ route('info', 'system') }}">系統公告</a>
             </div>
             <div class="menu_box_s"></div>
             <div class="menu_box_s">
-                <a href="https://cbo.digeam.com/MembershipTransfer">遊戲主程式</a>
-                <a href="https://cbo.digeam.com/MembershipTransfer">精選桌布</a>
+                <a href="" style='display:none'>遊戲主程式</a>
+                <a href="{{ route('wallpaper_download') }}">精選桌布</a>
             </div>
-            <div class="menu_box_s"></div>
+            {{-- <div class="menu_box_s"></div>
             <div class="menu_box_s">
-                <a href="https://cbo.digeam.com/MembershipTransfer">領獎專區</a>
-                <a href="https://cbo.digeam.com/MembershipTransfer">序號兌換</a>
-            </div>
+                <a href="{{ route('gift') }}">領獎專區</a>
+                <a href="{{ route('number_exchange') }}">序號兌換</a>
+            </div> --}}
             <div class="menu_box_s">
-                <a href="https://cbo.digeam.com/MembershipTransfer">註冊會員</a>
-                <a href="https://cbo.digeam.com/MembershipTransfer">儲值中心</a>
-                <a href="https://cbo.digeam.com/MembershipTransfer">FAQ</a>
-                <a href="https://cbo.digeam.com/MembershipTransfer">遊戲規章</a>
-                <a href="https://cbo.digeam.com/MembershipTransfer">聯繫客服</a>
-                <a href="https://cbo.digeam.com/MembershipTransfer">停權名單</a>
+                <a href="https://www.digeam.com/register">註冊會員</a>
+                <a href="https://www.digeam.com/member/billing">儲值中心</a>
+                <a href="https://www.digeam.com/cs/faq">FAQ</a>
+                <a href="{{ route('game_religion') }}">遊戲規章</a>
+                <a href="https://www.digeam.com/cs">聯繫客服</a>
+                <a href="{{ route('suspension_list') }}">停權名單</a>
             </div>
         </div>
     </div>
@@ -86,9 +90,11 @@
         </a>
         <div class="est"></div>
         <div>
-            <a href="https://www.digeam.com/terms?_gl=1*prkbqn*_ga*MTI0MjkwMTA3Mi4xNjg3MjI2NjQx*_ga_3YHH2V2WHK*MTY5Mjc4MTA3My4xNy4wLjE2OTI3ODEwNzMuNjAuMC4w" target="_blank" class="linkp">會員服務條款</a>
-            <a href="https://www.digeam.com/terms2?_gl=1*c9toqi*_ga*MTI0MjkwMTA3Mi4xNjg3MjI2NjQx*_ga_3YHH2V2WHK*MTY5Mjc4MTA3My4xNy4wLjE2OTI3ODEwNzMuNjAuMC4w" target="_blank" class="linkp">隱私條款</a>
-            <a href="https://www.digeam.com/login" target="_blank" class="linkp">客服中心</a>
+            <a href="https://www.digeam.com/terms?_gl=1*prkbqn*_ga*MTI0MjkwMTA3Mi4xNjg3MjI2NjQx*_ga_3YHH2V2WHK*MTY5Mjc4MTA3My4xNy4wLjE2OTI3ODEwNzMuNjAuMC4w"
+                target="_blank" class="linkp">會員服務條款</a>
+            <a href="https://www.digeam.com/terms2?_gl=1*c9toqi*_ga*MTI0MjkwMTA3Mi4xNjg3MjI2NjQx*_ga_3YHH2V2WHK*MTY5Mjc4MTA3My4xNy4wLjE2OTI3ODEwNzMuNjAuMC4w"
+                target="_blank" class="linkp">隱私條款</a>
+            <a href="https://www.digeam.com/cs" target="_blank" class="linkp">客服中心</a>
             <div class="copyright">
                 <p>Copyright © ESTgames Corp. All rights reserved.</p>
                 <p>2023 Licensed and published for Taiwan, Hong Kong and Macau by DiGeam Co.,Ltd</p>

@@ -24,8 +24,9 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v17.0" nonce="m5ozWkZT"></script>
-    <link rel="stylesheet" href="css/event/prereg/style.css?v=09061">
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v17.0"
+        nonce="m5ozWkZT"></script>
+    <link rel="stylesheet" href="css/event/prereg/style.css?v=09064">
 
     <script>
         (function(w, d, s, l, i) {
@@ -88,7 +89,7 @@
                     <a href="https://cbo.digeam.com/MembershipTransfer" target="_blank">老玩家會員轉移</a>
                 </div>
                 <div class="link_icon">
-                    {{-- <a href="http://" class="home"></a> --}}
+                    <a href="https://cbo.digeam.com/" class="home" target="_blank"></a>
                     <a href="https://www.facebook.com/DiGeamCabal/" class="fb" target="_blank"></a>
                     <a href="https://discord.gg/YyPkJrwqvs" class="discord" target="_blank"></a>
                 </div>
@@ -111,7 +112,7 @@
                                     target="_blank">老玩家會員轉移</li>
                     </ul>
                     <div class="link_icon">
-                        {{-- <a href="http://" class="home" target="_blank"></a> --}}
+                        <a href="https://cbo.digeam.com/" class="home" target="_blank"></a>
                         <a href="https://www.facebook.com/DiGeamCabal/" class="fb" target="_blank"></a>
                         <a href="https://discord.gg/YyPkJrwqvs" class="discord" target="_blank"></a>
                     </div>
@@ -139,7 +140,6 @@
                     <div class="num">01</div>
                     <div class="step_info">
                         <h2>註冊並登入DiGeam掘夢網平台帳號</h2>
-
                         @if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null)
                             <form id="logout-form" action="https://www.digeam.com/logout" method="POST"
                                 style="display: none;">
@@ -158,8 +158,15 @@
                                 SetCookie('return_url', base64_encode('https://cbo.digeam.com/prereg'), 0, '/', $_COOKIE_DOMAIN);
                             @endphp
                             <a class="login" href="https://digeam.com/login"></a>
-                            <span>*新用戶註冊點這裡<a href="https://www.digeam.com/register_cbo"
-                                    target="_blank"><svg fill="#f6d62f" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M17.5 10L10 17.5V14H3V6h7V2.5l7.5 7.5z"></path></g></svg>前往註冊</a></span>
+                            <span>*新用戶註冊點這裡<a href="https://www.digeam.com/register_cbo" target="_blank"><svg
+                                        fill="#f6d62f" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path d="M17.5 10L10 17.5V14H3V6h7V2.5l7.5 7.5z"></path>
+                                        </g>
+                                    </svg>前往註冊</a></span>
                         @endif
 
                     </div>
@@ -437,7 +444,8 @@
                     <a href="https://www.digeam.com/terms" target="_blank">會員服務條款</a>
                     <a href="https://www.digeam.com/terms2" target="_blank">隱私條款</a>
                     <a href="https://www.digeam.com/cs" target="_blank">客服中心</a>
-                    <p class="Copyright">Copyright © ESTgames Corp. All rights reserved.<br />2023 Licensed and published
+                    <p class="Copyright">Copyright © ESTgames Corp. All rights reserved.<br />2023 Licensed and
+                        published
                         for Taiwan, Hong Kong and Macau by DiGeam Co.,Ltd<br />CABAL Online is a registered trademark of
                         ESTgames Corp (and the logo of ESTgames).</p>
                 </div>
@@ -455,7 +463,7 @@
 
 
     </main>
- 
+
 </body>
 
 <script src="js/event/base/jquery-3.6.0.min.js" crossorigin="anonymous"></script>

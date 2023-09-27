@@ -12,15 +12,15 @@
     <meta property="og:site_name" content="" />
     <meta property="og:locale" content="zh_tw" />
     <meta property="article:author" content="" />
-    <meta property="og:image" content="../img/home_page/wiki/fb_share.jpg" />
+    <meta property="og:image" content="/../img/home_page/wiki/fb_share.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="628" />
     <meta name="author" content="DiGeam" />
     <meta name="Resource-type" content="Document" />
-    <link rel="icon" sizes="192x192" href="../../../img/event/20230728/favicon.ico">
+    <link rel="icon" sizes="192x192" href="/../img/event/20230728/favicon.ico">
     <meta name="description" content="《黑色契約CABAL Online》維基百科" />
     <link rel="pingback" href="" />
-    <link href="/css/wiki_style.css" rel="stylesheet">
+    <link href="/css/wiki_style.css?v1.1" rel="stylesheet">
     <title>《黑色契約CABAL Online》維基百科</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
 </head>
@@ -29,14 +29,12 @@
     <div class="bg">
         <div class="big_box">
             <div class="leftbox">
-                <a class="logo" href="https://cbo.digeam.com/MembershipTransfer" target="_blank"><img
-                        src="/img/CabalLogo.png"></a>
+                <a class="logo" href="https://cbo.digeam.com" target="_blank"><img src="/img/CabalLogo.png"></a>
                 <form method="post" action=".php">
                     <input class="search-bar" type="search" placeholder="輸入關鍵字搜尋" name="search">
                 </form>
                 <ul class="container">
                     <li>
-
                         @foreach ($side as $key => $value)
                             @if ($value['have_cate'] == true)
                                 <ul class="font_title">{{ $value['cate_title'] }}
@@ -54,7 +52,6 @@
                                 </ul>
                             @endif
                         @endforeach
-
                     </li>
                 </ul>
             </div>
@@ -64,9 +61,9 @@
                         <p>遊戲指南</p>
                     </div>
                     <div class="menu">
-                        <a href="https://cbo.digeam.com/MembershipTransfer" target="_blank"><img
-                                src="/img/home_icon.png" class="img"></a>
-                        <a href="https://cbo.digeam.com/MembershipTransfer" target="_blank"><img src="/img/dc_icon.png"
+                        <a href="https://cbo.digeam.com" target="_blank"><img src="/img/home_icon.png"
+                                class="img"></a>
+                        <a href="https://discord.com/invite/YyPkJrwqvs" target="_blank"><img src="/img/dc_icon.png"
                                 class="img"></a>
                         <a href="https://www.facebook.com/DiGeamCabal" target="_blank"><img src="/img/fb_icon.png"
                                 class="img"></a>
@@ -74,7 +71,6 @@
                 </div>
                 <div class="bottombox">
                     <p class="title">{{ $page['title'] }}</p>
-                    <hr class="hr1" />
                     <div class="textbox">
                         {!! $page['content'] !!}
                     </div>
@@ -89,7 +85,7 @@
                                 target="_blank" class="linkp">會員服務條款</a>
                             <a href="https://www.digeam.com/terms2?_gl=1*c9toqi*_ga*MTI0MjkwMTA3Mi4xNjg3MjI2NjQx*_ga_3YHH2V2WHK*MTY5Mjc4MTA3My4xNy4wLjE2OTI3ODEwNzMuNjAuMC4w"
                                 target="_blank" class="linkp">隱私條款</a>
-                            <a href="https://www.digeam.com/login" target="_blank" class="linkp">客服中心</a>
+                            <a href="https://www.digeam.com/cs" target="_blank" class="linkp">客服中心</a>
                             <div class="copyright">
                                 <p>Copyright © ESTgames Corp. All rights reserved.</p>
                                 <p>2023 Licensed and published for Taiwan, Hong Kong and Macau by DiGeam Co.,Ltd</p>
@@ -119,4 +115,15 @@
         _this.slideToggle();
         // $(this).find(".libox").slideToggle();
     });
+
+    // 表單送出停止冒泡
+    $('form').on('submit', function(e) {
+        e.preventDefault()
+        let _search = $('.search-bar').val();
+        if (_search == '') {
+            alert('請輸入要找尋的關鍵字喔！')
+        } else {
+            document.location.href = '/wiki_search/' + _search
+        }
+    })
 </script>

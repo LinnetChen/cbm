@@ -4,18 +4,21 @@ table {
     border-collapse: collapse;
     width: 820px;
     text-align: left;
-    font-size: 1.2rem;
-    margin-top: 15px;
+    font-size: 1.1rem;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
-td {
+.table1 td {
     border: #fff 1px solid;
-    height: 43px;
-    padding: 0px 20px;
 }
 
 tr {
     border: #fff 1px solid;
+}
+
+td{
+    padding: 10px 15px;
 }
 
 .tab_head {
@@ -35,4 +38,12 @@ tr {
 }
 .text_box{
     width: 820px;
+}
+
+p{
+    color: #fff;
+    line-height: 1.8rem;
+}
+span{
+    color: #0081d1;
 }

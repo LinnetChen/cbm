@@ -1,0 +1,33 @@
+header {
+    .menu_section {
+        &.on {
+            .link_list {
+                a{
+                    &.menu_p2 {
+                        &::after {
+                            @include ab-rt(-68px, 43px);
+                        }
+                    }
+                    &.menu_p3 {
+                        &::after {
+                            @include ab-rt(-99px, 46px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .title_area{
+        .btn_link{
+            a{
+                &.pmBtn1{
+                    background: url(../../../img/event/prereg/BTN_official.png) no-repeat;
+                }
+                &.pmBtn2{
+                    background: url(../../../img/event/prereg/BTN_register.png) no-repeat;
+                }
+            }
+        }
+    }
+
+}

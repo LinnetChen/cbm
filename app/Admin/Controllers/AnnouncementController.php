@@ -30,7 +30,7 @@ class AnnouncementController extends AdminController
             location.reload()
         }
 SCRIPT;
-Admin::script($script);
+        Admin::script($script);
         $grid = new Grid(new page());
         $grid->model()->where('type', 'announcement')->orderBy('open', 'desc')->orderBy('top', 'desc')->orderBy('new', 'desc')->orderBy('created_at', 'desc')->orderBy('sort', 'desc');
         $grid->column('title', __('標題'));
@@ -140,7 +140,7 @@ Admin::script($script);
         $count = COUNT($explodeUrl);
         $id = $explodeUrl[$count - 2];
         return Admin::content(function (Content $content) use ($id) {
-            $content->header('赤壁百科編輯');
+            $content->header('CBO百科編輯');
             $content->description('編輯');
             $content->body($this->form($id)->edit($id));
 
