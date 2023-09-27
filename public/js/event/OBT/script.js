@@ -28,13 +28,6 @@ $(function () {
         }
     });
     // item1--menu
-    $(function () {
-        $('.item1_box').hide();
-        $('.item1').click(function () {
-            $('.item1_box').slideToggle(500);
-            $('.bg-cl')
-        });
-    });
     $('.item1').click(
         function () {
             $('body,html').animate({ scrollTop: $("#tab1").offset().top }, 800);
@@ -97,9 +90,6 @@ $(window).on("load resize", function () {
         $('.nav_bar_box a').click(function () {
             $('.nav_bar').removeClass('open');
         });
-        $('.item1').click(function () {
-            $('.nav_bar').addClass('open');
-        });
     } else {
         $('.nav_bar').addClass('open');
         $('.nav_bar_box a').click(function () {
@@ -108,17 +98,3 @@ $(window).on("load resize", function () {
     }
 });
 
-// lightbox //
-$(".popclose, .mask").click(function () {
-    $('.popup').fadeOut(500);
-    $("html").css("overflow", "scroll");
-});
-$(".pop_btn").click(function () {
-    $("div[id=" + $(this).attr("data-pop") + "]").fadeIn(500);
-    $("html").css("overflow", "hidden");
-});
-
-// 尚未開放系統窗--開啟後，網頁新開視窗
-function he() {
-    alert('敬請期待!!');
-};

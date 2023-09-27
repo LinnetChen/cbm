@@ -833,7 +833,7 @@
 <script src="js/event/OBT/star.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="js/event/OBT/jquery.mousewheel.js"></script>
-<script src="js/event/OBT/script.js"></script>
+<script src="js/event/OBT/script.js?v1.0"></script>
 
 
 
