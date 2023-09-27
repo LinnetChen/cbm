@@ -212,10 +212,12 @@ class FrontController extends Controller
     }
     public function launcher()
     {
+        $img = Image::where('status', 'Y')->where('type', 'index')->orderBy('sort', 'desc')->get();
         $na = page::where('type', 'announcement')->where('open', 'Y')->where('created_at', '<=', date('Y-m-d H:i:s'))->orderBy('top', 'desc')->orderBy('new', 'desc')->orderBy('created_at', 'desc')->orderBy('sort', 'desc')->limit(6)->get();
         $nb = page::where('type', 'announcement')->where('cate_id', 1)->where('open', 'Y')->where('created_at', '<=', date('Y-m-d H:i:s'))->orderBy('top', 'desc')->orderBy('new', 'desc')->orderBy('created_at', 'desc')->orderBy('sort', 'desc')->limit(6)->get();
         $nc = page::where('type', 'announcement')->where('cate_id', 2)->where('open', 'Y')->where('created_at', '<=', date('Y-m-d H:i:s'))->orderBy('top', 'desc')->orderBy('new', 'desc')->orderBy('created_at', 'desc')->orderBy('sort', 'desc')->limit(6)->get();
         return view('launcher', [
+            'img' => $img,
             'na' => $na,
             'nb' => $nb,
             'nc' => $nc,

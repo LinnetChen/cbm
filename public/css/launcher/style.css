@@ -8,34 +8,37 @@
 
 body {
     font: normal 12px/180% "微軟正黑體", sans-serif;
+    width: 798px;
+    height: 503px;
+    overflow: hidden;
 }
 
 img {
-    border: none
+    border: none;
 }
 
 ul,
 li {
     list-style-type: none;
-    padding: 0
+    padding: 0;
 }
 
 a {
     color: #fff;
-    text-decoration: none
+    text-decoration: none;
 }
 
 .fl {
-    float: left
+    float: left;
 }
 
 .fr {
-    float: right
+    float: right;
 }
 
 /* logo */
 
-.cabal{
+.cabal {
     background-image: url(/img/launcher/cabal.png);
     width: 382px;
     height: 183px;
@@ -43,7 +46,7 @@ a {
     left: 412px;
     position: absolute;
 }
-.digeam{
+.digeam {
     background-image: url(/img/launcher/digeam.png);
     width: 96px;
     height: 22px;
@@ -51,7 +54,7 @@ a {
     left: 120px;
     position: absolute;
 }
-.est{
+.est {
     background-image: url(/img/launcher/est.png);
     width: 106px;
     height: 12px;
@@ -59,9 +62,6 @@ a {
     left: 5px;
     position: absolute;
 }
-
-
-
 
 /* top */
 
@@ -93,7 +93,7 @@ a {
 }
 
 .links li:last-child {
-    border: 0
+    border: 0;
 }
 
 .links li a {
@@ -101,72 +101,12 @@ a {
 }
 
 .links li a:hover {
-    color: #fff
+    color: #fff;
 }
-
-
-
-
-/* notice */
-
-.notice {
-    margin: 0;
-    padding: 15px 13px;
-    padding-top: 310px;
-}
-
-.notice li {
-    float: left;
-}
-
-
-/* carousel */
-
-#changeimg {
-    width: 265px;
-    height: 178px;
-    overflow: hidden;
-    position: relative;
-}
-
-#changeimg img {
-    width: 265px;
-    height: 178px;
-    cursor: pointer;
-}
-
-#changeimg a {
-    padding: 3px;
-    bottom: 7px;
-    display: block;
-    position: absolute;
-    text-decoration: none;
-    border: solid 1px #ffffff;
-    background-color: #004d9b;
-}
-
-.c1 {
-    right: 45px;
-    width:5px;
-    height:5px;
-}
-
-.c2 {
-    right: 25px;
-    width:5px;
-    height:5px;
-}
-
-.c3 {
-    right: 5px;
-    width:5px;
-    height:5px;
-}
-
 
 /* tabs */
 
-label{
+label {
     color: #b81d22;
 }
 
@@ -200,16 +140,15 @@ label{
 
 .codeDemomouseOnMenu {
     background: url(/img/launcher/noticeButHover.png) no-repeat 0 0;
-    color: #fff
+    color: #fff;
 }
 
 .codeDemomouseOutMenu {
     background: url(/img/launcher/noticeBut.png) no-repeat 0 0;
-    color: #fff
+    color: #fff;
 }
 
 /* newlist */
-
 
 .codeDemoDiv {
     overflow: hidden;
@@ -222,7 +161,6 @@ div#newlist {
     max-height: 190px;
     overflow: hidden;
 }
-
 
 .newslist2 ul li {
     position: relative;
@@ -247,7 +185,7 @@ div#newlist {
 }
 
 .newslist2 ul li a:hover {
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 .newslist2 span {
@@ -258,4 +196,65 @@ div#newlist {
     color: #000000;
 }
 
+/* carousel */
 
+.notice-container {
+    display: flex;
+    flex-direction: row;
+    padding-left: 16px;
+    padding-top: 310px;
+}
+
+.container {
+    height: 178px;
+    width: 265px;
+}
+
+.slider {
+    position: absolute;
+}
+.slider li {
+    list-style: none;
+    display: inline;
+}
+.slider img {
+    width: 265px;
+    height: 178px;
+    display: block;
+}
+.slider2 {
+    width: 10000px;
+}
+.slider2 li {
+    float: left;
+}
+.num {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+.num li {
+    float: left;
+    color: #fff;
+    border: 1px solid #ffff;
+    text-align: center;
+    line-height: 16px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    overflow: hidden;
+    font-family: Arial;
+    font-size: 12px;
+    background: #004d9b;
+    margin-left: 5px;
+}
+.num li.on {
+    line-height: 16px;
+    width: 16px;
+    height: 16px;
+    font-size: 12px;
+    margin-left: 5px;
+    background-color: #0084c8;
+    color: #fff;
+    border: 1px solid #ffffff;
+}
