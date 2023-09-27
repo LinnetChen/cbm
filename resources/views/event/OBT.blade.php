@@ -12,12 +12,12 @@
     <meta property="og:site_name" content="" />
     <meta property="og:locale" content="zh_tw" />
     <meta property="article:author" content="" />
-    <meta property="og:image" content="../../../img/event/OBT/event/prereg/share_bg.png" />
+    <meta property="og:image" content="/img/event/OBT/share_bg.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="628" />
     <meta name="author" content="DiGeam" />
     <meta name="Resource-type" content="Document" />
-    <link rel="icon" sizes="192x192" href="../../../img/event/OBT/event/20230728/favicon.ico">
+    <link rel="icon" sizes="192x192" href="/img/event/20230728/favicon.ico">
     <meta name="description" content="《黑色契約CABAL Online》OBT" />
     <link rel="pingback" href="" />
     <title>《黑色契約CABAL Online》OBT</title>
@@ -187,7 +187,8 @@
                         <li>除特別標示者外，所有獎勵皆可交易。
                         </li>
                         <li class="green">
-                            玩家累積儲值達指定金額後，可自行前往官網領獎專區領取獎勵。領取時，除1元儲值獎勵「GM的祝福(Lv.4)聖水」外，其餘獎勵將以活動限定道具「儲值獎勵兌換券」形式發放至帳號信箱。玩家須於11/1 23:59前從信箱領取，並與血色冰峰的活動NPC兌換獎勵。所有儲值獎勵兌換券皆會於11/2刪除，敬請把握時間兌換。
+                            玩家累積儲值達指定金額後，可自行前往官網領獎專區領取獎勵。領取時，除1元儲值獎勵「GM的祝福(Lv.4)聖水」外，其餘獎勵將以活動限定道具「儲值獎勵兌換券」形式發放至帳號信箱。玩家須於11/1
+                            23:59前從信箱領取，並與血色冰峰的活動NPC兌換獎勵。所有儲值獎勵兌換券皆會於11/2刪除，敬請把握時間兌換。
                         </li>
                         <li>所有獎勵皆只能領取一次。</li>
                         <li>掘夢網保留變更、取消或終止本活動的權利，包括但不限於本活動條款及活動辦法。</li>
@@ -792,7 +793,7 @@
                     </ul>
                 </div>
             </div>
- 
+
         </div>
         <div id="particles-js"></div>
 
