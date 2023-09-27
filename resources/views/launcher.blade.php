@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/launcher/style.css?v1.0" />
 </head>
 
-<body onLoad="show()">
+<body>
     <div class="cabal"></div>
     <div class="digeam"></div>
     <div class="est"></div>
@@ -116,8 +116,8 @@
         </div>
     </div>
     <!-- <script src="js/carousel.js"></script> -->
-    <script src="js/launcher/launcher.js"></script>
-    <script src="js/launcher/YLMarquee-1.1.js"></script>
+    {{-- <script src="js/launcher/launcher.js"></script> --}}
+    <script src="js/launcher/YLMarquee-1.1.js?v1.0"></script>
     <script src="js/launcher/jquery-1.7.2.js"></script>
     <script src="js/launcher/js.js"></script>
     <script>
@@ -141,13 +141,39 @@
         }
         $(document).ready(function() {
             LoadPicRun("DPic", "UPic", "UNum", 265, countIMG);
-            $("#img-list4").YlMarquee({
-                step: 39,
-                visible: 1,
-                vertical: 7,
-                NextControlID: "imgNext4",
-                PreControlID: "imgPre4",
+            // $("#img-list4").YlMarquee({
+            //     step: 39,
+            //     visible: 1,
+            //     vertical: 7,
+            //     NextControlID: "imgNext4",
+            //     PreControlID: "imgPre4",
+            // });
+        });
+
+        function showDiv(C, B, D) {
+            for (var A = 1; A <= D; A++) {
+                document.getElementById("divCode" + C + "_" + String(A)).style.display = "none"
+            }
+            document.getElementById("divCode" + C + "_" + B).style.display = "block";
+            for (var A in document.getElementById("ulMenu_" + C).getElementsByTagName("LI")) {
+                document.getElementById("ulMenu_" + C).getElementsByTagName("LI")[A].className = "codeDemomouseOutMenu"
+            }
+        }
+        $(document).ready(function() {
+            jQuery.post("/script/get_banner_l.php", function(data) {
+                data2 = eval('(' + data + ')');
+                var RetVal = data2.RetVal;
+                $('#UPic').html(data2.banner_list);
+                $('#UNum').html(data2.num_list);
+                LoadPicRun("DPic", "UPic", "UNum", 300, data2.bn_count);
             });
+            // $("#img-list4").YlMarquee({
+            //     step: 39,
+            //     visible: 1,
+            //     vertical: 7,
+            //     NextControlID: "imgNext4",
+            //     PreControlID: "imgPre4"
+            // });
         });
     </script>
 </body>
