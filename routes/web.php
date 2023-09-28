@@ -13,21 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/OBT', function () {
-    if ($_SERVER["HTTP_CF_CONNECTING_IP"] == '211.23.144.219') {
-        return view('event/OBT');
-    } else {
-        return redirect('https://digeam.com/index');
-    }
-});
-
-Route::get('/test_launcher', function () {
-    return view('test_launcher');
-});
-Route::get('/launcher', function () {
-    return view('test_launcher');
-});
-
 //首頁
 Route::get('/', 'front\FrontController@index')->name('index');
 Route::get('/index', 'front\FrontController@index');
@@ -75,25 +60,28 @@ Route::middleware(['setReturnUrl'])->group(function () {
     Route::get('/MembershipTransfer', function () {
         return view('event/20230728_index');
     });
+    if ($_SERVER["HTTP_CF_CONNECTING_IP"] == '211.23.144.219') {
 
-    // 序號兌換
-    Route::get('/number_exchange', function () {
-        return view('front/number_exchange');
-    })->name('number_exchange');
-    // 領獎專區
-    Route::get('/gift', 'front\FrontController@gift')->name('gift');
-    Route::get('/giftContent/{id}', 'front\FrontController@giftContent')->name('giftContent');
-    Route::get('/giftSearch/{year}/{month}/{keyword?}', 'front\FrontController@giftSearch');
+        // 序號兌換
+        Route::get('/number_exchange', function () {
+            return view('front/number_exchange');
+        })->name('number_exchange');
+        // 領獎專區
+        Route::get('/gift', 'front\FrontController@gift')->name('gift');
+        Route::get('/giftContent/{id}', 'front\FrontController@giftContent')->name('giftContent');
+        Route::get('/giftSearch/{year}/{month}/{keyword?}', 'front\FrontController@giftSearch');
+    }
 
+});
+Route::get('/OBT', function () {
+    return view('event/OBT');
 });
 
 Route::get('/20230724', function () {
     return view('event/20230724_index');
 });
 
-Route::get('/launcher', function () {
-    return view('test_launcher');
-});
+Route::get('/launcher', 'front\FrontController@launcher');
 Route::get('/test_launcher', 'front\FrontController@launcher');
 
 // 後台上傳圖片

@@ -477,11 +477,8 @@
             }
         }
 
-        // $('.download').on('click', function() {
-        //     location.href = '/game'
-        // })
         $('.download').on('click', function() {
-            alert('主程式暫未開放下載,敬請期待')
+            location.href = '/game'
         })
     </script>
 @endsection
