@@ -12,10 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
  */
-
+// 調整蓋台
+Route::get('/', function () {
+    return view('event/OBT');
+});
 //首頁
-Route::get('/', 'front\FrontController@index')->name('index');
-Route::get('/index', 'front\FrontController@index');
+Route::get('/index', 'front\FrontController@index')->name('index');
 // 遊戲規章
 Route::get('/game_religion', function () {
     return view('front/game_religion');
