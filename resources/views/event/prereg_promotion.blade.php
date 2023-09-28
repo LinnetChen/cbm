@@ -72,7 +72,7 @@
                 <div class="link_list">
                     <a href="https://www.facebook.com/DiGeamCabal/" target="_blank">粉絲專頁</a>
                     <a href="https://discord.com/invite/YyPkJrwqvs" target="_blank">官方DISCORD</a>
-                    <a href="https://cbo.digeam.com/download" target="_blank">立即下載</a>
+                    <a href="https://cbo.digeam.com/game" target="_blank">立即下載</a>
                 </div>
             </nav>
             <div class="menu_toggle">
@@ -86,9 +86,11 @@
                         <li>
                             <div class="logo"></div>
                         </li>
-                        <a href="https://www.facebook.com/DiGeamCabal/" class="sec_01 sec menu_p1" target="_blank">粉絲專頁</a>
-                        <a href="https://www.facebook.com/DiGeamCabal/" class="sec_02 sec menu_p2" target="_blank">官方DISCORD</a>
-                        <a href="https://cbo.digeam.com/download" class="sec_03 sec menu_p3" target="_blank">立即下載</a>
+                        <a href="https://www.facebook.com/DiGeamCabal/" class="sec_01 sec menu_p1"
+                            target="_blank">粉絲專頁</a>
+                        <a href="https://www.facebook.com/DiGeamCabal/" class="sec_02 sec menu_p2"
+                            target="_blank">官方DISCORD</a>
+                        <a href="https://cbo.digeam.com/game" class="sec_03 sec menu_p3" target="_blank">立即下載</a>
                     </ul>
                 </div>
             </nav>
