@@ -53,16 +53,16 @@ Route::get('/wiki/{id?}', 'front\FrontController@wiki')->name('wiki');
 // 百科搜尋
 Route::get('/wiki_search/{search}', 'front\FrontController@wiki_search');
 Route::get('/promotion', function () {
-    return view('event/promotion');
+    return view('event/prereg_promotion');
 });
 
 if ($_SERVER["HTTP_CF_CONNECTING_IP"] == '211.23.144.219') {
-    // 遊戲主程式
+// 遊戲主程式
     Route::get('/game', function () {
         return view('front/game');
     })->name('download');
 
-    //國家戰爭
+//國家戰爭
     Route::get('/war', function () {
         return view('front/war');
     });
