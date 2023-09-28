@@ -56,18 +56,20 @@ Route::get('/promotion', function () {
     return view('event/prereg_promotion');
 });
 
-if ($_SERVER["HTTP_CF_CONNECTING_IP"] == '211.23.144.219') {
 // 遊戲主程式
-    Route::get('/game', function () {
-        return view('front/game');
-    })->name('download');
+Route::get('/game', function () {
+    return view('front/game');
+})->name('download');
 
 //國家戰爭
-    Route::get('/war', function () {
+Route::get('/war', function () {
+    if ($_SERVER["HTTP_CF_CONNECTING_IP"] == '211.23.144.219') {
         return view('front/war');
-    });
+    } else {
+        return redirect('https://digeam.com/index');
+    }
+});
 
-}
 Route::middleware(['setReturnUrl'])->group(function () {
     // 事前預約
     // Route::get('/MembershipTransfer', function () {
