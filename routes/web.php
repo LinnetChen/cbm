@@ -56,7 +56,7 @@ Route::get('/promotion', function () {
 // 遊戲主程式
 Route::get('/game', function () {
     return view('front/game');
-})->name('download');
+})->name('game');
 
 //國家戰爭
 Route::get('/war', function () {

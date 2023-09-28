@@ -57,7 +57,7 @@
             </div>
             <div class="menu_box_s"></div>
             <div class="menu_box_s">
-                <a href="" style='display:none'>遊戲主程式</a>
+                <a href="{{ route('game') }}" style='display:none'>遊戲主程式</a>
                 <a href="{{ route('wallpaper_download') }}">精選桌布</a>
             </div>
             {{-- <div class="menu_box_s"></div>
@@ -150,7 +150,9 @@
                 $('.top_box').css('height', "390px");
             });
         });
-
+        // $('.download').on('click', function() {
+        //     location.href = '/game'
+        // })
         $('.download').on('click', function() {
             alert('主程式暫未開放下載,敬請期待')
         })
