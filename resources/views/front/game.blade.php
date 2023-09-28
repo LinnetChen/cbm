@@ -63,7 +63,7 @@
                 <td>4GB以上</td>
             </tr>
             <tr>
-                <td>CPU</td>
+                <td>顯示卡</td>
                 <td>GeForce 8600 GT以上</td>
                 <td>GeForce GTS 250以上</td>
             </tr>
