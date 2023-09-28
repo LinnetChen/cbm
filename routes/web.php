@@ -14,9 +14,6 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/OBT', function () {
-    return view('event/OBT');
-});
-Route::get('/OBT', function () {
     if ($_SERVER["HTTP_CF_CONNECTING_IP"] == '211.23.144.219') {
         return view('event/OBT');
     } else {
