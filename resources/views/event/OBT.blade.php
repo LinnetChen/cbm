@@ -547,7 +547,7 @@
                                 <th>售價</th>
                             </tr>
                             <tr>
-                                <td>褪色的黃寶石 x 10</td>
+                                <td>褪色的橘寶石 x 10</td>
                                 <td class="td_left">販售給NPC時，可獲得500萬Alz。</td>
                                 <td rowspan="5">750元</td>
                             </tr>
