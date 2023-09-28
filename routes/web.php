@@ -52,8 +52,8 @@ Route::get('/wallpaper_download', function () {
 Route::get('/wiki/{id?}', 'front\FrontController@wiki')->name('wiki');
 // 百科搜尋
 Route::get('/wiki_search/{search}', 'front\FrontController@wiki_search');
-Route::get('/prereg_promotion', function () {
-    return view('event/prereg_promotion');
+Route::get('/promotion', function () {
+    return view('event/promotion');
 });
 
 if ($_SERVER["HTTP_CF_CONNECTING_IP"] == '211.23.144.219') {
