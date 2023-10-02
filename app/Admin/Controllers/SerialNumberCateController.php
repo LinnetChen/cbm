@@ -4,6 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\Models\serial_number;
 use App\Models\serial_number_cate;
+use App\Models\serial_number_getlog;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Form;
@@ -35,7 +36,7 @@ class SerialNumberCateController extends AdminController
             if ($cate->all_for_one == 'N') {
                 return '';
             } else {
-                $used = serial_number::where('type', $this->type)->count();
+                $used = serial_number_getlog::where('serial_cate_id', $this->id)->count();
                 $not_use = $cate->remainder - $used;
                 return $cate->remainder . "(" . $not_use . ")";
             }
