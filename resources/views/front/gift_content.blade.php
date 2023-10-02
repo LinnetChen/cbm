@@ -39,7 +39,7 @@
             </tr>
             @foreach ($list as $value)
                 <tr>
-                    <td><a href="" class="event">{{ $value['title'] }}</a></td>
+                    <td><a href="{{ route('giftContent', $value['id']) }}" class="event">{{ $value['title'] }}</a></td>
                     <td>{{ $value['start'] }}　～　{{ $value['end'] }}</td>
                 </tr>
             @endforeach
