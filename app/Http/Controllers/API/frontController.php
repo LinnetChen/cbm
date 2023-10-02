@@ -23,16 +23,15 @@ class frontController extends Controller
         } else {
             $real_ip = $_SERVER["REMOTE_ADDR"];
         }
-        $_COOKIE['StrID'] = 'jacky0996';
 
         $setDay = date('Y-m-d h:i:s');
-        // $check = frontController::getUser($_COOKIE['StrID']);
-        // // 確認帳號
-        // if (!$check->data->userNum) {
-        //     return response()->json([
-        //         'status' => -99,
-        //     ]);
-        // }
+        $check = frontController::getUser($_COOKIE['StrID']);
+        // 確認帳號
+        if (!$check->data->userNum) {
+            return response()->json([
+                'status' => -99,
+            ]);
+        }
 
         // 確認序號
         $check_number = serial_number::where('number', $request->number)->first();
