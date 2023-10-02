@@ -208,6 +208,7 @@ div#newlist {
 .container {
     height: 178px;
     width: 265px;
+    border: 1px solid #fff;
 }
 
 .slider {

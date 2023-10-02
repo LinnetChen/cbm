@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>黑色契約 CABAL online</title>
-    <link rel="stylesheet" href="/css/launcher/style.css?v1.0" />
+    <link rel="stylesheet" href="/css/launcher/style.css?v1.1" />
 </head>
 
 <body>
@@ -116,9 +116,7 @@
             </ul>
         </div>
     </div>
-    <!-- <script src="js/carousel.js"></script> -->
-    {{-- <script src="js/launcher/launcher.js"></script> --}}
-    <script src="js/launcher/YLMarquee-1.1.js?v1.0"></script>
+
     <script src="js/launcher/jquery-1.7.2.js"></script>
     <script src="js/launcher/js.js"></script>
     <script>
@@ -142,13 +140,6 @@
         }
         $(document).ready(function() {
             LoadPicRun("DPic", "UPic", "UNum", 265, countIMG);
-            // $("#img-list4").YlMarquee({
-            //     step: 39,
-            //     visible: 1,
-            //     vertical: 7,
-            //     NextControlID: "imgNext4",
-            //     PreControlID: "imgPre4",
-            // });
         });
 
         function showDiv(C, B, D) {
@@ -160,22 +151,6 @@
                 document.getElementById("ulMenu_" + C).getElementsByTagName("LI")[A].className = "codeDemomouseOutMenu"
             }
         }
-        $(document).ready(function() {
-            jQuery.post("/script/get_banner_l.php", function(data) {
-                data2 = eval('(' + data + ')');
-                var RetVal = data2.RetVal;
-                $('#UPic').html(data2.banner_list);
-                $('#UNum').html(data2.num_list);
-                LoadPicRun("DPic", "UPic", "UNum", 300, data2.bn_count);
-            });
-            // $("#img-list4").YlMarquee({
-            //     step: 39,
-            //     visible: 1,
-            //     vertical: 7,
-            //     NextControlID: "imgNext4",
-            //     PreControlID: "imgPre4"
-            // });
-        });
     </script>
 </body>
 
