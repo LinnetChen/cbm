@@ -36,7 +36,7 @@ class SerialNumberCateController extends AdminController
                 return '';
             } else {
                 $used = serial_number::where('type', $this->type)->count();
-                $not_use = $cate->remainder - $used + 1;
+                $not_use = $cate->remainder - $used;
                 return $cate->remainder . "(" . $not_use . ")";
             }
         });
