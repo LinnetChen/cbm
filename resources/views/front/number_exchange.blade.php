@@ -97,7 +97,7 @@
         })
         // 未登入
         $('.not_login').on('click', function() {
-            alert('請先登入')
+            Swal.fire('請先登入')
         })
 
         // 登出
