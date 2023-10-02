@@ -2,7 +2,7 @@
 @section('title', '《黑色契約CABAL Online》')
 @section('link')
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="/css/home_page/home_page_style.css?v1.0">
+    <link rel="stylesheet" href="/css/home_page/home_page_style.css?v1.4">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 @endsection
@@ -13,7 +13,7 @@
             <a>
                 <div class="download"></div>
             </a>
-            <a href="https://www.digeam.com/register">
+            <a href="https://www.digeam.com/register_cbo">
                 <div class="btn"><img src="img/home_page/icon_rgister.png">帳號註冊</div>
             </a>
             <a href="https://www.digeam.com/member/billing">

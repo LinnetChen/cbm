@@ -25,9 +25,30 @@
     <link rel="stylesheet" href="css/event/OBT/style.css">
     <link rel="stylesheet" href="css/event/OBT/m_style.css">
     <link rel="stylesheet" href="css/event/OBT/main.css">
+
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PB8RXNM');
+    </script>
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PB8RXNM" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
     <div class="wrap">
         <div class="btntop"></div>
         <div class="topmenu">
@@ -66,7 +87,7 @@
             <a href="https://cbo.digeam.com/index" target="_blank" class="logo"></a>
             <div class="kv_ti"></div>
             <ul class="btnBox">
-                <li class="btnBox_b1"><a href="https://www.digeam.com/register" target="_blank"></a></li>
+                <li class="btnBox_b1"><a href="https://www.digeam.com/register_cbo" target="_blank"></a></li>
                 <li class="btnBox_b2"><a href="https://cbo.digeam.com/game/" target="_blank"></a></li>
             </ul>
         </div>
