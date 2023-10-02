@@ -1,3 +1,5 @@
+<?php $_COOKIE['StrID'] = 'jacky0996';
+?>
 @extends('layouts.app2')
 @section('title', '《黑色契約CABAL Online》序號兌換')
 @section('link')
@@ -89,6 +91,12 @@
                         icon: 'error',
                         title: '兌換失敗',
                         text: '您已參加過活動囉',
+                    })
+                } else if (res.status == -94) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: '兌換失敗',
+                        text: '序號已兌換完畢',
                     })
                 } else if (res.status == 1) {
                     Swal.fire('兌換成功！請至遊戲內收取道具')

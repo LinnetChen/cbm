@@ -23,15 +23,16 @@ class frontController extends Controller
         } else {
             $real_ip = $_SERVER["REMOTE_ADDR"];
         }
+        $_COOKIE['StrID'] = 'jacky0996';
 
         $setDay = date('Y-m-d h:i:s');
-        $check = frontController::getUser($_COOKIE['StrID']);
-        // 確認帳號
-        if (!$check->data->userNum) {
-            return response()->json([
-                'status' => -99,
-            ]);
-        }
+        // $check = frontController::getUser($_COOKIE['StrID']);
+        // // 確認帳號
+        // if (!$check->data->userNum) {
+        //     return response()->json([
+        //         'status' => -99,
+        //     ]);
+        // }
 
         // 確認序號
         $check_number = serial_number::where('number', $request->number)->first();
@@ -47,6 +48,7 @@ class frontController extends Controller
                 'status' => -97,
             ]);
         }
+
         // 序號在可使用時間內
         $check_number_cate = serial_number_cate::where('type', $check_number->type)->first();
         if ($setDay < $check_number_cate['start_date'] || $setDay > $check_number_cate['end_date']) {
@@ -62,14 +64,20 @@ class frontController extends Controller
             ]);
         }
         // 一對一資料更新
-        // 派獎
-        $send = frontController::sendItem($_COOKIE['StrID'], $check_number_cate['id'], $request->number, $real_ip);
         if ($check_number_cate->all_for_one == 'N') {
             $check_number->status = 'Y';
             $check_number->user_id = $_COOKIE['StrID'];
             $check_number->user_ip = $real_ip;
             $check_number->save();
+        } else {
+            $count = serial_number_getlog::where('serial_cate_id', $check_number_cate['id'])->count();
+            if ($check_number_cate->remainder < $count) {
+                return response()->json([
+                    'status' => -94,
+                ]);
+            }
         }
+        $send = frontController::sendItem($_COOKIE['StrID'], $check_number_cate['id'], $request->number, $real_ip);
         // 派獎
         return response()->json([
             'status' => 1,
