@@ -62,18 +62,18 @@ Route::middleware(['setReturnUrl'])->group(function () {
     Route::get('/MembershipTransfer', function () {
         return view('event/20230728_index');
     });
-    if ($_SERVER["HTTP_CF_CONNECTING_IP"] == '211.23.144.219') {
-
-        // 序號兌換
-        Route::get('/number_exchange', function () {
+    // 序號兌換
+    Route::get('/number_exchange', function () {
+        if ($_SERVER["HTTP_CF_CONNECTING_IP"] == '211.23.144.219') {
             return view('front/number_exchange');
-        })->name('number_exchange');
-        // 領獎專區
-        Route::get('/gift', 'front\FrontController@gift')->name('gift');
-        Route::get('/giftContent/{id}', 'front\FrontController@giftContent')->name('giftContent');
-        Route::get('/giftSearch/{year}/{month}/{keyword?}', 'front\FrontController@giftSearch');
-    }
-
+        } else {
+            return redirect('https://digeam.com/index');
+        }
+    })->name('number_exchange');
+    // 領獎專區
+    Route::get('/gift', 'front\FrontController@gift')->name('gift');
+    Route::get('/giftContent/{id}', 'front\FrontController@giftContent')->name('giftContent');
+    Route::get('/giftSearch/{year}/{month}/{keyword?}', 'front\FrontController@giftSearch');
 });
 Route::get('/OBT', function () {
     return view('event/OBT');
