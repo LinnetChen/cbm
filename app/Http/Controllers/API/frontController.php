@@ -13,7 +13,6 @@ use App\Models\serial_number_cate;
 use App\Models\serial_number_getlog;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-
 class frontController extends Controller
 {
     public function exchange(Request $request)
@@ -87,10 +86,21 @@ class frontController extends Controller
     {
         $url = 'http://c1twapi.global.estgames.com/user/getUserDetailByUserId?userId=' . $user_id;
         $client = new Client();
+
+
+        // try {
+        //     $res = $client->request('GET', $url);
+        // } catch (Exception $e) {
+        //     dd($e);
+        // }
+
+        // $statusCode = $res->getStatusCode();
+           
         $res = $client->request('GET', $url);
         $result = $res->getBody();
         $result = json_decode($result);
         return $result;
+
     }
 
     private function sendItem($user, $cate, $number, $ip)
