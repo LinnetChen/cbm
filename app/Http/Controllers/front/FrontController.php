@@ -174,16 +174,17 @@ class FrontController extends Controller
             $list = giftCreate::where('status', 'y')->orderBy('created_at', 'desc')->paginate(6);
             $giftCreate = giftCreate::where('id', $id)->first();
             $giftGroup = giftGroup::where('gift_id', $id)->get();
-            if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null) {
-                foreach ($giftGroup as $key => $value) {
-                    $check = giftGetLog::where('gift', $value['id'])->where('user', $_COOKIE['StrID'])->first();
-                    if ($check) {
-                        $giftGroup[$key]['already_get'] = 'y';
-                    } else {
-                        $giftGroup[$key]['already_get'] = 'n';
-                    }
+            // if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null) {
+            foreach ($giftGroup as $key => $value) {
+                // $check = giftGetLog::where('gift', $value['id'])->where('user', $_COOKIE['StrID'])->first();
+                $check = giftGetLog::where('gift', $value['id'])->where('user', 'jacky0996')->first();
+                if ($check) {
+                    $giftGroup[$key]['already_get'] = 'y';
+                } else {
+                    $giftGroup[$key]['already_get'] = 'n';
                 }
             }
+            // }
             return view('front/gift_content', [
                 'list' => $list,
                 'giftGroup' => $giftGroup,

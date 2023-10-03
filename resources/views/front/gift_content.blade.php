@@ -1,3 +1,6 @@
+<?php
+$_COOKIE['StrID'] = 'jacky0996';
+?>
 @extends('layouts.app2')
 @section('title', '《黑色契約CABAL Online》領獎專區')
 @section('link')
@@ -107,6 +110,8 @@
 
 @section('js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
         // 登出
         $('.logout').on('click', function() {
@@ -129,11 +134,29 @@
                 'gift_id': $(this).data('val')
             }, function(res) {
                 if (res.status == -99) {
-                    alert('已經領取過了')
+                    Swal.fire({
+                        icon: 'error',
+                        title: '兌換失敗',
+                        text: '您已經領取過了！',
+                    })
                 } else if (res.status == -98) {
-                    alert('不在可領取時間內')
+                    Swal.fire({
+                        icon: 'error',
+                        title: '兌換失敗',
+                        text: '請在領獎時間內領取！',
+                    })
+                } else if (res.status == -90) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: '兌換失敗',
+                        text: '您不符合領取資格！',
+                    })
                 } else if (res.status == 1) {
-                    alert('兌換成功')
+                    Swal.fire('兌換成功！請至遊戲內收取道具').then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.reload();
+                        }
+                    })
                 }
             })
         })
