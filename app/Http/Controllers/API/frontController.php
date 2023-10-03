@@ -32,7 +32,7 @@ class frontController extends Controller
         $setDay = date('Y-m-d h:i:s');
         $check = frontController::getUser($_COOKIE['StrID']);
         // 確認帳號
-        if (!$check->data->userNum) {
+        if ($check->data < 0) {
             return response()->json([
                 'status' => -99,
             ]);
@@ -90,18 +90,8 @@ class frontController extends Controller
     // 獲取玩家資訊
     private function getUser($user_id)
     {
-        $url = 'http://c1twapi.global.estgames.com/user/getUserDetailByUserId?userId=' . $user_id;
-        $client = new Client();
-
-        // try {
-        //     $res = $client->request('GET', $url);
-        // } catch (Exception $e) {
-        //     dd($e);
-        // }
-
-        // $statusCode = $res->getStatusCode();
-
-        $res = $client->request('GET', $url);
+        $client = new Client(['verify' => false]);
+        $res = $client->request('GET', 'http://c1twapi.global.estgames.com/user/userNum?userId=' . $user_id);
         $result = $res->getBody();
         $result = json_decode($result);
         return $result;
@@ -149,6 +139,15 @@ class frontController extends Controller
         } else {
             $real_ip = $_SERVER["REMOTE_ADDR"];
         }
+
+        $check = frontController::getUser($_COOKIE['StrID']);
+        // 確認帳號
+        if ($check->data < 0) {
+            return response()->json([
+                'status' => -99,
+            ]);
+        }
+
         $setDay = Carbon::now();
 
         // 確認時間
@@ -160,8 +159,8 @@ class frontController extends Controller
             ]);
         }
         // 確認是否領過
-        $check = giftGetLog::where('user', 'jacky0996')->where('gift', $request->gift_id)->first();
-        // $check = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->first();
+        // $check = giftGetLog::where('user', 'jacky0996')->where('gift', $request->gift_id)->first();
+        $check = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->first();
         if ($check) {
             return response()->json([
                 'status' => -99,
@@ -170,12 +169,14 @@ class frontController extends Controller
         // 以下領獎邏輯撰寫
 
         // MyCard全通路加碼回饋活動
+
         // 全家限定MyCard加碼
         // 7-ELEVEN限定MyCard加碼
+
         // 黑色契約-事前預約活動
         if ($request->gift_id == 12 || $request->gift_id == 15) {
-            // $check = PreregUser::where('user_id', $_COOKIE['StrID'])->first();
-            $check = PreregUser::where('user_id', 'jacky0996')->first();
+            $check = PreregUser::where('user_id', $_COOKIE['StrID'])->first();
+            // $check = PreregUser::where('user_id', 'jacky0996')->first();
             if (!$check) {
                 return response()->json([
                     'status' => -90,
@@ -189,8 +190,8 @@ class frontController extends Controller
                 }
             }
             if ($request->gift_id == 15) {
-                // $MsgBoardCheck = MsgBoard::where('user_id', $_COOKIE['StrID'])->first();
-                $MsgBoardCheck = MsgBoard::where('user_id', 'jacky0996')->first();
+                $MsgBoardCheck = MsgBoard::where('user_id', $_COOKIE['StrID'])->first();
+                // $MsgBoardCheck = MsgBoard::where('user_id', 'jacky0996')->first();
                 if (!$MsgBoardCheck) {
                     return response()->json([
                         'status' => -90,
@@ -201,8 +202,8 @@ class frontController extends Controller
 
         // 老玩家限定-會員轉移專屬禮
         if ($request->gift_id == 11) {
-            // $check = transfer_user::where('user_id', $_COOKIE['StrID'])->first();
-            $check = transfer_user::where('user_id', 'jacky0996')->first();
+            $check = transfer_user::where('user_id', $_COOKIE['StrID'])->first();
+            // $check = transfer_user::where('user_id', 'jacky0996')->first();
             if ($check['cabal_id'] == '' || $check['cabal_id'] == null || !$check['cabal_id']) {
                 return response()->json([
                     'status' => -90,
@@ -211,24 +212,59 @@ class frontController extends Controller
         }
         // 歡慶開服．儲值有禮
         if ($request->gift_id == 4 || $request->gift_id == 5 || $request->gift_id == 6 || $request->gift_id == 7 || $request->gift_id == 8 || $request->gift_id == 9 || $request->gift_id == 10) {
+            $client = new Client();
+            $data = [
+                'user_id' => $_COOKIE['StrID'],
+                'start' => $check_gift['start'],
+                'end' => $check_gift['end'],
+            ];
 
-            $client = new Client(['verify' => false]);
-            $res = $client->request('POST', 'https://b2b.mycard520.com.tw/MyBillingPay/api/AuthGlobal', [
-                'form_params' => [
-                    'user_id' => 'jacky0996',
-                    'start' => $check_gift['start'],
-                    'end' => $check_gift['end'],
-                ],
+            $headers = [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+            ];
+
+            $res = $client->request('POST', 'https://webapi.digeam.com//cbo/get_change_point', [
+                'headers' => $headers,
+                'json' => $data,
             ]);
-            $reqbody = $res->getBody();
-            $reqbody = json_decode($reqbody);
-            dd($rebody);
+            $result = $res->getBody();
+            $result = json_decode($result);
+            switch ($request->gift_id) {
+
+                case 4:
+                    $need = 1;
+                    break;
+                case 5:
+                    $need = 150;
+                    break;
+                case 6:
+                    $need = 500;
+                    break;
+                case 7:
+                    $need = 1000;
+                    break;
+                case 8:
+                    $need = 3000;
+                    break;
+                case 9:
+                    $need = 6000;
+                    break;
+                case 10:
+                    $need = 10000;
+                    break;
+            }
+            if ($result < $need) {
+                return response()->json([
+                    'status' => -90,
+                ]);
+            }
         }
         // 以上領獎邏輯撰寫
 
         // 無誤就派獎
-        frontController::giftSendItem('jacky0996', $request->gift_id, $real_ip);
-        // frontController::giftSendItem($_COOKIE['StrID'], $request->gift_id, $real_ip);
+        // frontController::giftSendItem('jacky0996', $request->gift_id, $real_ip);
+        frontController::giftSendItem($_COOKIE['StrID'], $request->gift_id, $real_ip);
         return response()->json([
             'status' => 1,
         ]);
@@ -239,24 +275,24 @@ class frontController extends Controller
     {
         $getItem = giftContent::where('gift_group_id', $gift_id)->get();
         foreach ($getItem as $value) {
-            // $client = new Client();
-            // $data = [
-            //     "userId" => $user,
-            //     "itemIdx" => $value['itemIdx'],
-            //     "itemOpt" => $value['itemOpt'],
-            //     "durationIdx" => $value['durationIdx'],
-            //     "prdId" => $value['prdId'],
-            // ];
+            $client = new Client();
+            $data = [
+                "userId" => $user,
+                "itemIdx" => $value['itemIdx'],
+                "itemOpt" => $value['itemOpt'],
+                "durationIdx" => $value['durationIdx'],
+                "prdId" => $value['prdId'],
+            ];
 
-            // $headers = [
-            //     'Content-Type' => 'application/json',
-            //     'Accept' => 'application/json',
-            // ];
+            $headers = [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+            ];
 
-            // $res = $client->request('POST', 'http://c1twapi.global.estgames.com/game/give/item/cash', [
-            //     'headers' => $headers,
-            //     'json' => $data,
-            // ]);
+            $res = $client->request('POST', 'http://c1twapi.global.estgames.com/game/give/item/cash', [
+                'headers' => $headers,
+                'json' => $data,
+            ]);
             // 撰寫紀錄
             $newLog = new giftGetLog();
             $newLog->user = $user;
