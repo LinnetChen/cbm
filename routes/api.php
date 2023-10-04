@@ -32,4 +32,5 @@ Route::post('exchange', 'API\frontController@exchange');
 Route::post('gift', 'API\frontController@gift');
 // 更新平台新聞
 Route::post('digeamIndexNews', 'API\DigeamController@IndexNews')->name('IndexNews');
-
+// 更新CCU
+Route::get('ccu_update', 'API\CCUController@update_cbo_ccu')->name('update_cbo_ccu');

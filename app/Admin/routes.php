@@ -32,4 +32,6 @@ Route::group([
     $router->resource('{gift_id}/create_gift_project', 'GiftProjectCreateController');
     $router->resource('{gift_project_id}/create_gift_item', 'GiftItemCreateController');
     $router->resource('gift_get_log', 'GiftGetLogController');
+    //CCU
+    $router->resource('/ccu', 'CCUController');
 });
