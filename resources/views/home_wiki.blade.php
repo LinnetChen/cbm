@@ -41,6 +41,7 @@
                                     <div class="libox">
                                         @foreach ($sideContent[$key] as $value_2)
                                             <li class="font_list" data-id="{{ $value_2['id'] }}"><a
+                                                    class="page-{{ $value_2['id'] }}"
                                                     href="{{ route('wiki', $value_2['id']) }}">{{ $value_2['title'] }}</a>
                                             </li>
                                         @endforeach
@@ -48,7 +49,8 @@
                                 </ul>
                             @else
                                 <ul class="font_title">
-                                    <a href="{{ route('wiki', $value['id']) }}">{{ $value['cate_title'] }}</a>
+                                    <a class="page-{{ $value['id'] }}"
+                                        href="{{ route('wiki', $value['id']) }}">{{ $value['cate_title'] }}</a>
                                 </ul>
                             @endif
                         @endforeach
@@ -126,4 +128,13 @@
             document.location.href = '/wiki_search/' + _search
         }
     })
+
+    var url = location.href.split("/");
+    var id = (url[url.length - 1]);
+    $(".page-" + id).attr("style", "color:#66B3FF;");
+
+    // $('.font_title').on('click', function() {
+    //     $('.libox').css('display', 'none')
+    //     $(this).child('.libox').css('display', 'block')
+    // });
 </script>

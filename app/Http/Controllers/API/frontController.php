@@ -103,6 +103,8 @@ class frontController extends Controller
         $getItem = serial_item::where('cate_id', $cate)->get();
 
         foreach ($getItem as $value) {
+            $count_number_log = serial_number_getlog::count();
+            $tranNo = 'number-' . $cate . '-' . $count_number_log . date('YmdHis');
             $client = new Client();
             $data = [
                 "userId" => $user,
@@ -110,6 +112,7 @@ class frontController extends Controller
                 "itemOpt" => $value['itemOpt'],
                 "durationIdx" => $value['durationIdx'],
                 "prdId" => $value['prdId'],
+                'tranNo' => $tranNo,
             ];
 
             $headers = [
@@ -127,6 +130,7 @@ class frontController extends Controller
             $newLog->number = $number;
             $newLog->serial_cate_id = $cate;
             $newLog->ip = $ip;
+            $newLog->tranNo = $tranNo;
             $newLog->save();
         }
     }
@@ -144,7 +148,7 @@ class frontController extends Controller
         // 確認帳號
         if ($check->data < 0) {
             return response()->json([
-                'status' => -99,
+                'status' => -97,
             ]);
         }
 
@@ -158,21 +162,103 @@ class frontController extends Controller
                 'status' => -98,
             ]);
         }
-        // 確認是否領過
-        // $check = giftGetLog::where('user', 'jacky0996')->where('gift', $request->gift_id)->first();
-        $check = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->first();
-        if ($check) {
-            return response()->json([
-                'status' => -99,
-            ]);
+        // 確認是否領過,排除可重複領取的
+        $repeat = [16, 17, 18];
+
+        if (!in_array($request->gift_id, $repeat)) {
+            $check = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->first();
+            if ($check) {
+                return response()->json([
+                    'status' => -99,
+                ]);
+            }
         }
         // 以下領獎邏輯撰寫
 
         // MyCard全通路加碼回饋活動
+        if ($request->gift_id == 18) {
+            $client = new Client();
+            $data = [
+                'user_id' => $_COOKIE['StrID'],
+                'start' => $check_gift['start'],
+                'end' => $check_gift['end'],
+                'proCode' => 'E8048',
+            ];
 
+            $headers = [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+            ];
+
+            $res = $client->request('POST', 'https://webapi.digeam.com//cbo/get_myCard_record', [
+                'headers' => $headers,
+                'json' => $data,
+            ]);
+            $result = $res->getBody();
+            $result = json_decode($result);
+            $alreadyGet = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->count();
+            if ($result <= $alreadyGet) {
+                return response()->json([
+                    'status' => -90,
+                ]);
+            }
+        }
         // 全家限定MyCard加碼
-        // 7-ELEVEN限定MyCard加碼
+        if ($request->gift_id == 17) {
+            $client = new Client();
+            $data = [
+                'user_id' => $_COOKIE['StrID'],
+                'start' => $check_gift['start'],
+                'end' => $check_gift['end'],
+                'proCode' => 'E8014',
+            ];
 
+            $headers = [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+            ];
+
+            $res = $client->request('POST', 'https://webapi.digeam.com//cbo/get_myCard_record', [
+                'headers' => $headers,
+                'json' => $data,
+            ]);
+            $result = $res->getBody();
+            $result = json_decode($result);
+            $alreadyGet = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->count();
+            if ($result <= $alreadyGet) {
+                return response()->json([
+                    'status' => -90,
+                ]);
+            }
+        }
+        // 7-ELEVEN限定MyCard加碼
+        if ($request->gift_id == 16) {
+            $client = new Client();
+            $data = [
+                'user_id' => $_COOKIE['StrID'],
+                'start' => $check_gift['start'],
+                'end' => $check_gift['end'],
+                'proCode' => 'E8013',
+            ];
+
+            $headers = [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+            ];
+
+            $res = $client->request('POST', 'https://webapi.digeam.com//cbo/get_myCard_record', [
+                'headers' => $headers,
+                'json' => $data,
+            ]);
+            $result = $res->getBody();
+            $result = json_decode($result);
+            $alreadyGet = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->count();
+            if ($result <= $alreadyGet) {
+                return response()->json([
+                    'status' => -90,
+                ]);
+            }
+        }
         // 黑色契約-事前預約活動
         if ($request->gift_id == 12 || $request->gift_id == 15) {
             $check = PreregUser::where('user_id', $_COOKIE['StrID'])->first();
@@ -203,8 +289,12 @@ class frontController extends Controller
         // 老玩家限定-會員轉移專屬禮
         if ($request->gift_id == 11) {
             $check = transfer_user::where('user_id', $_COOKIE['StrID'])->first();
-            // $check = transfer_user::where('user_id', 'jacky0996')->first();
-            if ($check['cabal_id'] == '' || $check['cabal_id'] == null || !$check['cabal_id']) {
+            if (!$check) {
+                return response()->json([
+                    'status' => -90,
+                ]);
+            }
+            if ($check['cabal_id'] == '' || $check['cabal_id'] == null) {
                 return response()->json([
                     'status' => -90,
                 ]);
@@ -231,7 +321,6 @@ class frontController extends Controller
             $result = $res->getBody();
             $result = json_decode($result);
             switch ($request->gift_id) {
-
                 case 4:
                     $need = 1;
                     break;
@@ -275,6 +364,8 @@ class frontController extends Controller
     {
         $getItem = giftContent::where('gift_group_id', $gift_id)->get();
         foreach ($getItem as $value) {
+            $count_number_log = giftGetLog::count();
+            $tranNo = 'gift-' . $gift_id . '-' . $count_number_log . date('YmdHis');
             $client = new Client();
             $data = [
                 "userId" => $user,
@@ -282,6 +373,7 @@ class frontController extends Controller
                 "itemOpt" => $value['itemOpt'],
                 "durationIdx" => $value['durationIdx'],
                 "prdId" => $value['prdId'],
+                'tranNo' => $tranNo,
             ];
 
             $headers = [
@@ -299,6 +391,7 @@ class frontController extends Controller
             $newLog->gift = $gift_id;
             $newLog->gift_item = $value['title'];
             $newLog->ip = $ip;
+            $newLog->tranNo = $tranNo;
             $newLog->save();
         }
     }

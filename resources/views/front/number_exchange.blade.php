@@ -55,51 +55,58 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+        _send = true;
         // 已登入
         $('.already_login').on('click', function() {
-            $.post('/api/exchange', {
-                'number': $('.input').val()
-            }, function(res) {
-                if (res.status == -99) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: '兌換失敗',
-                        text: '您還沒有遊戲角色,請先開始遊戲後再兌換',
-                    })
-                } else if (res.status == -98) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: '兌換失敗',
-                        text: '請確認輸入的序號是否正確',
-                    })
-                } else if (res.status == -97) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: '兌換失敗',
-                        text: '此序號已被使用',
-                    })
-                } else if (res.status == -96) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: '兌換失敗',
-                        text: '序號不在可使用時間內',
-                    })
-                } else if (res.status == -95) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: '兌換失敗',
-                        text: '您已參加過活動囉',
-                    })
-                } else if (res.status == -94) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: '兌換失敗',
-                        text: '序號已兌換完畢',
-                    })
-                } else if (res.status == 1) {
-                    Swal.fire('兌換成功！請至遊戲內收取道具')
-                }
-            })
+            if (_send == true) {
+                _send = false
+                $.post('/api/exchange', {
+                    'number': $('.input').val()
+                }, function(res) {
+                    setTimeout(() => {
+                        _send = true
+                    }, 500);
+                    if (res.status == -99) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: '兌換失敗',
+                            text: '您還沒有遊戲角色,請先開始遊戲後再兌換',
+                        })
+                    } else if (res.status == -98) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: '兌換失敗',
+                            text: '請確認輸入的序號是否正確',
+                        })
+                    } else if (res.status == -97) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: '兌換失敗',
+                            text: '此序號已被使用',
+                        })
+                    } else if (res.status == -96) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: '兌換失敗',
+                            text: '序號不在可使用時間內',
+                        })
+                    } else if (res.status == -95) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: '兌換失敗',
+                            text: '您已參加過活動囉',
+                        })
+                    } else if (res.status == -94) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: '兌換失敗',
+                            text: '序號已兌換完畢',
+                        })
+                    } else if (res.status == 1) {
+                        Swal.fire('兌換成功！請至遊戲內收取道具')
+                    }
+                })
+            }
         })
         // 未登入
         $('.not_login').on('click', function() {

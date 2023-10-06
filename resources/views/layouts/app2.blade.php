@@ -51,15 +51,15 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PB8RXNM" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
+
     <div class="top_bar">
         <a class="logo" href="{{ route('index') }}" 2><img src="/img/home_page/CabalLogo.png"></a>
         <div class="menu">
             <a href="{{ route('info') }}">遊戲公告</a>
             <a href="{{ route('wiki') }}">遊戲百科</a>
-            <a href="">下載專區</a>
-            {{-- <a href="">國家戰爭</a>
-            <a href="">獎勵專區</a> --}}
+            <a href="{{ route('game') }}">下載專區</a>
+            {{-- <a href="">國家戰爭</a> --}}
+            <a href="{{ route('gift') }}">獎勵專區</a>
             <a href="https://www.digeam.com/register_cbo">會員中心</a>
         </div>
         <div class="icon_menu">
@@ -81,11 +81,11 @@
                 <a href="{{ route('game') }}">遊戲主程式</a>
                 <a href="{{ route('wallpaper_download') }}">精選桌布</a>
             </div>
-            {{-- <div class="menu_box_s"></div>
+            {{-- <div class="menu_box_s"></div> --}}
             <div class="menu_box_s">
                 <a href="{{ route('gift') }}">領獎專區</a>
                 <a href="{{ route('number_exchange') }}">序號兌換</a>
-            </div> --}}
+            </div>
             <div class="menu_box_s">
                 <a href="https://www.digeam.com/register_cbo">註冊會員</a>
                 <a href="https://www.digeam.com/member/billing">儲值中心</a>

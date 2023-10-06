@@ -30,11 +30,12 @@ class GiftGetLogController extends AdminController
         //     return $get['title'];
         // });
         $grid->column('ip', __('IP'));
+        $grid->column('tranNo', __('tranNo'));
         $grid->column('created_at', __('領取時間'))->date('Y-m-d');
 
         $grid->filter(function ($filter) {
             $filter->disableIdFilter();
-            $filter->equal('user_id', '帳號');
+            $filter->equal('user', '帳號');
         });
 
         $grid->actions(function ($actions) {

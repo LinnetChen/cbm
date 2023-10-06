@@ -570,7 +570,7 @@
                             <tr>
                                 <td>褪色的橘寶石 x 10</td>
                                 <td class="td_left">販售給NPC時，可獲得500萬Alz。</td>
-                                <td rowspan="5">750元</td>
+                                <td rowspan="5">75力量晶石</td>
                             </tr>
                             <tr>
                                 <td>屬性賦予書寶箱(高級) x 5</td>
