@@ -34,3 +34,6 @@ Route::post('gift', 'API\frontController@gift');
 Route::post('digeamIndexNews', 'API\DigeamController@IndexNews')->name('IndexNews');
 // 更新CCU
 Route::get('ccu_update', 'API\CCUController@update_cbo_ccu')->name('update_cbo_ccu');
+// 直接派獎
+Route::post('send_item', 'API\frontController@free_send_item');
+

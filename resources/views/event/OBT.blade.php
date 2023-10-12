@@ -142,7 +142,7 @@
                             <tr>
                                 <td>1</td>
                                 <td>GM的祝福(Lv.4)聖水 x 3</td>
-                                <td class="td_left">使用後可獲得GM的祝福(Lv.4) Buff效果。持續1小時。</td>
+                                <td class="td_left">使用後可獲得GM的祝福(Lv.4) Buff效果。效果持續時間內，可大幅提升攻擊/防禦力、致命機率/傷害、命中、貫穿、HP等多項能力值。持續1小時。</td>
                             </tr>
                             <tr>
                                 <td rowspan="2">150</td>
