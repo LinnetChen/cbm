@@ -105,7 +105,7 @@
             </div>
         </div>
 
-        <a href="https://cbo.digeam.com/prereg" target="_blank" class="jump_prereg_btn"></a>
+        <!-- <a href="https://cbo.digeam.com/prereg" target="_blank" class="jump_prereg_btn"></a> -->
 
         <div class="main">
             <div class="toppage">

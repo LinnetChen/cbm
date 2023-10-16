@@ -397,40 +397,27 @@ class frontController extends Controller
     }
     public function free_send_item()
     {
-        // $array = ['jacky0996','m7750147', 'a0970027925', 'gccf4986'];
-        $array = ['sulaegg638108', 'l134872393', 'dustinwu789456', 'wcj3ulive', 'abc125556', 'mariofunm2', 'eyes7463'];
-        // $array = ['shineeby2min'];
-        foreach ($array as $user) {
-            $count_number_log = giftGetLog::count();
-            $tranNo = 'gift-0' . '-' . $count_number_log . date('YmdHis');
-            $client = new Client();
-            $data = [
-                "userId" => $user,
-                "itemIdx" => 4746,
-                "itemOpt" => 50,
-                "durationIdx" => 0,
-                "prdId" => 1288,
-                'tranNo' => $tranNo,
-            ];
+        $count_number_log = giftGetLog::count();
+        $tranNo = 'gift-' . 0 . '-' . $count_number_log . date('YmdHis');
+        $client = new Client();
+        $data = [
+            "userId" => 'jacky0996',
+            "itemIdx" => 33559014,
+            "itemOpt" => 1190,
+            "durationIdx" => 13,
+            "prdId" => 1288,
+            'tranNo' => $tranNo,
+        ];
 
-            $headers = [
-                'Content-Type' => 'application/json',
-                'Accept' => 'application/json',
-            ];
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ];
 
-            $res = $client->request('POST', 'http://c1twapi.global.estgames.com/game/give/item/cash', [
-                'headers' => $headers,
-                'json' => $data,
-            ]);
-            // 撰寫紀錄
-            $newLog = new giftGetLog();
-            $newLog->user = $user;
-            $newLog->gift = 0;
-            $newLog->gift_item = '轉移啟動！伺服器命名徵集令-憤怒藥水(大)';
-            $newLog->ip = '127.0.0.1';
-            $newLog->tranNo = $tranNo;
-            $newLog->save();
-        }
+        $res = $client->request('POST', 'http://c1twapi.global.estgames.com/game/give/item/cash', [
+            'headers' => $headers,
+            'json' => $data,
+        ]);
     }
 
 }

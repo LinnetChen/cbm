@@ -143,4 +143,10 @@
             document.location.href = '/wiki_search/' + _search
         }
     })
+    $('.font_list a').click(function(event) {
+        if ($(this).attr('href')) {
+            window.location = $(this).attr('href');
+        }
+        event.stopPropagation();
+    });
 </script>

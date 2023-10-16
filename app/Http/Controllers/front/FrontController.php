@@ -153,7 +153,7 @@ class FrontController extends Controller
     }
     public function suspension_list()
     {
-        $list = suspension::orderBy('created_at', 'desc')->paginate(10);
+        $list = suspension::orderBy('created_at', 'desc')->paginate(8);
         return view('front.suspension_list', [
             'list' => $list,
         ]);

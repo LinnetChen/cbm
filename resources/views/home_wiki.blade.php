@@ -132,6 +132,16 @@
     var url = location.href.split("/");
     var id = (url[url.length - 1]);
     $(".page-" + id).attr("style", "color:#66B3FF;");
+    var main = $("." + "page" + "-" + id).parent().attr('class');
+    if (main == 'font_list') {
+        $("." + "page" + "-" + id).parent().click()
+    }
+    $('.font_list a').click(function(event) {
+        if ($(this).attr('href')) {
+            window.location = $(this).attr('href');
+        }
+        event.stopPropagation();
+    });
 
     // $('.font_title').on('click', function() {
     //     $('.libox').css('display', 'none')
