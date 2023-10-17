@@ -56,11 +56,11 @@ Route::get('/war', function () {
 
 Route::middleware(['setReturnUrl'])->group(function () {
     // 事前預約
-    // Route::get('/MembershipTransfer', function () {
-    //     return view('stop_info');
-    // });
+    //  Route::get('/MembershipTransfer', function () {
+    //      return view('stop_info');
+    //  });
     Route::get('/MembershipTransfer', function () {
-        return view('event/20230728_index');
+       return view('event/20230728_index');
     });
     // 序號兌換
     Route::get('/number_exchange', function () {
