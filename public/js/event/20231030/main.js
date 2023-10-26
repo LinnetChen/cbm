@@ -43,7 +43,7 @@ for ($i = 0; $i < arrayT.length; $i++) {
                 value = '<div class="title">' + value + "</div>";
                 break;
             case "table":
-                value = '<img src="/img/event/20231030/table/' + value + '.jpg">';
+                value = '<img src="/img/event/20231030/table/' + value + '.jpg"><br><br>';
                 // value;
                 break;
         }
@@ -52,75 +52,75 @@ for ($i = 0; $i < arrayT.length; $i++) {
 }
 
 tabA(0);
-tab_mA(1);
+tab_mA(0);
 
 function pop(num) {
     $("html").css("overflow", "hidden");
     if (num == 1) {
         tabA(0);
-        tab_mA(1);
+        tab_mA(0);
 
-        $(".info1").html(arrayC[0].contain);
-        $(".info2").html(arrayC[1].contain);
-        $(".info3").html(arrayC[2].contain);
+        $(".info0").html(arrayC[0].contain);
+        $(".info1").html(arrayC[1].contain);
+        $(".info2").html(arrayC[2].contain);
         $(".title").show();
-        $(".title4").hide();
+        $(".title3").hide();
 
         $(".tab").show();
-        $(".tab4").hide();
+        $(".tab3").hide();
         for ($i = 0; $i < 3; $i++) {
-            $(".title" + ($i + 1)).html(sec1Title[$i]);
-            $(".title" + ($i + 1)).attr("onclick", "tabA(" + $i + ")");
-            $(".tab" + ($i + 1)).html(ms1T[$i].num);
-            $(".tab" + ($i + 1)).attr("onclick", "tab_mA(" + ($i + 1) + ")");
+            $(".title" + $i).html(sec1Title[$i]);
+            $(".title" + $i).attr("onclick", "tabA(" + $i + ")");
+            $(".tab" + $i).html(ms1T[$i].num);
+            $(".tab" + $i).attr("onclick", "tab_mA(" + $i + ")");
         }
-        $(".tab1").html(ms1T[0].chi);
+        $(".tab0").html(ms1T[0].chi);
     } else if (num == 2) {
         tabB(0);
-        tab_mB(1);
-        $(".info1").html(arrayC[3].contain);
-        $(".info2").html(arrayC[4].contain);
-        $(".info3").html(arrayC[5].contain);
+        tab_mB(0);
+        $(".info0").html(arrayC[3].contain);
+        $(".info1").html(arrayC[4].contain);
+        $(".info2").html(arrayC[5].contain);
         $(".title").show();
-        $(".title4").hide();
+        $(".title3").hide();
 
         $(".tab").show();
-        $(".tab4").hide();
+        $(".tab3").hide();
         for ($i = 0; $i < 3; $i++) {
-            $(".title" + ($i + 1)).html(sec2Title[$i]);
-            $(".title" + ($i + 1)).attr("onclick", "tabB(" + $i + ")");
-            $(".tab" + ($i + 1)).html(ms1T[$i].num);
-            $(".tab" + ($i + 1)).attr("onclick", "tab_mB(" + ($i + 1) + ")");
+            $(".title" + $i).html(sec2Title[$i]);
+            $(".title" + $i).attr("onclick", "tabB(" + $i + ")");
+            $(".tab" + $i).html(ms1T[$i].num);
+            $(".tab" + $i).attr("onclick", "tab_mB(" +$i+ ")");
         }
-        $(".tab1").html(ms2T[0].chi);
+        $(".tab0").html(ms2T[0].chi);
     } else if (num == 3) {
         tabC(0);
-        tab_mC(1);
+        tab_mC(0);
 
-        $(".info1").html(arrayC[6].contain);
-        $(".info2").html(arrayC[7].contain);
-        $(".info3").html(arrayC[8].contain);
-        $(".info4").html(arrayC[9].contain);
+        $(".info0").html(arrayC[6].contain);
+        $(".info1").html(arrayC[7].contain);
+        $(".info2").html(arrayC[8].contain);
+        $(".info3").html(arrayC[9].contain);
         $(".title").show();
 
         $(".tab").show();
         for ($i = 0; $i < 4; $i++) {
-            $(".title" + ($i + 1)).html(sec3Title[$i]);
-            $(".title" + ($i + 1)).attr("onclick", "tabC(" + $i + ")");
-            $(".tab" + ($i + 1)).html(ms3T[$i].num);
-            $(".tab" + ($i + 1)).attr("onclick", "tab_mC(" + ($i + 1) + ")");
+            $(".title" + $i).html(sec3Title[$i]);
+            $(".title" + $i).attr("onclick", "tabC(" + $i + ")");
+            $(".tab" + $i).html(ms3T[$i].num);
+            $(".tab" + $i).attr("onclick", "tab_mC(" + $i + ")");
         }
-        $(".tab1").html(ms3T[0].chi);
+        $(".tab0").html(ms3T[0].chi);
     } else if (num == 4) {
-        tabD(0);
-        tab_mD(1);
+        tabD();
+        tab_mD();
 
         $(".info1").html(arrayC[10].contain);
         $(".title").hide();
         $(".title1").show();
         $(".title1").html(sec4Title[0]);
-        $(".title1").attr("onclick", "tabD(1)");
-        $(".tab1").attr("onclick", "tab_mD(1)");
+        $(".title1").attr("onclick", "tabD()");
+        $(".tab1").attr("onclick", "tab_mD()");
         $(".tab1").html(ms4T[0].chi);
 
         $(".tab").hide();
@@ -138,75 +138,71 @@ function closePopup() {
 
 //
 function tabA(i) {
-    // $(".tab.active").css("background-color", "#762b1f");
 
     $(".title").removeClass("active activeA activeB activeC activeD ");
-    $(".title" + (i + 1)).addClass("activeA");
+    $(".title" + i).addClass("activeA");
     $(".info").hide();
-    $(".info" + (i + 1)).fadeIn();
+    $(".info" + i).fadeIn();
 }
 function tabB(i) {
-    // $(".tab.active").css("background-color", "#31ae57");
 
     $(".title").removeClass("active activeA activeB activeC activeD ");
-    $(".title" + (i + 1)).addClass("activeB");
+    $(".title" + i).addClass("activeB");
     $(".info").hide();
-    $(".info" + (i + 1)).fadeIn();
+    $(".info" + i).fadeIn();
 }
 function tabC(i) {
-    // $(".tab.active").css("background-color", "#18aec7");
 
     $(".title").removeClass("activeA activeB activeC activeD");
-    $(".title" + (i + 1)).addClass("activeC");
+    $(".title" + i).addClass("activeC");
     $(".info").hide();
-    $(".info" + (i + 1)).fadeIn();
+    $(".info" + i).fadeIn();
 }
-function tabD(i) {
-    // $(".tab.active").css("background-color", "#756086");
+function tabD() {
 
     $(".title").removeClass("activeA activeB activeC activeD");
-    $(".title" + (i + 1)).addClass("activeD");
+    $(".title1").addClass("activeD");
     $(".info").hide();
-    $(".info" + (i + 1)).fadeIn();
+    $(".info1").fadeIn();
 }
 
 function tab_mA(i) {
     $(".tab").removeClass("active activeB activeC activeD ");
-    for ($i = 1; $i < 4; $i++) {
-        $(".tab" + $i).html(ms1T[$i - 1].num);
+    for ($i = 0; $i < 3; $i++) {
+        $(".tab" + $i).html(ms1T[$i].num);
     }
-    $(".tab" + i).html(ms1T[i - 1].chi);
+    $(".tab" + i).html(ms1T[i].chi);
     $(".tab" + i).addClass("active");
     $(".info").hide();
     $(".info" + i).fadeIn();
 }
 function tab_mB(i) {
     $(".tab").removeClass("active activeB activeC activeD ");
-    for ($i = 1; $i < 4; $i++) {
-        $(".tab" + $i).html(ms2T[$i - 1].num);
+    for ($i = 0; $i < 3; $i++) {
+        $(".tab" + $i).html(ms2T[$i].num);
     }
-    $(".tab" + i).html(ms2T[i - 1].chi);
+    $(".tab" + i).html(ms2T[i].chi);
     $(".tab" + i).addClass("active activeB");
     $(".info").hide();
     $(".info" + i).fadeIn();
 }
 function tab_mC(i) {
     $(".tab").removeClass("active activeB activeC activeD ");
-    for ($i = 1; $i < 5; $i++) {
-        $(".tab" + $i).html(ms3T[$i - 1].num);
+    for ($i = 0; $i < 4; $i++) {
+        $(".tab" + $i).html(ms3T[$i].num);
     }
-    $(".tab" + i).html(ms3T[i - 1].chi);
+    $(".tab" + i).html(ms3T[i].chi);
     $(".tab" + i).addClass("active activeC");
     $(".info").hide();
     $(".info" + i).fadeIn();
 }
-function tab_mD(i) {
+function tab_mD() {
     $(".tab").css("background-color", "");
     $(".tab").removeClass("active activeB activeC activeD ");
-    $(".tab1").html(ms4T[0].chi);
-    $(".tab1").addClass("active activeD");
+    $(".tab0").html(ms4T[0].chi);
+    $(".tab0").addClass("active activeD");
     $(".info").hide();
-    $(".info" + i).fadeIn();
+    $(".info0").fadeIn();
 }
 
 // 電腦版btn hover

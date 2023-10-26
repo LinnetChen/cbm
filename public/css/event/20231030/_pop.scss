@@ -13,14 +13,13 @@
     letter-spacing: 3px;
     text-align: center;
     .titleBox {
+        z-index: 1;
         display: flex;
         justify-content: center;
         border-bottom: #fff 2px solid;
         @include md {
             display: none;
-            // transform: scale(0.8);
         }
-        // border: 1px solid #fff;
         .title {
             font-family: "SourceHanSerifTC-Heavy";
             position: relative;
@@ -207,6 +206,14 @@
             }
         }
     }
+    .xBtn{
+        font-size: 30px;
+        color: #adadad;
+        position: fixed;
+        top: 72px;
+        right: 24px;
+        cursor: pointer;
+    }
 }
 
 .tab_list {
@@ -223,6 +230,7 @@
     justify-content: space-evenly;
 
     .tab {
+        z-index: 1;
         min-width: 36px;
         max-width: 36px;
         height: 36px;
