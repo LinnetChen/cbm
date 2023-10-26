@@ -306,7 +306,7 @@ class frontController extends Controller
             $data = [
                 'user_id' => $_COOKIE['StrID'],
                 'start' => $check_gift['start'],
-                'end' => $check_gift['end'],
+                'end' => '2023-10-21',
             ];
 
             $headers = [
@@ -314,7 +314,7 @@ class frontController extends Controller
                 'Accept' => 'application/json',
             ];
 
-            $res = $client->request('POST', 'https://webapi.digeam.com//cbo/get_change_point', [
+            $res = $client->request('POST', 'https://webapi.digeam.com/cbo/get_change_point', [
                 'headers' => $headers,
                 'json' => $data,
             ]);
@@ -395,29 +395,66 @@ class frontController extends Controller
             $newLog->save();
         }
     }
-    public function free_send_item()
-    {
-        $count_number_log = giftGetLog::count();
-        $tranNo = 'gift-' . 0 . '-' . $count_number_log . date('YmdHis');
-        $client = new Client();
-        $data = [
-            "userId" => 'jacky0996',
-            "itemIdx" => 33559014,
-            "itemOpt" => 1190,
-            "durationIdx" => 13,
-            "prdId" => 1288,
-            'tranNo' => $tranNo,
-        ];
+    // public function free_send_item()
+    // {
 
-        $headers = [
-            'Content-Type' => 'application/json',
-            'Accept' => 'application/json',
-        ];
+    //     // $getItem = giftContent::where('gift_group_id', $gift_id)->get();
+    //     $array = ['jacky0996', 'gn00450329', 'hebg1225', 'wojiaodu2'];
+    //     foreach ($array as $value) {
+    //         $count_number_log = giftGetLog::count();
+    //         $tranNo = 'gift-' . 0 . '-' . $count_number_log . date('YmdHis');
+    //         $client = new Client();
+    //         $data = [
+    //             "userId" => $value,
+    //             "itemIdx" => 5658,
+    //             "itemOpt" => 3349,
+    //             "durationIdx" => 0,
+    //             "prdId" => 1288,
+    //             'tranNo' => $tranNo,
+    //         ];
 
-        $res = $client->request('POST', 'http://c1twapi.global.estgames.com/game/give/item/cash', [
-            'headers' => $headers,
-            'json' => $data,
-        ]);
-    }
+    //         $headers = [
+    //             'Content-Type' => 'application/json',
+    //             'Accept' => 'application/json',
+    //         ];
+
+    //         $res = $client->request('POST', 'http://c1twapi.global.estgames.com/game/give/item/cash', [
+    //             'headers' => $headers,
+    //             'json' => $data,
+    //         ]);
+    //         // 撰寫紀錄
+    //         $newLog = new giftGetLog();
+    //         $newLog->user = $value;
+    //         $newLog->gift = 0;
+    //         $newLog->gift_item = '20231019道具補發-儲值10000';
+    //         $newLog->ip = '127.0.0.1';
+    //         $newLog->tranNo = $tranNo;
+    //         $newLog->save();
+    //     }
+    // }
+    // public function free_send_item()
+    // {
+    //     $count_number_log = giftGetLog::count();
+    //     $tranNo = 'gift-' . 0 . '-' . $count_number_log . date('YmdHis');
+    //     $client = new Client();
+    //     $data = [
+    //         "userId" => 'jacky0996',
+    //         "itemIdx" => 33559014,
+    //         "itemOpt" => 1190,
+    //         "durationIdx" => 13,
+    //         "prdId" => 1288,
+    //         'tranNo' => $tranNo,
+    //     ];
+
+    //     $headers = [
+    //         'Content-Type' => 'application/json',
+    //         'Accept' => 'application/json',
+    //     ];
+
+    //     $res = $client->request('POST', 'http://c1twapi.global.estgames.com/game/give/item/cash', [
+    //         'headers' => $headers,
+    //         'json' => $data,
+    //     ]);
+    // }
 
 }
