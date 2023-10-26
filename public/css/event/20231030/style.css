@@ -414,6 +414,11 @@ footer {
   justify-content: center;
   color: #fff;
 }
+@media all and (max-width: 1440px) {
+  footer {
+    align-items: center;
+  }
+}
 
 .footerbox {
   width: 80%;
@@ -423,11 +428,30 @@ footer {
   justify-content: space-evenly;
   align-items: center;
 }
+@media all and (max-width: 1440px) {
+  .footerbox {
+    max-width: 90%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
 
 .footerbox_logo {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media all and (max-width: 1440px) {
+  .footerbox_logo {
+    width: 70%;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+@media all and (max-width: 1440px) {
+  .footerbox_logo img {
+    width: 100%;
+  }
 }
 
 a.logo_digeam {
@@ -457,12 +481,24 @@ a.logo_rw {
 .spec a:hover {
   color: #fff;
 }
+@media all and (max-width: 1440px) {
+  .spec {
+    width: 70%;
+    text-align: center;
+    order: 1;
+  }
+}
 
 .classlavel {
   width: 26.6%;
   margin: 0 20px;
   display: flex;
   justify-content: center;
+}
+@media all and (max-width: 1440px) {
+  .classlavel {
+    width: 100%;
+  }
 }
 .classlavel img {
   width: 70px;
@@ -480,29 +516,6 @@ a.logo_rw {
 }
 
 @media all and (max-width: 1440px) {
-  .footer {
-    align-items: center;
-  }
-  .footerbox {
-    max-width: 90%;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .footerbox_logo {
-    width: 70%;
-    align-items: center;
-  }
-  .footerbox_logo img {
-    width: 100%;
-  }
-  .spec {
-    width: 70%;
-    text-align: center;
-    order: 1;
-  }
-  .classlavel {
-    width: 100%;
-  }
   .spec,
   .classlavel {
     margin: 20px 0;
@@ -510,9 +523,6 @@ a.logo_rw {
   a.logo_rw,
   .classlavel {
     margin: 10px auto;
-  }
-  .footerbox_logo {
-    flex-direction: column;
   }
 }
 body {
@@ -776,6 +786,11 @@ body {
   font-size: 18px;
   font-weight: 400;
 }
+@media all and (max-width: 500px) {
+  .popup .popBox .info {
+    font-size: 16px;
+  }
+}
 .popup .popBox .info .text,
 .popup .popBox .info .title,
 .popup .popBox .info .table {
@@ -795,10 +810,15 @@ body {
 .popup .popBox .info .title::after, .popup .popBox .info .title::before {
   content: "";
   background-image: url(/img/event/20231030/sub.png);
-  width: 89px;
+  width: 57px;
   height: 19px;
   margin: 0 10px;
   display: inline-block;
+}
+@media all and (max-width: 375px) {
+  .popup .popBox .info .title::after, .popup .popBox .info .title::before {
+    width: 0px;
+  }
 }
 .popup .popBox .info .title::after {
   transform: scaleX(-1);
@@ -834,6 +854,11 @@ body {
   text-align: left;
   display: flex;
   justify-content: center;
+}
+@media all and (max-width: 500px) {
+  .popup .popBox .info .text {
+    font-size: 16px;
+  }
 }
 .popup .homeBtn {
   width: 129px;

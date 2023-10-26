@@ -12,7 +12,7 @@
     <meta property="og:site_name" content="" />
     <meta property="og:locale" content="zh_tw" />
     <meta property="article:author" content="" />
-    <meta property="og:image" content="/img/event/OBT/share_bg.webp" />
+    <meta property="og:image" content="/img/event/20231030/share_bg.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="628" />
     <meta name="author" content="DiGeam" />
@@ -164,8 +164,7 @@
 
 <script src="js/event/base/jquery-3.6.0.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-{{-- <script src="js/event/20231030/screenSizeGet.js?v1.0"></script> --}}
-<script src="js/event/20231030/view.js?v1.12"></script>
-<script src="js/event/20231030/main.js?v1.0"></script>
+<script src="js/event/20231030/view.js?v1.2"></script>
+<script src="js/event/20231030/main.js?v1.1"></script>
 
 </html>

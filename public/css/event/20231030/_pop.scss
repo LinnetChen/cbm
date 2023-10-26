@@ -88,6 +88,9 @@
             line-height: 35px;
             font-size: 18px;
             font-weight: 400;
+            @include xs {
+                font-size: 16px;
+            }
             .text,
             .title,
             .table {
@@ -107,10 +110,13 @@
                 &::before {
                     content: "";
                     background-image: url(/img/event/20231030/sub.png);
-                    width: 89px;
+                    width: 57px;
                     height: 19px;
                     margin: 0 10px;
                     display: inline-block;
+                    @include xxs {
+                        width: 0px;
+                    }
                 }
                 &::after {
                     -moz-transform: scaleX(-1);
@@ -146,6 +152,9 @@
                 text-align: left;
                 display: flex;
                 justify-content: center;
+                @include xs {
+                    font-size: 16px;
+                }
             }
         }
     }
