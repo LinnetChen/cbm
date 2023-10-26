@@ -1,0 +1,124 @@
+footer {
+    bottom: 0;
+    left: 0px;
+    background-size: contain;
+    // background: linear-gradient(#1d1d1d, #3a3a3a);
+    background: #000;
+    height: auto;
+    padding: 20px 0 20px 0;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
+
+.footerbox {
+    width: 80%;
+    font-size: 10px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.footerbox_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a.logo_digeam {
+    width: auto;
+    height: 80%;
+    pointer-events: none;
+}
+
+a.logo_rw {
+    width: auto;
+    height: 38px;
+    margin-left: 20px;
+    pointer-events: none;
+}
+
+.spec {
+    // outline: #fff 1px solid;
+    width: 26.6%;
+    line-height: 16.4px;
+    margin-left: 20px;
+    a {
+        color: orange;
+        text-decoration: underline;
+        display: inline-block;
+        font-size: 14px;
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+.classlavel {
+    width: 26.6%;
+    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+    // outline: #fff 1px solid;
+
+    img {
+        width: 70px;
+        height: 70px;
+    }
+    ul {
+        margin-left: 10px;
+        line-height: 20px;
+    }
+    li {
+        font-size: 14px;
+        &:nth-child(4) {
+            color: orange;
+        }
+    }
+}
+
+@include xl {
+    .footer {
+        align-items: center;
+    }
+
+    .footerbox {
+        max-width: 90%;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footerbox_logo {
+        width: 70%;
+        align-items: center;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .spec {
+        width: 70%;
+        text-align: center;
+        order: 1;
+    }
+
+    .classlavel {
+        width: 100%;
+    }
+
+    .spec,
+    .classlavel {
+        margin: 20px 0;
+    }
+
+    a.logo_rw,
+    .classlavel {
+        margin: 10px auto;
+    }
+
+    .footerbox_logo {
+        flex-direction: column;
+    }
+}
