@@ -160,7 +160,13 @@ class FrontController extends Controller
     }
     public function gift()
     {
-        $list = giftCreate::where('status', 'y')->orderBy('created_at', 'desc')->paginate(6);
+
+        // 撈出畫面
+        if ($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
+            $list = giftCreate::orderBy('created_at', 'desc')->paginate(6);
+        } else {
+            $list = giftCreate::where('status', 'y')->orderBy('created_at', 'desc')->paginate(6);
+        }
 
         return view('front/gift', [
             'list' => $list,
@@ -171,7 +177,12 @@ class FrontController extends Controller
         if ($id == 0) {
             return redirect('/gift');
         } else {
-            $list = giftCreate::where('status', 'y')->orderBy('created_at', 'desc')->paginate(6);
+            // 撈出畫面
+            if ($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
+                $list = giftCreate::orderBy('created_at', 'desc')->paginate(6);
+            } else {
+                $list = giftCreate::where('status', 'y')->orderBy('created_at', 'desc')->paginate(6);
+            }
             $giftCreate = giftCreate::where('id', $id)->first();
             $giftGroup = giftGroup::where('gift_id', $id)->get();
             $repeat = [16, 17, 18];
