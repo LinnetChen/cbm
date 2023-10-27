@@ -36,6 +36,9 @@ for ($i = 0; $i < arrayT.length; $i++) {
             case "text":
                 value = '<div class="text">' + value + "</div>";
                 break;
+            case "textL":
+                value = '<div class="text left">' + value + "</div>";
+                break;
             case "img":
                 value = '<img src="/img/event/20231030/' + value + '.jpg">';
                 break;
@@ -115,16 +118,16 @@ function pop(num) {
         tabD();
         tab_mD();
 
-        $(".info1").html(arrayC[10].contain);
+        $(".info0").html(arrayC[10].contain);
         $(".title").hide();
-        $(".title1").show();
-        $(".title1").html(sec4Title[0]);
-        $(".title1").attr("onclick", "tabD()");
-        $(".tab1").attr("onclick", "tab_mD()");
-        $(".tab1").html(ms4T[0].chi);
+        $(".title0").show();
+        $(".title0").html(sec4Title[0]);
+        $(".title0").attr("onclick", "tabD()");
+        $(".tab0").attr("onclick", "tab_mD()");
+        $(".tab0").html(ms4T[0].chi);
 
         $(".tab").hide();
-        $(".tab1").show();
+        $(".tab0").show();
     }
     setTimeout(function(){
         $(".popup").show();
@@ -161,9 +164,9 @@ function tabC(i) {
 function tabD() {
 
     $(".title").removeClass("activeA activeB activeC activeD");
-    $(".title1").addClass("activeD");
+    $(".title0").addClass("activeD");
     $(".info").hide();
-    $(".info1").fadeIn();
+    $(".info0").fadeIn();
 }
 
 function tab_mA(i) {
