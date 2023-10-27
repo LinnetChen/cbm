@@ -187,7 +187,7 @@ var sec3_3 = {
     等級越高累積的能力加成越多，每一次的升級都是在突破自我的極限！`,
     table1: `s3_tab3-table1`,
 
-    text2: `詳細內容請見▶<br><a href="https://cbo.digeam.com/wiki/71">神話等級百科</a>`,
+    text2: `詳細內容請見▶<br><a href="https://cbo.digeam.com/wiki/73">神話等級百科</a>`,
 
 
 };
