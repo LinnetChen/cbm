@@ -13,14 +13,13 @@
     letter-spacing: 3px;
     text-align: center;
     .titleBox {
+        z-index: 1;
         display: flex;
         justify-content: center;
         border-bottom: #fff 2px solid;
         @include md {
             display: none;
-            // transform: scale(0.8);
         }
-        // border: 1px solid #fff;
         .title {
             font-family: "SourceHanSerifTC-Heavy";
             position: relative;
@@ -149,12 +148,15 @@
                 }
             }
             .text {
-                text-align: left;
+                text-align: center;
                 display: flex;
                 justify-content: center;
                 @include xs {
                     font-size: 16px;
                 }
+            }
+            .left {
+                text-align: left;
             }
         }
     }
@@ -207,6 +209,14 @@
             }
         }
     }
+    .xBtn {
+        font-size: 30px;
+        color: #adadad;
+        position: fixed;
+        top: 72px;
+        right: 24px;
+        cursor: pointer;
+    }
 }
 
 .tab_list {
@@ -223,6 +233,7 @@
     justify-content: space-evenly;
 
     .tab {
+        z-index: 1;
         min-width: 36px;
         max-width: 36px;
         height: 36px;
@@ -235,6 +246,8 @@
         justify-content: center;
         align-items: center;
         position: relative;
+        font-family: "SourceHanSerifTC-Heavy";
+        letter-spacing: 0px;
 
         // &::before {
         //     content: "";
@@ -254,7 +267,9 @@
             transition: all 0.3s ease-in-out;
             animation: open 2s forwards;
             background-color: #762b1f;
+            font-family: "Noto Sans TC", sans-serif;
             color: #fff;
+            letter-spacing: 3px;
         }
         &.activeB {
             background-color: #31ae57;

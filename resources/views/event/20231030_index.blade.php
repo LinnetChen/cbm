@@ -47,28 +47,29 @@
 <body>
 
     <div class="popup">
-        <div class="mask"></div>
+        <div class="mask" onclick='closePopup()'></div>
         <div class="titleBox">
-            <div class="title title1 active"></div>
+            <div class="title title0 active"></div>
+            <div class="title title1"></div>
             <div class="title title2"></div>
             <div class="title title3"></div>
-            <div class="title title4"></div>
         </div>
         <ul class="tab_list">
             {{-- <div class="tab_box"> --}}
+                <li class="tab tab0"></li>
                 <li class="tab tab1"></li>
                 <li class="tab tab2"></li>
                 <li class="tab tab3"></li>
-                <li class="tab tab4"></li>
             {{-- </div> --}}
 
         </ul>
         <div class="popBox">
+            <div class="info info0"></div>
             <div class="info info1"></div>
-            <div class="info info2">2</div>
-            <div class="info info3">3</div>
-            <div class="info info4">4</div>
+            <div class="info info2"></div>
+            <div class="info info3"></div>
         </div>
+        <div onclick='closePopup()' class="xBtn">x</div>
         <button onclick='closePopup()' class="homeBtn">返回首頁</button>
     </div>
     <div id="main">
@@ -103,7 +104,7 @@
     </div>
     <div id="main_m">
         <div class="inner">
-            <div class="box">
+            {{-- <div class="box">
                 <div class="iconBox1">
                     <a href="https://www.digeam.com/register_cbo"><img src="/img/event/20231030/register.png"></a>
                 </div>
@@ -112,10 +113,20 @@
                     <a href="https://discord.gg/YyPkJrwqvs" target="_blank"><img src="/img/event/20231030/dc.png"></a>
                     <a href="https://cbo.digeam.com/index" target="_blank"><img src="/img/event/20231030/home.png"></a>
                 </div>
-            </div>
+            </div> --}}
             <div class="columns">
-                <div class="image fit">
+                <div class="image fit mainBg">
                     <img src="/img/event/20231030/rwd/rwd_kv.png">
+                    <div class="box">
+                        <div class="iconBox1">
+                            <a href="https://www.digeam.com/register_cbo"><img src="/img/event/20231030/register.png"></a>
+                        </div>
+                        <div class="iconBox2">
+                            <a href="https://www.facebook.com/DiGeamCabal/" target="_blank"><img src="/img/event/20231030/fb.png"></a>
+                            <a href="https://discord.gg/YyPkJrwqvs" target="_blank"><img src="/img/event/20231030/dc.png"></a>
+                            <a href="https://cbo.digeam.com/index" target="_blank"><img src="/img/event/20231030/home.png"></a>
+                        </div>
+                    </div>
                 </div>
                 <div class="image fit btn1">
                     <img onclick="pop(1)" src="/img/event/20231030/rwd/s1.png">
@@ -164,7 +175,7 @@
 
 <script src="js/event/base/jquery-3.6.0.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-<script src="js/event/20231030/view.js?v1.2"></script>
+<script src="js/event/20231030/view.js?v1.12"></script>
 <script src="js/event/20231030/main.js?v1.1"></script>
 
 </html>
