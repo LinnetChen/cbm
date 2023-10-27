@@ -1,3 +1,8 @@
+<script>
+    document.getElementById("load").style.display = "block";
+</script>
+
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 
@@ -45,6 +50,15 @@
 </head>
 
 <body>
+    <div id="load">
+        <div class="loadBox">
+            <div>L</div>
+            <div>A</div>
+            <div>B</div>
+            <div>A</div>
+            <div>C</div>
+        </div>
+    </div>
 
     <div class="popup">
         <div class="mask" onclick='closePopup()'></div>
@@ -56,10 +70,10 @@
         </div>
         <ul class="tab_list">
             {{-- <div class="tab_box"> --}}
-                <li class="tab tab0"></li>
-                <li class="tab tab1"></li>
-                <li class="tab tab2"></li>
-                <li class="tab tab3"></li>
+            <li class="tab tab0"></li>
+            <li class="tab tab1"></li>
+            <li class="tab tab2"></li>
+            <li class="tab tab3"></li>
             {{-- </div> --}}
 
         </ul>
@@ -79,7 +93,8 @@
                     <a href="https://www.digeam.com/register_cbo"><img src="/img/event/20231030/register.png"></a>
                 </div>
                 <div class="iconBox2">
-                    <a href="https://www.facebook.com/DiGeamCabal/" target="_blank"><img src="/img/event/20231030/fb.png"></a>
+                    <a href="https://www.facebook.com/DiGeamCabal/" target="_blank"><img
+                            src="/img/event/20231030/fb.png"></a>
                     <a href="https://discord.gg/YyPkJrwqvs" target="_blank"><img src="/img/event/20231030/dc.png"></a>
                     <a href="https://cbo.digeam.com/index" target="_blank"><img src="/img/event/20231030/home.png"></a>
                 </div>
@@ -119,12 +134,16 @@
                     <img src="/img/event/20231030/rwd/rwd_kv.png">
                     <div class="box">
                         <div class="iconBox1">
-                            <a href="https://www.digeam.com/register_cbo"><img src="/img/event/20231030/register.png"></a>
+                            <a href="https://www.digeam.com/register_cbo"><img
+                                    src="/img/event/20231030/register.png"></a>
                         </div>
                         <div class="iconBox2">
-                            <a href="https://www.facebook.com/DiGeamCabal/" target="_blank"><img src="/img/event/20231030/fb.png"></a>
-                            <a href="https://discord.gg/YyPkJrwqvs" target="_blank"><img src="/img/event/20231030/dc.png"></a>
-                            <a href="https://cbo.digeam.com/index" target="_blank"><img src="/img/event/20231030/home.png"></a>
+                            <a href="https://www.facebook.com/DiGeamCabal/" target="_blank"><img
+                                    src="/img/event/20231030/fb.png"></a>
+                            <a href="https://discord.gg/YyPkJrwqvs" target="_blank"><img
+                                    src="/img/event/20231030/dc.png"></a>
+                            <a href="https://cbo.digeam.com/index" target="_blank"><img
+                                    src="/img/event/20231030/home.png"></a>
                         </div>
                     </div>
                 </div>
@@ -179,3 +198,10 @@
 <script src="js/event/20231030/main.js?v1.1"></script>
 
 </html>
+
+
+<script>
+    $(window).on('load', function() {
+        $("#load").hide();
+    });
+</script>
