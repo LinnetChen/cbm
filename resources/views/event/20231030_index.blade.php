@@ -194,7 +194,7 @@
 
 <script src="js/event/base/jquery-3.6.0.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-<script src="js/event/20231030/view.js?v1.15"></script>
+<script src="js/event/20231030/view.js?v1.17"></script>
 <script src="js/event/20231030/main.js?v1.1"></script>
 
 </html>
