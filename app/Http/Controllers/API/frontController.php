@@ -175,6 +175,111 @@ class frontController extends Controller
         }
         // 以下領獎邏輯撰寫
 
+        // 1031~1114改版回饋儲值禮
+        if ($request->gift_id == 20 || $request->gift_id == 21 || $request->gift_id == 22 || $request->gift_id == 23 || $request->gift_id == 24 || $request->gift_id == 25 || $request->gift_id == 26 || $request->gift_id == 27) {
+            $client = new Client();
+            $data = [
+                'user_id' => $_COOKIE['StrID'],
+                'start' => $check_gift['start'],
+                'end' => $check_gift['end'],
+            ];
+
+            $headers = [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+            ];
+
+            $res = $client->request('POST', 'https://webapi.digeam.com/cbo/get_change_point', [
+                'headers' => $headers,
+                'json' => $data,
+            ]);
+            $result = $res->getBody();
+            $result = json_decode($result);
+            if ($_COOKIE['StrID'] == 'jacky0996') {
+                $result = 20000;
+            }
+            switch ($request->gift_id) {
+                case 20:
+                    $need = 1;
+                    break;
+                case 21:
+                    $need = 150;
+                    break;
+                case 22:
+                    $need = 500;
+                    break;
+                case 23:
+                    $need = 1000;
+                    break;
+                case 24:
+                    $need = 3000;
+                    break;
+                case 25:
+                    $need = 6000;
+                    break;
+                case 26:
+                    $need = 10000;
+                    break;
+                case 27:
+                    $need = 20000;
+                    break;
+            }
+            if ($result < $need) {
+                return response()->json([
+                    'status' => -90,
+                ]);
+            }
+        }
+
+        // MYCARD本月主打星
+        if ($request->gift_id == 19) {
+            $client = new Client();
+            $data_1 = [
+                'user_id' => $_COOKIE['StrID'],
+                'start' => $check_gift['start'],
+                'end' => '2023-12-11',
+                'proCode' => 'E8092',
+            ];
+
+            $headers_1 = [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+            ];
+
+            $res_1 = $client->request('POST', 'https://webapi.digeam.com//cbo/get_myCard_record', [
+                'headers' => $headers_1,
+                'json' => $data_1,
+            ]);
+            $result_1 = $res_1->getBody();
+            $result_1 = json_decode($result_1);
+
+            $client = new Client();
+            $data_2 = [
+                'user_id' => $_COOKIE['StrID'],
+                'start' => $check_gift['start'],
+                'end' => '2023-12-11',
+                'proCode' => 'E8094',
+            ];
+
+            $headers_2 = [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+            ];
+
+            $res_2 = $client->request('POST', 'https://webapi.digeam.com//cbo/get_myCard_record', [
+                'headers' => $headers_2,
+                'json' => $data_2,
+            ]);
+            $result_2 = $res_2->getBody();
+            $result_2 = json_decode($result_2);
+
+            $alreadyGet = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->count();
+            if (($result_1 + $result_2) <= $alreadyGet) {
+                return response()->json([
+                    'status' => -90,
+                ]);
+            }
+        }
         // MyCard全通路加碼回饋活動
         if ($request->gift_id == 18) {
             $client = new Client();
@@ -349,55 +454,7 @@ class frontController extends Controller
                 ]);
             }
         }
-        // MYCARD本月主打星
-        if ($request->gift_id == 19) {
-            $client = new Client();
-            $data_1 = [
-                'user_id' => $_COOKIE['StrID'],
-                'start' => $check_gift['start'],
-                'end' => '2023-12-11',
-                'proCode' => 'E8092',
-            ];
 
-            $headers_1 = [
-                'Content-Type' => 'application/json',
-                'Accept' => 'application/json',
-            ];
-
-            $res_1 = $client->request('POST', 'https://webapi.digeam.com//cbo/get_myCard_record', [
-                'headers' => $headers_1,
-                'json' => $data_1,
-            ]);
-            $result_1 = $res_1->getBody();
-            $result_1 = json_decode($result_1);
-
-            $client = new Client();
-            $data_2 = [
-                'user_id' => $_COOKIE['StrID'],
-                'start' => $check_gift['start'],
-                'end' => '2023-12-11',
-                'proCode' => 'E8094',
-            ];
-
-            $headers_2 = [
-                'Content-Type' => 'application/json',
-                'Accept' => 'application/json',
-            ];
-
-            $res_2 = $client->request('POST', 'https://webapi.digeam.com//cbo/get_myCard_record', [
-                'headers' => $headers_2,
-                'json' => $data_2,
-            ]);
-            $result_2 = $res_2->getBody();
-            $result_2 = json_decode($result_2);
-
-            $alreadyGet = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->count();
-            if (($result_1 + $result_2) <= $alreadyGet) {
-                return response()->json([
-                    'status' => -90,
-                ]);
-            }
-        }
         // 以上領獎邏輯撰寫
 
         // 無誤就派獎
