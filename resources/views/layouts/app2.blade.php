@@ -126,6 +126,7 @@
                 </div>
             </div>
         </div>
+        @yield('content2')
         <div class="footer">
             <a href="https://www.digeam.com/index" target="_blank">
                 <div class="digeam"></div>

@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'BASKVILL';
-    src: url('/img/home_page/war/BASKVILL.woff') format('woff');
+    font-family: "BASKVILL";
+    src: url("/img/war/BASKVILL.woff") format("woff");
 }
 
 .title_box {
@@ -19,7 +19,7 @@
 }
 
 .war_bg {
-    background-image: url(/img/home_page/war/WarBack03.png);
+    background-image: url(/img/war/WarBack03.png);
     width: 1920px;
     height: 2229px;
     /* position: relative;
@@ -64,11 +64,11 @@ top: 55%; */
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-/*     border: 1px #fff solid; */
+    /*     border: 1px #fff solid; */
 }
 
 .result_title {
-    background-image: url(/img/home_page/war/ConsequenceTitle.png);
+    background-image: url(/img/war/ConsequenceTitle.png);
     width: 452px;
     height: 130px;
     margin-bottom: -25px;
@@ -76,7 +76,7 @@ top: 55%; */
 }
 
 .leader_title {
-    background-image: url(/img/home_page/war/DirectorTitle.png);
+    background-image: url(/img/war/DirectorTitle.png);
     width: 524px;
     height: 117px;
     margin-top: -25px;
@@ -98,7 +98,7 @@ top: 55%; */
 }
 
 .bluecamp_icon {
-    background-image: url(/img/home_page/war/blueIcone.png);
+    background-image: url(/img/war/blueIcone.png);
     width: 386px;
     height: 332px;
     margin: -45px 0px;
@@ -108,7 +108,7 @@ top: 55%; */
 }
 
 .redcamp_icon {
-    background-image: url(/img/home_page/war/redIcone.png);
+    background-image: url(/img/war/redIcone.png);
     width: 386px;
     height: 332px;
     margin: -45px 0px;
@@ -117,41 +117,40 @@ top: 55%; */
     animation: move_red 3s infinite;
 }
 
-
-@keyframes move_blue{
-    0%{
-        top:0
+@keyframes move_blue {
+    0% {
+        top: 0;
     }
-    50%{
+    50% {
         top: -20px;
         -webkit-filter: drop-shadow(0px 0px 15px rgba(62, 200, 255, 0.7));
     }
-    100%{
+    100% {
         top: 0px;
     }
 }
 
-@keyframes move_red{
-    0%{
-        top:0
+@keyframes move_red {
+    0% {
+        top: 0;
     }
-    50%{
+    50% {
         top: -20px;
         -webkit-filter: drop-shadow(0px 0px 15px rgba(255, 62, 136, 0.7));
     }
-    100%{
+    100% {
         top: 0px;
     }
 }
 
 .bluecamp_title {
-    background-image: url(/img/home_page/war/blueTitle.png);
+    background-image: url(/img/war/blueTitle.png);
     width: 208px;
     height: 129px;
 }
 
 .redcamp_title {
-    background-image: url(/img/home_page/war/redTitle.png);
+    background-image: url(/img/war/redTitle.png);
     width: 187px;
     height: 129px;
 }
@@ -177,7 +176,7 @@ top: 55%; */
     align-items: center;
     justify-content: space-between;
 }
-.score_text{
+.score_text {
     width: 136px;
     height: 105;
     margin-top: -94px;
@@ -186,7 +185,7 @@ top: 55%; */
 .score_text span {
     background-position: left -50px;
     font-size: 8rem;
-    font-family: 'BASKVILL', serif;
+    font-family: "BASKVILL", serif;
     font-style: normal;
     font-weight: 400;
     text-transform: uppercase;
@@ -199,25 +198,25 @@ top: 55%; */
 
 .score_text span:nth-child(2) {
     background: linear-gradient(#020202, #595959, #ffffff, #393939, #0d0d0d);
-    -webkit-background-clip: text; 
+    -webkit-background-clip: text;
 }
 
 .score_text span:nth-child(1) {
-    text-shadow: 1px 1px 2px #979797, 2px 2px 0PX #1b1b1b, 3px 3px 4PX #1b1b1b, 4px 4px 6PX #1b1b1b,
-        5px 5px 6PX #1b1b1b, 6px 10px 10px rgb(0, 0, 0),
-        -1px -2px 1px #ffffff,
-        -1px -2px 1px #ffffff, 0 0 0.1em rgb(255, 255, 255, 0.5), 0 0 0.4em rgb(255, 255, 255, 0.7),
+    text-shadow: 1px 1px 2px #979797, 2px 2px 0px #1b1b1b, 3px 3px 4px #1b1b1b,
+        4px 4px 6px #1b1b1b, 5px 5px 6px #1b1b1b, 6px 10px 10px rgb(0, 0, 0),
+        -1px -2px 1px #ffffff, -1px -2px 1px #ffffff,
+        0 0 0.1em rgb(255, 255, 255, 0.5), 0 0 0.4em rgb(255, 255, 255, 0.7),
         0 0 0.3em rgb(255, 255, 255, 0.5);
 }
 
 .dot {
-    background-image: url(/img/home_page/war/WartextDeco.png);
+    background-image: url(/img/war/WartextDeco.png);
     width: 13px;
     height: 66px;
 }
 
 .score_line {
-    background-image: url(/img/home_page/war/Flare.png);
+    background-image: url(/img/war/Flare.png);
     width: 444px;
     height: 37px;
 }
@@ -225,7 +224,7 @@ top: 55%; */
 .leader_table {
     width: 1137px;
     color: #fff;
-/*      border: 1px solid #777777; */
+    /*      border: 1px solid #777777; */
     border-collapse: collapse;
     text-align: center;
     font-size: 1.2rem;
@@ -240,19 +239,18 @@ top: 55%; */
 } */
 
 .leader_table_line {
-    background-image: url(/img/home_page/war/WarLeaderBling.png);
+    background-image: url(/img/war/WarLeaderBling.png);
     width: 1136px;
     height: 19px;
 }
 
-td{
+td {
     padding: 5px;
 }
 
 th {
     font-size: 1.5rem;
 }
-
 
 .red_th {
     color: #ff88a8;
@@ -262,13 +260,12 @@ th {
     color: #6192ff;
 }
 
-.under_line{
+.under_line {
     border-bottom: 1px solid #fff;
 }
 
-
 .leader_jobIcon_01 {
-    background-image: url(/img/home_page/war/WarIcon01.png);
+    background-image: url(/img/war/WarIcon01.png);
     width: 116px;
     height: 100px;
     display: inline-block;
@@ -276,7 +273,7 @@ th {
 }
 
 .leader_jobIcon_02 {
-    background-image: url(/img/home_page/war/WarIcon02.png);
+    background-image: url(/img/war/WarIcon02.png);
     width: 116px;
     height: 100px;
     display: inline-block;
@@ -284,7 +281,7 @@ th {
 }
 
 .leader_jobIcon_03 {
-    background-image: url(/img/home_page/war/WarIcon03.png);
+    background-image: url(/img/war/WarIcon03.png);
     width: 116px;
     height: 100px;
     display: inline-block;
@@ -292,7 +289,7 @@ th {
 }
 
 .leader_jobIcon_04 {
-    background-image: url(/img/home_page/war/WarIcon04.png);
+    background-image: url(/img/war/WarIcon04.png);
     width: 116px;
     height: 100px;
     display: inline-block;
@@ -300,7 +297,7 @@ th {
 }
 
 .leader_jobIcon_05 {
-    background-image: url(/img/home_page/war/WarIcon05.png);
+    background-image: url(/img/war/WarIcon05.png);
     width: 116px;
     height: 100px;
     display: inline-block;
@@ -308,7 +305,7 @@ th {
 }
 
 .leader_jobIcon_06 {
-    background-image: url(/img/home_page/war/WarIcon06.png);
+    background-image: url(/img/war/WarIcon06.png);
     width: 116px;
     height: 100px;
     display: inline-block;
@@ -316,7 +313,7 @@ th {
 }
 
 .leader_jobIcon_07 {
-    background-image: url(/img/home_page/war/WarIcon07.png);
+    background-image: url(/img/war/WarIcon07.png);
     width: 116px;
     height: 100px;
     display: inline-block;
@@ -324,7 +321,7 @@ th {
 }
 
 .leader_jobIcon_08 {
-    background-image: url(/img/home_page/war/WarIcon08.png);
+    background-image: url(/img/war/WarIcon08.png);
     width: 116px;
     height: 100px;
     display: inline-block;
@@ -332,7 +329,7 @@ th {
 }
 
 .leader_jobIcon_09 {
-    background-image: url(/img/home_page/war/WarIcon09.png);
+    background-image: url(/img/war/WarIcon09.png);
     width: 116px;
     height: 100px;
     display: inline-block;
@@ -340,7 +337,7 @@ th {
 }
 
 .protector_title {
-    background-image: url(/img/home_page/war/ProtectorTitle.png);
+    background-image: url(/img/war/ProtectorTitle.png);
     width: 525px;
     height: 111px;
 }
@@ -348,7 +345,7 @@ th {
 .protector_table {
     width: 1252px;
     color: #fff;
-/*     border: 1px solid #777777; */
+    /*     border: 1px solid #777777; */
     border-collapse: collapse;
     text-align: center;
     font-size: 1.2rem;
@@ -361,8 +358,7 @@ th {
     border: 1px solid #777777;
 } */
 .protector_table_line {
-    background-image: url(/img/home_page/war/WarProtecterBling.png);
+    background-image: url(/img/war/WarProtecterBling.png);
     width: 1252px;
     height: 20px;
 }
-

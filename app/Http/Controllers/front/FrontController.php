@@ -239,5 +239,9 @@ class FrontController extends Controller
             'nc' => $nc,
         ]);
     }
+    public function war()
+    {
+        dd('123');
+    }
 
 }

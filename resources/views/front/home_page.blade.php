@@ -2,7 +2,7 @@
 @section('title', '《黑色契約CABAL Online》')
 @section('link')
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="/css/home_page/home_page_style.css?v1.4">
+    <link rel="stylesheet" href="/css/home_page/home_page_style.css?v1.42">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 @endsection

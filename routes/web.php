@@ -46,13 +46,14 @@ Route::get('/game', function () {
 })->name('game');
 
 //國家戰爭
-Route::get('/war', function () {
-    if ($_SERVER["HTTP_CF_CONNECTING_IP"] == '211.23.144.219') {
-        return view('front/war');
-    } else {
-        return redirect('https://digeam.com/index');
-    }
-});
+// Route::get('/war', function () {
+//     if ($_SERVER["HTTP_CF_CONNECTING_IP"] == '211.23.144.219') {
+//         return view('front/war');
+//     } else {
+//         return redirect('https://digeam.com/index');
+//     }
+// });
+Route::get('/war', 'front\FrontController@war');
 
 Route::middleware(['setReturnUrl'])->group(function () {
     // 事前預約
@@ -60,16 +61,16 @@ Route::middleware(['setReturnUrl'])->group(function () {
     //      return view('stop_info');
     //  });
     Route::get('/MembershipTransfer', function () {
-       return view('event/20230728_index');
+        return view('event/20230728_index');
     });
     // 序號兌換
     Route::get('/number_exchange', function () {
         return view('front/number_exchange');
     })->name('number_exchange');
     // 領獎專區
-        Route::get('/gift', 'front\FrontController@gift')->name('gift');
-        Route::get('/giftContent/{id}', 'front\FrontController@giftContent')->name('giftContent');
-        Route::get('/giftSearch/{year}/{month}/{keyword?}', 'front\FrontController@giftSearch');
+    Route::get('/gift', 'front\FrontController@gift')->name('gift');
+    Route::get('/giftContent/{id}', 'front\FrontController@giftContent')->name('giftContent');
+    Route::get('/giftSearch/{year}/{month}/{keyword?}', 'front\FrontController@giftSearch');
 });
 Route::get('/OBT', function () {
     return view('event/OBT');

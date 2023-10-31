@@ -180,9 +180,8 @@ class frontController extends Controller
             $client = new Client();
             $data = [
                 'user_id' => $_COOKIE['StrID'],
-                'start' => '2023-10-30',
-                // 'start' => $check_gift['start'],
-                'end' => $check_gift['end'],
+                'start' => '2023-10-31',
+                'end' => '2023-11-15',
             ];
 
             $headers = [
@@ -233,9 +232,8 @@ class frontController extends Controller
             $client = new Client();
             $data = [
                 'user_id' => $_COOKIE['StrID'],
-                'start' => '2023-10-30',
-                // 'start' => $check_gift['start'],
-                'end' => $check_gift['end'],
+                'start' => '2023-10-31',
+                'end' => '2023-11-15',
             ];
 
             $headers = [
@@ -271,7 +269,7 @@ class frontController extends Controller
             $client = new Client();
             $data_1 = [
                 'user_id' => $_COOKIE['StrID'],
-                'start' => $check_gift['start'],
+                'start' => '2023-11-1',
                 'end' => '2023-12-11',
                 'proCode' => 'E8092',
             ];
