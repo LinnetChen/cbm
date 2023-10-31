@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
  */
 // 調整蓋台
 Route::get('/', function () {
-    return view('event/OBT');
+    return view('event/20231030_index');
 });
 //首頁
 Route::get('/index', 'front\FrontController@index')->name('index');

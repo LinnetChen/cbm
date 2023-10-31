@@ -163,7 +163,7 @@ class frontController extends Controller
             ]);
         }
         // 確認是否領過,排除可重複領取的
-        $repeat = [16, 17, 18];
+        $repeat = [16, 17, 18, 19, 28];
 
         if (!in_array($request->gift_id, $repeat)) {
             $check = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->first();
@@ -180,7 +180,8 @@ class frontController extends Controller
             $client = new Client();
             $data = [
                 'user_id' => $_COOKIE['StrID'],
-                'start' => $check_gift['start'],
+                'start' => '2023-10-30',
+                // 'start' => $check_gift['start'],
                 'end' => $check_gift['end'],
             ];
 
@@ -195,9 +196,6 @@ class frontController extends Controller
             ]);
             $result = $res->getBody();
             $result = json_decode($result);
-            if ($_COOKIE['StrID'] == 'jacky0996') {
-                $result = 20000;
-            }
             switch ($request->gift_id) {
                 case 20:
                     $need = 1;
@@ -230,7 +228,44 @@ class frontController extends Controller
                 ]);
             }
         }
+        // 1031~1114改版回饋儲值禮(該項目可重複領)
+        if ($request->gift_id == 28) {
+            $client = new Client();
+            $data = [
+                'user_id' => $_COOKIE['StrID'],
+                'start' => '2023-10-30',
+                // 'start' => $check_gift['start'],
+                'end' => $check_gift['end'],
+            ];
 
+            $headers = [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+            ];
+
+            $res = $client->request('POST', 'https://webapi.digeam.com/cbo/get_change_point', [
+                'headers' => $headers,
+                'json' => $data,
+            ]);
+            $result = $res->getBody();
+            $result = json_decode($result);
+
+            $canGet = floor($result / 1000);
+            $alreadyGet = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->count();
+            if ($canGet <= $alreadyGet) {
+                return response()->json([
+                    'status' => -90,
+                ]);
+            } else {
+                $amount = $canGet - $alreadyGet;
+                for ($i = 1; $i <= $amount; $i++) {
+                    frontController::giftSendItem($_COOKIE['StrID'], $request->gift_id, $real_ip);
+                }
+                return response()->json([
+                    'status' => 1,
+                ]);
+            }
+        }
         // MYCARD本月主打星
         if ($request->gift_id == 19) {
             $client = new Client();
