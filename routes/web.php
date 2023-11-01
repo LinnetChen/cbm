@@ -61,7 +61,7 @@ Route::middleware(['setReturnUrl'])->group(function () {
     //      return view('stop_info');
     //  });
     Route::get('/MembershipTransfer', function () {
-        return view('event/20230728_index');
+        return redirect('https://cbo.digeam.com/');
     });
     // 序號兌換
     Route::get('/number_exchange', function () {

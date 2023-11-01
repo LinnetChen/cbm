@@ -11,6 +11,7 @@ use App\Models\giftGroup;
 use App\Models\Image;
 use App\Models\page;
 use App\Models\suspension;
+use GuzzleHttp\Client;
 
 class FrontController extends Controller
 {
@@ -241,7 +242,23 @@ class FrontController extends Controller
     }
     public function war()
     {
-        dd('123');
+
+        $client = new Client();
+        $data = [
+            "serverIdx" => 1,
+            "logIdx" => 10028,
+        ];
+
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ];
+
+        $res = $client->request('POST', 'http://c1twapi.global.estgames.com/events/weekly/getData', [
+            'headers' => $headers,
+            'json' => $data,
+        ]);
+        dd($res);
     }
 
 }
