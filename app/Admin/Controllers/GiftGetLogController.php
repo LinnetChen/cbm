@@ -36,6 +36,7 @@ class GiftGetLogController extends AdminController
         $grid->filter(function ($filter) {
             $filter->disableIdFilter();
             $filter->equal('user', '帳號');
+            $filter->equal('gift', '領取活動編號');
         });
 
         $grid->actions(function ($actions) {
