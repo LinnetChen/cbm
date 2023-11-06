@@ -246,7 +246,7 @@ class FrontController extends Controller
         $client = new Client();
         $data = [
             "serverIdx" => 1,
-            "logIdx" => 10028,
+            "logIdx" => 0,
         ];
 
         $headers = [
@@ -254,11 +254,12 @@ class FrontController extends Controller
             'Accept' => 'application/json',
         ];
 
-        $res = $client->request('POST', 'http://c1twapi.global.estgames.com/events/weekly/getData', [
+        $res = $client->request('POST', 'http://c1twapi.global.estgames.com/event/weekly/getData', [
             'headers' => $headers,
             'json' => $data,
         ]);
-        dd($res);
+        // dd($res);
+        return view('front/war');
     }
 
 }
