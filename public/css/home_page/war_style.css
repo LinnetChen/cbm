@@ -264,6 +264,13 @@ th {
     border-bottom: 1px solid #fff;
 }
 
+.leader_jobIcon_00 {
+    background-image: url(/img/war/WarIcon00.png);
+    width: 116px;
+    height: 100px;
+    display: inline-block;
+    margin: -20px -9px -20px 0px;
+}
 .leader_jobIcon_01 {
     background-image: url(/img/war/WarIcon01.png);
     width: 116px;

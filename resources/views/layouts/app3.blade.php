@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta property="og:title" content="《黑色契約CABAL Online》" />
+    <meta property="og:title" content=@yield('og:title') />
     <meta property="og:type" content="website" />
     <!--     <meta property="og:description" content="歡迎回到涅瓦雷斯大陸，我們的旅途尚未結束..." /> -->
     <meta property="og:url" content="" />

@@ -1,11 +1,13 @@
 @extends('layouts.app2')
 @section('title', '《黑色契約CABAL Online》國家戰爭')
 @section('link')
-    <link rel="stylesheet" href="/css/home_page/war_style.css?v1.0">
+    <link rel="stylesheet" href="/css/home_page/war_style.css?v1.1">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 @endsection
 @section('main_title', '國家戰爭')
 @section('content2')
+    {{-- @dd($result->data->warResult->capella) --}}
+    {{-- @dd($result->data) --}}
     <div class="title_box">
         <div class="war_main_title">國家戰爭</div>
         <select class="section" name="server">
@@ -14,7 +16,7 @@
     </div>
     <div class="war_bg">
         <div class="content_box">
-            <div class="result_title" data-aos="fade-up"></div>
+            <div class="result_title" data-aos="fade-up"a></div>
             <div class="camp_box" data-aos="fade-up">
                 <div class="bluecamp">
                     <div class="bluecamp_icon"></div>
@@ -23,13 +25,23 @@
                 <div class="score_box" data-aos="fade-up">
                     <div class="score_box_s">
                         <div class="score_text">
-                            <span>01</span>
-                            <span>01</span>
+                            @if ($result->data->warResult->capella < 10)
+                                <span>0{{ $result->data->warResult->capella }}</span>
+                                <span>0{{ $result->data->warResult->capella }}</span>
+                            @else
+                                <span>{{ $result->data->warResult->capella }}</span>
+                                <span>{{ $result->data->warResult->capella }}</span>
+                            @endif
                         </div>
                         <div class="dot"></div>
                         <div class="score_text">
-                            <span>22</span>
-                            <span>22</span>
+                            @if ($result->data->warResult->capella < 10)
+                                <span>0{{ $result->data->warResult->procyon }}</span>
+                                <span>0{{ $result->data->warResult->procyon }}</span>
+                            @else
+                                <span>{{ $result->data->warResult->procyon }}</span>
+                                <span>{{ $result->data->warResult->procyon }}</span>
+                            @endif
                         </div>
                     </div>
                     <div class="score_line"></div>
@@ -58,97 +70,45 @@
                         <div class="leader_table_line"></div>
                     </td>
                 </tr>
-                <tr data-aos="fade-up">
-                    <td>
-                        <div class="leader_jobIcon_01"></div>
-                    </td>
-                    <td class="under_line">名稱最多有八個字</td>
-                    <td class="under_line">1009900</td>
-                    <td class="under_line">99990</td>
-                    <td class="under_line"><img src="/img/war/52.png"></td>
-                    <td class="under_line">ABCDEFGHIJKLMNOP</td>
-                    <td class="under_line">1000000</td>
-                    <td class="under_line">99990</td>
-                    <td>
-                        <div class="leader_jobIcon_02"></div>
-                    </td>
-                </tr>
-                <tr data-aos="fade-up">
-                    <td>
-                        <div class="leader_jobIcon_01"></div>
-                    </td>
-                    <td class="under_line">玩家1</td>
-                    <td class="under_line">1009900</td>
-                    <td class="under_line">99990</td>
-                    <td class="under_line"><img src="/img/war/80.png"></td>
-                    <td class="under_line">玩家2</td>
-                    <td class="under_line">1000000</td>
-                    <td class="under_line">99990</td>
-                    <td>
-                        <div class="leader_jobIcon_02"></div>
-                    </td>
-                </tr>
-                <tr data-aos="fade-up">
-                    <td>
-                        <div class="leader_jobIcon_01"></div>
-                    </td>
-                    <td class="under_line">玩家1</td>
-                    <td class="under_line">1009000</td>
-                    <td class="under_line">99990</td>
-                    <td class="under_line"><img src="/img/war/110.png"></td>
-                    <td class="under_line">玩家2</td>
-                    <td class="under_line">1000000</td>
-                    <td class="under_line">99990</td>
-                    <td>
-                        <div class="leader_jobIcon_02"></div>
-                    </td>
-                </tr>
-                <tr data-aos="fade-up">
-                    <td>
-                        <div class="leader_jobIcon_01"></div>
-                    </td>
-                    <td class="under_line">玩家1</td>
-                    <td class="under_line">1009000</td>
-                    <td class="under_line">99990</td>
-                    <td class="under_line"><img src="/img/war/140.png"></td>
-                    <td class="under_line">玩家2</td>
-                    <td class="under_line">1000000</td>
-                    <td class="under_line">99990</td>
-                    <td>
-                        <div class="leader_jobIcon_02"></div>
-                    </td>
-                </tr>
-                <tr data-aos="fade-up">
-                    <td>
-                        <div class="leader_jobIcon_01"></div>
-                    </td>
-                    <td class="under_line">玩家1</td>
-                    <td class="under_line">1009000</td>
-                    <td class="under_line">99990</td>
-                    <td class="under_line"><img src="/img/war/170.png"></td>
-                    <td class="under_line">玩家2</td>
-                    <td class="under_line">1000000</td>
-                    <td class="under_line">99990</td>
-                    <td>
-                        <div class="leader_jobIcon_02"></div>
-                    </td>
-                </tr>
-                <tr data-aos="fade-up">
-                    <td>
-                        <div class="leader_jobIcon_01"></div>
-                    </td>
-                    <td class="under_line">玩家1</td>
-                    <td class="under_line">1009000</td>
-                    <td class="under_line">99990</td>
-                    <td class="under_line"><img src="/img/war/200.png"></td>
-                    <td class="under_line">玩家2</td>
-                    <td class="under_line">1000000</td>
-                    <td class="under_line">99990</td>
-                    <td>
-                        <div class="leader_jobIcon_02"></div>
-                    </td>
-                </tr>
+                @foreach ($result->data->bringersWithLevelType as $key => $value)
+                    <tr data-aos="fade-up">
+                        @if (!$value->cepella)
+                            <td>
+                                <div class="leader_jobIcon_00"></div>
+                            </td>
+                            <td class="under_line">-</td>
+                            <td class="under_line">-</td>
+                            <td class="under_line">-</td>
+                        @else
+                            <td>
+                                <div class="leader_jobIcon_0{{ $value->cepella->battleStyle }}"></div>
+                            </td>
+                            <td class="under_line">{{ $value->cepella->characterName }}</td>
+                            <td class="under_line">{{ $value->cepella->score }}</td>
+                            <td class="under_line">{{ $value->cepella->killcount }}</td>
+                        @endif
 
+                        <td class="under_line"><img src="/img/war/{{ $key }}.png"></td>
+
+
+                        @if (!$value->procyon)
+                            <td class="under_line">-</td>
+                            <td class="under_line">-</td>
+                            <td class="under_line">-</td>
+                            <td>
+                                <div class="leader_jobIcon_00"></div>
+                            </td>
+                        @else
+                            <td class="under_line">{{ $value->procyon->characterName }}</td>
+                            <td class="under_line">{{ $value->procyon->score }}</td>
+                            <td class="under_line">{{ $value->procyon->killcount }}</td>
+                            <td>
+                                <div class="leader_jobIcon_0{{ $value->procyon->battleStyle }}"></div>
+                            </td>
+                        @endif
+
+                    </tr>
+                @endforeach
             </table>
             <div class="protector_title" data-aos="fade-up"></div>
             <table class="protector_table">
@@ -166,105 +126,47 @@
                         <div class="protector_table_line"></div>
                     </td>
                 </tr>
-                <tr data-aos="fade-up">
-                    <td class="under_line">名稱最多有八個字</td>
-                    <td class="under_line">100</td>
-                    <td class="under_line">名稱最多有八個字</td>
-                    <td>
-                        <div class="leader_jobIcon_01"></div>
-                    </td>
-                    <td class="under_line">ABCDEFGHIJKLMNOP</td>
-                    <td class="under_line">100</td>
-                    <td class="under_line">ABCDEFGHIJKLMNOP</td>
-                </tr>
-                <tr data-aos="fade-up">
-                    <td class="under_line">玩家1</td>
-                    <td class="under_line">100</td>
-                    <td class="under_line">xxxxxxxxxxxxx</td>
-                    <td>
-                        <div class="leader_jobIcon_02"></div>
-                    </td>
-                    <td class="under_line">玩家2</td>
-                    <td class="under_line">100</td>
-                    <td class="under_line">xxxxxxxxxxxxxx</td>
-                </tr>
-                <tr data-aos="fade-up">
-                    <td class="under_line">玩家1</td>
-                    <td class="under_line">100</td>
-                    <td class="under_line">xxxxxxxxxxxxx</td>
-                    <td>
-                        <div class="leader_jobIcon_03"></div>
-                    </td>
-                    <td class="under_line">玩家2</td>
-                    <td class="under_line">100</td>
-                    <td class="under_line">xxxxxxxxxxxxxx</td>
-                </tr>
-                <tr data-aos="fade-up">
-                    <td class="under_line">玩家1</td>
-                    <td class="under_line">100</td>
-                    <td class="under_line">xxxxxxxxxxxxx</td>
-                    <td>
-                        <div class="leader_jobIcon_04"></div>
-                    </td>
-                    <td class="under_line">玩家2</td>
-                    <td class="under_line">100</td>
-                    <td class="under_line">xxxxxxxxxxxxxx</td>
-                </tr>
-                <tr data-aos="fade-up">
-                    <td class="under_line">玩家1</td>
-                    <td class="under_line">100</td>
-                    <td class="under_line">xxxxxxxxxxxxx</td>
-                    <td>
-                        <div class="leader_jobIcon_05"></div>
-                    </td>
-                    <td class="under_line">玩家2</td>
-                    <td class="under_line">100</td>
-                    <td class="under_line">xxxxxxxxxxxxxx</td>
-                </tr>
-                <tr data-aos="fade-up">
-                    <td class="under_line">玩家1</td>
-                    <td class="under_line">100</td>
-                    <td class="under_line">xxxxxxxxxxxxx</td>
-                    <td>
-                        <div class="leader_jobIcon_06"></div>
-                    </td>
-                    <td class="under_line">玩家2</td>
-                    <td class="under_line">100</td>
-                    <td class="under_line">xxxxxxxxxxxxxx</td>
-                </tr>
-                <tr data-aos="fade-up">
-                    <td class="under_line">玩家1</td>
-                    <td class="under_line">100</td>
-                    <td class="under_line">xxxxxxxxxxxxx</td>
-                    <td>
-                        <div class="leader_jobIcon_07"></div>
-                    </td>
-                    <td class="under_line">玩家2</td>
-                    <td class="under_line">100</td>
-                    <td class="under_line">xxxxxxxxxxxxxx</td>
-                </tr>
-                <tr data-aos="fade-up">
-                    <td class="under_line">玩家1</td>
-                    <td class="under_line">100</td>
-                    <td class="under_line">xxxxxxxxxxxxx</td>
-                    <td>
-                        <div class="leader_jobIcon_08"></div>
-                    </td>
-                    <td class="under_line">玩家2</td>
-                    <td class="under_line">100</td>
-                    <td class="under_line">xxxxxxxxxxxxxx</td>
-                </tr>
-                <tr data-aos="fade-up">
-                    <td class="under_line">玩家1</td>
-                    <td class="under_line">100</td>
-                    <td class="under_line">xxxxxxxxxxxxx</td>
-                    <td>
-                        <div class="leader_jobIcon_09"></div>
-                    </td>
-                    <td class="under_line">玩家2</td>
-                    <td class="under_line">100</td>
-                    <td class="under_line">xxxxxxxxxxxxxx</td>
-                </tr>
+                @foreach ($result->data->guardianWithClass as $key => $value)
+                    <tr data-aos="fade-up">
+                        <td class="under_line">{{ $value->cepella->characterName }}</td>
+                        <td class="under_line">{{ $value->cepella->level }}</td>
+                        <td class="under_line">{{ $value->cepella->guildName }}</td>
+                        <td>
+                            @switch ($value->type)
+                                @case(1)
+                                    <div class="leader_jobIcon_01"></div>
+                                @break;
+                                @case(2)
+                                    <div class="leader_jobIcon_02"></div>
+                                @break;
+                                @case(3)
+                                    <div class="leader_jobIcon_06"></div>
+                                @break;
+                                @case(4)
+                                    <div class="leader_jobIcon_07"></div>
+                                @break;
+                                @case(5)
+                                    <div class="leader_jobIcon_03"></div>
+                                @break;
+                                @case(6)
+                                    <div class="leader_jobIcon_04"></div>
+                                @break;
+                                @case(7)
+                                    <div class="leader_jobIcon_05"></div>
+                                @break;
+                                @case(8)
+                                    <div class="leader_jobIcon_08"></div>
+                                @break;
+                                @case(9)
+                                    <div class="leader_jobIcon_09"></div>
+                                @break;
+                            @endswitch
+                        </td>
+                        <td class="under_line">{{ $value->procyon->characterName }}</td>
+                        <td class="under_line">{{ $value->procyon->level }}</td>
+                        <td class="under_line">{{ $value->procyon->guildName }}</td>
+                    </tr>
+                @endforeach
             </table>
         </div>
     </div>

@@ -258,8 +258,11 @@ class FrontController extends Controller
             'headers' => $headers,
             'json' => $data,
         ]);
-        // dd($res);
-        return view('front/war');
+        $result = $res->getBody();
+        $result = json_decode($result);
+        return view('front/war', [
+            'result' => $result,
+        ]);
     }
 
 }
