@@ -5,20 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@yield('title')</title>
     <meta property="og:title" content=@yield('og:title') />
     <meta property="og:type" content="website" />
-    <!--     <meta property="og:description" content="歡迎回到涅瓦雷斯大陸，我們的旅途尚未結束..." /> -->
-    <meta property="og:url" content="" />
-    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="《黑色契約CABAL Online》" />
+    <meta property="og:url" content=@yield('og:url')>
+    <meta property="og:site_name" content="《黑色契約CABAL Online》" />
     <meta property="og:locale" content="zh_tw" />
-    <meta property="article:author" content="" />
+    <meta property="article:author" content="https://www.facebook.com/DiGeamCabal/" />
     <meta property="og:image" content="/img/index_share.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="628" />
     <meta name="author" content="DiGeam" />
+
     <meta name="Resource-type" content="Document" />
     <link rel="icon" sizes="192x192" href="../../../img/event/20230728/favicon.ico">
-    <meta name="description" content="《黑色契約CABAL Online》" />
     <link rel="pingback" href="" />
     <link href="/css/home_page/app3_style.css?v1.0" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
@@ -26,7 +27,6 @@
         rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.min.css" rel="stylesheet" />
     <!-- 自定義標題 -->
-    <title>@yield('title')</title>
     @yield('link')
 
     <script>

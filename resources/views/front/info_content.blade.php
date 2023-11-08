@@ -1,6 +1,7 @@
 @extends('layouts.app3')
 @section('title', '《黑色契約CABAL Online》遊戲公告-' . $page['title'])
 @section('og:title', $page['title'])
+@section('og:url', 'https://cbo.digeam.com/announcementContent/'.$page['id'])
 @section('link')
     <link rel="stylesheet" href="/css/home_page/info_content_style.css?v1.0">
 @endsection
