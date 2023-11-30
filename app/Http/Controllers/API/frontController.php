@@ -174,6 +174,8 @@ class frontController extends Controller
             }
         }
         // 以下領獎邏輯撰寫
+        // OTP
+        // OTP
 
         // 1031~1114改版回饋儲值禮
         if ($request->gift_id == 20 || $request->gift_id == 21 || $request->gift_id == 22 || $request->gift_id == 23 || $request->gift_id == 24 || $request->gift_id == 25 || $request->gift_id == 26 || $request->gift_id == 27) {
@@ -538,15 +540,15 @@ class frontController extends Controller
     // {
 
     //     // $getItem = giftContent::where('gift_group_id', $gift_id)->get();
-    //     $array = ['jacky0996', 'gn00450329', 'hebg1225', 'wojiaodu2'];
+    //     $array = ['jacky0996', 'maik780102', 'billy1993a', 'mariofunm2', 's26994318', 'nmes1696', 'sakutofu1128', 'mm2212365', 'hdes93214a', 'a0985505067', 'syuan800523', 'jumpsquare0724', 'q2325025', 'eyes7463', 'karta404539', 'turtle800523', 'nay121800360', 'j84572004', 'mirror1225', 'q0932960355', 'zhouhank0957', 'edcsf95123', 'nay121800351', 'leo19921203', 'hk090909', 'jong630214', 'therock33440011', 'a5527440', 'hazy2000', 'wenzhe0804', 'zz600425zz', 'qa930087', 'k3617531', 'a28123125', 'allen7537', 'coco4498', 'folee101', 'k0824412', 'kendal7478', 'qaz333513', 'qq20009044', 'charel1218', 'tw00610060', 'cityhunterman520', 'l134872393', 'as4545532', 'like2044', 'a59003111', 'abc0939330488', 'do10212000', 'wdy0413605', 'chu780611', 'loveai6z83', 'maik780102jp', 'cc0923871883', 'aas1108saa', 'ivanpun0710', 'z22287941', 'asd565599', 'andy52057q', 'mika520520', 'jpkid20000', 's0965phaa', 'abc125556', 'img52wacai', 'vic212410', 'loveomg220', 'zxc841212', 'q95304025', 'zmxncbv0302', 'a0808967', 'eee220046111', 'bill83620', 'black168', 'a7867575', 'kyhuang0907', 'd32893540', 'aspirin0929', 'a0983960837', 'a0931056202', 'lewismok92', 'ztsc84131', 'dragonmice7', 'semile513513', 'rose0378', 'l0962072575', 'momo72886', 'marswinnie521', 'a62604029', 'zx44564567', 'kevin800403', 'wei19870421', 'dumpiling52031', 'samiazuk1964', 'snoppy0717', 'as0922529137', 'bigpig1991', 'cbgvf70885', 'love8154623', 'f45001232', 'hero1020', 'xcbaz882650', 'power456852', 'mobetaw75483', 'gucci0812', 'nctui510322', 'a35713076', 'a7582422', 'j8001177', 'tony9453', 'cyh851218', 'pig89006', 'a123556601', 'hiuire123', 'sheng2023', 'power810301', 'tom333498', 'yes23556', 'qqw6595626', 'who179896', 'cr4zymist', 'jason40402p', 'a0a6aa14', 'jie0988072177', 't2648371', 'a55778964', 'han840530', 'mye23054', 'phosen05339', 'bloodend623739', 'kitt643960', 'zx0936300132', 'stillpull0430', 'stormbao1', 'dream87108', 'erica26845', 'a0987437629', 'zax0624zax', 'end252003', 'aaa014134', 'andylien2002', 'eantom3325', 'foxonthegrass728', 'peja741852', 'hillx1011', 's0908531922', 'ssss20405', 'a0919273003', 'hao111318', 'obob79226', 'bincry030', 'jooers00', 'a123452594', 'azx22724531', 'shit4ock', 'chr90817', 'ccc8667351', 'iloveyou0927', 'a3296040', 'camille5200', 'aaf4858634', 'dd92nn11', 'jun0907781627', 'smalldog98', 't00293088', 'as580904925889', 'o199705241', 'df4722h111n', 'mkll7802', 'cyhae92216', 'alan10609', 's6533125', 'gaexpa156344', 'wsx85271', 'skince852', 'love811227', 'heyhey5978', 'wenhui1754', 'wuxu1127', 'yanc7lol', 'a456159753', 'zxc19880909', 'love19871225', 'b78945134', 'steve401401', 'lf20654123', 'ben049550', 'trabe79719', 'love01016', 'qaz571121', 'zxc011035', 'ts02066238', 'mocca951', 'undying2060', 'q27091533850', 'r5215love', 'bear51697', 'z5869096', 'a7512393', 'a9037023h', 'liberty052', 'z6986379', 'a0918150070', 'asd59706236', 'yihshiou21', 'ping8868', 'jerryhung8338', 'aaaa800276', 'aa830911', 'jack818818', 'bill1358', 'ayu11506', 'zhan19980814', 'rong1688', 'jack82731pk', 'z0915606711', 'zk579qwe', 'a654159753', 'hamster051', 'assam1231', 'kuskus900628', 'joezxc620914', 'kennychen1977', 'mjbpjcmt1', 'a121723578', 'qwe222423', 'eric0749', 's58806098', 'smallfe0623', 'ahyang91', 'as00597805', 'skyyong8', 'leo60110131347'];
     //     foreach ($array as $value) {
     //         $count_number_log = giftGetLog::count();
     //         $tranNo = 'gift-' . 0 . '-' . $count_number_log . date('YmdHis');
     //         $client = new Client();
     //         $data = [
     //             "userId" => $value,
-    //             "itemIdx" => 5658,
-    //             "itemOpt" => 3349,
+    //             "itemIdx" => 7203,
+    //             "itemOpt" => 300,
     //             "durationIdx" => 0,
     //             "prdId" => 1288,
     //             'tranNo' => $tranNo,
@@ -565,35 +567,35 @@ class frontController extends Controller
     //         $newLog = new giftGetLog();
     //         $newLog->user = $value;
     //         $newLog->gift = 0;
-    //         $newLog->gift_item = '20231019道具補發-儲值10000';
+    //         $newLog->gift_item = 'Discord頻道全面啟動';
     //         $newLog->ip = '127.0.0.1';
     //         $newLog->tranNo = $tranNo;
     //         $newLog->save();
     //     }
     // }
-    // public function free_send_item()
-    // {
-    //     $count_number_log = giftGetLog::count();
-    //     $tranNo = 'gift-' . 0 . '-' . $count_number_log . date('YmdHis');
-    //     $client = new Client();
-    //     $data = [
-    //         "userId" => 'jacky0996',
-    //         "itemIdx" => 33559014,
-    //         "itemOpt" => 1190,
-    //         "durationIdx" => 13,
-    //         "prdId" => 1288,
-    //         'tranNo' => $tranNo,
-    //     ];
+    public function free_send_item()
+    {
+        $count_number_log = giftGetLog::count();
+        $tranNo = 'gift-' . 0 . '-' . $count_number_log . date('YmdHis');
+        $client = new Client();
+        $data = [
+            "userId" => 'jacky0996',
+            "itemIdx" => 33560062,
+            "itemOpt" => 10,
+            "durationIdx" =>0,
+            "prdId" => 1288,
+            'tranNo' => $tranNo,
+        ];
 
-    //     $headers = [
-    //         'Content-Type' => 'application/json',
-    //         'Accept' => 'application/json',
-    //     ];
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ];
 
-    //     $res = $client->request('POST', 'http://c1twapi.global.estgames.com/game/give/item/cash', [
-    //         'headers' => $headers,
-    //         'json' => $data,
-    //     ]);
-    // }
+        $res = $client->request('POST', 'http://c1twapi.global.estgames.com/game/give/item/cash', [
+            'headers' => $headers,
+            'json' => $data,
+        ]);
+    }
 
 }
