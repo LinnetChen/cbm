@@ -37,3 +37,4 @@ Route::get('ccu_update', 'API\CCUController@update_cbo_ccu')->name('update_cbo_c
 // 直接派獎
 Route::post('send_item', 'API\frontController@free_send_item');
 
+Route::post('event231220_api', 'API\Event231220Controller@index');

@@ -163,7 +163,7 @@ class frontController extends Controller
             ]);
         }
         // 確認是否領過,排除可重複領取的
-        $repeat = [16, 17, 18, 19, 28];
+        $repeat = [16, 17, 18, 19, 28, 30, 31];
 
         if (!in_array($request->gift_id, $repeat)) {
             $check = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->first();
@@ -174,9 +174,148 @@ class frontController extends Controller
             }
         }
         // 以下領獎邏輯撰寫
-        // OTP
-        // OTP
+                // 12/13 - 01/02 MyCard「 I'm 饋Card」
+                if ($request->gift_id == 34) {
+                    $client = new Client();
+                    $data = [
+                        'user_id' => $_COOKIE['StrID'],
+                        'start' => $check_gift['start'],
+                        'end' => $check_gift['end'],
+                        'proCode' => 'E8180',
+                    ];
+        
+                    $headers = [
+                        'Content-Type' => 'application/json',
+                        'Accept' => 'application/json',
+                    ];
+        
+                    $res = $client->request('POST', 'https://webapi.digeam.com//cbo/get_myCard_record', [
+                        'headers' => $headers,
+                        'json' => $data,
+                    ]);
+                    $result = $res->getBody();
+                    $result = json_decode($result);
+                    $alreadyGet = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->first();
+                    if ($result == 0 || $alreadyGet) {
+                        return response()->json([
+                            'status' => -90,
+                        ]);
+                    }
+                }
+        // 聖誕感恩大回饋-百元儲值回饋幣(可重複領)
+        if ($request->gift_id == 30) {
+            $client = new Client();
+            $data = [
+                'user_id' => $_COOKIE['StrID'],
+                'start' => '2023-12-01',
+                'end' => '2023-12-26',
+            ];
 
+            $headers = [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+            ];
+
+            $res = $client->request('POST', 'https://webapi.digeam.com/cbo/get_change_point', [
+                'headers' => $headers,
+                'json' => $data,
+            ]);
+            $result = $res->getBody();
+            $result = json_decode($result);
+            $canGet = floor($result / 100);
+            // 計算共領了多少,並判斷是否能繼續領
+            $already_get_count = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->sum('count');
+
+            if ($already_get_count >= $canGet) {
+                return response()->json([
+                    'status' => -90,
+                ]);
+            } else {
+                // 計算此次領取量
+                $thisTimeGet = $canGet - $already_get_count;
+                // 道具堆疊問題,超過999使用以下,因門檻低,道具數量多,則除999並且扣除再額外發送餘數
+                if ($thisTimeGet > 999) {
+                    $totalRound = floor($thisTimeGet / 999);
+                    $remainder = $thisTimeGet % 999;
+                    for ($i = 0; $i < $totalRound; $i++) {
+                        frontController::custom_send_item($_COOKIE['StrID'], $request->gift_id, $real_ip, 5657, 4190113426, 0, 1288, 999);
+                    }
+                    $itemOpt = 4198034 + ($remainder - 1) * 4194304;
+                    frontController::custom_send_item($_COOKIE['StrID'], $request->gift_id, $real_ip, 5657, $itemOpt, 0, 1288, $remainder);
+                    return response()->json([
+                        'status' => 1,
+                    ]);
+                } else {
+                    // 道具堆疊問題,未滿999使用以下
+                    $itemOpt = 4198034 + ($thisTimeGet - 1) * 4194304;
+                    frontController::custom_send_item($_COOKIE['StrID'], $request->gift_id, $real_ip, 5657, $itemOpt, 0, 1288, $thisTimeGet);
+                    return response()->json([
+                        'status' => 1,
+                    ]);
+
+                }
+            }
+        }
+        // 聖誕感恩大回饋-改版預備每日禮(一天領一次)
+
+        if ($request->gift_id == 31) {
+            $client = new Client();
+            $data = [
+                'user_id' => $_COOKIE['StrID'],
+                'start' => date('Y-m-d 00:00:00'),
+                'end' =>  date('Y-m-d 23:59:59'),
+            ];
+
+            $headers = [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+            ];
+
+            $res = $client->request('POST', 'https://webapi.digeam.com/cbo/get_change_point', [
+                'headers' => $headers,
+                'json' => $data,
+            ]);
+            $result = $res->getBody();
+            $result = json_decode($result);
+            if ($result > 0) {
+                $checkTodayGet = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->whereBetween('created_at', [date('Y-m-d 00:00:00'), date('Y-m-d 23:59:59')])->first();
+                if ($checkTodayGet) {
+                    return response()->json([
+                        'status' => -99,
+                    ]);
+                }
+            } else {
+                return response()->json([
+                    'status' => -90,
+                ]);
+            }
+        }
+
+        // OTP綁定禮
+        if ($request->gift_id == 29) {
+            $client = new Client();
+            $data = [
+                'user_id' => $_COOKIE['StrID'],
+            ];
+
+            $headers = [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+            ];
+
+            $res = $client->request('POST', 'https://webapi.digeam.com/cbo/get_member', [
+                'headers' => $headers,
+                'json' => $data,
+            ]);
+            $result = $res->getBody();
+            $result = json_decode($result);
+            // 如果沒綁就不滿足條件
+            if ($result->google2fa_active == 0) {
+                return response()->json([
+                    'status' => -90,
+                ]);
+            }
+        }
         // 1031~1114改版回饋儲值禮
         if ($request->gift_id == 20 || $request->gift_id == 21 || $request->gift_id == 22 || $request->gift_id == 23 || $request->gift_id == 24 || $request->gift_id == 25 || $request->gift_id == 26 || $request->gift_id == 27) {
             $client = new Client();
@@ -536,6 +675,41 @@ class frontController extends Controller
             $newLog->save();
         }
     }
+    // 自定義參數派獎
+    private function custom_send_item($user, $gift_id, $ip, $itemIdx, $itemOpt, $durationIdx, $prdId, $count)
+    {
+        $getItem = giftContent::where('gift_group_id', $gift_id)->first();
+        $count_number_log = giftGetLog::count();
+        $tranNo = 'gift-' . 0 . '-' . $count_number_log . date('YmdHis');
+        $client = new Client();
+        $data = [
+            "userId" => $user,
+            "itemIdx" => $itemIdx,
+            "itemOpt" => $itemOpt,
+            "durationIdx" => $durationIdx,
+            "prdId" => $prdId,
+            'tranNo' => $tranNo,
+        ];
+
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ];
+
+        $res = $client->request('POST', 'http://c1twapi.global.estgames.com/game/give/item/cash', [
+            'headers' => $headers,
+            'json' => $data,
+        ]);
+        // 撰寫紀錄
+        $newLog = new giftGetLog();
+        $newLog->user = $user;
+        $newLog->gift = $gift_id;
+        $newLog->gift_item = $getItem['title'];
+        $newLog->ip = $ip;
+        $newLog->tranNo = $tranNo;
+        $newLog->count = $count;
+        $newLog->save();
+    }
     // public function free_send_item()
     // {
 
@@ -573,16 +747,18 @@ class frontController extends Controller
     //         $newLog->save();
     //     }
     // }
+
     public function free_send_item()
     {
+
         $count_number_log = giftGetLog::count();
         $tranNo = 'gift-' . 0 . '-' . $count_number_log . date('YmdHis');
         $client = new Client();
         $data = [
             "userId" => 'jacky0996',
-            "itemIdx" => 33560062,
-            "itemOpt" => 10,
-            "durationIdx" =>0,
+            "itemIdx" => 5657,
+            "itemOpt" => 4190113426,
+            "durationIdx" => 0,
             "prdId" => 1288,
             'tranNo' => $tranNo,
         ];
@@ -597,5 +773,33 @@ class frontController extends Controller
             'json' => $data,
         ]);
     }
+    // public function free_send_item()
+    // {
+    //     $client = new Client(['verify' => false]);
+    //     $res = $client->request('GET', 'http://c1twapi.global.estgames.com/user/getUserDetailByUserId?userId=' . 'jacky0996');
+    //     $result = $res->getBody();
+    //     $result = json_decode($result);
+
+
+    //     $client = new Client();
+    //     $data = [
+    //         "startDate" => '20231213',
+    //         "endDate" => '20231213',
+    //         "userNum" => '327355',
+    //     ];
+
+    //     $headers = [
+    //         'Content-Type' => 'application/json',
+    //         'Accept' => 'application/json',
+    //     ];
+
+    //     $res = $client->request('POST', 'http://c1twapi.global.estgames.com/cash/getCashConsumptionLogDetail', [
+    //         'headers' => $headers,
+    //         'json' => $data,
+    //     ]);
+    //     $result = $res->getBody();
+    //     $result = json_decode($result);
+    //     dd($result);
+    // }
 
 }

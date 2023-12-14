@@ -25,6 +25,7 @@ class GiftGetLogController extends AdminController
         $grid->column('user', __('帳號'));
         $grid->column('gift', __('領取活動'));
         $grid->column('gift_item', __('領取道具'));
+        $grid->column('count', __('可重複領取項目此次發送數量'));
         // $grid->column('serial_cate_id', __('活動'))->display(function () {
         //     $get = serial_number_cate::where('id', $this->serial_cate_id)->first();
         //     return $get['title'];
