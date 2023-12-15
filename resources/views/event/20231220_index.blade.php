@@ -324,12 +324,11 @@
         </div>
     </div>
 </body>
-
+<script src="js/event/base/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-<script src="js/event/base/jquery-3.6.0.min.js"></script>
-<script src="js/event/20231220/main.js?v=1.0.8"></script>
+<script src="js/event/20231220/main.js?v=1.0.9"></script>
 <script src="js/event/20231220/view.js?v=1.0.1"></script>
 
 </html>

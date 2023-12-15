@@ -487,6 +487,7 @@ if (selectedTab) {
 
 // 處理 tab 點擊事件
 $('.tab_btn').click(function() {
+    console.log(111);
     var target = $(this).data('target');
     $(target).show().siblings('.sell').hide();
     $(this).addClass('active').siblings('.tab_btn').removeClass('active');
@@ -494,4 +495,6 @@ $('.tab_btn').click(function() {
     // 保存選擇狀態到 Cookie
     $.cookie('selectedTab', target);
 });
-
+$('.tab_btn').click(function() {
+    console.log(111);
+});
