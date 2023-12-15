@@ -472,12 +472,26 @@ $(".item").on("mouseleave", function () {
 });
 
 //tab切換
-$('#black').hide();
-$(function () {
-    $('.tab_btn').click(function() {
-        var target = $(this).data('target');
-        $(target).show().siblings('.sell').hide();
-        $(this).addClass('active').siblings('.tab_btn').removeClass('active');
-    });
+// 檢查 Cookie 是否保存了選擇狀態
+var selectedTab = $.cookie('selectedTab');
+
+// 如果 Cookie 中有保存選擇狀態，則顯示對應的 tab
+if (selectedTab) {
+    $(selectedTab).show().siblings('.sell').hide();
+    $('.tab_btn[data-target="' + selectedTab + '"]').addClass('active');
+} else {
+    // 如果 Cookie 中沒有保存選擇狀態，就讓 #ice 被選中
+    $('#ice').show().siblings('.sell').hide();
+    $('.tab_btn[data-target="#ice"]').addClass('active');
+}
+
+// 處理 tab 點擊事件
+$('.tab_btn').click(function() {
+    var target = $(this).data('target');
+    $(target).show().siblings('.sell').hide();
+    $(this).addClass('active').siblings('.tab_btn').removeClass('active');
+
+    // 保存選擇狀態到 Cookie
+    $.cookie('selectedTab', target);
 });
 

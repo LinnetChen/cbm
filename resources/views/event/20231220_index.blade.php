@@ -61,7 +61,7 @@
         <!-- 判斷登入 -->
          @if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null)
         <form id="logout-form" action="https://www.digeam.com/logout" method="POST" style="display: none;">
-            <input type="hidden" name="return_url" id="return_url" value={{ base64_encode('https://cbo.digeam.com/MembershipTransfer') }}>
+            <input type="hidden" name="return_url" id="return_url" value={{ base64_encode('https://cbo.digeam.com/20231220') }}>
         </form>
         <div class="ball_name">
             <p class="blue">當前帳號</p>
@@ -76,7 +76,7 @@
         </a>
         @else
         <form id="logout-form" action="https://www.digeam.com/logout" method="POST" style="display: none;">
-            <input type="hidden" name="return_url" id="return_url" value={{ base64_encode('https://cbo.digeam.com/MembershipTransfer') }}>
+            <input type="hidden" name="return_url" id="return_url" value={{ base64_encode('https://cbo.digeam.com/20231220') }}>
         </form>
         <div class="ball_name_n">
         </div>
@@ -109,7 +109,7 @@
         </div>
         <div class="title"></div>
         <div class="info_tab">
-            <div class="tab_btn active" data-target="#ice">冰珀星</div>
+            <div class="tab_btn" data-target="#ice">冰珀星</div>
             <div class="tab_btn" data-target="#black">黑恆星</div>
         </div>
         <!--  賣場 -->
@@ -325,10 +325,11 @@
     </div>
 </body>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 <script src="js/event/base/jquery-3.6.0.min.js"></script>
-<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> -->
 <script src="js/event/20231220/main.js?v=1.0.8"></script>
-<script src="js/event/20231220/view.js"></script>
+<script src="js/event/20231220/view.js?v=1.0.1"></script>
 
 </html>

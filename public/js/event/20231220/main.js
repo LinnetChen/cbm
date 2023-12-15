@@ -64,9 +64,12 @@ function get_setting() {
         if (res.time == "n") {
             //非活動時間
             $(".time_mask").css({ display: "block" });
-            $('.item').addClass("icon");
             $('.price').html("?");
             $('.quantity').html("?");
+            $('.item').removeClass(function(index, className) {
+                return (className.match(/\bicon\d+/g) || []).join(' ');
+            });
+            $('.item').addClass("icon");
             //活動時間
         } else if (res.time == "y") {
             //冰珀星資料
@@ -78,12 +81,13 @@ function get_setting() {
                         .html("售完")
                         .removeClass("btn")
                         .addClass("btn_no");
-                } else {
-                    iceItemBox.find('button')
-                        .html("購買")
-                        .removeClass("btn_no")
-                        .addClass("btn");
-                };
+                } ;
+                // else {
+                //     iceItemBox.find('button')
+                //         .html("購買")
+                //         .removeClass("btn_no")
+                //         .addClass("btn");
+                // };
                 iceItemBox.find('.price').html(res.ice_iteminfo[i].price);
                 iceItemBox.find('.quantity').html(res.ice_iteminfo[i].quantity);
                 iceItemBox.find('.item').attr('data-id', res.ice_iteminfo[i].id);
@@ -99,12 +103,13 @@ function get_setting() {
                         .html("售完")
                         .removeClass("btn")
                         .addClass("btn_no");
-                } else {
-                    blackItemBox.find('button')
-                        .html("購買")
-                        .removeClass("btn_no")
-                        .addClass("btn");
-                };
+                } ;
+                // else {
+                //     blackItemBox.find('button')
+                //         .html("購買")
+                //         .removeClass("btn_no")
+                //         .addClass("btn");
+                // };
                 blackItemBox.find('.price').html(res.black_iteminfo[i].price);
                 blackItemBox.find('.quantity').html(res.black_iteminfo[i].quantity);
                 blackItemBox.find('.item').attr('data-id', res.black_iteminfo[i].id);
@@ -433,9 +438,6 @@ $('.refresh_btn').on("click", function () {
             easing: "easeInExpo",
             duration: 900,
             delay: (el, i) => 100 + 100 * i
-        });
-        $('.item').removeClass(function(index, className) {
-            return (className.match(/\bicon\d+/g) || []).join(' ');
         });
     get_setting();
     setTimeout(function () {
