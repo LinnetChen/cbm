@@ -73,6 +73,9 @@ Route::middleware(['setReturnUrl'])->group(function () {
     Route::get('/gift', 'front\FrontController@gift')->name('gift');
     Route::get('/giftContent/{id}', 'front\FrontController@giftContent')->name('giftContent');
     Route::get('/giftSearch/{year}/{month}/{keyword?}', 'front\FrontController@giftSearch');
+    Route::get('/20231220',function(){
+        return view('event/20231220_index');
+    });
 });
 Route::get('/OBT', function () {
     return view('event/OBT');
@@ -84,9 +87,7 @@ Route::get('/20231030', function () {
 Route::get('/20231030', function () {
     return view('event/20231030_index');
 });
-Route::get('/20231220',function(){
-    return view('event/20231220_index');
-});
+
 
 Route::get('/launcher', 'front\FrontController@launcher');
 Route::get('/test_launcher', 'front\FrontController@launcher');
