@@ -496,5 +496,4 @@ $('.tab_btn').click(function() {
     $.cookie('selectedTab', target);
 });
 $('.tab_btn').click(function() {
-    console.log(111);
 });
