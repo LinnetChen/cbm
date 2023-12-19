@@ -1,4 +1,3 @@
-// const { find } = require("lodash");
 
 var reslogin = {
     status: 1,
@@ -70,6 +69,7 @@ function get_setting() {
                 return (className.match(/\bicon\d+/g) || []).join(' ');
             });
             $('.item').addClass("icon");
+            $('sell').find('button').removeClass("btn_no").addClass("btn").html("購買");
             //活動時間
         } else if (res.time == "y") {
             //冰珀星資料
@@ -82,12 +82,6 @@ function get_setting() {
                         .removeClass("btn")
                         .addClass("btn_no");
                 } ;
-                // else {
-                //     iceItemBox.find('button')
-                //         .html("購買")
-                //         .removeClass("btn_no")
-                //         .addClass("btn");
-                // };
                 iceItemBox.find('.price').html(res.ice_iteminfo[i].price);
                 iceItemBox.find('.quantity').html(res.ice_iteminfo[i].quantity);
                 iceItemBox.find('.item').attr('data-id', res.ice_iteminfo[i].id);
@@ -104,12 +98,6 @@ function get_setting() {
                         .removeClass("btn")
                         .addClass("btn_no");
                 } ;
-                // else {
-                //     blackItemBox.find('button')
-                //         .html("購買")
-                //         .removeClass("btn_no")
-                //         .addClass("btn");
-                // };
                 blackItemBox.find('.price').html(res.black_iteminfo[i].price);
                 blackItemBox.find('.quantity').html(res.black_iteminfo[i].quantity);
                 blackItemBox.find('.item').attr('data-id', res.black_iteminfo[i].id);
@@ -366,11 +354,11 @@ function buy(i) {
 
 //購買紀錄
 $('.history').on("click", function () {
-    // $.post(data_api, {
-    //     type: "buy_recode",
-    //     user: user,
-    // }, function (_res) {
-    //     var res = _res;
+    $.post(data_api, {
+        type: "buy_recode",
+        user: user,
+    }, function (_res) {
+        var res = _res;
         let res = resbuy_recode;
         if (res.status == -99) {
             $(".mask").fadeIn();
@@ -421,7 +409,7 @@ $('.history').on("click", function () {
             }
         }
     })
-// })
+})
 ;
 
 //刷新賣場
