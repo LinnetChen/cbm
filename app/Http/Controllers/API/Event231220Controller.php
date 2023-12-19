@@ -33,8 +33,8 @@ class Event231220Controller extends Controller
             $real_ip = $_SERVER["REMOTE_ADDR"];
         }
 
-        if((date('Ymd') >= '20231214')&&(date('Ymd') <= '20231219')) {
-            if((date('His') >= '160000')&&(date('His') < '200000')) {
+        if((date('Ymd') >= '20231220')&&(date('Ymd') <= '20231225')) {
+            if((date('His') >= '180000')&&(date('His') < '220000')) {
                 $time = 'y';
             } else {
                 $time = 'n';
@@ -55,14 +55,14 @@ class Event231220Controller extends Controller
                 if($key->server_id == 1) {
                     $ice_iteminfo[$i]['id'] = $key->productID;
                     $ice_iteminfo[$i]['price'] = $key->price;
-                    $buy_cnt = Event231220_buylog::where([['created_at', '>=', date('Y-m-d').' 16:00:00'],['created_at', '<=', date('Y-m-d').' 20:00:00'],['server_id', '=', 1],['productID', '=', $key->productID]])->count();
+                    $buy_cnt = Event231220_buylog::where([['created_at', '>=', date('Y-m-d').' 18:00:00'],['created_at', '<=', date('Y-m-d').' 22:00:00'],['server_id', '=', 1],['productID', '=', $key->productID]])->count();
                     $ice_iteminfo[$i]['quantity'] = $key->limit_cnt - $buy_cnt;
                     $i++;
                 }
                 if($key->server_id == 2) {
                     $black_iteminfo[$j]['id'] = $key->productID;
                     $black_iteminfo[$j]['price'] = $key->price;
-                    $buy_cnt = Event231220_buylog::where([['created_at', '>=', date('Y-m-d').' 16:00:00'],['created_at', '<=', date('Y-m-d').' 20:00:00'],['server_id', '=', 2],['productID', '=', $key->productID]])->count();
+                    $buy_cnt = Event231220_buylog::where([['created_at', '>=', date('Y-m-d').' 18:00:00'],['created_at', '<=', date('Y-m-d').' 22:00:00'],['server_id', '=', 2],['productID', '=', $key->productID]])->count();
                     $black_iteminfo[$j]['quantity'] = $key->limit_cnt - $buy_cnt;
                     $j++;
                 }
@@ -140,8 +140,8 @@ class Event231220Controller extends Controller
             $real_ip = $_SERVER["REMOTE_ADDR"];
         }
 
-        if((date('Ymd') >= '20231214')&&(date('Ymd') <= '20231219')) {
-            if((date('His') >= '160000')&&(date('His') < '200000')) {
+        if((date('Ymd') >= '20231220')&&(date('Ymd') <= '20231225')) {
+            if((date('His') >= '180000')&&(date('His') < '220000')) {
                 $time = 'y';
             } else {
                 $time = 'n';
@@ -185,7 +185,7 @@ class Event231220Controller extends Controller
         }
 
         if($item_info->server_id != 0) {
-            $buy_cnt = Event231220_buylog::where([['created_at', '>=', date('Y-m-d').' 16:00:00'],['created_at', '<=', date('Y-m-d').' 20:00:00'],['productID', '=', $item_info->productID]])->count();
+            $buy_cnt = Event231220_buylog::where([['created_at', '>=', date('Y-m-d').' 18:00:00'],['created_at', '<=', date('Y-m-d').' 22:00:00'],['productID', '=', $item_info->productID]])->count();
             if ($buy_cnt >= $item_info->limit_cnt) {
                 return response()->json([
                     'status' => -97,

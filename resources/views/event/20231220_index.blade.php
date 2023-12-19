@@ -71,7 +71,7 @@
             <p class="blue">持有點數</p>
             <p class="point"></p>
         </div>
-        <a href="https://www.digeam.com/logout" class="ball_a">
+        <a href="javascript:logout_dg();" class="ball_a">
             <div class="ball_logout">登出</div>
         </a>
         @else
@@ -328,7 +328,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-<script src="js/event/20231220/main.js?v=1.0.10"></script>
+<script src="js/event/20231220/main.js?v=1.0.11"></script>
 <script src="js/event/20231220/view.js?v=1.0.1"></script>
 
 </html>

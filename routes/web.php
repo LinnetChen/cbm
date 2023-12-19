@@ -75,11 +75,7 @@ Route::middleware(['setReturnUrl'])->group(function () {
     Route::get('/giftSearch/{year}/{month}/{keyword?}', 'front\FrontController@giftSearch');
 
     Route::get('/20231220',function(){
-        if ($_SERVER["HTTP_CF_CONNECTING_IP"] == '211.23.144.219') {
-            return view('event/20231220_index');
-        } else {
-            return redirect('https://cbo.digeam.com/');
-        }
+        return view('event/20231220_index');
     });
 });
 Route::get('/OBT', function () {

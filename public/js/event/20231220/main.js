@@ -40,9 +40,9 @@ var resbuy = {
 
 
 // 登出
-$('.ball_logout').on("click", function logout_dg() {
+function logout_dg() {
     $("#logout-form").submit();
-});
+}
 
 
 // var user = "skyfull0411";
