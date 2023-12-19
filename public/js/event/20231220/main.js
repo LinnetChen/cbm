@@ -359,7 +359,7 @@ $('.history').on("click", function () {
         user: user,
     }, function (_res) {
         var res = _res;
-        let res = resbuy_recode;
+        // let res = resbuy_recode;
         if (res.status == -99) {
             $(".mask").fadeIn();
             $(".pop_s").fadeIn();
