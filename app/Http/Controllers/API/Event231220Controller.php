@@ -250,6 +250,7 @@ class Event231220Controller extends Controller
         }
         $buy_log = Event231220_buylog::where([['user_id', '=', $request->user]])->orderby('created_at','desc')->get();
         $i = 0;
+        $list = null;
         foreach ($buy_log as $key) {
             $list[$i]['name'] = $key->itemname;
             $list[$i]['price'] = $key->price;
