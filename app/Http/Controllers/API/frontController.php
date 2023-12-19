@@ -756,8 +756,8 @@ class frontController extends Controller
         $client = new Client();
         $data = [
             "userId" => 'jacky0996',
-            "itemIdx" => 2709,
-            "itemOpt" => 14593,
+            "itemIdx" => 632,
+            "itemOpt" => 0,
             "durationIdx" => 0,
             "prdId" => 1288,
             'tranNo' => $tranNo,
