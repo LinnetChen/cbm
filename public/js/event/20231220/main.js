@@ -366,12 +366,12 @@ function buy(i) {
 
 //購買紀錄
 $('.history').on("click", function () {
-    $.post(data_api, {
-        type: "buy_recode",
-        user: user,
-    }, function (_res) {
-        var res = _res;
-        // let res = resbuy_recode;
+    // $.post(data_api, {
+    //     type: "buy_recode",
+    //     user: user,
+    // }, function (_res) {
+    //     var res = _res;
+        let res = resbuy_recode;
         if (res.status == -99) {
             $(".mask").fadeIn();
             $(".pop_s").fadeIn();
@@ -381,10 +381,8 @@ $('.history').on("click", function () {
             </p>`
             );
         } else if (res.status == 1) {
+            if(res.list){
             $(".mask").fadeIn();
-            $(".pop").fadeIn();
-            $(".pop_wrap").html(
-                `<div class="pop_title">購買紀錄</div>`);
             let str = "";
             res.list.forEach((i) => {
                 str += `<tr>
@@ -394,6 +392,7 @@ $('.history').on("click", function () {
                  <td>${i.date}</td>
              </tr>`;
             });
+            $(".pop").fadeIn();
             $(".pop_wrap").html(
                 `<div class="pop_title">購買紀錄</div>
                 <div class="pop_content">
@@ -410,10 +409,20 @@ $('.history').on("click", function () {
                        `+ str + `
                     </tbody>
                 </table>
-                </div>`)
+                </div>`);
+            }else{
+                $(".mask").fadeIn();
+                $(".pop_s").fadeIn();
+                $(".pop_s").find(".pop_wrap").html(
+                    `<p>
+                    尚無購買紀錄。
+                </p>`
+                );
+            }
         }
     })
-});
+// })
+;
 
 //刷新賣場
 $('.refresh_btn').on("click", function () {
