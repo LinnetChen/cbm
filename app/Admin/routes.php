@@ -34,4 +34,6 @@ Route::group([
     $router->resource('gift_get_log', 'GiftGetLogController');
     //CCU
     $router->resource('/ccu', 'CCUController');
+    //Event231220
+    $router->resource('/event231220', 'Event231220Controller');
 });
