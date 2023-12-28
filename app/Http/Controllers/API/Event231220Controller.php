@@ -56,14 +56,22 @@ class Event231220Controller extends Controller
                     $ice_iteminfo[$i]['id'] = $key->productID;
                     $ice_iteminfo[$i]['price'] = $key->price;
                     $buy_cnt = Event231220_buylog::where([['created_at', '>=', date('Y-m-d').' 18:00:00'],['created_at', '<=', date('Y-m-d').' 22:00:00'],['server_id', '=', 1],['productID', '=', $key->productID]])->count();
-                    $ice_iteminfo[$i]['quantity'] = $key->limit_cnt - $buy_cnt;
+                    if(($key->limit_cnt - $buy_cnt) < 0) {
+                        $ice_iteminfo[$i]['quantity'] = 0;
+                    } else {
+                        $ice_iteminfo[$i]['quantity'] = $key->limit_cnt - $buy_cnt;
+                    }
                     $i++;
                 }
                 if($key->server_id == 2) {
                     $black_iteminfo[$j]['id'] = $key->productID;
                     $black_iteminfo[$j]['price'] = $key->price;
                     $buy_cnt = Event231220_buylog::where([['created_at', '>=', date('Y-m-d').' 18:00:00'],['created_at', '<=', date('Y-m-d').' 22:00:00'],['server_id', '=', 2],['productID', '=', $key->productID]])->count();
-                    $black_iteminfo[$j]['quantity'] = $key->limit_cnt - $buy_cnt;
+                    if(($key->limit_cnt - $buy_cnt) < 0) {
+                        $black_iteminfo[$j]['quantity'] = 0;
+                    } else {
+                        $black_iteminfo[$j]['quantity'] = $key->limit_cnt - $buy_cnt;
+                    }
                     $j++;
                 }
                 if($key->server_id == 0) {

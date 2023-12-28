@@ -60,7 +60,7 @@
         <td colspan="3">終止會員合約</td>
     </tr>
     <tr>
-        <td colspan="2">惡意妨礙他人進行遊</td>
+        <td colspan="2">惡意妨礙他人進行遊戲</td>
         <td colspan="3">依照個案處理</td>
     </tr>
     <tr>
