@@ -154,7 +154,7 @@ class FrontController extends Controller
     }
     public function suspension_list()
     {
-        $list = suspension::orderBy('created_at', 'desc')->paginate(8);
+        $list = suspension::orderBy('created_at', 'desc')->paginate(20);
         return view('front.suspension_list', [
             'list' => $list,
         ]);
@@ -186,7 +186,7 @@ class FrontController extends Controller
             }
             $giftCreate = giftCreate::where('id', $id)->first();
             $giftGroup = giftGroup::where('gift_id', $id)->get();
-            $repeat = [16, 17, 18, 19, 28, 30, 31,36,37,38,39];
+            $repeat = [16, 17, 18, 19, 28, 30, 31, 36, 37, 38, 39];
             if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null) {
                 foreach ($giftGroup as $key => $value) {
                     if (!in_array($value['id'], $repeat)) {

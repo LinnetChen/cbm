@@ -26,15 +26,14 @@ tr {
     color: black;
     font-weight: bold;
 }
-.text_box{
+.text_box {
     width: 820px;
 }
-.content_box{
+.content_box {
     width: 820px;
-    height: 500px;
-
+    height: 1500px;
 }
-.name{
+.name {
     color: #83d0ff;
 }
 /*頁碼*/
@@ -60,6 +59,7 @@ tr {
     text-decoration: none;
 }
 
-.page-item.disabled,.page-item.active {
+.page-item.disabled,
+.page-item.active {
     color: #83d0ff;
 }
