@@ -183,7 +183,7 @@ class frontController extends Controller
                 $setDay = Carbon::now()->format('Ymd');
                 $client = new Client();
                 $data = [
-                    "startDate" => '20231226',
+                    "startDate" => $setDay,
                     "endDate" => $setDay,
                     "userNum" => $result->data->userNum,
                 ];
@@ -234,7 +234,7 @@ class frontController extends Controller
                         ]);
                     }else{
                         $check_bouns = giftGetLog::where('gift', $request->gift_id)->whereBetween('created_at', [date('Y-m-d 00:00:00'), date('Y-m-d 23:59:59')])->count();
-                        if($check_bouns<30){
+                        if($check_bouns<3){
                             frontController::custom_send_item($_COOKIE['StrID'], $request->gift_id, $real_ip, 5657, 20975364, 0, 1288, 5);
                         }
                     }
@@ -378,7 +378,7 @@ class frontController extends Controller
                 }            
             }
             // 計算10領一次
-            $canGet = floor($total / 10);
+            $canGet = floor($total / 20);
             $already_get_count = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->sum('count');
             if ($already_get_count >= $canGet) {
                 return response()->json([
@@ -417,7 +417,7 @@ class frontController extends Controller
             $setDay = Carbon::now()->format('Ymd');
             $client = new Client();
             $data = [
-                "startDate" => '20231226',
+                "startDate" => '20231229',
                 "endDate" => $setDay,
                 "userNum" => $result->data->userNum,
             ];
@@ -434,7 +434,7 @@ class frontController extends Controller
             $result = $res->getBody();
             $result = json_decode($result);
             $total = 0;
-            $setArray = [20231226,20231227,20231228,20231229,20231230,20231231,20240101];
+            $setArray = [20231229,20231230,20231231,20240101];
             $vipItem = ['練功幫手','奪寶大師','白金服務','白金之翼','練功大師'];
             foreach($setArray as $value){
                 if(isset($result->data->list->{$value})){
@@ -461,6 +461,14 @@ class frontController extends Controller
             if ($canGet <= $alreadyGet) {
                 return response()->json([
                     'status' => -90,
+                ]);
+            }else{
+                $run = $canGet - $alreadyGet;
+                for($i = 0;$i <$run;$i++){
+                    frontController::giftSendItem($_COOKIE['StrID'], $request->gift_id, $real_ip);
+                }
+                return response()->json([
+                    'status' => 1,
                 ]);
             }
         } 
@@ -1053,8 +1061,8 @@ class frontController extends Controller
     //     $client = new Client();
     //     $data = [
     //         "userId" => 'jacky0996',
-    //         "itemIdx" => 632,
-    //         "itemOpt" => 0,
+    //         "itemIdx" => 33559311,
+    //         "itemOpt" => 500,
     //         "durationIdx" => 0,
     //         "prdId" => 1288,
     //         'tranNo' => $tranNo,
@@ -1070,71 +1078,6 @@ class frontController extends Controller
     //         'json' => $data,
     //     ]);
     // }
-    public function free_send_item(Request $request)
-    {
-        $client = new Client(['verify' => false]);
-        $res = $client->request('GET', 'http://c1twapi.global.estgames.com/user/getUserDetailByUserId?userId=' .  $request->user_id);
-        $result = $res->getBody();
-        $result = json_decode($result);
-        $setDay = Carbon::now()->format('Ymd');
-        $client = new Client();
-        $data = [
-            "startDate" => '20231226',
-            "endDate" => $setDay,
-            "userNum" => $result->data->userNum,
-        ];
 
-        $headers = [
-            'Content-Type' => 'application/json',
-            'Accept' => 'application/json',
-        ];
-
-        $res = $client->request('POST', 'http://c1twapi.global.estgames.com/cash/getCashConsumptionLogDetail', [
-            'headers' => $headers,
-            'json' => $data,
-        ]);
-        $result = $res->getBody();
-        $result = json_decode($result);
-        $total = 0;
-        $setArray = [20231226,20231227,20231228,20231229,20231230,20231231,20240101];
-        $vipItem = ['練功幫手','奪寶大師','白金服務','白金之翼','練功大師'];
-        $already_buy = [];
-        foreach($setArray as $value){
-            if(isset($result->data->list->{$value})){
-                foreach($result->data->list->{$value} as $value_2){
-                    if( $value_2->logName == 'consumption'){
-                        $add = true;
-                        // 檢查是否VIP道具
-                        foreach($vipItem as $value_3){
-                            if(strpos($value_2->itemName,$value_3) !== false){
-                                $add = false;
-                                break;
-                            }
-                        }
-                        if($add == true){
-                            $total+=$value_2->cashAmount;
-                        }
-                    }
-                }
-            }            
-        }
-        if($total < 24){
-            return response()->json([
-                'status' => -90,
-            ]);
-        }else{
-            $checkTodayGet = giftGetLog::where('user', $request->user_id)->where('gift', $request->gift_id)->whereBetween('created_at', [date('Y-m-d 00:00:00'), date('Y-m-d 23:59:59')])->first();
-            if ($checkTodayGet) {
-                return response()->json([
-                    'status' => -99,
-                ]);
-            }else{
-                $check_bouns = giftGetLog::where('gift', $request->gift_id)->whereBetween('created_at', [date('Y-m-d 00:00:00'), date('Y-m-d 23:59:59')])->count();
-                if($check_bouns<30){
-                    frontController::custom_send_item($request->user_id, $request->gift_id, $real_ip, 5657, 20975364, 0, 1288, 5);
-                }
-            }
-        }
-    }
 
 }
