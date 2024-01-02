@@ -33,7 +33,7 @@ class CkeditorUploadController extends Controller
         return "<script>alert('上傳成功')</script>";
     }
     public function getImage(){
-        $imgUpload = imgUpload::get();
+        $imgUpload = imgUpload::orderby('id','desc')->get();
         return response()->json(['imgUpload' => $imgUpload]);
     }
     public function delCKEImg(Request $request){
