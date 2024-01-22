@@ -13,7 +13,7 @@
             <a>
                 <div class="download"></div>
             </a>
-            <a href="https://www.digeam.com/register_cbo">
+            <a href="https://www.digeam.com/register">
                 <div class="btn"><img src="img/home_page/icon_rgister.png">帳號註冊</div>
             </a>
             <a href="https://www.digeam.com/member/billing">

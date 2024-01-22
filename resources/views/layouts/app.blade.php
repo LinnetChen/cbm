@@ -60,7 +60,7 @@
             <a href="{{ route('game') }}">下載專區</a>
             {{-- <a href="" >國家戰爭</a> --}}
             <a href="{{ route('gift') }}">獎勵專區</a>
-            <a href="https://www.digeam.com/register_cbo">會員中心</a>
+            <a href="https://www.digeam.com/register">會員中心</a>
         </div>
         <div class="icon_menu">
             <a href="https://discord.com/invite/YyPkJrwqvs" target="_blank"><img
@@ -89,7 +89,7 @@
                 <a href="{{ route('number_exchange') }}">序號兌換</a>
             </div>
             <div class="menu_box_s">
-                <a href="https://www.digeam.com/register_cbo">註冊會員</a>
+                <a href="https://www.digeam.com/register">註冊會員</a>
                 <a href="https://www.digeam.com/member/billing">儲值中心</a>
                 <a href="https://www.digeam.com/cs/faq">FAQ</a>
                 <a href="{{ route('game_religion') }}">遊戲規章</a>

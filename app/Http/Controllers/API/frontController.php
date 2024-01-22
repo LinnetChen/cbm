@@ -162,7 +162,7 @@ class frontController extends Controller
             ]);
         }
         // 確認是否領過,排除可重複領取的
-        $repeat = [16, 17, 18, 19, 28, 30, 31,36,37,38,39];
+        $repeat = [16, 17, 18, 19, 28, 30, 31, 36, 37, 38, 39];
 
         if (!in_array($request->gift_id, $repeat)) {
             $check = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->first();
@@ -174,25 +174,32 @@ class frontController extends Controller
         }
         // 以下領獎邏輯撰寫
         // 2024每日最速傳說
-        if($request->gift_id == 39){
+        if ($request->gift_id == 39) {
             {
+                //時間限制
+                if ($setDay >= Carbon::today()->startOfDay() && $setDay <= Carbon::today()->startOfDay()->addMinutes(10)) {
+                    return response()->json([
+                        'status' => -98,
+                    ]);
+                }
+                
                 $client = new Client(['verify' => false]);
-                $res = $client->request('GET', 'http://c1twapi.global.estgames.com/user/getUserDetailByUserId?userId=' .  $_COOKIE['StrID']);
+                $res = $client->request('GET', 'http://c1twapi.global.estgames.com/user/getUserDetailByUserId?userId=' . $_COOKIE['StrID']);
                 $result = $res->getBody();
                 $result = json_decode($result);
                 $setDay = Carbon::now()->format('Ymd');
                 $client = new Client();
                 $data = [
-                    "startDate" => $setDay,
+                    "startDate" => 20240102,
                     "endDate" => $setDay,
                     "userNum" => $result->data->userNum,
                 ];
-        
+
                 $headers = [
                     'Content-Type' => 'application/json',
                     'Accept' => 'application/json',
                 ];
-        
+
                 $res = $client->request('POST', 'http://c1twapi.global.estgames.com/cash/getCashConsumptionLogDetail', [
                     'headers' => $headers,
                     'json' => $data,
@@ -200,41 +207,40 @@ class frontController extends Controller
                 $result = $res->getBody();
                 $result = json_decode($result);
                 $total = 0;
-                $setArray = [20231226,20231227,20231228,20231229,20231230,20231231,20240101];
-                $vipItem = ['練功幫手','奪寶大師','白金服務','白金之翼','練功大師'];
+                $vipItem = ['練功幫手', '奪寶大師', '白金服務', '白金之翼', '練功大師'];
                 $already_buy = [];
-                foreach($setArray as $value){
-                    if(isset($result->data->list->{$value})){
-                        foreach($result->data->list->{$value} as $value_2){
-                            if( $value_2->logName == 'consumption'){
+                for ($i = 0; $i < 22; $i++) {
+                    if (isset($result->data->list->{20240102 + $i}) && (20240102 + $i) == $setDay) {
+                        foreach ($result->data->list->{20240102 + $i} as $value_2) {
+                            if ($value_2->logName == 'consumption') {
                                 $add = true;
                                 // 檢查是否VIP道具
-                                foreach($vipItem as $value_3){
-                                    if(strpos($value_2->itemName,$value_3) !== false){
+                                foreach ($vipItem as $value_3) {
+                                    if (strpos($value_2->itemName, $value_3) !== false) {
                                         $add = false;
                                         break;
                                     }
                                 }
-                                if($add == true){
-                                    $total+=$value_2->cashAmount;
+                                if ($add == true) {
+                                    $total += $value_2->cashAmount;
                                 }
                             }
                         }
-                    }            
+                    }
                 }
-                if($total < 24){
+                if ($total < 24) {
                     return response()->json([
                         'status' => -90,
                     ]);
-                }else{
+                } else {
                     $checkTodayGet = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->whereBetween('created_at', [date('Y-m-d 00:00:00'), date('Y-m-d 23:59:59')])->first();
                     if ($checkTodayGet) {
                         return response()->json([
                             'status' => -99,
                         ]);
-                    }else{
-                        $check_bouns = giftGetLog::where('gift', $request->gift_id)->whereBetween('created_at', [date('Y-m-d 00:00:00'), date('Y-m-d 23:59:59')])->count();
-                        if($check_bouns<3){
+                    } else {
+                        $check_bouns = giftGetLog::where('gift', $request->gift_id)->where('gift_item', '加贈5枚2024遨龍代幣')->whereBetween('created_at', [date('Y-m-d 00:00:00'), date('Y-m-d 23:59:59')])->count();
+                        if ($check_bouns < 30) {
                             frontController::custom_send_item($_COOKIE['StrID'], $request->gift_id, $real_ip, 5657, 20975364, 0, 1288, 5);
                         }
                     }
@@ -242,25 +248,24 @@ class frontController extends Controller
             }
         }
         // 2024遨龍代幣
-        if($request->gift_id ==38)    
-        {
+        if ($request->gift_id == 38) {
             $client = new Client(['verify' => false]);
-            $res = $client->request('GET', 'http://c1twapi.global.estgames.com/user/getUserDetailByUserId?userId=' .  $_COOKIE['StrID']);
+            $res = $client->request('GET', 'http://c1twapi.global.estgames.com/user/getUserDetailByUserId?userId=' . $_COOKIE['StrID']);
             $result = $res->getBody();
             $result = json_decode($result);
             $setDay = Carbon::now()->format('Ymd');
             $client = new Client();
             $data = [
-                "startDate" => '20231226',
+                "startDate" => 20240102,
                 "endDate" => $setDay,
                 "userNum" => $result->data->userNum,
             ];
-    
+
             $headers = [
                 'Content-Type' => 'application/json',
                 'Accept' => 'application/json',
             ];
-    
+
             $res = $client->request('POST', 'http://c1twapi.global.estgames.com/cash/getCashConsumptionLogDetail', [
                 'headers' => $headers,
                 'json' => $data,
@@ -268,33 +273,32 @@ class frontController extends Controller
             $result = $res->getBody();
             $result = json_decode($result);
             $total = 0;
-            $setArray = [20231226,20231227,20231228,20231229,20231230,20231231,20240101];
-            $vipItem = ['練功幫手','奪寶大師','白金服務','白金之翼','練功大師'];
+            $vipItem = ['練功幫手', '奪寶大師', '白金服務', '白金之翼', '練功大師'];
             $already_buy = [];
-            foreach($setArray as $value){
-                if(isset($result->data->list->{$value})){
-                    foreach($result->data->list->{$value} as $value_2){
-                        if( $value_2->logName == 'consumption'){
+            for ($i = 0; $i < 22; $i++) {
+                if (isset($result->data->list->{20240102 + $i})) {
+                    foreach ($result->data->list->{20240102 + $i} as $value_2) {
+                        if ($value_2->logName == 'consumption') {
                             $add = true;
                             // 檢查是否VIP道具
-                            foreach($vipItem as $value_3){
-                                if(strpos($value_2->itemName,$value_3) !== false){
+                            foreach ($vipItem as $value_3) {
+                                if (strpos($value_2->itemName, $value_3) !== false) {
                                     $add = false;
                                     break;
                                 }
                             }
-                            if($add == true){
-                                $total+=$value_2->cashAmount;
+                            if ($add == true) {
+                                $total += $value_2->cashAmount;
                             }
                         }
                     }
-                }            
+                }
             }
             // 計算100領一次
             $canGet = floor($total / 100);
             // 計算共領了多少,並判斷是否能繼續領
             $already_get_count = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->sum('count');
-    
+
             if ($already_get_count >= $canGet) {
                 return response()->json([
                     'status' => -90,
@@ -321,30 +325,29 @@ class frontController extends Controller
                     return response()->json([
                         'status' => 1,
                     ]);
-    
+
                 }
             }
         }
         //2024的祝福
-        if($request->gift_id ==37)
-        {
+        if ($request->gift_id == 37) {
             $client = new Client(['verify' => false]);
-            $res = $client->request('GET', 'http://c1twapi.global.estgames.com/user/getUserDetailByUserId?userId=' .  $_COOKIE['StrID']);
+            $res = $client->request('GET', 'http://c1twapi.global.estgames.com/user/getUserDetailByUserId?userId=' . $_COOKIE['StrID']);
             $result = $res->getBody();
             $result = json_decode($result);
             $setDay = Carbon::now()->format('Ymd');
             $client = new Client();
             $data = [
-                "startDate" => '20231226',
+                "startDate" => 20240102,
                 "endDate" => $setDay,
                 "userNum" => $result->data->userNum,
             ];
-    
+
             $headers = [
                 'Content-Type' => 'application/json',
                 'Accept' => 'application/json',
             ];
-    
+
             $res = $client->request('POST', 'http://c1twapi.global.estgames.com/cash/getCashConsumptionLogDetail', [
                 'headers' => $headers,
                 'json' => $data,
@@ -352,32 +355,31 @@ class frontController extends Controller
             $result = $res->getBody();
             $result = json_decode($result);
             $total = 0;
-            $setArray = [20231226,20231227,20231228,20231229,20231230,20231231,20240101];
-            $vipItem = ['練功幫手','奪寶大師','白金服務','白金之翼','練功大師','力量晶石'];
+            $vipItem = ['練功幫手', '奪寶大師', '白金服務', '白金之翼', '練功大師', '力量晶石組合包'];
             $already_buy = [];
-            foreach($setArray as $value){
-                if(isset($result->data->list->{$value})){
-                    foreach($result->data->list->{$value} as $value_2){
-                        if( $value_2->logName == 'consumption'){
+            for ($i = 0; $i < 22; $i++) {
+                if (isset($result->data->list->{20240102 + $i})) {
+                    foreach ($result->data->list->{20240102 + $i} as $value_2) {
+                        if ($value_2->logName == 'consumption') {
                             $add = true;
                             // 檢查是否VIP道具
-                            foreach($vipItem as $value_3){
-                                if(strpos($value_2->itemName,$value_3) !== false){
+                            foreach ($vipItem as $value_3) {
+                                if (strpos($value_2->itemName, $value_3) !== false) {
                                     $add = false;
                                     break;
                                 }
                             }
-                            if($add == true){
-                                if(!in_array($value_2->itemName,$already_buy)){
-                                    array_push($already_buy,$value_2->itemName);
-                                    $total+=$value_2->itemPrice;
+                            if ($add == true) {
+                                if (!in_array($value_2->itemName, $already_buy)) {
+                                    array_push($already_buy, $value_2->itemName);
+                                    $total += $value_2->itemPrice;
                                 }
                             }
                         }
                     }
-                }            
+                }
             }
-            // 計算10領一次
+            // 計算20領一次
             $canGet = floor($total / 20);
             $already_get_count = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->sum('count');
             if ($already_get_count >= $canGet) {
@@ -392,24 +394,24 @@ class frontController extends Controller
                     $totalRound = floor($thisTimeGet / 999);
                     $remainder = $thisTimeGet % 999;
                     for ($i = 0; $i < $totalRound; $i++) {
-                        frontController::custom_send_item($_COOKIE['StrID'], $request->gift_id, $real_ip,33560062, 999, 0, 1288, 999);
+                        frontController::custom_send_item($_COOKIE['StrID'], $request->gift_id, $real_ip, 33560062, 999, 0, 1288, 999);
                     }
-                    frontController::custom_send_item($_COOKIE['StrID'], $request->gift_id, $real_ip,33560062, $remainder, 0, 1288, $remainder);
+                    frontController::custom_send_item($_COOKIE['StrID'], $request->gift_id, $real_ip, 33560062, $remainder, 0, 1288, $remainder);
                     return response()->json([
                         'status' => 1,
                     ]);
                 } else {
                     // 道具堆疊問題,未滿999使用以下
-                    frontController::custom_send_item($_COOKIE['StrID'], $request->gift_id, $real_ip,33560062, $thisTimeGet, 0, 1288, $thisTimeGet);
+                    frontController::custom_send_item($_COOKIE['StrID'], $request->gift_id, $real_ip, 33560062, $thisTimeGet, 0, 1288, $thisTimeGet);
                     return response()->json([
                         'status' => 1,
                     ]);
-    
+
                 }
             }
         }
         //再戰2024
-        if($request->gift_id ==36){
+        if ($request->gift_id == 36) {
             $client = new Client(['verify' => false]);
             $res = $client->request('GET', 'http://c1twapi.global.estgames.com/user/getUserDetailByUserId?userId=' . $_COOKIE['StrID']);
             $result = $res->getBody();
@@ -421,12 +423,12 @@ class frontController extends Controller
                 "endDate" => $setDay,
                 "userNum" => $result->data->userNum,
             ];
-    
+
             $headers = [
                 'Content-Type' => 'application/json',
                 'Accept' => 'application/json',
             ];
-    
+
             $res = $client->request('POST', 'http://c1twapi.global.estgames.com/cash/getCashConsumptionLogDetail', [
                 'headers' => $headers,
                 'json' => $data,
@@ -434,26 +436,26 @@ class frontController extends Controller
             $result = $res->getBody();
             $result = json_decode($result);
             $total = 0;
-            $setArray = [20231229,20231230,20231231,20240101];
-            $vipItem = ['練功幫手','奪寶大師','白金服務','白金之翼','練功大師'];
-            foreach($setArray as $value){
-                if(isset($result->data->list->{$value})){
-                    foreach($result->data->list->{$value} as $value_2){
-                        if( $value_2->logName == 'consumption'){
+            $setArray = [20231229, 20231230, 20231231, 20240101];
+            $vipItem = ['練功幫手', '奪寶大師', '白金服務', '白金之翼', '練功大師'];
+            foreach ($setArray as $value) {
+                if (isset($result->data->list->{$value})) {
+                    foreach ($result->data->list->{$value} as $value_2) {
+                        if ($value_2->logName == 'consumption') {
                             $add = true;
                             // 檢查是否VIP道具
-                            foreach($vipItem as $value_3){
-                                if(strpos($value_2->itemName,$value_3) !== false){
+                            foreach ($vipItem as $value_3) {
+                                if (strpos($value_2->itemName, $value_3) !== false) {
                                     $add = false;
                                     break;
                                 }
                             }
-                            if($add == true){
+                            if ($add == true) {
                                 $total += $value_2->cashAmount;
                             }
                         }
                     }
-                }            
+                }
             }
             // 計算500領一次
             $canGet = floor($total / 500);
@@ -462,43 +464,43 @@ class frontController extends Controller
                 return response()->json([
                     'status' => -90,
                 ]);
-            }else{
+            } else {
                 $run = $canGet - $alreadyGet;
-                for($i = 0;$i <$run;$i++){
+                for ($i = 0; $i < $run; $i++) {
                     frontController::giftSendItem($_COOKIE['StrID'], $request->gift_id, $real_ip);
                 }
                 return response()->json([
                     'status' => 1,
                 ]);
             }
-        } 
+        }
         // 12/13 - 01/02 MyCard「 I'm 饋Card」
         if ($request->gift_id == 34) {
-                    $client = new Client();
-                    $data = [
-                        'user_id' => $_COOKIE['StrID'],
-                        'start' => $check_gift['start'],
-                        'end' => $check_gift['end'],
-                        'proCode' => 'E8180',
-                    ];
-        
-                    $headers = [
-                        'Content-Type' => 'application/json',
-                        'Accept' => 'application/json',
-                    ];
-        
-                    $res = $client->request('POST', 'https://webapi.digeam.com//cbo/get_myCard_record', [
-                        'headers' => $headers,
-                        'json' => $data,
-                    ]);
-                    $result = $res->getBody();
-                    $result = json_decode($result);
-                    $alreadyGet = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->first();
-                    if ($result == 0 || $alreadyGet) {
-                        return response()->json([
-                            'status' => -90,
-                        ]);
-                    }
+            $client = new Client();
+            $data = [
+                'user_id' => $_COOKIE['StrID'],
+                'start' => $check_gift['start'],
+                'end' => $check_gift['end'],
+                'proCode' => 'E8180',
+            ];
+
+            $headers = [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+            ];
+
+            $res = $client->request('POST', 'https://webapi.digeam.com//cbo/get_myCard_record', [
+                'headers' => $headers,
+                'json' => $data,
+            ]);
+            $result = $res->getBody();
+            $result = json_decode($result);
+            $alreadyGet = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->first();
+            if ($result == 0 || $alreadyGet) {
+                return response()->json([
+                    'status' => -90,
+                ]);
+            }
         }
         // 聖誕感恩大回饋-百元儲值回饋幣(可重複領)
         if ($request->gift_id == 30) {
@@ -556,7 +558,7 @@ class frontController extends Controller
         }
         // 聖誕感恩大回饋-改版預備每日禮(一天領一次)
         if ($request->gift_id == 31) {
-            
+
             return response()->json([
                 'status' => -98,
             ]);
@@ -565,7 +567,7 @@ class frontController extends Controller
             $data = [
                 'user_id' => $_COOKIE['StrID'],
                 'start' => date('Y-m-d 00:00:00'),
-                'end' =>  date('Y-m-d 23:59:59'),
+                'end' => date('Y-m-d 23:59:59'),
             ];
 
             $headers = [
@@ -1003,7 +1005,7 @@ class frontController extends Controller
             'json' => $data,
         ]);
         // 撰寫紀錄
-        if($gift_id == 39 && $count == 5){
+        if ($gift_id == 39 && $count == 5) {
             $getItem['title'] = '加贈5枚2024遨龍代幣';
         }
         $newLog = new giftGetLog();
@@ -1017,41 +1019,85 @@ class frontController extends Controller
     }
     // public function free_send_item()
     // {
+    //     $client = new Client(['verify' => false]);
+    //     $res = $client->request('GET', 'http://c1twapi.global.estgames.com/user/getUserDetailByUserId?userId=' . 'poop778899');
+    //     $result = $res->getBody();
+    //     $result = json_decode($result);
+    //     $setDay = Carbon::now()->format('Ymd');
+    //     $client = new Client();
+    //     $data = [
+    //         "startDate" => 20240102,
+    //         "endDate" => $setDay,
+    //         "userNum" => $result->data->userNum,
+    //     ];
 
-    //     // $getItem = giftContent::where('gift_group_id', $gift_id)->get();
-    //     $array = ['jacky0996', 'maik780102', 'billy1993a', 'mariofunm2', 's26994318', 'nmes1696', 'sakutofu1128', 'mm2212365', 'hdes93214a', 'a0985505067', 'syuan800523', 'jumpsquare0724', 'q2325025', 'eyes7463', 'karta404539', 'turtle800523', 'nay121800360', 'j84572004', 'mirror1225', 'q0932960355', 'zhouhank0957', 'edcsf95123', 'nay121800351', 'leo19921203', 'hk090909', 'jong630214', 'therock33440011', 'a5527440', 'hazy2000', 'wenzhe0804', 'zz600425zz', 'qa930087', 'k3617531', 'a28123125', 'allen7537', 'coco4498', 'folee101', 'k0824412', 'kendal7478', 'qaz333513', 'qq20009044', 'charel1218', 'tw00610060', 'cityhunterman520', 'l134872393', 'as4545532', 'like2044', 'a59003111', 'abc0939330488', 'do10212000', 'wdy0413605', 'chu780611', 'loveai6z83', 'maik780102jp', 'cc0923871883', 'aas1108saa', 'ivanpun0710', 'z22287941', 'asd565599', 'andy52057q', 'mika520520', 'jpkid20000', 's0965phaa', 'abc125556', 'img52wacai', 'vic212410', 'loveomg220', 'zxc841212', 'q95304025', 'zmxncbv0302', 'a0808967', 'eee220046111', 'bill83620', 'black168', 'a7867575', 'kyhuang0907', 'd32893540', 'aspirin0929', 'a0983960837', 'a0931056202', 'lewismok92', 'ztsc84131', 'dragonmice7', 'semile513513', 'rose0378', 'l0962072575', 'momo72886', 'marswinnie521', 'a62604029', 'zx44564567', 'kevin800403', 'wei19870421', 'dumpiling52031', 'samiazuk1964', 'snoppy0717', 'as0922529137', 'bigpig1991', 'cbgvf70885', 'love8154623', 'f45001232', 'hero1020', 'xcbaz882650', 'power456852', 'mobetaw75483', 'gucci0812', 'nctui510322', 'a35713076', 'a7582422', 'j8001177', 'tony9453', 'cyh851218', 'pig89006', 'a123556601', 'hiuire123', 'sheng2023', 'power810301', 'tom333498', 'yes23556', 'qqw6595626', 'who179896', 'cr4zymist', 'jason40402p', 'a0a6aa14', 'jie0988072177', 't2648371', 'a55778964', 'han840530', 'mye23054', 'phosen05339', 'bloodend623739', 'kitt643960', 'zx0936300132', 'stillpull0430', 'stormbao1', 'dream87108', 'erica26845', 'a0987437629', 'zax0624zax', 'end252003', 'aaa014134', 'andylien2002', 'eantom3325', 'foxonthegrass728', 'peja741852', 'hillx1011', 's0908531922', 'ssss20405', 'a0919273003', 'hao111318', 'obob79226', 'bincry030', 'jooers00', 'a123452594', 'azx22724531', 'shit4ock', 'chr90817', 'ccc8667351', 'iloveyou0927', 'a3296040', 'camille5200', 'aaf4858634', 'dd92nn11', 'jun0907781627', 'smalldog98', 't00293088', 'as580904925889', 'o199705241', 'df4722h111n', 'mkll7802', 'cyhae92216', 'alan10609', 's6533125', 'gaexpa156344', 'wsx85271', 'skince852', 'love811227', 'heyhey5978', 'wenhui1754', 'wuxu1127', 'yanc7lol', 'a456159753', 'zxc19880909', 'love19871225', 'b78945134', 'steve401401', 'lf20654123', 'ben049550', 'trabe79719', 'love01016', 'qaz571121', 'zxc011035', 'ts02066238', 'mocca951', 'undying2060', 'q27091533850', 'r5215love', 'bear51697', 'z5869096', 'a7512393', 'a9037023h', 'liberty052', 'z6986379', 'a0918150070', 'asd59706236', 'yihshiou21', 'ping8868', 'jerryhung8338', 'aaaa800276', 'aa830911', 'jack818818', 'bill1358', 'ayu11506', 'zhan19980814', 'rong1688', 'jack82731pk', 'z0915606711', 'zk579qwe', 'a654159753', 'hamster051', 'assam1231', 'kuskus900628', 'joezxc620914', 'kennychen1977', 'mjbpjcmt1', 'a121723578', 'qwe222423', 'eric0749', 's58806098', 'smallfe0623', 'ahyang91', 'as00597805', 'skyyong8', 'leo60110131347'];
-    //     foreach ($array as $value) {
-    //         $count_number_log = giftGetLog::count();
-    //         $tranNo = 'gift-' . 0 . '-' . $count_number_log . date('YmdHis');
-    //         $client = new Client();
-    //         $data = [
-    //             "userId" => $value,
-    //             "itemIdx" => 7203,
-    //             "itemOpt" => 300,
-    //             "durationIdx" => 0,
-    //             "prdId" => 1288,
-    //             'tranNo' => $tranNo,
-    //         ];
+    //     $headers = [
+    //         'Content-Type' => 'application/json',
+    //         'Accept' => 'application/json',
+    //     ];
 
-    //         $headers = [
-    //             'Content-Type' => 'application/json',
-    //             'Accept' => 'application/json',
-    //         ];
-
-    //         $res = $client->request('POST', 'http://c1twapi.global.estgames.com/game/give/item/cash', [
-    //             'headers' => $headers,
-    //             'json' => $data,
-    //         ]);
-    //         // 撰寫紀錄
-    //         $newLog = new giftGetLog();
-    //         $newLog->user = $value;
-    //         $newLog->gift = 0;
-    //         $newLog->gift_item = 'Discord頻道全面啟動';
-    //         $newLog->ip = '127.0.0.1';
-    //         $newLog->tranNo = $tranNo;
-    //         $newLog->save();
+    //     $res = $client->request('POST', 'http://c1twapi.global.estgames.com/cash/getCashConsumptionLogDetail', [
+    //         'headers' => $headers,
+    //         'json' => $data,
+    //     ]);
+    //     $result = $res->getBody();
+    //     $result = json_decode($result);
+    //     $total = 0;
+    //     $vipItem = ['練功幫手', '奪寶大師', '白金服務', '白金之翼', '練功大師', '力量晶石組合包'];
+    //     $already_buy = [];
+    //     for ($i = 0; $i < 22; $i++) {
+    //         if (isset($result->data->list->{20240102 + $i})) {
+    //             foreach ($result->data->list->{20240102 + $i} as $value_2) {
+    //                 if ($value_2->logName == 'consumption') {
+    //                     $add = true;
+    //                     // 檢查是否VIP道具
+    //                     foreach ($vipItem as $value_3) {
+    //                         if (strpos($value_2->itemName, $value_3) !== false) {
+    //                             $add = false;
+    //                             break;
+    //                         }
+    //                     }
+    //                     if ($add == true) {
+    //                         if (!in_array($value_2->itemName, $already_buy)) {
+    //                             array_push($already_buy, $value_2->itemName);
+    //                             $total += $value_2->itemPrice;
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //         }
     //     }
+    //     dd($result->data->list,$total);
     // }
+
+    public function free_send_item()
+    {
+
+        $client = new Client();
+        // $data = [
+        //     "masterId"=> 66,
+        //     "userId"=> "jacky0996",
+        // ];
+        $data = [
+            "fromDate"=> "20240117",
+            "toDate"=> "20240117",
+            "userId"=> "jacky0996",
+        ];
+
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ];
+
+        $res = $client->request('POST', 'http://c1twapi.global.estgames.com/event/user/getUserLoginMinuteByDateRange', [
+        // $res = $client->request('POST', 'http://c1twapi.global.estgames.com/coupon/master/give', [
+            'headers' => $headers,
+            'json' => $data,
+        ]);
+        $result = $res->getBody();
+        $result = json_decode($result);
+        dd($result);
+    }
 
     // public function free_send_item()
     // {
@@ -1078,6 +1124,5 @@ class frontController extends Controller
     //         'json' => $data,
     //     ]);
     // }
-
 
 }
