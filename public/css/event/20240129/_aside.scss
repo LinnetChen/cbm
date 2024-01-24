@@ -1,0 +1,81 @@
+.aside {
+    @include fixed-lt(0px, 30%);
+    @extend %bg-contain;
+    @include size(196px, 332px);
+    background-image: url(../../../img/event/20240129/menuBg.png);
+    z-index: 2;
+    @extend %f-c-c;
+    transition: all ease-in-out .5s;
+
+    
+    &.active{
+        transform: translate(-90%,0%);
+    }
+
+    .arrow {
+        @include ab-rt(-22px, 7px);
+        @extend %f-c-c;
+        border: 2px #fff9c8 solid;
+        background-color: #54321d;
+        filter: drop-shadow(0px 0px 3px #734b10);
+
+    }
+
+    .top {
+        text-align: center;
+        // margin: 0 auto;
+        font-size: 30px;
+        color: #fff9c8;
+        margin-top: 30px;
+        margin-right: 11px;
+        &::before {
+            content: '';
+            @extend %bg-contain;
+            @include size(24px, 24px);
+            @include ab-lt(21px, -20px);
+            background-image: url(../../../img/event/20240129/menuUp.png);
+        }
+
+    }
+
+    ul {
+        margin: 0 auto;
+        width: 60%;
+        li {
+            margin-bottom: 30px;
+
+            a {
+                font-size: 28px;
+                color: #fff9c8;
+           
+                &:hover,
+                &.active {
+                    &::before {
+                        content: '';
+                        @extend %bg-contain;
+                        @include size(25px, 20px);
+                        @include ab-lt(44px, -20px);
+                        background-image: url(../../../img/event/20240129/menuArrow.png);
+                    }
+                }
+
+               
+            }
+
+            &:last-child{
+                   margin-bottom: 0; 
+            }
+            
+        }
+    }
+
+
+}
+
+.link{
+    @include fixed-rt(0px, 30%);
+    @extend %bg-contain;
+    @include size(292px, 226px);
+    background-image: url(../../../img/event/20240129/shelterIcon.png);
+    z-index: 2;
+}

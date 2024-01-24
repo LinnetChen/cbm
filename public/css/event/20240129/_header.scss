@@ -1,0 +1,60 @@
+.header {
+    @include size(1920px, 950px);
+    @extend %bg-contain;
+    background-image: url(../../../img/event/20240129/header.png);
+
+    .nav {
+        @include size(100%, 100px);
+        @extend %f-r-c;
+        justify-content: space-between;
+
+        .logo {
+            display: block;
+            @include size(263px, 90px);
+            @extend %bg-contain;
+            background-image: url(../../../img/event/20240129/logo.png);
+        }
+
+        .linkBox {
+            margin-right: 15px;
+            @extend %f-r-c;
+
+            a {
+                display: block;
+                @extend %bg-contain;
+                @include size(51px, 51px);
+            }
+
+            .baha {
+                background-image: url(../../../img/event/20240129/icon_baha.png);
+            }
+
+            .fb {
+                background-image: url(../../../img/event/20240129/icon_fb.png);
+            }
+
+            .discord {
+                background-image: url(../../../img/event/20240129/icon_dc.png);
+            }
+        }
+    }
+
+    .linkBox2 {
+        @include ab-lb(35.5%,120px);
+        @extend %f-r-c;
+        a {
+            margin: 0 20px;
+            @extend %f-r-c;
+            @include size(239px, 91px);
+            @extend %bg-contain;
+            color: $fontTitle;
+            font-size: 30px;
+            letter-spacing: 2px;
+            background-image: url(../../../img/event/20240129/headerBtn.png);
+            transition: all .3s ease-in-out;
+            &:hover{
+                background-image: url(../../../img/event/20240129/headerBtnH.png);
+            }
+        }
+    }
+}
