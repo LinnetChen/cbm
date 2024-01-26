@@ -147,7 +147,7 @@ a {
   text-decoration: none;
 }
 
-.sec02 .contentBox.twoBox, .sec01TabBox button,
+.sec02 .imgBox, .sec02 .contentBox.twoBox, .sec01TabBox button,
 .sec02TabBox button,
 .sec03TabBox button, .sec01TabBox,
 .sec02TabBox,
@@ -547,13 +547,13 @@ a.digeam {
 .sec01Content::before,
 .sec02Content::before,
 .sec03Content::before {
-  top: 5%;
+  top: 75px;
   left: 7%;
 }
 .sec01Content::after,
 .sec02Content::after,
 .sec03Content::after {
-  bottom: 5%;
+  bottom: 75px;
   left: 7%;
 }
 .sec01Content .contentBox,
@@ -679,6 +679,20 @@ a.digeam {
 .sec02 .contentBox .right pre > img {
   vertical-align: -20%;
 }
+.sec02 .imgBox {
+  width: 60%;
+  margin: 15px auto;
+  flex-wrap: wrap;
+}
+.sec02 .imgBox a {
+  margin: 10px 15px;
+}
+.sec02 .imgBox a img {
+  transition: all 0.5s ease-in-out;
+}
+.sec02 .imgBox a img:hover {
+  filter: drop-shadow(0px 0px 10px #b67a4c);
+}
 
 .sec03 {
   height: auto;
@@ -695,7 +709,7 @@ a.digeam {
   font-weight: 400;
 }
 .sec03 .contentBox .title {
-  margin-top: 10%;
+  margin-top: 130px;
 }
 .sec03 .contentBox p {
   text-align: center;
@@ -723,6 +737,7 @@ a.digeam {
 }
 .sec03 ul {
   margin-bottom: 6%;
+  list-style: decimal;
   font-family: "Noto Sans CJK TC";
 }
 .sec03 ul li {
@@ -730,4 +745,7 @@ a.digeam {
   margin: 5px 0;
   color: #6a4127;
   font-size: 17px;
+}
+.sec03 ul li a {
+  color: #ff8a00;
 }/*# sourceMappingURL=style.css.map */

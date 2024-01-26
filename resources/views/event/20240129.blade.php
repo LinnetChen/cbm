@@ -22,7 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vue3-slick-carousel@1.0.6/src/slick-theme.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/event/20240129/style.css">
+    <link rel="stylesheet" href="css/event/20240129/style.css?v11.1">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
 
@@ -45,7 +45,7 @@
         </header>
 
 
-        <aside class="aside" :class="{ active: !aside }" >
+        <aside class="aside" :class="{ active: !aside }">
             <div class="arrow" @click="asideHide()">
                 <img src="img/event/20240129/menuClose.png" alt="">
             </div>
@@ -58,7 +58,7 @@
         </aside>
 
         <aside class="link" v-if="openLink == true">
-            <a href="http://"></a>
+            <a href="https://cbo.digeam.com/20240205"></a>
         </aside>
 
         <section class="sec01" id="sec01">
@@ -70,6 +70,7 @@
             <div class="sec01Content">
 
                 <div class="contentBox center" v-if="tabData[0].type == '01'">
+                    <br>
                     <pre>穹空遺跡首度分割PVP/PVE戰場，玩家可在中央聖殿區域和敵對國家大打出手，</pre>
                     <pre>也可在下層聖殿共同角逐強力增益效果，為各自的國家貢獻一己之力！</pre>
                     <pre>除此之外，還可利用戰場上的草叢隱藏自己的蹤跡，給對手來個突襲Gank！</pre>
@@ -80,10 +81,13 @@
                     <pre>人數限制：100名​</pre>
                     <pre>對戰時間：30分鐘（備戰廳等待時間4分鐘）</pre>​
                     <img src="img/event/20240129/img_field1.jpg" alt="穹空遺跡地圖介紹及說明" class="w70 br">
+                    <br>
                 </div>
                 <div class="contentBox" v-if="tabData[0].type == '02'">
+                    <br>
                     <img src="img/event/20240129/s2Pic2.png" alt="穹空遺跡戰場分布及說明">
                     <p>更多副本詳細資訊請見<a href="https://cbo.digeam.com/wiki/126" target="_blank">穹空遺跡遊戲百科</a></p>
+                    <br>
                 </div>
             </div>
 
@@ -118,13 +122,13 @@
                         <div class="line"></div>
                         <pre>副本名稱：無限試煉</pre>
                         <pre>入場道具：試煉的卷軸<img src="img/event/20240129/s3Roll.png" alt="試煉的卷軸圖示"></pre>
-                        <pre>副本位置：血色冰鋒 (X:66 , Y:22)​</pre>
+                        <pre>副本位置：血色冰峰 (X:66 , Y:22)​</pre>
                         <h2 class="title">副本介紹</h2>
                         <div class="line"></div>
                         <pre>全新爬塔式個人通關賽季副本！</pre>
                         <pre>玩家需在時限內完成指定通關條件，才可進行下一場試煉。</pre>
-                        <pre>越往上走會有越多更兇悍的怪物在等著，賽季結束後將</pre>
-                        <pre>據排名結果告訴大家誰才是真正的前段班玩家！​</pre>
+                        <pre>越往上走會有越多更兇悍的怪物在等著，</pre>
+                        <pre>賽季結束後將根據排名結果告訴大家誰才是真正的前段班玩家！​​</pre>
 
                         <p>更多副本詳細資訊請見<a href="https://cbo.digeam.com/wiki/127" target="_blank">無限試煉遊戲百科</a></p>
                     </div>
@@ -133,15 +137,28 @@
                 <div class="contentBox center" v-if="tabData[1].type == '02'">
                     <h2 class="title">本次開放副本</h2>
                     <div class="line"></div>
-                    <pre>地獄競技場、地下幻影之城(外傳) 、幽靈之地</pre>
-                    <pre>幻影之城-光之殿(外傳)、 遺棄的城市、惡魔之塔(Part2)</pre>
-                    <img src="img/event/20240129/s3PicBox.png" alt="穹空遺跡地圖介紹及說明" class="mt30">
+                    <pre>地獄競技場、地下幻影之城(外傳)、幽靈之地</pre>
+                    <pre>幻影之城-光之殿(外傳)、遺棄的城市、惡魔之塔(Part2)</pre>
+                    <div class="imgBox">
+                        <a href="https://cbo.digeam.com/wiki/143​" target="_blank"><img src="img/event/20240129/s3Pic02.png"
+                                alt="地獄競技場"></a>
+                        <a href="https://cbo.digeam.com/wiki/144" target="_blank"><img src="img/event/20240129/s3Pic03.png"
+                                alt="地下幻影之城(外傳)"></a>
+                        <a href="https://cbo.digeam.com/wiki/145" target="_blank"><img src="img/event/20240129/s3Pic04.png"
+                                alt="幽靈之地"></a>
+                        <a href="https://cbo.digeam.com/wiki/146" target="_blank"><img src="img/event/20240129/s3Pic05.png"
+                                alt="幻影之城-光之殿(外傳)"></a>
+                        <a href="https://cbo.digeam.com/wiki/147" target="_blank"><img src="img/event/20240129/s3Pic06.png"
+                                alt="遺棄的城市"></a>
+                        <a href="https://cbo.digeam.com/wiki/148" target="_blank"><img src="img/event/20240129/s3Pic07.png"
+                                alt="惡魔之塔(Part2)"></a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="sec03" id="sec03">
-            <div class="sec03Title"></div>
+        <section class="sec03">
+            <div class="sec03Title" id="sec03"></div>
             <div class="sec03TabBox">
                 <button :class="{ active: tabData[2].type == '01' }" @click="tab('03', '01')">紅包大作戰</button>
                 <button :class="{ active: tabData[2].type == '02' }" @click="tab('03', '02')">長輩的關心</button>
@@ -155,24 +172,24 @@
                     <h3 class="sub">活動時間</h3>
                     <p>2024/01/30(二) 16:00 ~ 2024/02/27(二) 12:00</p>
                     <h3 class="sub">活動說明</h3>
-                    <p>活動期間內，全伺服器將於特定時段開啟經驗值、技能經驗值、AXP、出現Alz堆率、掉寶率加倍。</br>
-                        只要在官網的「序號專區」輸入紅包序號，即可獲得「黑色契約紅包袋」，內含隨機一份小禮物！</br>
-                        此外，2/18 23:59前發現並領取最多紅包的玩家，還可獲得額外的限定稱號「黑契財神爺」！</p>
+                    <p>活動期間內，請留心遊戲中的每一個小角落，您將有機會在任何地方發現神秘的紅包序號！</br>
+                        只要在官網的「<a href="https://cbo.digeam.com/number_exchange" target="_blank">序號專區</a>」輸入紅包序號，即可獲得「黑色契約紅包袋」，內含隨機一份小禮物！</br>
+                        此外，02/18(日) 23:59前發現並領取最多紅包的玩家，還可獲得額外的限定稱號「黑契財神爺」！</p>
                     <h3 class="sub">黑色契約紅包袋內容物</h3>
                     <img src="img/event/20240129/tab1_table_1.png" alt="黑色契約紅包袋內容物">
                     <h3 class="sub">排名獎勵列表</h3>
-                    <img src="img/event/20240129/tab1_table_2.png" alt="排名獎勵列表">
+                    <img src="img/event/20240129/tab1_table_22.png" alt="排名獎勵列表">
                     <h3 class="sub">稱號「黑契財神爺」能力值</h3>
                     <img src="img/event/20240129/tab1_img_1.jpg" alt="稱號「黑契財神爺」能力值">
                     <h3 class="sub">注意事項</h3>
                     <ul>
-                        <li>1.一組序號於同一帳號內僅可使用一次，使用後無法再重複領取同一組序號。​</li>
-                        <li>2.除「寵物突變卡 - 海盜鸚鵡」，所有獎勵皆為帳號綁定，並且部分獎勵設有等級、時效等限制。實際道具設定以遊戲中獲取為準。</li>
-                        <li>3.序號兌換數量相同者，將以最後一筆序號兌換時間為依據，依時間先後決定最終排名。</li>
-                        <li>4.序號排名獎勵將於02/20(二)維護時統一發送。</li>
-                        <li>5.排名獎勵的活動稱號具有使用期限，並且從2/20維護時開始生效。稱號將發送至維護當下帳號內所有角色。</li>
-                        <li>6.活動道具「黑色契約紅包袋」將於2/27(二) 12:00後統一刪除，請特別留意。</li>
-                        <li>7.掘夢網保留變更、取消或終止本活動的權利，包括但不限於本活動條款及活動辦法。</li>
+                        <li>一組序號於同一帳號內僅可使用一次，使用後無法再重複領取同一組序號。​​每組序號可被兌換150次。​​</li>
+                        <li>除「寵物突變卡 - 海盜鸚鵡」，所有獎勵皆為帳號綁定，並且部分獎勵設有等級、時效等限制。實際道具設定以遊戲中獲取為準。</li>
+                        <li>序號兌換數量相同者，將以最後一筆序號兌換時間為依據，依時間先後決定最終排名。</li>
+                        <li>序號排名獎勵將於02/20(二)維護時統一發送，並於當日在<a href="https://www.facebook.com/DiGeamCabal/" target="_blank">官方粉絲專頁</a>上公告所有紅包序號的位置。</li>
+                        <li>排名獎勵的活動稱號具有使用期限，並且從2/20維護時開始生效。稱號將發送至維護當下帳號內所有角色。</li>
+                        <li>活動道具「黑色契約紅包袋」將於2/27(二) 12:00後統一刪除，請特別留意。</li>
+                        <li>掘夢網保留變更、取消或終止本活動的權利，包括但不限於本活動條款及活動辦法。</li>
                     </ul>
                 </div>
                 <div class="contentBox center" v-if="tabData[2].type == '02'">
@@ -187,11 +204,11 @@
                     <img src="img/event/20240129/tab2_img_1.png" alt="絢爛的珠寶箱(翠玉)能力值">
                     <h3 class="sub">注意事項</h3>
                     <ul>
-                        <li>1.活動怪物只會出現在1~5線血色冰峰與呼嘯沙漠門口處，約12小時重生一次，每次重生後最多停留1小時。</li>
-                        <li>2.活動怪掉落道具所有玩家皆可拾取，拾取後需在30分鐘內使用完畢。</li>
-                        <li>3.一個角色身上最多只能裝備一個「絢爛的珠寶箱(翠玉)」。</li>
-                        <li>4.獎勵獲取的道具可能有等級、綁定、時效等限制，實際道具設定以遊戲中獲取為準。</li>
-                        <li>5.掘夢網保留變更、取消或終止本活動的權利，包括但不限於本活動條款及活動辦法。</li>
+                        <li>活動怪物只會出現在1~5線血色冰峰與呼嘯沙漠門口處，約12小時重生一次，每次重生後最多停留1小時。</li>
+                        <li>活動怪掉落道具所有玩家皆可拾取，拾取後需在30分鐘內使用完畢。</li>
+                        <li>一個角色身上最多只能裝備一個「絢爛的珠寶箱(翠玉)」。</li>
+                        <li>獎勵獲取的道具可能有等級、綁定、時效等限制，實際道具設定以遊戲中獲取為準。</li>
+                        <li>掘夢網保留變更、取消或終止本活動的權利，包括但不限於本活動條款及活動辦法。</li>
                     </ul>
                 </div>
                 <div class="contentBox center" v-if="tabData[2].type == '03'">
@@ -208,13 +225,13 @@
                     <img src="img/event/20240129/tab3_table_2.png" alt="龍年新春禮箱內容物">
                     <h3 class="sub">注意事項</h3>
                     <ul>
-                        <li>1.活動道具「貴妃龍蝦佛跳牆」,「金饌燒酒魚翅羹」,「鴻運發財菜頭湯」將於活動結束後統一刪除。</li>
-                        <li>2.未使用的「龍年新春禮箱」於活動結束後將一併刪除，請戰士們留意道具使用期限。
+                        <li>活動道具「貴妃龍蝦佛跳牆」,「金饌燒酒魚翅羹」,「鴻運發財菜頭湯」將於活動結束後統一刪除。</li>
+                        <li>未使用的「龍年新春禮箱」於活動結束後將一併刪除，請戰士們留意道具使用期限。
                         </li>
-                        <li>3.本活動的副本不包含混沌競技場、褪色/弱化副本。</li>
-                        <li>4.部分獎勵設有每周兌換次數限制，每周兌換限制將於周二12:00重置次數。</li>
-                        <li>5.獎勵獲取的道具可能有等級、綁定、時效等限制，實際道具設定以遊戲中獲取為準。</li>
-                        <li>6.掘夢網保留變更、取消或終止本活動的權利，包括但不限於本活動條款及活動辦法。</li>
+                        <li>本活動的副本不包含混沌競技場、褪色/弱化副本。</li>
+                        <li>部分獎勵設有每周兌換次數限制，每周兌換限制將於周二12:00重置次數。</li>
+                        <li>獎勵獲取的道具可能有等級、綁定、時效等限制，實際道具設定以遊戲中獲取為準。</li>
+                        <li>掘夢網保留變更、取消或終止本活動的權利，包括但不限於本活動條款及活動辦法。</li>
                     </ul>
                 </div>
                 <div class="contentBox center" v-if="tabData[2].type == '04'">
@@ -225,12 +242,13 @@
                     <h3 class="sub">活動說明</h3>
                     <p>活動期間內，全伺服器將於特定時段開啟經驗值、技能經驗值、AXP、出現Alz堆率、掉寶率加倍。<br>已啟用任一種VIP服務的玩家，經驗值、技能經驗值、AXP、出現Alz堆率、掉寶率再額外增加50%！
                     </p>
+                    <br>
                     <img src="img/event/20240129/tab4_table_1.png" alt="龍年新春禮箱內容物">
                     <h3 class="sub">注意事項</h3>
                     <ul>
-                        <li>1. 發現活動或領獎機制出現系統或其他異常時，請於第一時間透過「客服中心」進行回報，<br>
+                        <li>發現活動或領獎機制出現系統或其他異常時，請於第一時間透過「<a href="https://www.digeam.com/cs">客服中心</a>」進行回報，<br>
                             若逕行利用該異常取得非屬原活動機制應得之獎勵者，本公司有權終止其進行遊戲及會員服務資格。</li>
-                        <li>2. 掘夢網保留變更、取消或終止本活動的權利，包括但不限於本活動條款及活動辦法。</li>
+                        <li>掘夢網保留變更、取消或終止本活動的權利，包括但不限於本活動條款及活動辦法。</li>
                     </ul>
                 </div>
             </div>
