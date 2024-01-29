@@ -1,0 +1,104 @@
+.mask {
+    @include size(100%, 100%);
+    position: fixed;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, .7);
+
+}
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .7s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+
+.popXL {
+    font-family: 'Noto Serif TC', serif;
+    position: fixed;
+    z-index: 102;
+    @extend %box-center;
+    background-image: url(/img/event/20240205/popUpBg2.png);
+    @include size(750px, 550px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 40px;
+    padding: 20px ,20px;
+    .close{
+        color: #513100;
+        position: absolute;
+        @include ab-rt(30px,20px);
+        scale: 1.5;
+        cursor: pointer;
+        &:hover{
+            scale: 2;
+            transition: .2s linear;
+        }
+    }
+    .popTitle{
+        font-size: 26px;
+        padding-top: 7%;
+    }
+    .popDeco{
+        background-image: url(/img/event/20240205/separateLine.png);
+        @include size(256px,14px);
+        top: 1%;
+        padding-top: 14px;
+    }
+    .popWrap{
+        top:3%;
+        padding-top:2%;
+        overflow-x: hidden;
+        overflow-y:auto;
+        padding: 0px 60px ;
+        height: 75%;
+    }
+    .tabAll {
+        .tabBut{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            top:15px;
+            .tab2{
+                margin-left:50px;
+            }
+            .tab1,.tab2 {
+                cursor: pointer;
+                font-size: 22px;
+                color: #ffff;
+                border: #3e311c 2px solid;
+                background:linear-gradient(#b1754b, #5b3821);
+                padding: 2px 30px;
+                text-shadow: 0 0 5px #3d2811, 0 0 5px #3d2811;
+                &.active {
+                    color: #ffff;
+                    background:linear-gradient(#963d08, #de8d57);
+                }
+                &:hover {
+                    color: #ffff;
+                    background:linear-gradient(#963d08, #de8d57);
+                }
+            }
+        }
+        .tabContent{
+            font-size: 18px;
+            top:30px;
+            padding-top:2%;
+            overflow-x: hidden;
+            overflow-y:auto;
+            padding: 0px 40px ;
+            width: 650px;
+            height: 350px;
+            td{
+                padding-left: 5px;
+            }
+            .td1 {
+                padding-left: 0px;
+                text-align: center;
+            }
+        }
+    }
+}
