@@ -85,9 +85,6 @@ Route::get('/OBT', function () {
 Route::get('/20231030', function () {
     return view('event/20231030_index');
 });
-Route::get('/20231030', function () {
-    return view('event/20231030_index');
-});
 
 
 Route::get('/launcher', 'front\FrontController@launcher');

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | is assigned the "api" middleware group. Enjoy building your API!
 |
-*/
+ */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
@@ -38,3 +38,4 @@ Route::get('ccu_update', 'API\CCUController@update_cbo_ccu')->name('update_cbo_c
 Route::post('send_item', 'API\frontController@free_send_item');
 
 Route::post('event231220_api', 'API\Event231220Controller@index');
+Route::post('event240205_api', 'API\Event20240205Controller@index');
