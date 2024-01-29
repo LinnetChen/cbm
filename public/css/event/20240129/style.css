@@ -232,8 +232,7 @@ body .wrap {
 body {
   font-family: "SourceHanSerifTC-Bold", "SourceHanSerifTC-Heavy";
   background-color: #ffffff;
-  overflow-y: auto;
-  overflow-x: hidden !important;
+  overflow-x: auto;
   line-height: normal;
 }
 body button {
@@ -242,6 +241,7 @@ body button {
 }
 body .wrap {
   max-width: 1920px;
+  min-width: 1903px;
   width: 100%;
   height: auto;
   margin: 0 auto;
