@@ -11,7 +11,7 @@
     <meta property="og:site_name" content="" />
     <meta property="og:locale" content="zh_tw" />
     <meta property="article:author" content="" />
-    <meta property="og:image" content="/img/event/20240129/share_bg.jpg" />
+    <meta property="og:image" content="/img/event/20240129/shareBg.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="628" />
     <meta name="author" content="DiGeam" />
