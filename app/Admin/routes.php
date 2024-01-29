@@ -36,4 +36,6 @@ Route::group([
     $router->resource('/ccu', 'CCUController');
     //Event231220
     $router->resource('/event231220', 'Event231220Controller');
+    //Event240205
+    $router->resource('/event240205', 'Event240205Controller');
 });
