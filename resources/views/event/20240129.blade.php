@@ -22,7 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vue3-slick-carousel@1.0.6/src/slick-theme.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/event/20240129/style.css?v11.1">
+    <link rel="stylesheet" href="css/event/20240129/style.css?v11.11">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
 
