@@ -1,0 +1,751 @@
+@charset "UTF-8";
+/* 將大部分標籤的預設樣式重製成以下的內容 */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  color: #000;
+  position: relative;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* 賦予 HTML5 標籤基本的 Display:block ，用於輔助舊的瀏覽器能正常顯示 */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+/* 將 body 也就是整體的文字行高預設成 1 */
+body {
+  line-height: 1;
+  font-family: "Noto Sans", sans-serif;
+}
+
+/* 取消項目列表預設的輔助符號 */
+ol,
+ul {
+  list-style: none;
+}
+
+/* 隱藏引用標籤預設的引號(部分瀏覽器有) */
+blockquote,
+q {
+  quotes: none;
+}
+
+/* 重置引用標籤的偽元素 */
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+/* 將表格初始化 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 將連結初始化 */
+a {
+  text-decoration: none;
+}
+
+.sec02 .imgBox, .sec02 .contentBox.twoBox, .sec01TabBox button,
+.sec02TabBox button,
+.sec03TabBox button, .sec01TabBox,
+.sec02TabBox,
+.sec03TabBox, .header .linkBox2 a, .header .linkBox2, .header .nav .linkBox, .header .nav, footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sec02 .contentBox .right, .sec01Content .contentBox.center,
+.sec02Content .contentBox.center,
+.sec03Content .contentBox.center, .sec01Content,
+.sec02Content,
+.sec03Content, .aside .arrow, .aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sec01Content .contentBox .line,
+.sec02Content .contentBox .line,
+.sec03Content .contentBox .line, .sec01Content::before, .sec01Content::after,
+.sec02Content::before,
+.sec02Content::after,
+.sec03Content::before,
+.sec03Content::after, .sec01TabBox button,
+.sec02TabBox button,
+.sec03TabBox button, .sec01Title,
+.sec02Title,
+.sec03Title, .sec01,
+.sec02,
+.sec03, .link, .aside ul li a:hover::before, .aside ul li a.active::before, .aside .top::before, .aside, .header .linkBox2 a, .header .nav .linkBox a, .header .nav .logo, .header, .age, .est, a.digeam {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+body .wrap {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@keyframes active-box {
+  0% {
+    box-shadow: 0 0 0px #fff;
+  }
+  100% {
+    box-shadow: 0 0 3px #fff;
+  }
+}
+
+@keyframes popup {
+  0% {
+    transform: scale(0);
+  }
+  20% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  80% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@font-face {
+  font-family: "SourceHanSerifTC-Bold";
+  src: url(./fonts/SourceHanSerifTC-Bold.otf) format("opentype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceHanSerifTC-Heavy";
+  src: url(./fonts/SourceHanSerifTC-Heavy.otf) format("opentype");
+  font-display: swap;
+}
+body {
+  font-family: "SourceHanSerifTC-Bold", "SourceHanSerifTC-Heavy";
+  background-color: #ffffff;
+  overflow-y: auto;
+  overflow-x: hidden !important;
+  line-height: normal;
+}
+body button {
+  font-family: "SourceHanSerifTC-Bold";
+  cursor: pointer;
+}
+body .wrap {
+  max-width: 1920px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden !important;
+}
+body #particles-js {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ced0e4;
+}
+
+::-webkit-scrollbar-track {
+  background: #d74e01;
+}
+
+footer {
+  bottom: 0;
+  left: 0px;
+  background-size: contain;
+  background: #d09a75;
+  height: auto;
+  padding: 20px 0 20px 0;
+  color: #fff;
+  font-family: "Noto Sans CJK TC";
+  margin-top: 5%;
+}
+
+.footerbox {
+  width: 80%;
+  font-size: 10px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+a.digeam {
+  width: 200px;
+  height: 60px;
+  pointer-events: none;
+  background-image: url(../../../img/event/20240129/logo_digeam.png);
+}
+
+.est {
+  width: 230px;
+  height: 36px;
+  margin: 0 20px;
+  pointer-events: none;
+  background-image: url(../../../img/event/20240129/est.png);
+}
+
+.spec {
+  width: 26.6%;
+  line-height: 16.4px;
+  margin-left: 20px;
+}
+.spec a {
+  color: orange;
+  text-decoration: underline;
+  display: inline-block;
+  font-size: 14px;
+}
+.spec a:hover {
+  color: #fff;
+}
+
+.fooLink a {
+  color: #fff;
+  margin-right: 10px;
+}
+
+.copyright p, .fooinfo p {
+  font-size: 13px;
+}
+.copyright span, .fooinfo span {
+  color: #fff;
+}
+
+.age {
+  width: 71px;
+  height: 71px;
+  margin: 0 20px;
+  pointer-events: none;
+  background-image: url(../../../img/event/20240129/icon_15.png);
+}
+
+.classlavel {
+  width: 26.6%;
+  margin: 0 20px;
+  display: flex;
+  justify-content: center;
+}
+.classlavel img {
+  width: 70px;
+  height: 70px;
+}
+.classlavel ul {
+  margin-left: 10px;
+  line-height: 20px;
+}
+.classlavel li {
+  font-size: 14px;
+}
+.classlavel li:nth-child(4) {
+  color: orange;
+}
+
+.header {
+  width: 1920px;
+  height: 950px;
+  background-image: url(../../../img/event/20240129/header.png);
+}
+.header .nav {
+  width: 100%;
+  height: 100px;
+  justify-content: space-between;
+}
+.header .nav .logo {
+  display: block;
+  width: 263px;
+  height: 90px;
+  background-image: url(../../../img/event/20240129/logo.png);
+}
+.header .nav .linkBox {
+  margin-right: 15px;
+}
+.header .nav .linkBox a {
+  display: block;
+  width: 51px;
+  height: 51px;
+}
+.header .nav .linkBox .baha {
+  background-image: url(../../../img/event/20240129/icon_baha.png);
+}
+.header .nav .linkBox .fb {
+  background-image: url(../../../img/event/20240129/icon_fb.png);
+}
+.header .nav .linkBox .discord {
+  background-image: url(../../../img/event/20240129/icon_dc.png);
+}
+.header .linkBox2 {
+  position: absolute;
+  left: 35.5%;
+  bottom: 120px;
+}
+.header .linkBox2 a {
+  margin: 0 20px;
+  width: 239px;
+  height: 91px;
+  color: #fffad8;
+  font-size: 30px;
+  letter-spacing: 2px;
+  background-image: url(../../../img/event/20240129/headerBtn.png);
+  transition: all 0.3s ease-in-out;
+}
+.header .linkBox2 a:hover {
+  background-image: url(../../../img/event/20240129/headerBtnH.png);
+}
+
+.aside {
+  position: fixed;
+  left: 0px;
+  top: 30%;
+  width: 196px;
+  height: 332px;
+  background-image: url(../../../img/event/20240129/menuBg.png);
+  z-index: 2;
+  transition: all ease-in-out 0.5s;
+}
+.aside.active {
+  transform: translate(-90%, 0%);
+}
+.aside .arrow {
+  position: absolute;
+  right: -22px;
+  top: 7px;
+  border: 2px #fff9c8 solid;
+  background-color: #54321d;
+  filter: drop-shadow(0px 0px 3px #734b10);
+}
+.aside .top {
+  text-align: center;
+  font-size: 30px;
+  color: #fff9c8;
+  margin-top: 30px;
+  margin-right: 11px;
+}
+.aside .top::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 21px;
+  top: -20px;
+  background-image: url(../../../img/event/20240129/menuUp.png);
+}
+.aside ul {
+  margin: 0 auto;
+  width: 60%;
+}
+.aside ul li {
+  margin-bottom: 30px;
+}
+.aside ul li a {
+  font-size: 28px;
+  color: #fff9c8;
+}
+.aside ul li a:hover::before, .aside ul li a.active::before {
+  content: "";
+  width: 25px;
+  height: 20px;
+  position: absolute;
+  left: 44px;
+  top: -20px;
+  background-image: url(../../../img/event/20240129/menuArrow.png);
+}
+.aside ul li:last-child {
+  margin-bottom: 0;
+}
+
+.link {
+  position: fixed;
+  right: 0px;
+  top: 30%;
+  width: 292px;
+  height: 226px;
+  background-image: url(../../../img/event/20240129/shelterIcon.png);
+  z-index: 2;
+}
+
+.sec01,
+.sec02,
+.sec03 {
+  width: 1920px;
+  height: 1611px;
+  background-image: url(../../../img/event/20240129/sec1bg.png);
+}
+.sec01Title,
+.sec02Title,
+.sec03Title {
+  width: 787px;
+  height: 97px;
+  margin: 0 auto;
+  padding-top: 10%;
+  font-size: 35px;
+  background-image: url(../../../img/event/20240129/s1Title.png);
+}
+.sec01TabBox,
+.sec02TabBox,
+.sec03TabBox {
+  margin: 0 auto;
+}
+.sec01TabBox button,
+.sec02TabBox button,
+.sec03TabBox button {
+  border: none;
+  width: 239px;
+  height: 91px;
+  font-size: 28px;
+  color: #fffad8;
+  background-image: url(../../../img/event/20240129/contentBtn.png);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  background-color: transparent;
+  margin: 0 15px;
+}
+.sec01TabBox button:hover, .sec01TabBox button.active,
+.sec02TabBox button:hover,
+.sec02TabBox button.active,
+.sec03TabBox button:hover,
+.sec03TabBox button.active {
+  background-image: url(../../../img/event/20240129/contentBtn_h.png);
+}
+.sec01Content,
+.sec02Content,
+.sec03Content {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 2%;
+  background: radial-gradient(circle at center, #ffffff 0%, #e8dace 90%, #dcd7c1 100%);
+}
+.sec01Content::before, .sec01Content::after,
+.sec02Content::before,
+.sec02Content::after,
+.sec03Content::before,
+.sec03Content::after {
+  content: "";
+  position: absolute;
+  width: 1155px;
+  height: 27px;
+  background-image: url(../../../img/event/20240129/contentLine.png);
+}
+.sec01Content::before,
+.sec02Content::before,
+.sec03Content::before {
+  top: 75px;
+  left: 7%;
+}
+.sec01Content::after,
+.sec02Content::after,
+.sec03Content::after {
+  bottom: 75px;
+  left: 7%;
+}
+.sec01Content .contentBox,
+.sec02Content .contentBox,
+.sec03Content .contentBox {
+  font-size: 20px;
+  margin: 8% auto;
+}
+.sec01Content .contentBox .title,
+.sec02Content .contentBox .title,
+.sec03Content .contentBox .title {
+  font-size: 35px;
+  text-align: center;
+  color: #6a4127;
+  margin-top: 3%;
+}
+.sec01Content .contentBox .line,
+.sec02Content .contentBox .line,
+.sec03Content .contentBox .line {
+  margin-bottom: 3%;
+  background-image: url(../../../img/event/20240129/separateLine.png);
+  width: 406px;
+  height: 22px;
+}
+.sec01Content .contentBox pre,
+.sec02Content .contentBox pre,
+.sec03Content .contentBox pre {
+  font-family: "Noto Sans CJK TC";
+  font-weight: 500;
+  color: #6a4127;
+  text-align: center;
+  font-size: 23px;
+}
+.sec01Content .contentBox .br,
+.sec02Content .contentBox .br,
+.sec03Content .contentBox .br {
+  filter: drop-shadow(0px 0px 5px #734b10);
+  border: 3px solid #734b10;
+}
+.sec01Content .contentBox .w70,
+.sec02Content .contentBox .w70,
+.sec03Content .contentBox .w70 {
+  width: 70%;
+}
+.sec01Content .contentBox .mt30,
+.sec02Content .contentBox .mt30,
+.sec03Content .contentBox .mt30 {
+  margin-top: 30px;
+}
+.sec01Content .contentBox p,
+.sec02Content .contentBox p,
+.sec03Content .contentBox p {
+  font-family: "Noto Sans CJK TC";
+  margin-right: 2%;
+  font-weight: 400;
+  color: #6a4127;
+  text-align: right;
+}
+.sec01Content .contentBox p a,
+.sec02Content .contentBox p a,
+.sec03Content .contentBox p a {
+  cursor: pointer;
+  color: #ff8a00;
+  text-decoration: underline;
+}
+.sec02,
+.sec03 {
+  min-height: 950px;
+  background-image: none;
+  background-color: #fef5ee;
+}
+
+.sec02 {
+  height: auto;
+}
+.sec02Title {
+  width: 787px;
+  height: 97px;
+  margin: 0 auto;
+  padding-top: 10%;
+  background-image: url(../../../img/event/20240129/s2Title.png);
+}
+.sec02 .contentBox.twoBox {
+  width: 80%;
+  justify-content: flex-end;
+}
+.sec02 .contentBox.twoBox p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+.sec02 .contentBox .left {
+  width: 50%;
+}
+.sec02 .contentBox .left .swiper .swiper-slide {
+  padding: 0 10%;
+}
+.sec02 .contentBox .left .swiper .swiper-slide img {
+  border: 2px #c1934e solid;
+  filter: drop-shadow(0px 0px 5px #c1934e);
+  width: 100%;
+}
+.sec02 .contentBox .left .swiper .swiper-button-next, .sec02 .contentBox .left .swiper .swiper-button-prev {
+  color: #6f462b;
+}
+.sec02 .contentBox .left .swiper .swiper-button-next:after {
+  content: "▶";
+  font-size: 37px;
+}
+.sec02 .contentBox .left .swiper .swiper-button-prev:after {
+  content: "◀";
+  font-size: 37px;
+}
+.sec02 .contentBox .right {
+  width: 50%;
+}
+.sec02 .contentBox .right p {
+  margin-left: 36%;
+  margin-right: 0;
+}
+.sec02 .contentBox .right pre {
+  font-size: 20px;
+}
+.sec02 .contentBox .right pre > img {
+  vertical-align: -20%;
+}
+.sec02 .imgBox {
+  width: 60%;
+  margin: 15px auto;
+  flex-wrap: wrap;
+}
+.sec02 .imgBox a {
+  margin: 10px 15px;
+}
+.sec02 .imgBox a img {
+  transition: all 0.5s ease-in-out;
+}
+.sec02 .imgBox a img:hover {
+  filter: drop-shadow(0px 0px 10px #b67a4c);
+}
+
+.sec03 {
+  height: auto;
+  padding-top: 15%;
+}
+.sec03Title {
+  width: 787px;
+  height: 97px;
+  margin: 0 auto;
+  padding-top: 10%;
+  background-image: url(../../../img/event/20240129/s3Title.png);
+}
+.sec03 p {
+  font-weight: 400;
+}
+.sec03 .contentBox .title {
+  margin-top: 130px;
+}
+.sec03 .contentBox p {
+  text-align: center;
+  margin-right: 0;
+}
+.sec03 .sub {
+  font-family: "Noto Sans CJK TC";
+  color: #6a4127;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 23px;
+}
+.sec03 .sub::before {
+  content: "❖";
+  position: absolute;
+  left: -30px;
+  top: 0px;
+}
+.sec03 .sub::after {
+  content: "❖";
+  position: absolute;
+  right: -30px;
+  top: 0px;
+}
+.sec03 ul {
+  margin-bottom: 6%;
+  list-style: decimal;
+  font-family: "Noto Sans CJK TC";
+}
+.sec03 ul li {
+  font-weight: 400;
+  margin: 5px 0;
+  color: #6a4127;
+  font-size: 17px;
+}
+.sec03 ul li a {
+  color: #ff8a00;
+}/*# sourceMappingURL=style.css.map */

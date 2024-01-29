@@ -89,6 +89,11 @@ Route::get('/20231030', function () {
     return view('event/20231030_index');
 });
 
+Route::get('/20240129', function () {
+    return view('event/20240129');
+});
+
+
 
 Route::get('/launcher', 'front\FrontController@launcher');
 Route::get('/test_launcher', 'front\FrontController@launcher');
