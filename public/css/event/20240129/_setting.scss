@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'SourceHanSerifTC-Bold';
+    src:
+        url(./fonts/SourceHanSerifTC-Bold.otf) format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SourceHanSerifTC-Heavy';
+    src:
+        url(./fonts/SourceHanSerifTC-Heavy.otf) format("opentype");
+    font-display: swap;
+}
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css");
+
+body {
+    font-family: 'SourceHanSerifTC-Bold', 'SourceHanSerifTC-Heavy';
+    background-color: #ffffff;
+    overflow-x: auto;
+    line-height: normal;
+
+    button{
+        font-family: 'SourceHanSerifTC-Bold';
+        cursor: pointer;
+    }
+
+
+
+    .wrap {
+        max-width: 1920px;
+        min-width: 1903px;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        @extend %bg-cover;
+        overflow: hidden !important;
+    }
+
+    #particles-js {
+        width: 100vw;
+        height: 100vh;
+        @include ab-lt(0px, 0px);
+    }
+
+}
+
+$font:#6a4127;
+$fontTitle: #fffad8;
+$link:#ff8a00;
+
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ced0e4;
+}
+
+::-webkit-scrollbar-track {
+    background: #d74e01;
+}

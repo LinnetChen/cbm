@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
  */
 // 調整蓋台
-// Route::get('/', function () {
-//     return view('event/20231030_index');
-// });
-Route::get('/', 'front\FrontController@index')->name('index');
+Route::get('/', function () {
+    return view('event/20240129');
+});
+// Route::get('/', 'front\FrontController@index')->name('index');
 
 //首頁
 Route::get('/index', 'front\FrontController@index')->name('index');
@@ -85,6 +85,21 @@ Route::get('/OBT', function () {
 Route::get('/20231030', function () {
     return view('event/20231030_index');
 });
+Route::get('/20231030', function () {
+    return view('event/20231030_index');
+});
+Route::get('/20240129', function () {
+    return view('event/20240129');
+});
+Route::get('/20240205', function () {
+    return view('event/20240205_index');
+});
+
+
+Route::get('/20240129', function () {
+    return view('event/20240129');
+});
+
 
 
 Route::get('/launcher', 'front\FrontController@launcher');

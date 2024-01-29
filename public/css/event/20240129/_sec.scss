@@ -1,0 +1,300 @@
+.sec01,
+.sec02,
+.sec03 {
+    @include size(1920px, 1611px);
+    @extend %bg-contain;
+    background-image: url(../../../img/event/20240129/sec1bg.png);
+
+    &Title {
+        @include size(787px, 97px);
+        @extend %bg-contain;
+        margin: 0 auto;
+        padding-top: 10%;
+        font-size: 35px;
+        background-image: url(../../../img/event/20240129/s1Title.png);
+    }
+
+    &TabBox {
+        margin: 0 auto;
+        @extend %f-r-c;
+
+        button {
+            @extend %f-r-c;
+            border: none;
+            @include size(239px, 91px);
+            @extend %bg-contain;
+            font-size: 28px;
+            color: $fontTitle;
+            background-image: url(../../../img/event/20240129/contentBtn.png);
+            transition: all .3s ease-in-out;
+            cursor: pointer;
+            background-color: transparent;
+            margin: 0 15px;
+
+            &:hover,
+            &.active {
+                background-image: url(../../../img/event/20240129/contentBtn_h.png);
+            }
+        }
+
+    }
+
+    &Content {
+        width: 70%;
+        margin: 0 auto;
+        margin-top: 2%;
+        @extend %f-c-c;
+        background: radial-gradient(circle at center, #ffffff 0%, #e8dace 90%, #dcd7c1 100%);
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            @include size(1155px, 27px);
+            @extend %bg-contain;
+            background-image: url(../../../img/event/20240129/contentLine.png);
+        }
+
+        &::before {
+            top: 75px;
+            left: 7%;
+        }
+
+        &::after {
+            bottom: 75px;
+            left: 7%;
+        }
+
+        .contentBox {
+            font-size: 20px;
+            margin: 8% auto;
+
+            &.center {
+                @extend %f-c-c;
+            }
+
+            // border: 1px solid red;
+            .title {
+                font-size: 35px;
+                text-align: center;
+                color: $font;
+                margin-top: 3%;
+            }
+
+            .line {
+                margin-bottom: 3%;
+                @extend %bg-contain;
+                background-image: url(../../../img/event/20240129/separateLine.png);
+                @include size(406px, 22px)
+            }
+
+            pre {
+                font-family: "Noto Sans CJK TC";
+                font-weight: 500;
+                color: $font;
+                text-align: center;
+                font-size: 23px;
+            }
+
+            .br {
+                filter: drop-shadow(0px 0px 5px #734b10);
+                border: 3px solid #734b10;
+            }
+
+            .w70 {
+                width: 70%;
+            }
+
+            .mt30 {
+                margin-top: 30px;
+            }
+
+            p {
+                font-family: "Noto Sans CJK TC";
+                margin-right: 2%;
+                font-weight: 400;
+                color: $font;
+                text-align: right;
+
+                a {
+                    cursor: pointer;
+                    color: $link;
+                    text-decoration: underline;
+                }
+            }
+
+            img {
+                // width: 80%;
+            }
+
+        }
+
+
+
+    }
+
+}
+
+.sec02,
+.sec03 {
+    min-height: 950px;
+    background-image: none;
+    background-color: #fef5ee;
+}
+
+.sec02 {
+    height: auto;
+    &Title {
+        @include size(787px, 97px);
+        @extend %bg-contain;
+        margin: 0 auto;
+        padding-top: 10%;
+        background-image: url(../../../img/event/20240129/s2Title.png);
+    }
+
+    .contentBox {
+
+        &.twoBox {
+            width: 80%;
+            @extend %f-r-c;
+            justify-content: flex-end;
+
+            p {
+                font-size: 18px;
+                margin-top: 10px;
+            }
+
+            
+        }
+
+        .left {
+            width: 50%;
+
+            .swiper {
+
+                .swiper-slide {
+                    
+                    padding: 0 10%;
+    
+                    img {
+                        border: 2px #c1934e solid;
+                        filter: drop-shadow(0px 0px 5px #c1934e);
+
+                        width: 100%;
+                    }
+                }
+    
+                .swiper-button-next,.swiper-button-prev{
+                    color: #6f462b;
+          
+                }
+    
+                .swiper-button-next:after {
+                    content: '▶';
+                    font-size: 37px;
+                }
+    
+                .swiper-button-prev:after {
+                    content: '◀';
+                    font-size: 37px;
+                }
+            }
+        }
+
+        .right {
+            width: 50%;
+            @extend %f-c-c;
+
+            p{
+                margin-left: 36%;
+                margin-right: 0;
+            }
+
+            pre {
+                font-size: 20px;
+            }
+
+            pre>img {
+                vertical-align: -20%;
+            }
+        }
+
+
+    }
+
+    .imgBox{
+        width: 60%;
+        margin: 15px auto;
+        @extend %f-r-c;
+        flex-wrap: wrap;
+        a{
+            margin: 10px 15px;
+            img{
+                transition: all .5s ease-in-out;
+                &:hover{
+                    filter: drop-shadow(0px 0px 10px #b67a4c);
+                }
+            }
+        }
+    }
+}
+
+.sec03 {
+    height: auto;
+    padding-top:15%;
+    &Title {
+        @include size(787px, 97px);
+        @extend %bg-contain;
+        margin: 0 auto;
+        padding-top: 10%;
+        background-image: url(../../../img/event/20240129/s3Title.png);
+    }
+
+    p{
+        font-weight: 400;
+    }
+
+    .contentBox{
+        .title{
+            margin-top: 130px;
+        }
+        p{
+            text-align: center;
+            margin-right: 0;
+        }
+    }
+
+    .sub{
+        font-family: "Noto Sans CJK TC";
+        color: $font;
+        font-weight: 600;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 23px;
+
+        &::before{
+            content: '❖';
+            @include ab-lt(-30px,0px);
+        }
+        &::after{
+            content: '❖';
+            @include ab-rt(-30px,0px);
+        }
+    }
+
+    ul{
+        margin-bottom: 6%;
+        list-style: decimal;
+        font-family: "Noto Sans CJK TC";
+        li{
+            font-weight: 400;
+            margin: 5px 0;
+            color: $font;
+            font-size: 17px;
+
+            a{
+                color: $link;
+            }
+        }
+    }
+}

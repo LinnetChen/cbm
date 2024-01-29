@@ -1,0 +1,131 @@
+#particles-js{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+    pointer-events: none;
+}
+.header{
+    background-repeat: no-repeat;
+    background-size: contain;
+    @include size(1920px,100vh);
+    position: relative;
+    z-index: 1;
+    background-image: url("/img/event/20240205/s1Bg.jpg");
+    .top{
+        display: flex;
+        justify-content: space-between;
+        .logo{
+            background-image: url("/img/event/20240205/logo.png");
+            @include size (297px,104px);
+        }
+        .account{
+            display: flex;
+            flex-direction: column;
+            @include re-rt(1%,10px);
+            font-size: 18px;
+            .login{
+                background-image: url("/img/event/20240205/loginBar.png");
+                @include size (275px,50px);
+                display: flex;
+                align-items: center;
+                .accText{
+                    color: #513200;
+                    left: 20px;
+                }
+                .accBtn{
+                    color: #513200;
+                    left: 217px;
+                    position: absolute;
+                    a{
+                        color: #513200;
+                        &:hover{
+                            color: #e5981c;
+                            transition: .2s linear;
+                            cursor: pointer;
+                        }
+                    }
+
+                }
+            }
+            .point{
+                background-image: url("/img/event/20240205/pointBar.png");
+                display: flex;
+                align-items: center;
+                @include size (275px,50px);
+                .poHold{
+                    color: #513200;
+                    left: 20px;
+                }
+                .poText{
+                    left:50px;
+                    color: #513200;
+                }
+                .poBtn{
+                    left: 217px;
+                    position: absolute;
+                    a{
+                        color: #513200;
+                        &:hover{
+                            color: #e5981c;
+                            transition: .2s linear;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .actiBut{
+        flex-direction: row;
+        @extend %flex-center;
+        cursor: pointer;
+        @include re-lt(0,60%);
+        font-size: 54px;
+        .prayBut{
+            background-image: url("/img/event/20240205/s1Btn_L.png");
+            @include size(489px,179px);
+            color: #fffbe4;
+            text-shadow: 0 0 5px #3d2811ff,0 0 5px #3d2811ff ;
+            @extend %flex-center;
+            &:hover{
+                filter: brightness(1.1);
+                scale:0.9;
+                transition: .2s linear;
+            }
+        }
+        .blessBut{
+            background-image: url("/img/event/20240205/s1Btn_R.png");
+            @include size(489px,179px);
+            color: #fffbe4;
+            text-shadow: 0 0 5px #3d2811ff,0 0 5px #3d2811ff ;
+            @extend %flex-center;
+            &:hover{
+                filter: brightness(1.1);
+                scale:0.9;
+                transition: .2s linear;
+            }
+        }
+    }
+    .sidebar{
+        position: fixed;
+        @include ab-rt(2%,35%);
+        .description, .gift, .notice, .history{
+            background-image: url("/img/event/20240205/menuBtn.png");
+            @include size (233px,97px);
+            @extend %flex-center;
+            font-size:35px;
+            text-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff;
+            color: #513200;
+            cursor: pointer;
+            &:hover{
+                transition: 0.2s linear;
+                scale: 0.9;
+                color:#6e4706;
+            }
+        }
+    }
+}
+

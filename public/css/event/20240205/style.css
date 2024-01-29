@@ -1,0 +1,630 @@
+@charset "UTF-8";
+/* 將大部分標籤的預設樣式重製成以下的內容 */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@500;600;700;900&display=swap");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  color: #000;
+  position: relative;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* 賦予 HTML5 標籤基本的 Display:block ，用於輔助舊的瀏覽器能正常顯示 */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+/* 將 body 也就是整體的文字行高預設成 1 */
+body {
+  line-height: 1;
+  font-family: "Noto Sans", sans-serif;
+}
+
+/* 取消項目列表預設的輔助符號 */
+ol,
+ul {
+  list-style: none;
+}
+
+/* 隱藏引用標籤預設的引號(部分瀏覽器有) */
+blockquote,
+q {
+  quotes: none;
+}
+
+/* 重置引用標籤的偽元素 */
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+/* 將表格初始化 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 將連結初始化 */
+a {
+  text-decoration: none;
+}
+
+.header .sidebar .description, .header .sidebar .gift, .header .sidebar .notice, .header .sidebar .history, .header .actiBut .blessBut, .header .actiBut .prayBut, .header .actiBut {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popXL, .popS {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.header {
+  font-family: "Noto Sans TC", sans-serif;
+  font-family: "Noto Serif TC", serif;
+  font-weight: 600;
+}
+
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+html ::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+html ::-webkit-scrollbar-thumb {
+  background: #362a16;
+}
+html ::-webkit-scrollbar-track {
+  background: white;
+}
+html table {
+  border: #362a16 2px solid;
+}
+html table tr {
+  border: #362a16 2px solid;
+}
+html table tr td {
+  border: #362a16 2px solid;
+}
+html table tr th {
+  border: #362a16 2px solid;
+  color: #fff;
+  background-color: #362a16;
+}
+
+footer {
+  bottom: 0;
+  left: 0px;
+  background-size: contain;
+  background: #fffdf1;
+  height: auto;
+  padding: 20px 0 20px 0;
+  display: flex;
+  justify-content: center;
+  color: #513200;
+}
+
+.footerbox {
+  width: 85%;
+  font-size: 10px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.footerbox_logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footerbox_logo img {
+  scale: 0.8;
+}
+
+a.logo_digeam {
+  width: auto;
+  height: 80%;
+  pointer-events: none;
+}
+
+a.logo_rw {
+  width: auto;
+  height: 38px;
+  pointer-events: none;
+}
+
+.spec {
+  width: 40%;
+  line-height: 16.4px;
+  margin-left: 20px;
+  font-size: 14px;
+}
+.spec a {
+  color: rgb(182, 118, 0);
+  text-decoration: underline;
+  display: inline-block;
+  font-size: 14px;
+}
+.spec a:hover {
+  color: #4c2700;
+}
+.spec p {
+  color: #513200;
+}
+
+.classlavel {
+  width: 30%;
+  margin: 0 20px;
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+}
+.classlavel img {
+  padding-right: 1%;
+  scale: 0.9;
+}
+.classlavel ul li {
+  color: #513200;
+  line-height: 18px;
+}
+
+#particles-js {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.header {
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 1920px;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+  background-image: url("/img/event/20240205/s1Bg.jpg");
+}
+.header .top {
+  display: flex;
+  justify-content: space-between;
+}
+.header .top .logo {
+  background-image: url("/img/event/20240205/logo.png");
+  width: 297px;
+  height: 104px;
+}
+.header .top .account {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  right: 1%;
+  top: 10px;
+  font-size: 18px;
+}
+.header .top .account .login {
+  background-image: url("/img/event/20240205/loginBar.png");
+  width: 275px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+.header .top .account .login .accText {
+  color: #513200;
+  left: 20px;
+}
+.header .top .account .login .accBtn {
+  color: #513200;
+  left: 217px;
+  position: absolute;
+}
+.header .top .account .login .accBtn a {
+  color: #513200;
+}
+.header .top .account .login .accBtn a:hover {
+  color: #e5981c;
+  transition: 0.2s linear;
+  cursor: pointer;
+}
+.header .top .account .point {
+  background-image: url("/img/event/20240205/pointBar.png");
+  display: flex;
+  align-items: center;
+  width: 275px;
+  height: 50px;
+}
+.header .top .account .point .poHold {
+  color: #513200;
+  left: 20px;
+}
+.header .top .account .point .poText {
+  left: 50px;
+  color: #513200;
+}
+.header .top .account .point .poBtn {
+  left: 217px;
+  position: absolute;
+}
+.header .top .account .point .poBtn a {
+  color: #513200;
+}
+.header .top .account .point .poBtn a:hover {
+  color: #e5981c;
+  transition: 0.2s linear;
+  cursor: pointer;
+}
+.header .actiBut {
+  flex-direction: row;
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  top: 60%;
+  font-size: 54px;
+}
+.header .actiBut .prayBut {
+  background-image: url("/img/event/20240205/s1Btn_L.png");
+  width: 489px;
+  height: 179px;
+  color: #fffbe4;
+  text-shadow: 0 0 5px #3d2811, 0 0 5px #3d2811;
+}
+.header .actiBut .prayBut:hover {
+  filter: brightness(1.1);
+  scale: 0.9;
+  transition: 0.2s linear;
+}
+.header .actiBut .blessBut {
+  background-image: url("/img/event/20240205/s1Btn_R.png");
+  width: 489px;
+  height: 179px;
+  color: #fffbe4;
+  text-shadow: 0 0 5px #3d2811, 0 0 5px #3d2811;
+}
+.header .actiBut .blessBut:hover {
+  filter: brightness(1.1);
+  scale: 0.9;
+  transition: 0.2s linear;
+}
+.header .sidebar {
+  position: fixed;
+  position: absolute;
+  right: 2%;
+  top: 35%;
+}
+.header .sidebar .description, .header .sidebar .gift, .header .sidebar .notice, .header .sidebar .history {
+  background-image: url("/img/event/20240205/menuBtn.png");
+  width: 233px;
+  height: 97px;
+  font-size: 35px;
+  text-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff;
+  color: #513200;
+  cursor: pointer;
+}
+.header .sidebar .description:hover, .header .sidebar .gift:hover, .header .sidebar .notice:hover, .header .sidebar .history:hover {
+  transition: 0.2s linear;
+  scale: 0.9;
+  color: #6e4706;
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.maskNo {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.7s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.popS {
+  font-family: "Noto Serif TC", serif;
+  position: fixed;
+  z-index: 102;
+  background-image: url(/img/event/20240205/popUpBg1.png);
+  width: 502px;
+  height: 212px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 40px;
+  padding: 20px, 20px;
+}
+.popS .close {
+  color: #513100;
+  position: absolute;
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  scale: 1.5;
+  cursor: pointer;
+  z-index: 105;
+}
+.popS .close:hover {
+  scale: 2;
+  transition: 0.2s linear;
+}
+.popS .popContent {
+  top: 6%;
+  text-align: center;
+}
+.popS .popContent span {
+  color: #ff7800;
+  font-size: 20px;
+}
+.popS .popContent .popTitle {
+  font-size: 22px;
+  padding-top: 30px;
+}
+.popS .popContent .popButAll {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  top: 20px;
+}
+.popS .popContent .popButAll .popBut1,
+.popS .popContent .popButAll .popBut2 {
+  cursor: pointer;
+  font-size: 22px;
+  color: white;
+  border: #3e311c 2px solid;
+  background: linear-gradient(#5b3821, #b1754b);
+  padding: 2px 30px;
+  text-shadow: 0 0 5px #3d2811, 0 0 5px #3d2811;
+}
+.popS .popContent .popButAll .popBut1:hover,
+.popS .popContent .popButAll .popBut2:hover {
+  filter: brightness(1.4);
+  transition: 0.2s linear;
+}
+.popS .popContent .popButAll .popBut1 a,
+.popS .popContent .popButAll .popBut2 a {
+  color: white;
+  width: 100%;
+  height: 100%;
+}
+.popS .popContent .popButAll .popBut2 {
+  margin-left: 50px;
+  color: white;
+  background: linear-gradient(#4d5c21, #a1ac48);
+}
+.popS .popContent .popButAll .popBut2:hover {
+  filter: brightness(1.4);
+  transition: 0.2s linear;
+}
+.popS .popContent .popButAll .popBut2 a {
+  color: white;
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.7s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+.popXL {
+  font-family: "Noto Serif TC", serif;
+  position: fixed;
+  z-index: 102;
+  background-image: url(/img/event/20240205/popUpBg2.png);
+  width: 750px;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 40px;
+  padding: 20px, 20px;
+}
+.popXL .close {
+  color: #513100;
+  position: absolute;
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  scale: 1.5;
+  cursor: pointer;
+}
+.popXL .close:hover {
+  scale: 2;
+  transition: 0.2s linear;
+}
+.popXL .popTitle {
+  font-size: 26px;
+  padding-top: 7%;
+}
+.popXL .popDeco {
+  background-image: url(/img/event/20240205/separateLine.png);
+  width: 256px;
+  height: 14px;
+  top: 1%;
+  padding-top: 14px;
+}
+.popXL .popWrap {
+  top: 3%;
+  padding-top: 2%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0px 60px;
+  height: 75%;
+}
+.popXL .tabAll .tabBut {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  top: 15px;
+}
+.popXL .tabAll .tabBut .tab2 {
+  margin-left: 50px;
+}
+.popXL .tabAll .tabBut .tab1, .popXL .tabAll .tabBut .tab2 {
+  cursor: pointer;
+  font-size: 22px;
+  color: white;
+  border: #3e311c 2px solid;
+  background: linear-gradient(#b1754b, #5b3821);
+  padding: 2px 30px;
+  text-shadow: 0 0 5px #3d2811, 0 0 5px #3d2811;
+}
+.popXL .tabAll .tabBut .tab1.active, .popXL .tabAll .tabBut .tab2.active {
+  color: white;
+  background: linear-gradient(#963d08, #de8d57);
+}
+.popXL .tabAll .tabBut .tab1:hover, .popXL .tabAll .tabBut .tab2:hover {
+  color: white;
+  background: linear-gradient(#963d08, #de8d57);
+}
+.popXL .tabAll .tabContent {
+  font-size: 18px;
+  top: 30px;
+  padding-top: 2%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0px 40px;
+  width: 650px;
+  height: 350px;
+}
+.popXL .tabAll .tabContent td {
+  padding-left: 5px;
+}
+.popXL .tabAll .tabContent .td1 {
+  padding-left: 0px;
+  text-align: center;
+}/*# sourceMappingURL=style.css.map */
