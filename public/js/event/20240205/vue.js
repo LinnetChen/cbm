@@ -438,6 +438,9 @@ Vue.createApp({
         },
         // login api
         async getSetting() {
+        // 抓帳號
+        let accText = document.querySelector(".accText");
+        accText = this.logIn.account;
             try {
                 const response = await axios.post(api, {
                     type: "login",
@@ -622,8 +625,8 @@ Vue.createApp({
     //函式
     mounted: function () {
         this.getSetting();
-        var accText = document.querySelector(".accText");
-        accText = this.logIn.account;
+        // var accText = document.querySelector(".accText");
+        // accText = this.logIn.account;
         particlesJS("particles-js", {
             "particles": {
                 "number": {
