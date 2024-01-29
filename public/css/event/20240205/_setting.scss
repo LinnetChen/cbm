@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@500;600;700;900&display=swap');
+
+.header {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 600;
+}
+html{
+      //捲軸底色
+      ::-webkit-scrollbar {
+        @include size(5px, 5px);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background:#362a16;
+    }
+
+    ::-webkit-scrollbar-track {
+        background:#ffff;
+    }
+    overflow-x: hidden;
+    overflow-y:auto;
+    box-sizing: border-box;
+    table{
+        border: #362a16 2px solid;
+        tr{
+            border: #362a16 2px solid;
+            td{
+                border: #362a16 2px solid;
+            }
+            th{
+                border: #362a16 2px solid;
+                color: #fff;
+                background-color: #362a16;
+            }
+        }
+    }
+  }
