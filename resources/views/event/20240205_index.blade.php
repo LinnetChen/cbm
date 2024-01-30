@@ -230,7 +230,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="/js/event/20240205/vue.js?v4.71"></script>
+    <script src="/js/event/20240205/vue.js?v7.1"></script>
 </body>
 
 </html>
