@@ -161,7 +161,7 @@
                     <div class="account">
                         <div class="login">
                             <div class="accText">{{ $_COOKIE['StrID'] }}</div>
-                            <div class="accBtn"><a href="javascript:logout_dg();">登出</a></div>
+                            <div class="accBtn" @click="logout_dg()"><a>登出</a></div>
                         </div>
                         <div class="point">
                             <div class="poHold">持有點數</div>
@@ -230,7 +230,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="/js/event/20240205/vue.js?v7.1"></script>
+    <script src="/js/event/20240205/vue.js?v8.0"></script>
 </body>
 
 </html>

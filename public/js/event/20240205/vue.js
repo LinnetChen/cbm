@@ -1,6 +1,5 @@
 var api = "/api/event240205_api";
 // var api = "http://192.168.0.41:8088/api/event240205_api";
-
 Vue.createApp({
     // 將php與vue語法衝突更換
     delimiters: ["%{", "}"],
@@ -386,6 +385,10 @@ Vue.createApp({
     },
     //方法
     methods: {
+        // logout
+        logout_dg(){
+            document.getElementById("logout-form").submit();
+        },
         //popS_open
         openPop() {
             this.popS.isModalOpen = true;
@@ -443,13 +446,13 @@ Vue.createApp({
                     user: this.logIn.account,
                 });
                 if (response.data.status == -90) {
-                    this.finished = true;
+                    this.logIn.finished = true;
                 } else if (response.data.status == 1) {
                     this.logIn.pointText = response.data.point;
-                    this.finished = false;
-                    this.isLogin = true;
+                    this.logIn.finished = false;
+                    this.logIn.isLogin = true;
                 }else if(response.data.status == -99){
-                    this.isLogin = false;
+                    this.logIn.isLogin = false;
                 }
             } catch (err) {
                 console.log(err);
@@ -462,19 +465,19 @@ Vue.createApp({
             this.popS.popBut1 = true;
             if(this.isClickable){
                 this.isClickable = false;
-                if (this.finished == true) {
+                if (this.logIn.finished == true) {
                     this.popS.titleText = "活動已結束";
                     this.popS.wrapText = "";
                     this.popS.butText1 =
                         "<div class='popBut1'><a href='https://cbo.digeam.com/'>是</a></div>";
                     this.openPop();
-                } else if (this.isLogin == false) {
+                } else if (this.logIn.isLogin == false) {
                     this.popS.titleText = "請先登入帳號";
                     this.popS.wrapText = "";
                     this.popS.butText1 =
                         "<div class='popBut1'><a href='https://www.digeam.com/login'>是</a></div>";
                     this.openPop();
-                } else if (this.isLogin == true) {
+                } else if (this.logIn.isLogin == true) {
                     try {
                         const response = await axios.post(api, {
                             type: "pray",
@@ -523,19 +526,19 @@ Vue.createApp({
             this.popS.popBut3 = false;
             this.popS.popBut2 = false;
             this.popS.popBut1 = true;
-            if( this.finished == true){
+            if( this.logIn.finished == true){
                 this.popS.titleText = "活動已結束";
                 this.popS.wrapText = "";
                 this.popS.butText1 =
                     "<div class='popBut1'><a href='https://cbo.digeam.com/'>是</a></div>";
                 this.openPop();
-            }else if (this.isLogin == false) {
+            }else if (this.logIn.isLogin == false) {
                 this.popS.titleText = "請先登入帳號";
                 this.popS.wrapText = "";
                 this.popS.butText1 =
                     "<div class='popBut1'><a href='https://www.digeam.com/login'>是</a></div>";
                 this.openPop();
-            } else if (this.isLogin == true) {
+            } else if (this.logIn.isLogin == true) {
                 this.popS.popBut3 = true;
                 this.popS.popBut2 = true;
                 this.popS.popBut1 = false;
