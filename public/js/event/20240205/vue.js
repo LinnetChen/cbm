@@ -8,7 +8,6 @@ Vue.createApp({
     data: function () {
         return {
              // 防連點
-            maskNo: false,
             isClickable: true,
             logIn: {
                 pointText: null,
@@ -438,9 +437,6 @@ Vue.createApp({
         },
         // login api
         async getSetting() {
-        // 抓帳號
-        let accText = document.querySelector(".accText");
-        accText = this.logIn.account;
             try {
                 const response = await axios.post(api, {
                     type: "login",
@@ -452,6 +448,8 @@ Vue.createApp({
                     this.logIn.pointText = response.data.point;
                     this.finished = false;
                     this.isLogin = true;
+                }else if(response.data.status == -99){
+                    this.isLogin = false;
                 }
             } catch (err) {
                 console.log(err);
@@ -497,7 +495,6 @@ Vue.createApp({
                             this.popS.butText1 =
                                 "<div class='popBut1'>明天再來</div>";
                             this.openPop();
-                            return;
                         } else if (response.data.status == 1) {
                             this.popS.titleText = "您已獲得眾神的庇佑";
                             this.popS.wrapText =
@@ -514,8 +511,8 @@ Vue.createApp({
                         console.log(err);
                     }
                     finally{
-                        setTimeout(()=>{
-                            this.isClickable =true ;
+                        setTimeout(() =>{
+                            this.isClickable = true ;
                         },1000)
                     }
                 }
@@ -624,9 +621,10 @@ Vue.createApp({
     },
     //函式
     mounted: function () {
+        var accTextElement = document.querySelector('.accText');
+        var user =  accTextElement.innerText;
+        this.logIn.account = user;
         this.getSetting();
-        // var accText = document.querySelector(".accText");
-        // accText = this.logIn.account;
         particlesJS("particles-js", {
             "particles": {
                 "number": {
