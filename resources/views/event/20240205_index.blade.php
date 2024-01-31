@@ -17,13 +17,12 @@
     <link rel="icon" sizes="192x192" href="/img/event/20230728/favicon.ico">
     <meta name="description" content="《黑色契約CABAL Online》 神光庇護">
     <title>《黑色契約CABAL Online》神光庇護</title>
-    <link rel="stylesheet" href="/css/event/20240205/style.css?v1.4">
+    <link rel="stylesheet" href="/css/event/20240205/style.css?v1.8">
 </head>
 
 <body>
     <div id="app">
         {{-- 防連點遮罩 --}}
-        <div class="maskNo"  v-if="maskNo"></div>
         <transition name='fade'>
             <div class="mask" v-if="popXL.isModalOpen"></div>
         </transition>
@@ -85,8 +84,8 @@
                                 <thead>
                                     <tr>
                                         <th width="2%">優惠券名稱</th>
-                                        <th width="1.2%">獲得時間</th>
-                                        <th width="1%">有效日期​</th>
+                                        <th width="1.2%">道具名稱</th>
+                                        <th width="1%">優惠券效期​</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -103,8 +102,8 @@
                                 <thead>
                                     <tr>
                                         <th width="2%">優惠券名稱</th>
-                                        <th width="1%">獲得時間</th>
-                                        <th width="1%">有效日期​</th>
+                                        <th width="1.2%">道具名稱​</th>
+                                        <th width="1%">優惠券效期​</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -171,10 +170,7 @@
                     </div>
             </div>
         @else
-            <!-- <form id="logout-form" action="https://www.digeam.com/logout" method="POST" style="display: none;">
-                <input type="hidden" name="return_url" id="return_url"
-                    value={{ base64_encode('https://cbo.digeam.com/20240205') }}>
-            </form> -->
+            </form>
             <a href="https://cbo.digeam.com/" class="logo" target="blank"></a>
             <div class="account">
                 <div class="login">
@@ -216,7 +212,7 @@
                     ESTgames Corp (and the logo of ESTgames).</p>
             </div>
             <div class="classlavel">
-                <img src="/img/event/20240205/icon_15.png" alt="輔15級">
+                <div><img src="/img/event/20240205/icon_15.png" alt="輔15級"></div>
                 <ul>
                     <li>本遊戲為免費使用，部分內容涉及暴力情節。</li>
                     <li>遊戲內另提供購買虛擬遊戲幣、物品等付費服務。</li>
@@ -230,7 +226,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="/js/event/20240205/vue.js?v8.0"></script>
+    <script src="/js/event/20240205/vue.js?v9.0"></script>
 </body>
 
 </html>

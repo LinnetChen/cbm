@@ -207,31 +207,31 @@ Vue.createApp({
                 {
                     item_name: "50黑魂優惠券",
                     description:
-                        "此優惠券僅限用於折抵[契約小舖]50黑魂(含)以上的商品，不限分類(VIP服務除外)，有效期限3天。",
+                        "此優惠券僅限用於折抵[契約小舖]51黑魂(含)以上的商品，不限分類(VIP服務除外)，有效期限3天。",
                     probability: "2.40%",
                 },
                 {
                     item_name: "70黑魂優惠券",
                     description:
-                        "此優惠券僅限用於折抵[契約小舖]70黑魂(含)以上的商品，不限分類(VIP服務除外)，有效期限3天。",
+                        "此此優惠券僅限用於折抵[契約小舖]71黑魂(含)以上的商品，不限分類(VIP服務除外)，有效期限3天。",
                     probability: "2.40%",
                 },
                 {
                     item_name: "100黑魂優惠券",
                     description:
-                        "此優惠券僅限用於折抵[契約小舖]100黑魂(含)以上的商品，不限分類(VIP服務除外)，有效期限3天。",
+                        "此優惠券僅限用於折抵[契約小舖]101黑魂(含)以上的商品，不限分類(VIP服務除外)，有效期限3天。",
                     probability: "1.20%",
                 },
                 {
                     item_name: "120黑魂優惠券",
                     description:
-                        "此優惠券僅限用於折抵[契約小舖]120黑魂(含)以上的商品，不限分類(VIP服務除外)，有效期限3天。",
+                        "此優惠券僅限用於折抵[契約小舖]121黑魂(含)以上的商品，不限分類(VIP服務除外)，有效期限3天。",
                     probability: "0.90%",
                 },
                 {
                     item_name: "150黑魂優惠券",
                     description:
-                        "此優惠券僅限用於折抵[契約小舖]150黑魂(含)以上的商品，不限分類(VIP服務除外)，有效期限3天。",
+                        "此優惠券僅限用於折抵[契約小舖]151黑魂(含)以上的商品，不限分類(VIP服務除外)，有效期限3天。",
                     probability: "0.60%",
                 },
                 {
@@ -406,9 +406,10 @@ Vue.createApp({
                 this.popXL.wrapText = `
           1. 活動時間：2024/02/06(二) 12:00 ~ 2024/02/20(二) 12:00​​<br>
           2. 活動期間內，每日遊戲累積登入時間達1小時，即可點擊『祈求庇佑』領取登入獎勵，並隨機獲得一張契約小舖優惠券，每日限領一次。​​<br>
-          3. 每日領取『祈求庇佑』獎勵前，需先重新登入遊戲才可領取獎勵。​​<br>
+          3. 登入時間滿1小時後，需先重新登入遊戲/切換頻道系統才會更新在線時間，並開放領取獎勵。(伺服器更新最長需要10分鐘，若當下未能領取獎勵請稍後再次嘗試)​​<br>
           4. 活動期間內，玩家可點擊『加倍祝福』按鈕，抽取一張契約小舖優惠券，每次抽取費用皆為「30 黑魂」，不限次數。每次抽取優惠券皆可額外獲得一個Buff道具獎勵。​​<br>
-          5. 每日登入獎勵領取後將直接發送至遊戲內Cash背包，契約小舖優惠券將直接發送至契約小舖優惠券介面。​<br>`;
+          5. 每日登入獎勵領取後將直接發送至遊戲內Cash背包，契約小舖優惠券將直接發送至契約小舖優惠券介面。​<br>
+          <span>※ 提醒您，伺服器更新在線時間最長需要10分鐘。請盡量避免於換日前進行『祈求庇佑』活動，以致獎勵無法及時領取。</span>`;
             } else if (modalData === 2) {
                 this.popXL.titleText = "獎勵一覽";
                 this.popXL.tabExist = true;
@@ -424,10 +425,10 @@ Vue.createApp({
           5. 每張優惠券僅限用於一項商品，若該項商品數量大於一時將無法使用優惠券進行折抵。每項商品限使用一張優惠券。​<br>​
           6. 本次販售之優惠券為機會中獎商品，消費者購買或參與活動不代表即可獲得特定商品。​​<br>
           7. 登入獎勵獲取的虛寶道具可能有綁定、交易、販賣或使用時間等限制，實際道具設定以遊戲獲取為準。​​<br>
-          8. 發現活動或領獎機制出現系統或其他異常時，請第一時間透過「線上客服中心」回報，若逕行利用該異常取得非屬原活動機制應得之獎勵者，本公司有權終止其進行遊戲及會員服務資格。​​<br>
+          8. 發現活動或領獎機制出現系統或其他異常時，請第一時間透過<a href="https://www.digeam.com/cs" target="blank">「線上客服中心」</a>回報，若逕行利用該異常取得非屬原活動機制應得之獎勵者，本公司有權終止其進行遊戲及會員服務資格。​​<br>
           9. 本公司有權檢視各參加者之活動參與行為及得獎情形是否涉嫌，例：人為操作、惡意灌票、蓄意偽造、多開（重）帳號、短時間異常多筆參與行為、透過任何電腦程式參與活動、詐欺、任何違反會員系統服務合約及停權管理規章之情事者，或以任何其他不正當的方式意圖以進行不實或虛偽活動參與行為，參賽者因上述情形所獲得之活動資格及獎項，本公司得一概取消之，其帳號亦將停權處份。​​<br>
           10. 玩家參與本活動之同時，即同意接受本活動辦法與注意事項之規範，如不同或有違反，應視為無參加資格 ，或本公司得取消其使用資格，如因此有致生損害於本公司或其他任何第三人，本公司得向參加者請求損害賠償，參加者應負一切相關責任。​​<br>
-          11.掘夢網保留變更、取消或終止本活動的權利，包括但不限於本活動條款及活動辦法。​​<br>`;
+          11. 掘夢網保留變更、取消或終止本活動的權利，包括但不限於本活動條款及活動辦法。​​<br>`;
             } else if (modalData === 4) {
                 this.popXL.tabExist = true;
                 this.popXL.titleText = "領取紀錄";
@@ -464,20 +465,20 @@ Vue.createApp({
             this.popS.popBut2 = false;
             this.popS.popBut1 = true;
             if(this.isClickable){
-                this.isClickable = false;
                 if (this.logIn.finished == true) {
                     this.popS.titleText = "活動已結束";
                     this.popS.wrapText = "";
                     this.popS.butText1 =
-                        "<div class='popBut1'><a href='https://cbo.digeam.com/'>是</a></div>";
+                        "<a href='https://cbo.digeam.com/'><div class='popBut1'>是</div></a>";
                     this.openPop();
                 } else if (this.logIn.isLogin == false) {
                     this.popS.titleText = "請先登入帳號";
                     this.popS.wrapText = "";
                     this.popS.butText1 =
-                        "<div class='popBut1'><a href='https://www.digeam.com/login'>是</a></div>";
+                        "<a href='https://www.digeam.com/login'><div class='popBut1'>是</div></a>";
                     this.openPop();
                 } else if (this.logIn.isLogin == true) {
+                    this.isClickable = false;
                     try {
                         const response = await axios.post(api, {
                             type: "pray",
@@ -503,12 +504,11 @@ Vue.createApp({
                             this.popS.wrapText =
                                 `<span>` +
                                 response.data.item_name +
-                                `+` +
+                                `<br>【優惠券】` +
                                 response.data.coupon_name +
                                 `</span>`;
                             this.popS.popBut1 = false;
                             this.openPop();
-                            this.getSetting();
                         }
                     } catch (err) {
                         console.log(err);
@@ -516,7 +516,7 @@ Vue.createApp({
                     finally{
                         setTimeout(() =>{
                             this.isClickable = true ;
-                        },1000)
+                        },500)
                     }
                 }
             }
@@ -530,13 +530,13 @@ Vue.createApp({
                 this.popS.titleText = "活動已結束";
                 this.popS.wrapText = "";
                 this.popS.butText1 =
-                    "<div class='popBut1'><a href='https://cbo.digeam.com/'>是</a></div>";
+                    "<a href='https://cbo.digeam.com/'><div class='popBut1'>是</div></a>";
                 this.openPop();
             }else if (this.logIn.isLogin == false) {
                 this.popS.titleText = "請先登入帳號";
                 this.popS.wrapText = "";
                 this.popS.butText1 =
-                    "<div class='popBut1'><a href='https://www.digeam.com/login'>是</a></div>";
+                    "<a href='https://www.digeam.com/login'><div class='popBut1'>是</div></a>";
                 this.openPop();
             } else if (this.logIn.isLogin == true) {
                 this.popS.popBut3 = true;
@@ -567,7 +567,7 @@ Vue.createApp({
                         this.popS.titleText = "剩餘點數不足​​";
                         this.popS.wrapText = "";
                         this.popS.butText1 =
-                            "<div class='popBut1'><a href ='https://www.digeam.com/member/billing'>前往儲值</a></div>";
+                            "<a href ='https://www.digeam.com/member/billing'><div class='popBut1'>前往儲值</div></a>";
                         this.openPop();
                     } else if (response.data.status == -97) {
                         this.popS.popBut1 = true;
@@ -581,7 +581,7 @@ Vue.createApp({
                         this.popS.wrapText =
                             `<span>` +
                             response.data.item_name +
-                            `+` +
+                            `<br>【優惠券】` +
                             response.data.coupon_name +
                             `</span>`;
                         this.popS.popBut1 = false;
@@ -627,6 +627,7 @@ Vue.createApp({
         var accTextElement = document.querySelector('.accText');
         var user =  accTextElement.innerText;
         this.logIn.account = user;
+        // this.logIn.account = "digeamcbo04";
         this.getSetting();
         particlesJS("particles-js", {
             "particles": {

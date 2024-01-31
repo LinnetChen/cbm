@@ -206,6 +206,8 @@ footer {
   display: flex;
   justify-content: center;
   color: #513200;
+  width: 1920px;
+  height: 100px;
 }
 
 .footerbox {
@@ -585,6 +587,12 @@ a.logo_rw {
   padding: 0px 60px;
   height: 75%;
 }
+.popXL .popWrap span {
+  color: #b3280f;
+}
+.popXL .popWrap a {
+  color: #b3280f;
+}
 .popXL .tabAll .tabBut {
   display: flex;
   flex-direction: row;
@@ -623,8 +631,11 @@ a.logo_rw {
 }
 .popXL .tabAll .tabContent td {
   padding-left: 5px;
+  text-align: center;
+  vertical-align: middle;
 }
 .popXL .tabAll .tabContent .td1 {
   padding-left: 0px;
   text-align: center;
+  vertical-align: middle;
 }/*# sourceMappingURL=style.css.map */
