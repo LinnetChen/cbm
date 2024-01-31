@@ -13,7 +13,7 @@ class Event240205Controller extends AdminController
     public function index(Content $content)
     {
         return $content
-            ->header('聖誕消費節')
+            ->header('神光庇護')
             ->description('領取紀錄')
             ->body($this->grid($this));
     }

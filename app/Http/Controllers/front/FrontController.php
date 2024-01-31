@@ -240,12 +240,11 @@ class FrontController extends Controller
             'nc' => $nc,
         ]);
     }
-    public function war()
+    public function war($serverIdx = 1)
     {
-
         $client = new Client();
         $data = [
-            "serverIdx" => 1,
+            "serverIdx" => intval($serverIdx),
             "logIdx" => 0,
         ];
 
@@ -260,8 +259,14 @@ class FrontController extends Controller
         ]);
         $result = $res->getBody();
         $result = json_decode($result);
+        if(intval($serverIdx) == 1){
+            $servername = '冰迫星';
+        }else{
+            $servername = '黑恆星';
+        }
         return view('front/war', [
             'result' => $result,
+            'servername' => $servername,
         ]);
     }
 

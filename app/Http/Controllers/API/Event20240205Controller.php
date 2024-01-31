@@ -44,14 +44,13 @@ class Event20240205Controller extends Controller
             $reqbody = json_decode($reqbody);
 
             if ($reqbody->data) {
-                $point = $reqbody->data->cash;
+                $point = $reqbody->data->cash+$reqbody->data->cashBonus;
             } else {
                 $point = 0;
             }
         } else {
             $point = 0;
         }
-
         return response()->json([
             'status' => 1,
             'point' => $point,
@@ -66,7 +65,7 @@ class Event20240205Controller extends Controller
                 'status' => -99,
             ]);
         }
-        $check_already = Event240123_getlog::where('user', $request->user)->whereBetween('created_at', [Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')])->first();
+        $check_already = Event240123_getlog::where('user', $request->user)->where('type','pray')->whereBetween('created_at', [Carbon::now()->format('Y-m-d 10:00:00'), Carbon::now()->format('Y-m-d 10:59:59')])->first();
         if ($check_already) {
             return response()->json([
                 'status' => -97,
@@ -195,78 +194,155 @@ class Event20240205Controller extends Controller
         // 免費道具設定
         if ($type == 'pray') {
             $setDay = Carbon::now()->format('YmdHis');
-            if ($setDay > '20240206000000' && $setDay < '20240206235959') {
+            // if ($setDay > '20240206000000' && $setDay < '20240206235959') {
+            //     $item = '貝拉德里克斯的加護x10';
+            //     $itemIdx = 6500;
+            //     $itemOpt = 10;
+            //     $duration = 0;
+            // } elseif ($setDay > '20240207000000' && $setDay < '20240207235959') {
+            //     $item = '喇叭x10';
+            //     $itemIdx = 6414;
+            //     $itemOpt = 10;
+            //     $duration = 0;
+            // } elseif ($setDay > '20240208000000' && $setDay < '20240208235959') {
+            //     $item = '憤怒藥水(特大)x5';
+            //     $itemIdx = 7201;
+            //     $itemOpt = 5;
+            //     $duration = 0;
+            // } elseif ($setDay > '20240209000000' && $setDay < '20240209235959') {
+            //     $item = '[服裝]賀歲龍袍護肩(7D)x1';
+            //     $itemIdx = 5319;
+            //     $itemOpt = 5;
+            //     $duration = 1695215768;
+            //     $prdId = 1288;
+            // } elseif ($setDay > '20240210000000' && $setDay < '20240210235959') {
+            //     $item = 'GM的祝福(Lv.4)聖水x5';
+            //     $itemIdx = 33560062;
+            //     $itemOpt = 5;
+            //     $duration = 0;
+            // } elseif ($setDay > '20240211000000' && $setDay < '20240211235959') {
+            //     $item = '英雄聖水(30分鐘)x5';
+            //     $itemIdx = 33560062;
+            //     $itemOpt = 5;
+            //     $duration = 0;
+            // } elseif ($setDay > '20240212000000' && $setDay < '20240212235959') {
+            //     $item = '戰士聖水(30分)x5';
+            //     $itemIdx = 7191;
+            //     $itemOpt = 5;
+            //     $duration = 0;
+            // } elseif ($setDay > '20240213000000' && $setDay < '20240213235959') {
+            //     $item = '賢者聖水(30分)x5';
+            //     $itemIdx = 7192;
+            //     $itemOpt = 5;
+            //     $duration = 0;
+            // } elseif ($setDay > '20240214000000' && $setDay < '20240214235959') {
+            //     $item = '最高級復活結晶x5';
+            //     $itemIdx = 33559144;
+            //     $itemOpt = 5;
+            //     $duration = 0;
+            // } elseif ($setDay > '20240215000000' && $setDay < '20240215235959') {
+            //     $item = 'AP儲存箱(50/50)x1';
+            //     $itemIdx = 7288;
+            //     $itemOpt = 3276850;
+            //     $duration = 0;
+            // } elseif ($setDay > '20240216000000' && $setDay < '20240216235959') {
+            //     $item = '抵抗聖水(30分鐘)x5';
+            //     $itemIdx = 33560262;
+            //     $itemOpt = 5;
+            //     $duration = 0;
+            // } elseif ($setDay > '20240217000000' && $setDay < '20240217235959') {
+            //     $item = '英雄的召喚x5';
+            //     $itemIdx = 6449;
+            //     $itemOpt = 5;
+            //     $duration = 0;
+            // } elseif ($setDay > '20240218000000' && $setDay < '20240218235959') {
+            //     $item = '英雄的跳躍x5';
+            //     $itemIdx = 7271;
+            //     $itemOpt = 5;
+            //     $duration = 0;
+            // } elseif ($setDay > '20240219000000' && $setDay < '20240219235959') {
+            //     $item = '工匠的特效藥(300)x1';
+            //     $itemIdx = 7933;
+            //     $itemOpt = 300;
+            //     $duration = 0;
+            // } elseif ($setDay > '20240220000000' && $setDay < '20240220235959') {
+            //     $item = '祝福寶珠-特級(1D)x1';
+            //     $itemIdx = 33559475;
+            //     $itemOpt = 5;
+            //     $duration = 1207959552;
+            // }
+            if ($setDay > '20240131100000' && $setDay < '20240131105959') {
                 $item = '貝拉德里克斯的加護x10';
                 $itemIdx = 6500;
                 $itemOpt = 10;
                 $duration = 0;
-            } elseif ($setDay > '20240207000000' && $setDay < '20240207235959') {
+            } elseif ($setDay > '20240131110000' && $setDay < '20240131115959') {
                 $item = '喇叭x10';
                 $itemIdx = 6414;
                 $itemOpt = 10;
                 $duration = 0;
-            } elseif ($setDay > '20240208000000' && $setDay < '20240208235959') {
+            } elseif ($setDay > '20240131120000' && $setDay < '20240131125959') {
                 $item = '憤怒藥水(特大)x5';
                 $itemIdx = 7201;
                 $itemOpt = 5;
                 $duration = 0;
-            } elseif ($setDay > '20240209000000' && $setDay < '20240209235959') {
+            } elseif ($setDay > '20240131130000' && $setDay < '20240131135959') {
                 $item = '[服裝]賀歲龍袍護肩(7D)x1';
                 $itemIdx = 5319;
                 $itemOpt = 5;
                 $duration = 1695215768;
                 $prdId = 1288;
-            } elseif ($setDay > '20240210000000' && $setDay < '20240210235959') {
+            } elseif ($setDay > '20240131140000' && $setDay < '20240131145959') {
                 $item = 'GM的祝福(Lv.4)聖水x5';
                 $itemIdx = 33560062;
                 $itemOpt = 5;
                 $duration = 0;
-            } elseif ($setDay > '20240211000000' && $setDay < '20240211235959') {
+            } elseif ($setDay > '20240131150000' && $setDay < '20240131155959') {
                 $item = '英雄聖水(30分鐘)x5';
                 $itemIdx = 33560062;
                 $itemOpt = 5;
                 $duration = 0;
-            } elseif ($setDay > '20240212000000' && $setDay < '20240212235959') {
+            } elseif ($setDay > '20240131160000' && $setDay < '20240131165959') {
                 $item = '戰士聖水(30分)x5';
                 $itemIdx = 7191;
                 $itemOpt = 5;
                 $duration = 0;
-            } elseif ($setDay > '20240213000000' && $setDay < '20240213235959') {
+            } elseif ($setDay > '20240131170000' && $setDay < '20240131175959') {
                 $item = '賢者聖水(30分)x5';
                 $itemIdx = 7192;
                 $itemOpt = 5;
                 $duration = 0;
-            } elseif ($setDay > '20240214000000' && $setDay < '20240214235959') {
+            } elseif ($setDay > '20240131180000' && $setDay < '20240131185959') {
                 $item = '最高級復活結晶x5';
                 $itemIdx = 33559144;
                 $itemOpt = 5;
                 $duration = 0;
-            } elseif ($setDay > '20240215000000' && $setDay < '20240215235959') {
+            } elseif ($setDay > '20240201120000' && $setDay < '20240201125959') {
                 $item = 'AP儲存箱(50/50)x1';
                 $itemIdx = 7288;
                 $itemOpt = 3276850;
                 $duration = 0;
-            } elseif ($setDay > '20240216000000' && $setDay < '20240216235959') {
+            } elseif ($setDay > '20240201130000' && $setDay < '20240201135959') {
                 $item = '抵抗聖水(30分鐘)x5';
                 $itemIdx = 33560262;
                 $itemOpt = 5;
                 $duration = 0;
-            } elseif ($setDay > '20240217000000' && $setDay < '20240217235959') {
+            } elseif ($setDay > '20240201140000' && $setDay < '20240201145959') {
                 $item = '英雄的召喚x5';
                 $itemIdx = 6449;
                 $itemOpt = 5;
                 $duration = 0;
-            } elseif ($setDay > '20240218000000' && $setDay < '20240218235959') {
+            } elseif ($setDay > '20240201150000' && $setDay < '20240201155959') {
                 $item = '英雄的跳躍x5';
                 $itemIdx = 7271;
                 $itemOpt = 5;
                 $duration = 0;
-            } elseif ($setDay > '20240219000000' && $setDay < '20240219235959') {
+            } elseif ($setDay > '20240201160000' && $setDay < '20240201165959') {
                 $item = '工匠的特效藥(300)x1';
                 $itemIdx = 7933;
                 $itemOpt = 300;
                 $duration = 0;
-            } elseif ($setDay > '20240220000000' && $setDay < '20240220235959') {
+            } elseif ($setDay > '20240201170000' && $setDay < '20240201175959') {
                 $item = '祝福寶珠-特級(1D)x1';
                 $itemIdx = 33559475;
                 $itemOpt = 5;
@@ -354,7 +430,7 @@ class Event20240205Controller extends Controller
                 'status' => -99,
             ]);
         }
-        $result = Event240123_getlog::select('coupon', 'item', 'coupon_deadline')->where('user', $request->user)->where('type', $request->history_type)->orderby('created_at', 'desc')->get();
+        $result = Event240123_getlog::select('coupon', 'item', 'coupon_deadline')->where('user', $request->user)->where('type', $request->history_type)->orderby('created_at', 'asc')->get();
         return response()->json([
             'status' => 1,
             'list' => $result,

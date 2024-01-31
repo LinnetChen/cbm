@@ -171,10 +171,10 @@
                     </div>
             </div>
         @else
-            <form id="logout-form" action="https://www.digeam.com/logout" method="POST" style="display: none;">
+            <!-- <form id="logout-form" action="https://www.digeam.com/logout" method="POST" style="display: none;">
                 <input type="hidden" name="return_url" id="return_url"
                     value={{ base64_encode('https://cbo.digeam.com/20240205') }}>
-            </form>
+            </form> -->
             <a href="https://cbo.digeam.com/" class="logo" target="blank"></a>
             <div class="account">
                 <div class="login">

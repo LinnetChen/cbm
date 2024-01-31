@@ -3,15 +3,19 @@
 @section('link')
     <link rel="stylesheet" href="/css/home_page/war_style.css?v1.1">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        .section option{
+            color:black;
+        }
+    </style>
 @endsection
 @section('main_title', '國家戰爭')
 @section('content2')
-    {{-- @dd($result->data->warResult->capella) --}}
-    {{-- @dd($result->data) --}}
     <div class="title_box">
         <div class="war_main_title">國家戰爭</div>
         <select class="section" name="server">
-            <option>伺服器</option>
+            <option calss = server_1 value =1>冰珀星</option>
+            <option calss = server_2 value =2>黑恆星</option>
         </select>
     </div>
     <div class="war_bg">
@@ -35,7 +39,7 @@
                         </div>
                         <div class="dot"></div>
                         <div class="score_text">
-                            @if ($result->data->warResult->capella < 10)
+                            @if ($result->data->warResult->procyon < 10)
                                 <span>0{{ $result->data->warResult->procyon }}</span>
                                 <span>0{{ $result->data->warResult->procyon }}</span>
                             @else
@@ -72,7 +76,7 @@
                 </tr>
                 @foreach ($result->data->bringersWithLevelType as $key => $value)
                     <tr data-aos="fade-up">
-                        @if (!$value->cepella)
+                        @if ($value->cepella == null)
                             <td>
                                 <div class="leader_jobIcon_00"></div>
                             </td>
@@ -91,7 +95,7 @@
                         <td class="under_line"><img src="/img/war/{{ $key }}.png"></td>
 
 
-                        @if (!$value->procyon)
+                        @if ($value->procyon ==null)
                             <td class="under_line">-</td>
                             <td class="under_line">-</td>
                             <td class="under_line">-</td>
@@ -128,9 +132,15 @@
                 </tr>
                 @foreach ($result->data->guardianWithClass as $key => $value)
                     <tr data-aos="fade-up">
+                        @if($value->cepella != null )
                         <td class="under_line">{{ $value->cepella->characterName }}</td>
                         <td class="under_line">{{ $value->cepella->level }}</td>
                         <td class="under_line">{{ $value->cepella->guildName }}</td>
+                        @else
+                        <td class="under_line">-</td>
+                        <td class="under_line">-</td>
+                        <td class="under_line">-</td>
+                        @endif
                         <td>
                             @switch ($value->type)
                                 @case(1)
@@ -162,9 +172,15 @@
                                 @break;
                             @endswitch
                         </td>
+                        @if ($value->procyon != null)
                         <td class="under_line">{{ $value->procyon->characterName }}</td>
                         <td class="under_line">{{ $value->procyon->level }}</td>
                         <td class="under_line">{{ $value->procyon->guildName }}</td>
+                        @else
+                        <td class="under_line">-</td>
+                        <td class="under_line">-</td>
+                        <td class="under_line">-</td>
+                        @endif
                     </tr>
                 @endforeach
             </table>
@@ -179,5 +195,13 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
+        var getServer = window.location.href.split('/').pop()
+        if(getServer == 2){
+            $('.section option[value=2]').attr('selected', 'selected');
+        }
+
+        $('.section').on('change',function(){
+            window.location.href = "https://cbo.digeam.com/war/"+$(this).val()
+        })
     </script>
 @endsection
