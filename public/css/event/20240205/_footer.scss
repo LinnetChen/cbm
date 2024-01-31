@@ -8,6 +8,7 @@ footer {
     display: flex;
     justify-content: center;
     color: #513200;
+    @include size (1920px,100px);
 }
 
 .footerbox {
