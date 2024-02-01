@@ -17,7 +17,7 @@
     <link rel="icon" sizes="192x192" href="/img/event/20230728/favicon.ico">
     <meta name="description" content="《黑色契約CABAL Online》 神光庇護">
     <title>《黑色契約CABAL Online》神光庇護</title>
-    <link rel="stylesheet" href="/css/event/20240205/style.css?v1.8">
+    <link rel="stylesheet" href="/css/event/20240205/style.css?v1.9">
 </head>
 
 <body>
@@ -52,9 +52,9 @@
                                 </thead>
                                 <tbody>
                                     <tr v-for="item in rewardList1">
-                                        <td class="td1">%{ item.actDate }</td>
-                                        <td class="td1">%{ item.item_name }</td>
-                                        <td>%{ item.description }</td>
+                                        <td >%{ item.actDate }</td>
+                                        <td >%{ item.item_name }</td>
+                                        <td class="td1">%{ item.description }</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -70,9 +70,9 @@
                                 </thead>
                                 <tbody>
                                     <tr v-for="item in rewardList2">
-                                        <td class="td1">%{ item.item_name }</td>
-                                        <td>%{ item.description }</td>
-                                        <td class="td1">%{ item.probability }</td>
+                                        <td>%{ item.item_name }</td>
+                                        <td class="td1">%{ item.description }</td>
+                                        <td>%{ item.probability }</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -90,9 +90,9 @@
                                 </thead>
                                 <tbody>
                                     <tr v-for="item in claimHistory1">
-                                        <td class="td1">%{ item.coupon }</td>
-                                        <td class="td1">%{ item.coupon_deadline }</td>
-                                        <td class="td1">%{ item.item}</td>
+                                        <td>%{ item.coupon }</td>
+                                        <td>%{ item.item}</td>
+                                        <td>%{ item.coupon_deadline }</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -108,9 +108,9 @@
                                 </thead>
                                 <tbody>
                                     <tr v-for="item in claimHistory2">
-                                        <td class="td1">%{ item.coupon }</td>
-                                        <td class="td1">%{ item.coupon_deadline }</td>
-                                        <td class="td1">%{ item.item }</td>
+                                        <td>%{ item.coupon }</td>
+                                        <td>%{ item.item}</td>
+                                        <td>%{ item.coupon_deadline }</td>
                                     </tr>
                                 </tbody>
                             </table>
