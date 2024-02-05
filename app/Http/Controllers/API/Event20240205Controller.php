@@ -13,6 +13,7 @@ class Event20240205Controller extends Controller
 {
     public function index(Request $request)
     {
+
         if ($request->type == 'login') {
             $result = Event20240205Controller::login($request);
         } else if ($request->type == 'pray') {
@@ -65,7 +66,7 @@ class Event20240205Controller extends Controller
                 'status' => -99,
             ]);
         }
-        $check_already = Event240123_getlog::where('user', $request->user)->where('type','pray')->whereBetween('created_at', [Carbon::now()->format('Y-m-d 10:00:00'), Carbon::now()->format('Y-m-d 10:59:59')])->first();
+        $check_already = Event240123_getlog::where('user', $request->user)->where('type','pray')->whereBetween('created_at', [Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')])->first();
         if ($check_already) {
             return response()->json([
                 'status' => -97,
@@ -97,7 +98,7 @@ class Event20240205Controller extends Controller
                 'status' => -98,
                 'accumulated' => 0,
             ]);
-        } else if ($result->code == 0 && $result->data < 60) {
+        } else if ($result->code == 0 && $result->data < 30) {
             return response()->json([
                 'status' => -98,
                 'accumulated' => $result->data,
@@ -129,7 +130,7 @@ class Event20240205Controller extends Controller
             $reqbody = json_decode($reqbody);
 
             if ($reqbody->data) {
-                $point = $reqbody->data->cash;
+                $point = $reqbody->data->cash+$reqbody->data->cashBonus;
             } else {
                 $point = 0;
             }
@@ -194,160 +195,78 @@ class Event20240205Controller extends Controller
         // 免費道具設定
         if ($type == 'pray') {
             $setDay = Carbon::now()->format('YmdHis');
-            // if ($setDay > '20240206000000' && $setDay < '20240206235959') {
-            //     $item = '貝拉德里克斯的加護x10';
-            //     $itemIdx = 6500;
-            //     $itemOpt = 10;
-            //     $duration = 0;
-            // } elseif ($setDay > '20240207000000' && $setDay < '20240207235959') {
-            //     $item = '喇叭x10';
-            //     $itemIdx = 6414;
-            //     $itemOpt = 10;
-            //     $duration = 0;
-            // } elseif ($setDay > '20240208000000' && $setDay < '20240208235959') {
-            //     $item = '憤怒藥水(特大)x5';
-            //     $itemIdx = 7201;
-            //     $itemOpt = 5;
-            //     $duration = 0;
-            // } elseif ($setDay > '20240209000000' && $setDay < '20240209235959') {
-            //     $item = '[服裝]賀歲龍袍護肩(7D)x1';
-            //     $itemIdx = 5319;
-            //     $itemOpt = 0;
-            //     $duration = 12;
-            //     $prdId = 1288;
-            // } elseif ($setDay > '20240210000000' && $setDay < '20240210235959') {
-            //     $item = 'GM的祝福(Lv.4)聖水x5';
-            //     $itemIdx = 33560062;
-            //     $itemOpt = 5;
-            //     $duration = 0;
-            // } elseif ($setDay > '20240211000000' && $setDay < '20240211235959') {
-            //     $item = '英雄聖水(30分鐘)x5';
-            //     $itemIdx = 33559515;
-            //     $itemOpt = 5;
-            //     $duration = 0;
-            // } elseif ($setDay > '20240212000000' && $setDay < '20240212235959') {
-            //     $item = '戰士聖水(30分)x5';
-            //     $itemIdx = 7191;
-            //     $itemOpt = 5;
-            //     $duration = 0;
-            // } elseif ($setDay > '20240213000000' && $setDay < '20240213235959') {
-            //     $item = '賢者聖水(30分)x5';
-            //     $itemIdx = 7192;
-            //     $itemOpt = 5;
-            //     $duration = 0;
-            // } elseif ($setDay > '20240214000000' && $setDay < '20240214235959') {
-            //     $item = '最高級復活結晶x5';
-            //     $itemIdx = 33559144;
-            //     $itemOpt = 5;
-            //     $duration = 0;
-            // } elseif ($setDay > '20240215000000' && $setDay < '20240215235959') {
-            //     $item = 'AP儲存箱(50/50)x1';
-            //     $itemIdx = 7288;
-            //     $itemOpt = 3276850;
-            //     $duration = 0;
-            // } elseif ($setDay > '20240216000000' && $setDay < '20240216235959') {
-            //     $item = '抵抗聖水(30分鐘)x5';
-            //     $itemIdx = 33560262;
-            //     $itemOpt = 5;
-            //     $duration = 0;
-            // } elseif ($setDay > '20240217000000' && $setDay < '20240217235959') {
-            //     $item = '英雄的召喚x5';
-            //     $itemIdx = 6449;
-            //     $itemOpt = 5;
-            //     $duration = 0;
-            // } elseif ($setDay > '20240218000000' && $setDay < '20240218235959') {
-            //     $item = '英雄的跳躍x5';
-            //     $itemIdx = 7271;
-            //     $itemOpt = 5;
-            //     $duration = 0;
-            // } elseif ($setDay > '20240219000000' && $setDay < '20240219235959') {
-            //     $item = '工匠的特效藥(300)x1';
-            //     $itemIdx = 7933;
-            //     $itemOpt = 300;
-            //     $duration = 0;
-            // } elseif ($setDay > '20240220000000' && $setDay < '20240220235959') {
-            //     $item = '祝福寶珠-特級(1D)x1';
-            //     $itemIdx = 33559475;
-            //     $itemOpt = 0;
-            //     $duration = 9;
-            // }
-            if ($setDay > '20240131100000' && $setDay < '20240131105959') {
+            if ($setDay > '20240206000000' && $setDay < '20240206235959') {
                 $item = '貝拉德里克斯的加護x10';
                 $itemIdx = 6500;
                 $itemOpt = 10;
                 $duration = 0;
-            } elseif ($setDay > '20240131110000' && $setDay < '20240131115959') {
+            } elseif ($setDay > '20240207000000' && $setDay < '20240207235959') {
                 $item = '喇叭x10';
                 $itemIdx = 6414;
                 $itemOpt = 10;
                 $duration = 0;
-            } elseif ($setDay > '20240131120000' && $setDay < '20240131125959') {
+            } elseif ($setDay > '20240208000000' && $setDay < '20240208235959') {
                 $item = '憤怒藥水(特大)x5';
                 $itemIdx = 7201;
                 $itemOpt = 5;
                 $duration = 0;
-            } elseif ($setDay > '20240131130000' && $setDay < '20240131135959') {
+            } elseif ($setDay > '20240209000000' && $setDay < '20240209235959') {
                 $item = '[服裝]賀歲龍袍護肩(7D)x1';
                 $itemIdx = 5319;
                 $itemOpt = 0;
                 $duration = 12;
                 $prdId = 1288;
-            } elseif ($setDay > '20240131140000' && $setDay < '20240131145959') {
+            } elseif ($setDay > '20240210000000' && $setDay < '20240210235959') {
                 $item = 'GM的祝福(Lv.4)聖水x5';
-                $itemIdx = 33560062;
+                $itemIdx = 33555966;
                 $itemOpt = 5;
                 $duration = 0;
-            } elseif ($setDay > '20240131150000' && $setDay < '20240131155959') {
+            } elseif ($setDay > '20240211000000' && $setDay < '20240211235959') {
                 $item = '英雄聖水(30分鐘)x5';
                 $itemIdx = 33559515;
                 $itemOpt = 5;
                 $duration = 0;
-            } elseif ($setDay > '20240131160000' && $setDay < '20240131165959') {
+            } elseif ($setDay > '20240212000000' && $setDay < '20240212235959') {
                 $item = '戰士聖水(30分)x5';
                 $itemIdx = 7191;
                 $itemOpt = 5;
                 $duration = 0;
-            } elseif ($setDay > '20240131170000' && $setDay < '20240131175959') {
+            } elseif ($setDay > '20240213000000' && $setDay < '20240213235959') {
                 $item = '賢者聖水(30分)x5';
                 $itemIdx = 7192;
                 $itemOpt = 5;
                 $duration = 0;
-            } elseif ($setDay > '20240131180000' && $setDay < '20240131185959') {
+            } elseif ($setDay > '20240214000000' && $setDay < '20240214235959') {
                 $item = '最高級復活結晶x5';
                 $itemIdx = 33559144;
                 $itemOpt = 5;
                 $duration = 0;
-            } elseif ($setDay > '20240201100000' && $setDay < '20240201105959') {
+            } elseif ($setDay > '20240215000000' && $setDay < '20240215235959') {
                 $item = 'AP儲存箱(50/50)x1';
                 $itemIdx = 7288;
                 $itemOpt = 3276850;
                 $duration = 0;
-            } elseif ($setDay > '20240201110000' && $setDay < '20240201115959') {
+            } elseif ($setDay > '20240216000000' && $setDay < '20240216235959') {
                 $item = '抵抗聖水(30分鐘)x5';
                 $itemIdx = 33560262;
                 $itemOpt = 5;
                 $duration = 0;
-            } elseif ($setDay > '20240201120000' && $setDay < '20240201125959') {
+            } elseif ($setDay > '20240217000000' && $setDay < '20240217235959') {
                 $item = '英雄的召喚x5';
                 $itemIdx = 6449;
                 $itemOpt = 5;
                 $duration = 0;
-            } elseif ($setDay > '20240201130000' && $setDay < '20240201135959') {
+            } elseif ($setDay > '20240218000000' && $setDay < '20240218235959') {
                 $item = '英雄的跳躍x5';
                 $itemIdx = 7271;
                 $itemOpt = 5;
                 $duration = 0;
-            } elseif ($setDay > '20240201140000' && $setDay < '20240201145959') {
+            } elseif ($setDay > '20240219000000' && $setDay < '20240219235959') {
                 $item = '工匠的特效藥(300)x1';
                 $itemIdx = 7933;
                 $itemOpt = 300;
                 $duration = 0;
-            } elseif ($setDay > '20240201150000' && $setDay < '20240201155959') {
-                $item = '祝福寶珠-特級(1D)x1';
-                $itemIdx = 33559475;
-                $itemOpt = 0;
-                $duration = 9;
-            } else {
+            } elseif ($setDay > '20240220000000' && $setDay < '20240220235959') {
                 $item = '祝福寶珠-特級(1D)x1';
                 $itemIdx = 33559475;
                 $itemOpt = 0;
@@ -405,15 +324,51 @@ class Event20240205Controller extends Controller
             'json' => $data,
         ]);
 
+
+        $setDay = Carbon::now()->format('YmdHis');
+        if ($setDay > '20240205000000' && $setDay < '20240205235959') {
+            $sec = 258852;
+        } elseif ($setDay > '20240206000000' && $setDay < '20240206235959') {
+            $sec = 258849;
+        } elseif ($setDay > '20240207000000' && $setDay < '20240207235959') {
+            $sec = 258846;
+        } elseif ($setDay > '20240208000000' && $setDay < '20240208235959') {
+            $sec = 258843;
+        } elseif ($setDay > '20240209000000' && $setDay < '20240209235959') {
+            $sec = 258840;
+        } elseif ($setDay > '20240210000000' && $setDay < '20240210235959') {
+            $sec = 258837;
+        } elseif ($setDay > '20240211000000' && $setDay < '20240211235959') {
+            $sec = 258834;
+        } elseif ($setDay > '20240212000000' && $setDay < '20240212235959') {
+            $sec = 258831;
+        } elseif ($setDay > '20240213000000' && $setDay < '20240213235959') {
+            $sec = 258828;
+        } elseif ($setDay > '20240214000000' && $setDay < '20240214235959') {
+            $sec = 258825;
+        } elseif ($setDay > '20240215000000' && $setDay < '20240215235959') {
+            $sec = 258822;
+        } elseif ($setDay > '20240216000000' && $setDay < '20240216235959') {
+            $sec = 258819;
+        } elseif ($setDay > '20240217000000' && $setDay < '20240217235959') {
+            $sec = 258816;
+        } elseif ($setDay > '20240218000000' && $setDay < '20240218235959') {
+            $sec = 258813;
+        } elseif ($setDay > '20240219000000' && $setDay < '20240219235959') {
+            $sec = 258810;
+        } elseif ($setDay > '20240220000000' && $setDay < '20240220235959') {
+            $sec = 258807;
+        }else{
+            $sec = 258904;
+        }
         $newLog = new Event240123_getlog();
         $newLog->user = $request->user;
         $newLog->item = $item;
         $newLog->coupon = $get['title'];
         $newLog->ip = $real_ip;
         $newLog->type = $type;
-        $newLog->coupon_deadline = Carbon::now()->addSeconds(258867);
+        $newLog->coupon_deadline = Carbon::now()->addSeconds($sec);
         $newLog->save();
-
         return response()->json([
             'status' => 1,
             'item_name' => $item,
