@@ -75,7 +75,7 @@ const wrap = Vue.createApp({
         },
     },
     mounted() {
-       let open = new Date('2024-02-06 00:00:00');
+       let open = new Date('2024-02-06 10:00:00');
        let now = new Date().getTime();
        if(now >= open){
         this.openLink = true;

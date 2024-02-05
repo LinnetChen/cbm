@@ -286,6 +286,6 @@
 <script src="js/event/base/vue-3.2.4.global.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="js/event/20240129/main.js"></script>
+<script src="js/event/20240129/main.js?v11.11"></script>
 
 </html>
