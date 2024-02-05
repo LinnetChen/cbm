@@ -22,7 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vue3-slick-carousel@1.0.6/src/slick-theme.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/event/20240129/style.css?v11.11">
+    <link rel="stylesheet" href="css/event/20240129/style.css?v11.12">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
 
@@ -58,7 +58,7 @@
         </aside>
 
         <aside class="link" v-if="openLink == true">
-            <a href="https://cbo.digeam.com/20240205"></a>
+            <a href="https://cbo.digeam.com/20240205" target="_blank"></a>
         </aside>
 
         <section class="sec01" id="sec01">
@@ -286,6 +286,6 @@
 <script src="js/event/base/vue-3.2.4.global.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="js/event/20240129/main.js"></script>
+<script src="js/event/20240129/main.js?v11.11"></script>
 
 </html>
