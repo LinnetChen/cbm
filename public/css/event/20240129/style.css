@@ -480,6 +480,18 @@ a.digeam {
   height: 226px;
   background-image: url(../../../img/event/20240129/shelterIcon.png);
   z-index: 2;
+  animation: move_du 3s infinite;
+}
+@keyframes move_du {
+  0% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
 }
 
 .sec01,

@@ -7,9 +7,9 @@
     @extend %f-c-c;
     transition: all ease-in-out .5s;
 
-    
-    &.active{
-        transform: translate(-90%,0%);
+
+    &.active {
+        transform: translate(-90%, 0%);
     }
 
     .arrow {
@@ -28,6 +28,7 @@
         color: #fff9c8;
         margin-top: 30px;
         margin-right: 11px;
+
         &::before {
             content: '';
             @extend %bg-contain;
@@ -41,13 +42,14 @@
     ul {
         margin: 0 auto;
         width: 60%;
+
         li {
             margin-bottom: 30px;
 
             a {
                 font-size: 28px;
                 color: #fff9c8;
-           
+
                 &:hover,
                 &.active {
                     &::before {
@@ -59,23 +61,40 @@
                     }
                 }
 
-               
+
             }
 
-            &:last-child{
-                   margin-bottom: 0; 
+            &:last-child {
+                margin-bottom: 0;
             }
-            
+
         }
     }
 
 
 }
 
-.link{
+.link {
     @include fixed-rt(0px, 30%);
     @extend %bg-contain;
     @include size(292px, 226px);
     background-image: url(../../../img/event/20240129/shelterIcon.png);
     z-index: 2;
+    animation: move_du 3s infinite;
+
+    @keyframes move_du {
+
+        0% {
+            transform: translateY(-10px);
+        }
+
+        50% {
+            transform: translateY(0px);
+        }
+
+        100% {
+            transform: translateY(-10px);
+        }
+    }
+
 }
