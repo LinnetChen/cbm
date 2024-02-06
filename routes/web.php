@@ -77,12 +77,9 @@ Route::middleware(['setReturnUrl'])->group(function () {
     Route::get('/20231220',function(){
         return view('event/20231220_index');
     });
-
-    if ($_SERVER["HTTP_CF_CONNECTING_IP"] == '211.23.144.219') {
         Route::get('/20240205', function () {
             return view('event/20240205_index');
         });
-    }
 });
 Route::get('/OBT', function () {
     return view('event/OBT');
