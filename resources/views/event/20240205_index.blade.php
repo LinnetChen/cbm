@@ -52,8 +52,8 @@
                                 </thead>
                                 <tbody>
                                     <tr v-for="item in rewardList1">
-                                        <td >%{ item.actDate }</td>
-                                        <td >%{ item.item_name }</td>
+                                        <td>%{ item.actDate }</td>
+                                        <td>%{ item.item_name }</td>
                                         <td class="td1">%{ item.description }</td>
                                     </tr>
                                 </tbody>
@@ -135,7 +135,7 @@
                         <div v-if="popS.popBut1" v-html="popS.butText1" @click='closeModal()'>
                             %{ popS.butText1 }
                         </div>
-                        <div  class='popBut1' v-if="popS.popBut3"  @click='blessConfirm()'>
+                        <div class='popBut1' v-if="popS.popBut3" @click='blessConfirm()'>
                             是
                         </div>
                         <div v-if="popS.popBut2" v-html="popS.butText2" @click='closeModal()'>
@@ -145,10 +145,14 @@
                 </div>
             </div>
         </transition>
-
+        <div class="noticeM" v-if="isMobile">
+            <p>建議您在電腦環境下操作本活動頁面。</p>
+        </div>
+       
         {{-- 判斷登入 --}}
         <div id="particles-js"></div>
         <div class="header">
+            
             <div class="top">
                 @if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null)
                     <form id="logout-form" action="https://www.digeam.com/logout" method="POST"
