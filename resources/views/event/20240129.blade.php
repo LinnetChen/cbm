@@ -57,9 +57,9 @@
             <a href="#header" class="top">TOP</a>
         </aside>
 
-        <aside class="link" v-if="openLink == true">
-            <a href="https://cbo.digeam.com/20240205" target="_blank"></a>
-        </aside>
+  
+            <a href="https://cbo.digeam.com/20240205" target="_blank" class="link" v-if="openLink == true"></a>
+
 
         <section class="sec01" id="sec01">
             <div class="sec01Title"></div>
