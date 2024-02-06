@@ -8,6 +8,7 @@ Vue.createApp({
         return {
              // 防連點
             isClickable: true,
+            isMobile:null,
             logIn: {
                 pointText: null,
                 account: "",
@@ -623,12 +624,19 @@ Vue.createApp({
         },
     },
     //函式
-    mounted: function () {
+    mounted(){
         var accTextElement = document.querySelector('.accText');
         var user =  accTextElement.innerText;
         this.logIn.account = user;
         // this.logIn.account = "digeamcbo04";
         this.getSetting();
+        let width = window.innerWidth;
+        if(width <= 500){
+            this.isMobile = true;
+            setTimeout(()=>{
+                this.isMobile = false;
+            },3000)
+        }
         particlesJS("particles-js", {
             "particles": {
                 "number": {

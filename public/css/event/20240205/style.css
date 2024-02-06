@@ -147,7 +147,10 @@ a {
   text-decoration: none;
 }
 
-.header .sidebar .description, .header .sidebar .gift, .header .sidebar .notice, .header .sidebar .history, .header .actiBut .blessBut, .header .actiBut .prayBut, .header .actiBut {
+.header .sidebar .description,
+.header .sidebar .gift,
+.header .sidebar .notice,
+.header .sidebar .history, .header .actiBut .blessBut, .header .actiBut .prayBut, .header .actiBut {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -291,7 +294,7 @@ a.logo_rw {
 
 .header {
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   width: 1920px;
   height: 100vh;
   position: relative;
@@ -404,7 +407,10 @@ a.logo_rw {
   right: 2%;
   top: 35%;
 }
-.header .sidebar .description, .header .sidebar .gift, .header .sidebar .notice, .header .sidebar .history {
+.header .sidebar .description,
+.header .sidebar .gift,
+.header .sidebar .notice,
+.header .sidebar .history {
   background-image: url("/img/event/20240205/menuBtn.png");
   width: 233px;
   height: 97px;
@@ -413,10 +419,34 @@ a.logo_rw {
   color: #513200;
   cursor: pointer;
 }
-.header .sidebar .description:hover, .header .sidebar .gift:hover, .header .sidebar .notice:hover, .header .sidebar .history:hover {
+.header .sidebar .description:hover,
+.header .sidebar .gift:hover,
+.header .sidebar .notice:hover,
+.header .sidebar .history:hover {
   transition: 0.2s linear;
   scale: 0.9;
   color: #6e4706;
+}
+
+.noticeM {
+  width: 100vw;
+  max-width: 1920px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8549019608);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.noticeM p {
+  letter-spacing: 0.3rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
 }
 
 .mask {
