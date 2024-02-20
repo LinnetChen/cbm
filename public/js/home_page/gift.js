@@ -57,7 +57,7 @@ $(".btn_s").on("click", function () {
                         text: "您不符合領取資格！",
                     });
                 } else if (res.status == 1) {
-                    Swal.fire("兌換成功！請至遊戲內收取道具").then((result) => {
+                    Swal.fire("兌換成功！獎勵將於5分鐘內發送至遊戲中").then((result) => {
                         if (result.isConfirmed) {
                             window.location.reload();
                         }

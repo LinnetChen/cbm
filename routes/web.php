@@ -55,7 +55,7 @@ Route::get('/game', function () {
 //         return redirect('https://digeam.com/index');
 //     }
 // });
-Route::get('/war/{server?}', 'front\FrontController@war');
+Route::get('/war/{server?}', 'front\FrontController@war')->name('war');
 
 Route::middleware(['setReturnUrl'])->group(function () {
     // 事前預約

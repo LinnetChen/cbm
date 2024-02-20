@@ -58,7 +58,7 @@
         </aside>
 
   
-            <a href="https://cbo.digeam.com/20240205" target="_blank" class="link" v-if="openLink == true"></a>
+            <!-- <a href="https://cbo.digeam.com/20240205" target="_blank" class="link" v-if="openLink == true"></a> -->
 
 
         <section class="sec01" id="sec01">

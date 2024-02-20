@@ -350,30 +350,30 @@ class frontController extends Controller
         }
         // // MyCard專屬-儲值加碼超值虛寶-任意金額
         if ($request->gift_id == 53) {
-            $client = new Client();
-            $data = [
-                'user_id' => $_COOKIE['StrID'],
-                'start' => $check_gift['start'],
-                'end' => '2024-03-01',
-            ];
-
-            $headers = [
-                'Content-Type' => 'application/json',
-                'Accept' => 'application/json',
-            ];
-
-            $res = $client->request('POST', 'https://webapi.digeam.com//cbo/get_myCard_record_no_promocode', [
-                'headers' => $headers,
-                'json' => $data,
-            ]);
-            $result = $res->getBody();
-            $result = json_decode($result);
-            $alreadyGet = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->first();
-            if ($result == 0 || $alreadyGet) {
-                return response()->json([
-                    'status' => -90,
+                $client = new Client();
+                $data = [
+                    'user_id' => $_COOKIE['StrID'],
+                    'start' => $check_gift['start'],
+                    'end' => '2024-03-01',
+                ];
+    
+                $headers = [
+                    'Content-Type' => 'application/json',
+                    'Accept' => 'application/json',
+                ];
+    
+                $res = $client->request('POST', 'https://webapi.digeam.com//cbo/get_myCard_record_no_promocode', [
+                    'headers' => $headers,
+                    'json' => $data,
                 ]);
-            }
+                $result = $res->getBody();
+                $result = json_decode($result);
+                $alreadyGet = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->first();
+                if ($result == 0 || $alreadyGet) {
+                    return response()->json([
+                        'status' => -90,
+                    ]);
+                }
         }
         // 2024每日最速傳說
         if ($request->gift_id == 39) {
@@ -1149,28 +1149,28 @@ class frontController extends Controller
     private function giftSendItem($user, $gift_id, $ip)
     {
         $getItem = giftContent::where('gift_group_id', $gift_id)->get();
-        foreach ($getItem as $value) {
+        foreach ($getItem as $key =>$value) {
             $count_number_log = giftGetLog::count();
-            $tranNo = 'gift-' . $gift_id . '-' . $count_number_log . date('YmdHis');
-            $client = new Client();
-            $data = [
-                "userId" => $user,
-                "itemIdx" => $value['itemIdx'],
-                "itemOpt" => $value['itemOpt'],
-                "durationIdx" => $value['durationIdx'],
-                "prdId" => $value['prdId'],
-                'tranNo' => $tranNo,
-            ];
+            $tranNo = 'gift-' . $gift_id . '-' .$key.'-'. $count_number_log . date('YmdHis');
+            // $client = new Client();
+            // $data = [
+            //     "userId" => $user,
+            //     "itemIdx" => $value['itemIdx'],
+            //     "itemOpt" => $value['itemOpt'],
+            //     "durationIdx" => $value['durationIdx'],
+            //     "prdId" => $value['prdId'],
+            //     'tranNo' => $tranNo,
+            // ];
 
-            $headers = [
-                'Content-Type' => 'application/json',
-                'Accept' => 'application/json',
-            ];
+            // $headers = [
+            //     'Content-Type' => 'application/json',
+            //     'Accept' => 'application/json',
+            // ];
 
-            $res = $client->request('POST', 'http://c1twapi.global.estgames.com/game/give/item/cash', [
-                'headers' => $headers,
-                'json' => $data,
-            ]);
+            // $res = $client->request('POST', 'http://c1twapi.global.estgames.com/game/give/item/cash', [
+            //     'headers' => $headers,
+            //     'json' => $data,
+            // ]);
             // 撰寫紀錄
             $newLog = new giftGetLog();
             $newLog->user = $user;
@@ -1178,6 +1178,7 @@ class frontController extends Controller
             $newLog->gift_item = $value['title'];
             $newLog->ip = $ip;
             $newLog->tranNo = $tranNo;
+            $newLog->is_send = 'n';
             $newLog->save();
         }
     }
@@ -1217,6 +1218,7 @@ class frontController extends Controller
         $newLog->ip = $ip;
         $newLog->tranNo = $tranNo;
         $newLog->count = $count;
+        $newLog->is_send = 'y';
         $newLog->save();
     }
     // public function free_send_item()

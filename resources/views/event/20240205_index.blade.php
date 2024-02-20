@@ -17,7 +17,7 @@
     <link rel="icon" sizes="192x192" href="/img/event/20230728/favicon.ico">
     <meta name="description" content="《黑色契約CABAL Online》 神光庇護">
     <title>《黑色契約CABAL Online》神光庇護</title>
-    <link rel="stylesheet" href="/css/event/20240205/style.css?v2.0">
+    <link rel="stylesheet" href="/css/event/20240205/style.css?v2.2">
 </head>
 
 <body>
@@ -230,7 +230,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="/js/event/20240205/vue.js?v9.22"></script>
+    <script src="/js/event/20240205/vue.js?v9.25"></script>
 </body>
 
 </html>

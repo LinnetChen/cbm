@@ -631,11 +631,11 @@ Vue.createApp({
         // this.logIn.account = "digeamcbo04";
         this.getSetting();
         let width = window.innerWidth;
-        if(width <= 500){
+        if(width <= 992){
             this.isMobile = true;
             setTimeout(()=>{
                 this.isMobile = false;
-            },3000)
+            },5000)
         }
         particlesJS("particles-js", {
             "particles": {
