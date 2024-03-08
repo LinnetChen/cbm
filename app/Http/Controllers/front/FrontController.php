@@ -193,7 +193,7 @@ class FrontController extends Controller
                 }
             }
             $giftGroup = giftGroup::where('gift_id', $id)->get();
-            $repeat = [16, 17, 18, 19, 28, 30, 31, 36, 37, 38, 39,40];
+            $repeat = [16, 17, 18, 19, 28, 30, 31, 36, 37, 38, 39,40,67,65];
             if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null) {
                 foreach ($giftGroup as $key => $value) {
                     if (!in_array($value['id'], $repeat)) {

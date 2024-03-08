@@ -39,7 +39,7 @@ class DailyAffairsController extends Controller
     {
         $checkItem = giftGetLog::where('is_send', 'n')->get();
         foreach($checkItem as $result){
-            $check_already = giftGetLog::where('user',$result['user'])->where('gift',$result['gift'])->where('is_send','y')->first();
+            $check_already = giftGetLog::where('user',$result['user'])->where('gift',$result['gift'])->where('tranNo',$result['tranNo'])->where('is_send','y')->first();
             if(!$check_already){
                 $getItem = giftContent::where('gift_group_id', $result['gift'])->get();
                 foreach ($getItem as $value) {
