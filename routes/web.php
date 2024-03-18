@@ -72,14 +72,17 @@ Route::middleware(['setReturnUrl'])->group(function () {
     // 領獎專區
     Route::get('/gift', 'front\FrontController@gift')->name('gift');
     Route::get('/giftContent/{id}', 'front\FrontController@giftContent')->name('giftContent');
+    // 測試
+    Route::get('/newGiftContent/{id}', 'front\FrontController@newGiftContent')->name('newgiftContent');
+    
     Route::get('/giftSearch/{year}/{month}/{keyword?}', 'front\FrontController@giftSearch');
 
-    Route::get('/20231220',function(){
+    Route::get('/20231220', function () {
         return view('event/20231220_index');
     });
-        Route::get('/20240205', function () {
-            return view('event/20240205_index');
-        });
+    Route::get('/20240205', function () {
+        return view('event/20240205_index');
+    });
 });
 Route::get('/OBT', function () {
     return view('event/OBT');
@@ -94,7 +97,6 @@ Route::get('/20231030', function () {
 Route::get('/20240129', function () {
     return view('event/20240129');
 });
-
 
 Route::get('/launcher', 'front\FrontController@launcher');
 Route::get('/test_launcher', 'front\FrontController@launcher');
