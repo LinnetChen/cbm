@@ -15,6 +15,9 @@ class CreateEvent20240403UserTable extends Migration
     {
         Schema::create('event20240403_user', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
+            $table->string('user_type');
+            $table->string('user_type');
             $table->timestamps();
         });
     }
