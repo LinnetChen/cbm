@@ -164,11 +164,11 @@ class FrontController extends Controller
         $list = giftCreate::orderBy('created_at', 'desc')->paginate(6);
 
         // 撈出畫面
-        // if ($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
-        //     $list = giftCreate::orderBy('created_at', 'desc')->paginate(6);
-        // } else {
-        //     $list = giftCreate::where('status', 'y')->orderBy('created_at', 'desc')->paginate(6);
-        // }
+        if ($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
+            $list = giftCreate::orderBy('created_at', 'desc')->paginate(6);
+        } else {
+            $list = giftCreate::where('status', 'y')->orderBy('created_at', 'desc')->paginate(6);
+        }
 
         return view('front/gift', [
             'list' => $list,
@@ -185,19 +185,19 @@ class FrontController extends Controller
                 return redirect('https://cbo.digeam.com/');
             }
             // 撈出畫面
-            // if ($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
-            //     $list = giftCreate::orderBy('created_at', 'desc')->paginate(6);
-            //     $giftCreate = giftCreate::where('id', $id)->first();
-            //     if(!$giftCreate){
-            //         return redirect('https://cbo.digeam.com/');
-            //     }
-            // } else {
-            //     $list = giftCreate::where('status', 'y')->orderBy('created_at', 'desc')->paginate(6);
-            //     $giftCreate = giftCreate::where('id', $id)->where('status','y')->first();
-            //     if(!$giftCreate){
-            //         return redirect('https://cbo.digeam.com/');
-            //     }
-            // }
+            if ($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
+                $list = giftCreate::orderBy('created_at', 'desc')->paginate(6);
+                $giftCreate = giftCreate::where('id', $id)->first();
+                if (!$giftCreate) {
+                    return redirect('https://cbo.digeam.com/');
+                }
+            } else {
+                $list = giftCreate::where('status', 'y')->orderBy('created_at', 'desc')->paginate(6);
+                $giftCreate = giftCreate::where('id', $id)->where('status', 'y')->first();
+                if (!$giftCreate) {
+                    return redirect('https://cbo.digeam.com/');
+                }
+            }
             $giftGroup = giftGroup::where('gift_id', $id)->get();
             $repeat = [16, 17, 18, 19, 28, 30, 31, 36, 37, 38, 39, 40, 67, 65];
             if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null) {
@@ -227,27 +227,27 @@ class FrontController extends Controller
         $hasChar_01 = true;
         $hasChar_02 = true;
         // 確認1.2服是否有角色
-        // $client = new Client(['verify' => false]);
-        // $res = $client->request('GET', 'http://c1twapi.global.estgames.com/game/character/searchByCharacterId?userId=jacky0996&serverCode=server01');
-        // $check_01 = $res->getBody();
-        // $check_01 = json_decode($check_01);
+        $client = new Client(['verify' => false]);
+        $res = $client->request('GET', 'http://c1twapi.global.estgames.com/game/character/searchByCharacterId?userId=jacky0996&serverCode=server01');
+        $check_01 = $res->getBody();
+        $check_01 = json_decode($check_01);
 
-        // $client = new Client(['verify' => false]);
-        // $res = $client->request('GET', 'http://c1twapi.global.estgames.com/game/character/searchByCharacterId?userId=jacky0996&serverCode=server02');
-        // $check_02 = $res->getBody();
-        // $check_02 = json_decode($check_02);
+        $client = new Client(['verify' => false]);
+        $res = $client->request('GET', 'http://c1twapi.global.estgames.com/game/character/searchByCharacterId?userId=jacky0996&serverCode=server02');
+        $check_02 = $res->getBody();
+        $check_02 = json_decode($check_02);
 
-        // if (count($check_01->data) > 0) {
-        //     $hasChar_01 = true;
-        // } else {
-        //     $hasChar_01 = false;
-        // };
+        if (count($check_01->data) > 0) {
+            $hasChar_01 = true;
+        } else {
+            $hasChar_01 = false;
+        };
 
-        // if (count($check_02->data) > 0) {
-        //     $hasChar_02 = true;
-        // } else {
-        //     $hasChar_02 = false;
-        // };
+        if (count($check_02->data) > 0) {
+            $hasChar_02 = true;
+        } else {
+            $hasChar_02 = false;
+        };
         if ($id == 0) {
             return redirect('/gift');
         } else {
@@ -257,19 +257,19 @@ class FrontController extends Controller
                 return redirect('https://cbo.digeam.com/');
             }
             // 撈出畫面
-            // if ($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
-            //     $list = giftCreate::orderBy('created_at', 'desc')->paginate(6);
-            //     $giftCreate = giftCreate::where('id', $id)->first();
-            //     if(!$giftCreate){
-            //         return redirect('https://cbo.digeam.com/');
-            //     }
-            // } else {
-            //     $list = giftCreate::where('status', 'y')->orderBy('created_at', 'desc')->paginate(6);
-            //     $giftCreate = giftCreate::where('id', $id)->where('status','y')->first();
-            //     if(!$giftCreate){
-            //         return redirect('https://cbo.digeam.com/');
-            //     }
-            // }
+            if ($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
+                $list = giftCreate::orderBy('created_at', 'desc')->paginate(6);
+                $giftCreate = giftCreate::where('id', $id)->first();
+                if (!$giftCreate) {
+                    return redirect('https://cbo.digeam.com/');
+                }
+            } else {
+                $list = giftCreate::where('status', 'y')->orderBy('created_at', 'desc')->paginate(6);
+                $giftCreate = giftCreate::where('id', $id)->where('status', 'y')->first();
+                if (!$giftCreate) {
+                    return redirect('https://cbo.digeam.com/');
+                }
+            }
             $giftGroup = giftGroup::where('gift_id', $id)->get();
             $repeat = [16, 17, 18, 19, 28, 30, 31, 36, 37, 38, 39, 40, 67, 65];
             if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null) {
