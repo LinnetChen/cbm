@@ -492,6 +492,15 @@ class frontController extends Controller
                     }
                 }
             }
+            if($_COOKIE['StrID'] =='a29817922'){
+                $total-=1000;
+            }
+            if($_COOKIE['StrID'] =='c125229625'){
+                $total-=15600;
+            }
+            if($_COOKIE['StrID'] =='zz600425zz'){
+                $total-=10500;
+            }
             switch ($request->gift_id) {
                 case 54:
                     $need = 30;
@@ -1682,16 +1691,45 @@ class frontController extends Controller
 
     public function free_send_item()
     {
-        $count_number_log = giftGetLog::count();
-        $tranNo = 'gift-' . 0 . '-' . $count_number_log . date('YmdHis');
+        // 確認1.2服是否有角色
+        $client = new Client(['verify' => false]);
+        $res = $client->request('GET', 'http://c1twapi.global.estgames.com/game/character/searchByCharacterId?userId=jacky0996&serverCode=server01');
+        $check_01 = $res->getBody();
+        $check_01 = json_decode($check_01);
+        
+        $client = new Client(['verify' => false]);
+        $res = $client->request('GET', 'http://c1twapi.global.estgames.com/game/character/searchByCharacterId?userId=jacky0996&serverCode=server02');
+        $check_02 = $res->getBody();
+        $check_02 = json_decode($check_02);
+
+        if(count($check_01->data)>0){
+            $hasChar_01 = true;
+        }else{
+            $hasChar_01 = false;
+        };
+
+        if(count($check_02->data)>0){
+            $hasChar_02 = true;
+        }else{
+            $hasChar_02 = false;
+        };
+
+        $client = new Client(['verify' => false]);
+        $res = $client->request('GET', 'http://c1twapi.global.estgames.com/user/userNum?userId=jacky0996');
+        $reqbody = $res->getBody();
+        $reqbody = json_decode($reqbody);
+
         $client = new Client();
         $data = [
-            "userId" => 'jacky0996',
-            "itemIdx" => 33559311,
-            "itemOpt" => 500,
-            "durationIdx" => 0,
-            "prdId" => 1288,
-            'tranNo' => $tranNo,
+            "userNum"=>206953,
+            "deliveryTime"=>"2024-03-16 00:00:00",
+            "expirationTime"=>"2024-04-01 23:59:59",
+            "itemKind"=>1,
+            "itemOption"=>0,
+            "itemPeriod"=>0,
+            "count"=>1,
+            "title"=>"test",
+            "serverIdx"=>2
         ];
 
         $headers = [
@@ -1699,10 +1737,13 @@ class frontController extends Controller
             'Accept' => 'application/json',
         ];
 
-        $res = $client->request('POST', 'http://c1twapi.global.estgames.com/game/give/item/cash', [
+        $res = $client->request('POST', 'http://c1twapi.global.estgames.com/event/user/giveItemUserEventInventoryByUserNumAndItemInfo', [
             'headers' => $headers,
             'json' => $data,
         ]);
+
+        $reqbody = $res->getBody();
+        $reqbody = json_decode($reqbody);
     }
 
 }
