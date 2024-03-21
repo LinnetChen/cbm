@@ -21,11 +21,22 @@ $(".search").on("click", function () {
 // 送獎
 _send = true;
 $(".btn_s").on("click", function () {
+    let selectedServerId = $("select[name='select_server']").val();
+    if(selectedServerId == "serverNone"){
+        Swal.fire({
+            icon: "error",
+            title: "兌換失敗",
+            text: "請選擇伺服器！",
+        });
+        return;
+    }
+
     if (_send == true) {
         _send = false;
         $.post(
             "/api/gift",
             {
+                server_id: selectedServerId,
                 gift_id: $(this).data("val"),
             },
             function (res) {

@@ -9,7 +9,7 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 
-class GiftCreateController extends AdminController
+class NewGiftCreateController extends AdminController
 {
     public function index(Content $content)
     {
@@ -27,15 +27,10 @@ class GiftCreateController extends AdminController
         $grid->model()->orderBy('created_at', 'desc');
         $grid->column('title', __('標題'));
         $grid->column('status', __('狀態'))->using(['n' => '關閉', 'y' => '開啟中']);
-        $grid->column('type', __('獎勵類型'))->using(['cash' => 'CASH背包', 'active' => '活動背包']);
         $grid->column('start', __('開始日期'));
         $grid->column('end', __('截止日期'));
         $grid->column('project', __('條件設定'))->display(function () {
-            if ($this->type == 'cash') {
-                return '<a href =/admin/' . $this->id . '/create_gift_project>設定</a>';
-            } else {
-                return '<a href =/admin/' . $this->id . '/new_create_gift_project>設定</a>';
-            }
+            return '<a href =/admin/' . $this->id . '/new_create_gift_project>設定</a>';
         });
 
         $grid->filter(function ($filter) {
@@ -59,7 +54,6 @@ class GiftCreateController extends AdminController
 
         $form->text('title', __('標題'));
         $form->select('status', __('狀態'))->options(['n' => '關閉', 'y' => '開啟'])->default('n');
-        $form->select('type', __('獎勵類型'))->options(['active' => '活動背包', 'cash' => 'CASH背包'])->default('active');
         $form->datetime('start', __('開始日期'));
         $form->datetime('end', __('結束日期'));
 
