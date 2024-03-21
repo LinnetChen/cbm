@@ -39,8 +39,13 @@
             </tr>
             @foreach ($list as $value)
                 <tr>
-                    <td><a href="{{ route('giftContent', $value['id']) }}" class="event">{{ $value['title'] }}</a></td>
-                    <td>{{ $value['start'] }}　～　{{ $value['end'] }}</td>
+                    @if ($value->type == 'active')
+                        <td><a href="{{ route('prize', $value['id']) }}" class="event">{{ $value['title'] }}</a></td>
+                        <td>{{ $value['start'] }}　～　{{ $value['end'] }}</td>
+                    @else
+                        <td><a href="{{ route('giftContent', $value['id']) }}" class="event">{{ $value['title'] }}</a></td>
+                        <td>{{ $value['start'] }}　～　{{ $value['end'] }}</td>
+                    @endif
                 </tr>
             @endforeach
         </table>

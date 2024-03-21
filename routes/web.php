@@ -73,8 +73,8 @@ Route::middleware(['setReturnUrl'])->group(function () {
     Route::get('/gift', 'front\FrontController@gift')->name('gift');
     Route::get('/giftContent/{id}', 'front\FrontController@giftContent')->name('giftContent');
     // 測試
-    Route::get('/newGiftContent/{id}', 'front\FrontController@newGiftContent')->name('newgiftContent');
-    
+    Route::get('/prize/{id}', 'front\FrontController@newGiftContent')->name('prize');
+
     Route::get('/giftSearch/{year}/{month}/{keyword?}', 'front\FrontController@giftSearch');
 
     Route::get('/20231220', function () {
