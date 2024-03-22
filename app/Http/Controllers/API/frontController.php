@@ -136,6 +136,15 @@ class frontController extends Controller
     // 領獎專區
     public function gift(Request $request)
     {
+
+        if (isset($request->server_id)) {
+            $server_id = $request->server_id;
+            $type = 'active';
+        } else {
+            $server_id = 0;
+            $type = 'cash';
+        }
+
         if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
             $real_ip = $_SERVER["HTTP_CF_CONNECTING_IP"];
         } else {
@@ -491,14 +500,14 @@ class frontController extends Controller
                     }
                 }
             }
-            if($_COOKIE['StrID'] =='a29817922'){
-                $total-=1000;
+            if ($_COOKIE['StrID'] == 'a29817922') {
+                $total -= 1000;
             }
-            if($_COOKIE['StrID'] =='c125229625'){
-                $total-=15600;
+            if ($_COOKIE['StrID'] == 'c125229625') {
+                $total -= 15600;
             }
-            if($_COOKIE['StrID'] =='zz600425zz'){
-                $total-=10500;
+            if ($_COOKIE['StrID'] == 'zz600425zz') {
+                $total -= 10500;
             }
             switch ($request->gift_id) {
                 case 54:
@@ -1507,7 +1516,7 @@ class frontController extends Controller
         // 以上領獎邏輯撰寫
 
         // 無誤就派獎
-        frontController::giftSendItem($_COOKIE['StrID'], $request->gift_id, $real_ip);
+        frontController::giftSendItem($_COOKIE['StrID'], $request->gift_id, $real_ip, $type, $serve_id);
         return response()->json([
             'status' => 1,
         ]);
@@ -1528,6 +1537,8 @@ class frontController extends Controller
             $newLog->ip = $ip;
             $newLog->tranNo = $tranNo;
             $newLog->is_send = 'n';
+            $newLog->server_id = 0;
+            $newLog->type = 'cash';
             $newLog->save();
         }
     }
@@ -1593,21 +1604,21 @@ class frontController extends Controller
         $res = $client->request('GET', 'http://c1twapi.global.estgames.com/game/character/searchByCharacterId?userId=jacky0996&serverCode=server01');
         $check_01 = $res->getBody();
         $check_01 = json_decode($check_01);
-        
+
         $client = new Client(['verify' => false]);
         $res = $client->request('GET', 'http://c1twapi.global.estgames.com/game/character/searchByCharacterId?userId=jacky0996&serverCode=server02');
         $check_02 = $res->getBody();
         $check_02 = json_decode($check_02);
 
-        if(count($check_01->data)>0){
+        if (count($check_01->data) > 0) {
             $hasChar_01 = true;
-        }else{
+        } else {
             $hasChar_01 = false;
         };
 
-        if(count($check_02->data)>0){
+        if (count($check_02->data) > 0) {
             $hasChar_02 = true;
-        }else{
+        } else {
             $hasChar_02 = false;
         };
 
@@ -1618,15 +1629,15 @@ class frontController extends Controller
 
         $client = new Client();
         $data = [
-            "userNum"=>206953,
-            "deliveryTime"=>"2024-03-16 00:00:00",
-            "expirationTime"=>"2024-04-01 23:59:59",
-            "itemKind"=>1,
-            "itemOption"=>0,
-            "itemPeriod"=>0,
-            "count"=>1,
-            "title"=>"test",
-            "serverIdx"=>2
+            "userNum" => 206953,
+            "deliveryTime" => "2024-03-16 00:00:00",
+            "expirationTime" => "2024-04-01 23:59:59",
+            "itemKind" => 1,
+            "itemOption" => 0,
+            "itemPeriod" => 0,
+            "count" => 1,
+            "title" => "test",
+            "serverIdx" => 2,
         ];
 
         $headers = [

@@ -1,3 +1,6 @@
+<?php
+$_COOKIE['StrID'] = 'jacky0996';
+?>
 @extends('layouts.app2')
 @section('title', '《黑色契約CABAL Online》領獎專區')
 @section('link')
