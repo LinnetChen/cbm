@@ -28,6 +28,22 @@ class GiftGetLogController extends AdminController
         $grid->column('count', __('可重複領取項目此次發送數量'));
         $grid->column('ip', __('IP'));
         $grid->column('tranNo', __('tranNo'));
+        $grid->column('type', __('獎勵類型'))->display(function(){
+            if($this->type =='active'){
+                return '活動背包';
+            }else{
+                return 'CASH背包';
+            }
+        });
+        $grid->column('server_id', __('伺服器'))->display(function(){
+            if($this->server_id =='1'){
+                return '冰珀星';
+            }else if($this->server_id =='2'){
+                return '黑恆星';
+            }else{
+                return '共用';
+            }
+        });
         $grid->column('is_send', __('發送狀況'))->display(function(){
             if($this->is_send =='y'){
                 return '已發送';

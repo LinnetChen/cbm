@@ -26,6 +26,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->call('App\Http\Controllers\Jobs\DailyAffairsController@upgrade_cbo_news')->hourly();
         $schedule->call('App\Http\Controllers\Jobs\DailyAffairsController@send_cbo_cash_reward')->everyFiveMinutes();
+        $schedule->call('App\Http\Controllers\Jobs\DailyAffairsController@send_cbo_active_reward')->everyFiveMinutes();
     }
 
     /**

@@ -1,6 +1,3 @@
-<?php
-$_COOKIE['StrID'] = 'jacky0996';
-?>
 @extends('layouts.app2')
 @section('title', '《黑色契約CABAL Online》領獎專區')
 @section('link')
@@ -116,5 +113,5 @@ $_COOKIE['StrID'] = 'jacky0996';
 @section('js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/js/home_page/gift.js?v1.32"></script>
+    <script src="/js/home_page/gift.js?v1.33"></script>
 @endsection

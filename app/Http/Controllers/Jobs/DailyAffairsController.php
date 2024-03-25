@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Jobs;
 use App\Http\Controllers\Controller;
 use App\Models\giftContent;
 use App\Models\giftGetLog;
+use App\Models\newGiftContent;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Log;
@@ -38,7 +39,7 @@ class DailyAffairsController extends Controller
     }
     public function send_cbo_cash_reward()
     {
-        $checkItem = giftGetLog::where('is_send', 'n')->get();
+        $checkItem = giftGetLog::where('type','cash')->where('is_send', 'n')->get();
         foreach ($checkItem as $result) {
             $check_already = giftGetLog::where('user', $result['user'])->where('gift', $result['gift'])->where('tranNo', $result['tranNo'])->where('is_send', 'y')->first();
             if (!$check_already) {
@@ -83,17 +84,18 @@ class DailyAffairsController extends Controller
     }
     public function send_cbo_active_reward()
     {
-        $checkItem = giftGetLog::where('type', 'cash')->where('is_send', 'n')->get();
+        $checkItem = giftGetLog::where('type', 'active')->where('is_send', 'n')->get();
         foreach ($checkItem as $result) {
             $check_already = giftGetLog::where('user', $result['user'])->where('gift', $result['gift'])->where('tranNo', $result['tranNo'])->where('is_send', 'y')->first();
             if (!$check_already) {
-                $getItem = giftContent::where('gift_group_id', $result['gift'])->get();
+                $getItem = newGiftContent::where('gift_group_id', $result['gift'])->where('serverIdx',$result['server_id'])->get();
                 foreach ($getItem as $value) {
                     $client = new Client(['verify' => false]);
                     $res = $client->request('GET', 'http://c1twapi.global.estgames.com/user/userNum?userId=' . $result['user']);
                     $reqbody = $res->getBody();
                     $reqbody = json_decode($reqbody);
                     if ($reqbody->data) {
+                    Log::info('有進來這邊');
                         $client = new Client();
                         $data = [
                             "userNum" => $reqbody->data,
@@ -119,6 +121,7 @@ class DailyAffairsController extends Controller
 
                         $reqbody = $res->getBody();
                         $reqbody = json_decode($reqbody);
+
                         // 撰寫紀錄
                         $updateLog = giftGetLog::where('user', $result['user'])->where('gift', $result['gift'])->where('gift_item', $value['title'])->where('is_send', 'n')->first();
                         $updateLog->is_send = 'y';

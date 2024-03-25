@@ -57,7 +57,6 @@
         <div class="title">{{ $giftCreate['title'] }}</div>
         <div class="line"></div>
 
-
         @if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null)
             <form id="logout-form" action="https://www.digeam.com/logout" method="POST" style="display: none;">
                 <input type="hidden" name="return_url" id="return_url"
@@ -68,10 +67,10 @@
                 <select class="section server" name="select_server">
                     <option class="option" value="serverNone">請選擇伺服器</option>
                     @if ($hasChar_01 == true)
-                        <option class="option" value="server01">冰珀星</option>
+                        <option class="option" value="1">冰珀星</option>
                     @endif
                     @if ($hasChar_02 == true)
-                        <option class="option" value="server02">黑恆星</option>
+                        <option class="option" value="2">黑恆星</option>
                     @endif
                 </select>
                 <div class="logout">登出</div>
@@ -121,5 +120,5 @@
 @section('js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/js/home_page/gift.js?v1.33"></script>
+    <script src="/js/home_page/prize.js?v1.39"></script>
 @endsection
