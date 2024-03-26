@@ -39,3 +39,4 @@ Route::post('send_item', 'API\frontController@free_send_item');
 
 Route::post('event231220_api', 'API\Event231220Controller@index');
 Route::post('event240205_api', 'API\Event20240205Controller@index');
+Route::post('event240403_api', 'API\Event20240403Controller@index');

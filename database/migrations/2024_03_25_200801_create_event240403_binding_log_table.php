@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEvent20240403UserTable extends Migration
+class CreateEvent240403BindingLogTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateEvent20240403UserTable extends Migration
      */
     public function up()
     {
-        Schema::create('event240403_user', function (Blueprint $table) {
+        Schema::create('event240403_binding_log', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
-            $table->string('user_type');
-            $table->string('server_01_code')->nullable();
-            $table->string('server_02_code')->nullable();
-            $table->text('info');
+            $table->string('user');
+            $table->string('server_id');
+            $table->string('binding');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateEvent20240403UserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('event240403_user');
+        Schema::dropIfExists('event240403_binding_log');
     }
 }
