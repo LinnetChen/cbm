@@ -5,8 +5,6 @@
 // var resGift = ['y','n','y','n','n','y'];
 
 
-console.log(user);
-
 var data_api = '/api/event240403_api';
 
 get_setting();
