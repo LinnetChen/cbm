@@ -1,0 +1,213 @@
+.mask {
+    position: fixed;
+    background-color: black;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    z-index: 9997;
+    display: none;
+}
+.pop{
+    position: fixed;
+    display: none;
+    @extend %flex-center;
+    z-index: 9998;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    @include size(910px, 846px);
+    background-image: url(../../../img/event/20240329/popUpBg1.png);
+
+    .close{
+        position: absolute;
+        top: 4%;
+        left: 91%;
+        white-space: pre;
+        font-family:'Noto Sans TC', sans-serif;
+        font-weight: 500;
+        color: white;
+        font-size: 35px;
+        padding: 4px 8px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    
+    }
+
+}
+.popL{
+    position: fixed;
+    display: none;
+    @extend %flex-center;
+    z-index: 9998;
+    @extend %box-center;
+    @include size(910px, 846px);
+    background-image: url(../../../img/event/20240329/popUpBg1.png);
+
+    .btn{
+        position: absolute;
+        top: 90%;
+        left: 45%;
+        @extend %sub-style;
+    
+    
+    }
+}
+.popS{
+    position: fixed;
+    @extend %flex-center;
+    z-index: 9998;
+    @extend %box-center;
+    @include size(575px, 274px);
+    background-image: url(../../../img/event/20240329/popUpBg2.png);
+    display: none;
+
+    .popsBtnBox{
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 60px;
+    }
+
+    .btn, .loginBtn, .sub{
+        @extend %sub-style;
+    }
+
+    
+}
+.pop_wrap{
+    @extend %col-center;
+    margin: 0px 97px;
+    top: 20px;
+
+}
+
+.pop_title{
+    position: relative;
+    margin: 20px 0;
+    font-family:'Noto Sans TC', sans-serif;
+    font-weight: 500;
+    color: white;
+    font-size: 28px;
+    @extend %flex-center;
+
+}
+.pop_content{
+    margin-top: 10px;
+    width: 716px;
+    height: 710px;
+    overflow-y: auto;
+    box-sizing: border-box;
+
+    
+    
+
+}
+
+.pop_wrapS{
+    @extend %col-center;
+    margin: 0px 97px;
+    top: 20px;
+
+}
+.pop_contentS{
+    margin-top: 60px;
+    width: 716px;
+    height: 75px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    font-size: 22px;
+    letter-spacing: 1px;
+    line-height: 1.8;
+    
+    p{
+        text-align: center;
+    }
+
+
+}
+.section.server{
+    @extend %flex-center;
+
+}
+.bindBox{
+    @extend %flex-center;
+    input[type="text"] {
+        padding: 8px ;
+        background-color: transparent; 
+        border: 1px solid white;
+        color: white; 
+        font-family:'Noto Sans TC', sans-serif;
+        font-weight: 500;
+        font-size: 18px;
+    
+        &::placeholder {
+            color: gray; 
+        }
+    }
+    .sub{
+        @extend %sub-style;
+    }
+    .btn{
+        @extend %sub-style;
+        margin: 0 20px;
+    }
+
+}
+.giftBtn{
+    background-color: transparent;
+    font-family:'Noto Sans TC', sans-serif;
+    font-weight: 500;
+    color: white;
+    all: unset;
+    cursor: pointer;
+
+    &:hover {
+        @extend %hover;
+        color: #7ab5ff;
+    }
+}
+
+.giftBtnN{
+    background-color: transparent;
+    font-family:'Noto Sans TC', sans-serif;
+    font-weight: 500;
+    color: gray;
+    pointer-events: none;
+}
+
+.tableBox{
+    table{
+        font-size: 22px;
+    }
+    th{
+        padding: 20px;
+        white-space: nowrap;
+    }
+    td{
+        padding: 6px;
+
+    }
+
+}
+.actTableBox{
+    table{
+        padding: 5px;
+    }
+    
+    th{
+        padding: 5px;
+        font-size: 20px;
+    }
+    td{
+        padding: 5px;
+        font-size: 18px;
+    }
+}
+
+
+
+
+
