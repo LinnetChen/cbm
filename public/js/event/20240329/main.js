@@ -3,7 +3,7 @@
 //     status: [1, -99, -98, -97, -96, -95],
 // };
 // var resGift = ['y','n','y','n','n','y'];
-var user = $('.loginUser').text();
+
 
 console.log(user);
 
@@ -18,7 +18,6 @@ function get_setting(){
             let eventId = this.id;
             $.post(data_api, {
                 type: "login",
-                user: user,
             }, function(_res) {
                 var res = _res;
                 // let res = { status: resStatus.status[0] };
@@ -28,7 +27,6 @@ function get_setting(){
                         case 'event01':
                             $.post(data_api, {
                                 type: "qualify",
-                                user: user,
                             },function(_res) {
                                 //檢查是否符合資格
                                 var res = _res;
@@ -229,10 +227,8 @@ function bindEventPop(){
             type: "binding",
             binding_id: bindingCode,
             server_id: selectedServer,
-            user: user,
         },function(_res) {
             var res = _res;
-            
             // let res = { status: resStatus.status[5] };
             if(res.status == 1){
                 $(".popS").fadeIn(200);
@@ -422,7 +418,6 @@ function sendGiftPop(){
                         $.post(data_api, {
                             type: "send_gift",
                             server_id: selectedServer,
-                            user: user,
                         },function(_res) {
                             var res = _res;  
                             if (res.send_result[index] === 'y') {
@@ -445,7 +440,6 @@ function sendGiftPop(){
                                 type: "gift",
                                 server_id: selectedServer,
                                 gift_id: giftId,
-                                user: user,
                             },function(_res) {
                                 var res = _res;
                                 // let res = { status: resStatus.status[0] };
@@ -463,6 +457,56 @@ function sendGiftPop(){
                                     button.prop('disabled', true).text('已領獎').addClass('giftBtnN');
                                     
                                 }
+                                else if(res.status == -99){
+                                    $(".mask").fadeIn(200);
+                                    $(".popS").fadeIn(200);
+                                    $(".pop_wrapS").html(
+                                        `<div class="pop_contentS">
+                                            <p>您不符合領獎資格(非新手/回歸玩家)。​</p>
+                                        </div>
+                                        <div class="popsBtnBox">
+                                            <button class="btn" onclick="close_popS()">確定</button>
+                                        </div>`
+                                    );
+                                }
+                                else if(res.status == -98){
+                                    $(".mask").fadeIn(200);
+                                    $(".popS").fadeIn(200);
+                                    $(".pop_wrapS").html(
+                                        `<div class="pop_contentS">
+                                            <p>您不符合領獎資格(未達成條件)。​​</p>
+                                        </div>
+                                        <div class="popsBtnBox">
+                                            <button class="btn" onclick="close_popS()">確定</button>
+                                        </div>`
+                                    );
+                                }
+                                else if(res.status == -97){
+                                    $(".mask").fadeIn(200);
+                                    $(".popS").fadeIn(200);
+                                    $(".pop_wrapS").html(
+                                        `<div class="pop_contentS">
+                                            <p>您已領取過該獎勵。​​​</p>
+                                        </div>
+                                        <div class="popsBtnBox">
+                                            <button class="btn" onclick="close_popS()">確定</button>
+                                        </div>`
+                                    );
+                                }
+                                else if(res.status == -96){
+                                    $(".mask").fadeIn(200);
+                                    $(".popS").fadeIn(200);
+                                    $(".pop_wrapS").html(
+                                        `<div class="pop_contentS">
+                                            <p>所選伺服器無效。​<br>
+                                            請先於所選伺服器中創建角色再進行。​​​</p>
+                                        </div>
+                                        <div class="popsBtnBox">
+                                            <button class="btn" onclick="close_popS()">確定</button>
+                                        </div>`
+                                    );
+                                }
+
                             });
                     });
                     console.log("Updated button states for selected server.");})
@@ -478,7 +522,6 @@ function wingPop(){
     $(function(){
         $.post(data_api, {
             type: "wing_gift",
-            user: user,
         },function(_res) {
             var res = _res;
             // let res = { status: resStatus.status[2] }; 
