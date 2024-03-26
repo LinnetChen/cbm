@@ -179,11 +179,6 @@ class FrontController extends Controller
         if ($id == 0) {
             return redirect('/gift');
         } else {
-            $list = giftCreate::where('status', 'y')->orderBy('created_at', 'desc')->paginate(6);
-            $giftCreate = giftCreate::where('id', $id)->where('status', 'y')->first();
-            if (!$giftCreate) {
-                return redirect('https://cbo.digeam.com/');
-            }
             // 撈出畫面
             if ($_SERVER['HTTP_CF_CONNECTING_IP'] == '211.23.144.219') {
                 $list = giftCreate::orderBy('created_at', 'desc')->paginate(6);
@@ -199,7 +194,7 @@ class FrontController extends Controller
                 }
             }
             $giftGroup = giftGroup::where('gift_id', $id)->get();
-            $repeat = [16, 17, 18, 19, 28, 30, 31, 36, 37, 38, 39, 40, 67, 65];
+            $repeat = [16, 17, 18, 19, 28, 30, 31, 36, 37, 38, 39, 40, 67, 65,70];
             if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null) {
                 foreach ($giftGroup as $key => $value) {
                     if (!in_array($value['id'], $repeat)) {
@@ -273,7 +268,7 @@ class FrontController extends Controller
                 }
             }
             $giftGroup = giftGroup::where('gift_id', $id)->get();
-            $repeat = [16, 17, 18, 19, 28, 30, 31, 36, 37, 38, 39, 40, 67, 65];
+            $repeat = [16, 17, 18, 19, 28, 30, 31, 36, 37, 38, 39, 40, 67, 65,70];
             if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null) {
                 foreach ($giftGroup as $key => $value) {
                     if (!in_array($value['id'], $repeat)) {

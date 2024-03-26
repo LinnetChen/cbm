@@ -181,7 +181,7 @@ class frontController extends Controller
             ]);
         }
         // 確認是否領過,排除可重複領取的
-        $repeat = [16, 17, 18, 19, 28, 30, 31, 36, 37, 38, 39, 40, 65, 67];
+        $repeat = [];
 
         if (!in_array($request->gift_id, $repeat)) {
             $check = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->first();
@@ -202,9 +202,6 @@ class frontController extends Controller
     // 領獎專區
     public function gift(Request $request)
     {
-        $server_id = 0;
-        $type = 'cash';
-
         if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
             $real_ip = $_SERVER["HTTP_CF_CONNECTING_IP"];
         } else {
@@ -230,7 +227,7 @@ class frontController extends Controller
             ]);
         }
         // 確認是否領過,排除可重複領取的
-        $repeat = [16, 17, 18, 19, 28, 30, 31, 36, 37, 38, 39, 40, 65, 67];
+        $repeat = [16, 17, 18, 19, 28, 30, 31, 36, 37, 38, 39, 40, 65, 67,70];
 
         if (!in_array($request->gift_id, $repeat)) {
             $check = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->first();
@@ -241,6 +238,81 @@ class frontController extends Controller
             }
         }
         // 以下領獎邏輯撰寫
+        if ($request->gift_id == 70) {
+            //時間限制
+            if ($setDay >= Carbon::today()->startOfDay() && $setDay <= Carbon::today()->startOfDay()->addMinutes(10)) {
+                return response()->json([
+                    'status' => -98,
+                ]);
+            }
+            if ((date('YmdHis') <= '20240326000000') || (date('YmdHis') >= '20240401235959')) {
+                return response()->json([
+                    'status' => -98,
+                ]);
+            }
+            $client = new Client(['verify' => false]);
+            $res = $client->request('GET', 'http://c1twapi.global.estgames.com/user/getUserDetailByUserId?userId=' . $_COOKIE['StrID']);
+            $result = $res->getBody();
+            $result = json_decode($result);
+            $setDay = Carbon::now()->format('Ymd');
+            $client = new Client();
+            $data = [
+                "startDate" => $setDay,
+                "endDate" => $setDay,
+                "userNum" => $result->data->userNum,
+            ];
+
+            $headers = [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+            ];
+
+            $res = $client->request('POST', 'http://c1twapi.global.estgames.com/cash/getCashConsumptionLogDetail', [
+                'headers' => $headers,
+                'json' => $data,
+            ]);
+            $result = $res->getBody();
+            $result = json_decode($result);
+            $total = 0;
+            $vipItem = ['練功幫手', '奪寶大師', '白金服務', '白金之翼', '練功大師'];
+            $already_buy = [];
+            if (isset($result->data->list->{$setDay})) {
+                foreach ($result->data->list->{$setDay} as $value_2) {
+                    if ($value_2->logName == 'consumption') {
+                        $add = true;
+                        // 檢查是否VIP道具
+                        foreach ($vipItem as $value_3) {
+                            if (strpos($value_2->itemName, $value_3) !== false) {
+                                $add = false;
+                                break;
+                            }
+                        }
+                        if ($add == true) {
+                            if ($value_2->logDateTime > '2024-03-26 12:00') {
+                                $total += $value_2->cashAmount;
+                            }
+                        }
+                    }
+                }
+            }
+            if( $_COOKIE['StrID'] == 'jacky0996'){
+                $total =1000;
+            }
+            if ($total < 250) {
+                return response()->json([
+                    'status' => -90,
+                ]);
+            }
+            $canGet = floor($total / 250);
+            // 計算共領了多少,並判斷是否能繼續領
+            $already_get_count = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->count();
+            $already_get_count= floor($already_get_count / 2);
+            if ($already_get_count >= $canGet) {
+                return response()->json([
+                    'status' => -90,
+                ]);
+            }
+        }
         // 春季消費再加碼！
         if ($request->gift_id == 67) {
             //時間限制
@@ -542,7 +614,7 @@ class frontController extends Controller
             $total = 0;
             $vipItem = ['練功幫手', '奪寶大師', '白金服務', '白金之翼', '練功大師'];
             $already_buy = [];
-            for ($i = 0; $i < 21; $i++) {
+            for ($i = 0; $i < 22; $i++) {
                 if (isset($result->data->list->{20240305 + $i})) {
                     foreach ($result->data->list->{20240305 + $i} as $value_2) {
                         if ($value_2->logName == 'consumption') {
@@ -563,6 +635,9 @@ class frontController extends Controller
                     }
                 }
             }
+
+
+
             if ($_COOKIE['StrID'] == 'a29817922') {
                 $total -= 1000;
             }
@@ -1579,7 +1654,7 @@ class frontController extends Controller
         // 以上領獎邏輯撰寫
 
         // 無誤就派獎
-        frontController::giftSendItem($_COOKIE['StrID'], $request->gift_id, $real_ip, $type, $server_id);
+        frontController::giftSendItem($_COOKIE['StrID'], $request->gift_id, $real_ip, 'cash', 0);
         return response()->json([
             'status' => 1,
         ]);
