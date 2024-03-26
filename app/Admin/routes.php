@@ -33,6 +33,10 @@ Route::group([
     $router->resource('{gift_project_id}/create_gift_item', 'GiftItemCreateController');
     $router->resource('gift_get_log', 'GiftGetLogController');
     $router->resource('gift_error_get_log', 'GiftErrorGetLogController');
+    // 領獎專區(新)
+    $router->resource('/new_create_gift', 'NewGiftCreateController');
+    $router->resource('{gift_id}/new_create_gift_project', 'NewGiftProjectCreateController');
+    $router->resource('{gift_project_id}/new_create_gift_item', 'NewGiftItemCreateController');
     //CCU
     $router->resource('/ccu', 'CCUController');
     //Event231220
