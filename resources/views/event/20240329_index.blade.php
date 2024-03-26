@@ -45,11 +45,11 @@
     <div class="wrap" id="wrap">
         <div class="topBar">
             <div class="topBox">
-                <a class="topBtn" href="">Mobile事前預約</a>
+                <a class="topBtn" href="" target="_blank" >Mobile事前預約</a>
                 <p class="topLine">|</p>
-                <a class="topBtn" href="">聯動活動</a>
+                <a class="topBtn" href="" target="_blank" >聯動活動</a>
                 <p class="topLine">|</p>
-                <a class="topBtn_h" href="">涅瓦雷斯人才招募中心​</a>
+                <a class="topBtn_h" href="https://cbo.digeam.com/20240329" target="_blank" >涅瓦雷斯人才招募中心​</a>
             </div>            
         </div>
         <div class="section01">
