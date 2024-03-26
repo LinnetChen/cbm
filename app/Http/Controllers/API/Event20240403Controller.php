@@ -12,7 +12,6 @@ class Event20240403Controller extends Controller
 {
     public function index(Request $request)
     {
-
         if ($request->type == 'login') {
             $result = Event20240403Controller::login($request);
         } elseif ($request->type == 'qualify') {
@@ -34,7 +33,7 @@ class Event20240403Controller extends Controller
     // 判斷登入
     private function login($request)
     {
-        if ($_COOKIE['StrID']) {
+        if (!$_COOKIE['StrID']) {
             return response()->json([
                 'status' => -99,
             ]);
