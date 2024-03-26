@@ -1,0 +1,266 @@
+.topBar{
+    display: flex;
+    align-items: center;
+    position: fixed;
+    max-width: 100%;
+    min-width: 1920px;
+    height: 75px;
+    padding-left: 200px;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 99;
+    .topBox{
+        @extend %flex-center;
+        .topLine{
+            @extend %link-font;
+            font-size: 25px;  
+            margin:  20px;     
+        }  
+    
+        .topBtn{
+            @extend %link-font;
+            font-size: 25px;  
+    
+            &:hover {
+                @extend %hover;
+                color: #7ab5ff;
+            }
+        }
+        .topBtn_h{
+            @extend %link-font;
+            font-size: 25px;
+            
+            &:after {
+                content: '限時新手&回歸活動(PC專屬)';
+                color: #7ab5ff;
+                visibility: hidden;  
+                white-space: nowrap;  
+                position: absolute;
+                right: 5px;
+                left: 1px;
+            }
+            
+            &:hover {                      
+                color: transparent; 
+                @extend %hover;
+                &:after {
+                    
+                    visibility: visible;  
+                }
+            }
+        }
+    }
+    
+
+}    
+
+.section01{
+    max-width: 100%;
+    min-width: 1920px;
+    min-height: 953px;
+    @extend %bg-cover;
+    background-image: url("../../../img/event/20240329/s1Bg.png");
+    .s1Tit{
+        @extend %flex-center;
+        top: 410px;
+        margin: auto;
+    }
+    .logo{
+        @include ab-lt(200px, 100px);
+        @include size(294px, 133px);
+        background-color: transparent;
+        background-image: url(../../../img/event/20240329/logo.png);
+    }
+    .s1BtnBox{
+        @extend %flex-center;
+        gap: 80px;
+        top: 400px;
+            
+            .s1Btn{
+                @extend %link-font;
+                @extend %flex-center;
+                @include size(280px, 96px);        
+                background-color: transparent;
+                background-image: url(../../../img/event/20240329/s1Btn.png);            
+                font-size: 32px;
+    
+                &:hover {
+                    @extend %hover;
+                    background-image: url(../../../img/event/20240329/s1Btn_h.png);
+                }
+            }
+    
+    
+        }
+}
+
+.section02{
+    max-width: 100%;
+    min-width: 1920px;
+    min-height: 1121px;
+    @extend %bg-cover;
+    background-image: url("../../../img/event/20240329/s2Bg.png");
+    .s2Content{
+        margin: 0 175px;
+        @extend %flex-center;
+
+        .imgContainer{
+            display: flex; 
+            @extend %col-center;
+            .s2Tit{
+                position: relative;
+                bottom:70px;
+            }
+
+        }
+        .s2Container{
+            @extend %flex-center;
+            @include size(561px, 835px);
+            @extend %bg-cover;
+            background-image: url(../../../img/event/20240329/s2ContainerBg.png);
+            .actBox{
+                @extend %col-center;                
+                .s2FontBlue{
+                    @extend %blue-font;
+                    margin: 4px 0;
+                    letter-spacing: 1px;
+                    
+                }
+                .s2FontRed{
+                    @extend %red-font;
+                    margin: 4px 0;
+                    letter-spacing: -0.5px;
+                    
+                }
+                .s2BtnBox{
+                    display:flex;
+                    justify-content: space-around;
+                    margin: 7px 0;
+                    .s2Btn{
+                        @extend %btn-font;
+                        @extend %flex-center;
+                        background-color: transparent;
+                        @include size(165px, 54px);
+                        @include btn-img('../../../img/event/20240329/s2Btn_1.png',
+                        '../../../img/event/20240329/s2Btn_1_h.png');
+                    }
+                    .s2Act{
+                            @extend %btn-font;
+                            @extend %flex-center;
+                    } 
+                    .act01{
+                        background-color: transparent;
+                            @include size(186px, 54px);
+                            @include btn-img('../../../img/event/20240329/s2Btn_2.png',
+                            '../../../img/event/20240329/s2Btn_2_h.png');
+
+                    }
+                    .act02, .act03, .act04{
+                        background-color: transparent;
+                            @include size(165px, 54px);
+                            @include btn-img('../../../img/event/20240329/s2Btn_1.png',
+                            '../../../img/event/20240329/s2Btn_1_h.png');
+
+                    }
+
+                }
+                .line{
+                    @extend %flex-center;
+                    @include size(351px, 11px);
+                    margin: 8px 0;
+                    mix-blend-mode:screen;
+                    background-image: url(../../../img/event/20240329/line.png);
+                }
+                
+
+            }
+            
+        }
+    }
+}
+footer {
+    background-size: contain;
+    background:black;
+    margin: 10px 20px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    @include size (1920px,100%);
+    p, li{
+        font-size: 14px;
+        font-family:'Noto Sans TC', sans-serif;
+        font-weight: 300;
+        color: white;
+        line-height: 1.2;
+
+    }
+}
+
+.footerbox {
+    width: 85%;
+    font-size: 10px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.footerbox_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+        scale: 0.8;
+    }
+}
+
+a.logo_digeam {
+    width: auto;
+    height: 80%;
+    //pointer-events: none;
+}
+
+a.logo_rw {
+    width: auto;
+    height: 38px;
+    pointer-events: none;
+}
+
+.spec {
+    width: 40%;
+    line-height: 16.4px;
+    margin-left: 20px;
+    font-size: 14px;
+    a {
+        color: rgb(159, 229, 255);
+        text-decoration: underline;
+        display: inline-block;
+        font-size: 14px;
+        &:hover {
+            color: white;
+        }
+    }
+    p{
+        color: white;
+
+    }
+}
+
+.classlavel {
+    width: 30%;
+    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    img{
+        padding-right: 1%;
+        scale: 0.9;
+    }
+    ul{
+        li{
+            color: white;
+            line-height: 18px;
+        }
+    }
+}
+
