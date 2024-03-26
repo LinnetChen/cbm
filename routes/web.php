@@ -83,6 +83,10 @@ Route::middleware(['setReturnUrl'])->group(function () {
     Route::get('/20240205', function () {
         return view('event/20240205_index');
     });
+    Route::get('/20240329', function () {
+        return view('event/20240329_index');
+    });
+    
 });
 Route::get('/OBT', function () {
     return view('event/OBT');
@@ -109,6 +113,3 @@ Route::post('filePath', 'CkeditorUploadController@getImage')->name('filePath');
 Route::get('/prereg', 'front\preregController@index');
 Route::get('testApi', 'front\testController@testAPI');
 
-Route::get('/20240329', function () {
-    return view('event/20240329_index');
-});

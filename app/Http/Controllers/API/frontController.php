@@ -288,15 +288,13 @@ class frontController extends Controller
                             }
                         }
                         if ($add == true) {
-                            if ($value_2->logDateTime > '2024-03-26 12:00') {
                                 $total += $value_2->cashAmount;
-                            }
                         }
                     }
                 }
             }
-            if( $_COOKIE['StrID'] == 'jacky0996'){
-                $total =1000;
+            if($_COOKIE['StrID'] =='jacky0996'){
+                $total = 1000;
             }
             if ($total < 250) {
                 return response()->json([
@@ -311,7 +309,17 @@ class frontController extends Controller
                 return response()->json([
                     'status' => -90,
                 ]);
+            }else{
+                $run = $canGet-$already_get_count;
+                if($run > 0){
+                    for($i = 0 ;$i<$run;$i++){
+                        frontController::giftSendItem($_COOKIE['StrID'], $request->gift_id, $real_ip, 'cash', 0);
+                    }
+                }
             }
+            return response()->json([
+                'status' => 1,
+            ]);
         }
         // 春季消費再加碼！
         if ($request->gift_id == 67) {
