@@ -245,7 +245,7 @@ class frontController extends Controller
                     'status' => -98,
                 ]);
             }
-            if ((date('YmdHis') <= '20240326000000') || (date('YmdHis') >= '20240401235959')) {
+            if ((date('YmdHis') <= '20240327000000') || (date('YmdHis') >= '20240401235959')) {
                 return response()->json([
                     'status' => -98,
                 ]);
@@ -257,7 +257,7 @@ class frontController extends Controller
             $setDay = Carbon::now()->format('Ymd');
             $client = new Client();
             $data = [
-                "startDate" => $setDay,
+                "startDate" => 20240327,
                 "endDate" => $setDay,
                 "userNum" => $result->data->userNum,
             ];
@@ -276,19 +276,26 @@ class frontController extends Controller
             $total = 0;
             $vipItem = ['練功幫手', '奪寶大師', '白金服務', '白金之翼', '練功大師'];
             $already_buy = [];
-            if (isset($result->data->list->{$setDay})) {
-                foreach ($result->data->list->{$setDay} as $value_2) {
-                    if ($value_2->logName == 'consumption') {
-                        $add = true;
-                        // 檢查是否VIP道具
-                        foreach ($vipItem as $value_3) {
-                            if (strpos($value_2->itemName, $value_3) !== false) {
-                                $add = false;
-                                break;
+            for ($i = 0; $i < 6; $i++) {
+                if($i>4){
+                    $date = 20240397;
+                }else{
+                    $date = 20240327;
+                }
+                if (isset($result->data->list->{$date + $i})) {
+                    foreach ($result->data->list->{$date + $i} as $value_2) {
+                        if ($value_2->logName == 'consumption') {
+                            $add = true;
+                            // 檢查是否VIP道具
+                            foreach ($vipItem as $value_3) {
+                                if (strpos($value_2->itemName, $value_3) !== false) {
+                                    $add = false;
+                                    break;
+                                }
                             }
-                        }
-                        if ($add == true) {
+                            if ($add == true) {
                                 $total += $value_2->cashAmount;
+                            }
                         }
                     }
                 }
@@ -1765,7 +1772,7 @@ class frontController extends Controller
         $res = $client->request('GET', 'http://c1twapi.global.estgames.com/game/character/searchByCharacterId?userId=jacky0996&serverCode=server02');
         $check_02 = $res->getBody();
         $check_02 = json_decode($check_02);
-
+        dd($check_01,$check_02);
         if (count($check_01->data) > 0) {
             $hasChar_01 = true;
         } else {
