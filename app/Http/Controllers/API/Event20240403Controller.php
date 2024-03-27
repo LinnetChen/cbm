@@ -36,7 +36,8 @@ class Event20240403Controller extends Controller
     // 判斷登入
     private function login($request)
     {
-        if (!isset($_COOKIE['StrID'])) {
+
+        if (!$_COOKIE['StrID']) {
             return response()->json([
                 'status' => -99,
             ]);
@@ -75,6 +76,7 @@ class Event20240403Controller extends Controller
     }
     private function qualify($request)
     {
+
         $check = Event20240403User::where('user_id', $_COOKIE['StrID'])->first();
         if ($check['user_type'] == 'skillful') {
             return response()->json([
@@ -95,6 +97,7 @@ class Event20240403Controller extends Controller
     // 綁定
     private function binding($request)
     {
+
         if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
             $real_ip = $_SERVER["HTTP_CF_CONNECTING_IP"];
         } else {

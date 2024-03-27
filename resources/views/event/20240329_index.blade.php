@@ -39,6 +39,7 @@
     </div>
     <div class="popS">
         <div class="pop_wrapS">
+            <button class="sub" style="display: none">確定</button>
         </div>
     </div>
     <div class="mask"></div>
@@ -138,8 +139,8 @@
     <script src="js/event/base/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="js/event/20240329/view.js?v=1.18"></script>    
-    <script src="js/event/20240329/main.js?v=1.18"></script>    
+    <script src="js/event/20240329/view.js?v=1.19"></script>    
+    <script src="js/event/20240329/main.js?v=1.19"></script>    
     <script>
         $(function(){
             AOS.init();
