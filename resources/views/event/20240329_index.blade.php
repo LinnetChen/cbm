@@ -39,6 +39,7 @@
     </div>
     <div class="popS">
         <div class="pop_wrapS">
+            <button class="sub" style="display: none">確定</button>
         </div>
     </div>
     <div class="mask"></div>
