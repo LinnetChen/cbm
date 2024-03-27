@@ -88,11 +88,15 @@ function get_setting(){
                     );
                 }
             });
-            checklock = true;
-        }                        
+                setTimeout(function() {
+                    checklock = true;
+                }, 2000);
+                
+            
+        }  
+        
         })
     })
-            
     
 }
 
@@ -308,7 +312,9 @@ function bindEventPop(){
                     );
                 }
             });
-            checklock_bind = true;
+            setTimeout(function() {
+                checklock_bind = true;
+            }, 2000);
         }
     })
         
@@ -515,6 +521,9 @@ function updateGift(){
                             );
                         }
                     });
+                    setTimeout(function() {
+                        checklock_gift = true;
+                    }, 1000);
             }
         })
     }
@@ -586,7 +595,6 @@ function wingPop(){
                     );
                 }
             });
-            checklock_wing = true;    
         }
         
         })
