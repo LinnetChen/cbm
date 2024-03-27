@@ -43,6 +43,7 @@ class Event20240403Controller extends Controller
     // 判斷登入
     private function login($request)
     {
+        $request->user = 's0002';
         // 確認是否有資料
         $check = Event20240403User::where('user_id', $request->user)->first();
         if ($check) {
