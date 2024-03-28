@@ -43,4 +43,8 @@ Route::group([
     $router->resource('/event231220', 'Event231220Controller');
     //Event240205
     $router->resource('/event240205', 'Event240205Controller');
+    // Event240329
+    $router->resource('/event20240329', 'Event20240329Controller');
+    $router->resource('/event20240329_binding_log', 'Event20240329BindingLogController');
+    $router->resource('/event20240329_get_log', 'Event20240329GetLogController');
 });
