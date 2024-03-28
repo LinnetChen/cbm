@@ -37,7 +37,7 @@ class Event20240403Controller extends Controller
     private function login($request)
     {
 
-        if (!$_COOKIE['StrID']) {
+        if (!isset($_COOKIE['StrID'])) {
             return response()->json([
                 'status' => -99,
             ]);
@@ -97,6 +97,7 @@ class Event20240403Controller extends Controller
     // 綁定
     private function binding($request)
     {
+
 
         if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
             $real_ip = $_SERVER["HTTP_CF_CONNECTING_IP"];
@@ -168,7 +169,35 @@ class Event20240403Controller extends Controller
     // 立即領獎
     private function send_gift($request)
     {
-
+        $send_result = ['n','n','n','n','n']; 
+        $check_gift_record_1 = event240403GetLog::where('user', $_COOKIE['StrID'])->where('gift', 'gift01')->whereBetween('created_at', [Carbon::now()->format('Y-m-d 00:00:00'), Carbon::tomorrow()->format('Y-m-d 23:59:59')])->first();
+        $check_gift_record_2 = event240403GetLog::where('user', $_COOKIE['StrID'])->where('gift', 'gift02')->whereBetween('created_at', [Carbon::now()->format('Y-m-d 00:00:00'), Carbon::tomorrow()->format('Y-m-d 23:59:59')])->first();
+        $check_gift_record_3 = event240403GetLog::where('user', $_COOKIE['StrID'])->where('gift', 'gift03')->first();
+        $check_gift_record_4 = event240403GetLog::where('user', $_COOKIE['StrID'])->where('gift', 'gift04')->whereBetween('created_at', [Carbon::now()->format('Y-m-d 00:00:00'), Carbon::tomorrow()->format('Y-m-d 23:59:59')])->first();
+        $check_gift_record_5 = event240403GetLog::where('user', $_COOKIE['StrID'])->where('gift', 'gift05')->first();
+        $check_gift_record_6 = event240403GetLog::where('user', $_COOKIE['StrID'])->where('gift', 'gift06')->first();
+        if($check_gift_record_1){
+            $send_result[0]='y';
+        }
+        if($check_gift_record_2){
+            $send_result[1]='y';
+        }
+        if($check_gift_record_3){
+            $send_result[2]='y';
+        }
+        if($check_gift_record_4){
+            $send_result[3]='y';
+        }
+        if($check_gift_record_5){
+            $send_result[4]='y';
+        }
+        if($check_gift_record_6){
+            $send_result[5]='y';
+        }
+        return response()->json([
+            'status' => 1,
+            'send_result ' => $send_result,
+        ]);
     }
     // 立即領獎
     private function gift($request)
