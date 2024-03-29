@@ -186,7 +186,6 @@ function bindEventPop() {
                 checklock_bind = false;
                 let bindingCode = $('.bindBox input[type="text"]').val();
                 let selectedServer = $('select[name="select_server"]').val();
-                console.log(selectedServer, bindingCode);
                 $.post(data_api, {
                     type: "binding",
                     binding_id: bindingCode,
@@ -262,7 +261,8 @@ function bindEventPop() {
                     else if (res.status == -94) {
                         $(".pop_wrapS").html(
                             `<div class="pop_contentS">
-                            <p>您是活躍玩家，請將綁定碼分享給新手/回歸玩家。​</p>
+                            <p>您是活躍玩家。​<br>
+                            請將綁定碼分享給新手/回歸玩家。​</p>
                             </div>
                             <div class="popsBtnBox">
                                 <button class="btn" onclick="close_popS()">確定</button>
@@ -418,7 +418,6 @@ function updateGift(giftId) {
             $(".mask").fadeOut();
             $(".loading").html(`載入中......`).fadeOut();
             var res = _res;
-            // let res = { status: resStatus.status[0] };
             $(".mask").fadeIn(200);
             $(".popS").fadeIn(200);
             if (res.status == 1) {
