@@ -21,7 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/event/20240329/style.css?v1.4">
+    <link rel="stylesheet" href="css/event/20240329/style.css?v1.5">
 </head>
 <body>
     <div class="loading" style="display: none">載入中......</div>
@@ -161,8 +161,8 @@
     <script src="js/event/base/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="js/event/20240329/view.js?v=1.24"></script>    
-    <script src="js/event/20240329/main.js?v=1.29"></script>    
+    <script src="js/event/20240329/view.js?v=1.25"></script>    
+    <script src="js/event/20240329/main.js?v=1.30"></script>    
     <script>
         $(function(){
             AOS.init();

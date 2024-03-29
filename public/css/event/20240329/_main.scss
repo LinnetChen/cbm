@@ -6,27 +6,33 @@
     min-width: 1920px;
     height: 75px;
     padding-left: 200px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 99;
     .topBox{
         @extend %flex-center;
         .topLine{
-            @extend %link-font;
-            font-size: 25px;  
+            white-space: pre;
+            font-family:'Noto Sans TC', sans-serif;
+            color: white;
+            font-size: 28.8px;  
             margin:  20px;     
         }  
     
         .topBtn{
-            @extend %link-font;
-            font-size: 25px;  
+            white-space: pre;
+            font-family:'Noto Sans TC', sans-serif;
+            color: white;
+            font-size: 28.8px;  
     
             &:hover {
                 color: #7ab5ff;
             }
         }
         .topBtn_h{
-            @extend %link-font;
-            font-size: 25px;
+            white-space: pre;
+            font-family:'Noto Sans TC', sans-serif;
+            color: white;
+            font-size: 28.8px;
             
             &:after {
                 content: '限時新手&回歸活動(PC專屬)';
@@ -48,13 +54,15 @@
     }
     .wordBox{
         @extend %flex-center;
-        left: 550px;
+        left: 400px;
         .userBox, .loginBox{
             margin-right: 20px;
             display: flex;
-            font-size: 25px;
+            font-size: 28.8px;
             .loginWord, .userName,.userLogout,.userLogin{
-                @extend %link-font;
+                white-space: pre;
+                font-family:'Noto Sans TC', sans-serif;
+                color: white;
             }
             .loginWord{
                 margin-right: 10px;
@@ -63,8 +71,10 @@
         .userLogout, .userLogin{
             display: flex;
             margin-left: 10px;
-            @extend %link-font;
-            font-size: 25px;  
+            white-space: pre;
+            font-family:'Noto Sans TC', sans-serif;
+            color: white;
+            font-size: 28.8px;  
             &:hover {
                 color: #7ab5ff;
             }
