@@ -21,7 +21,6 @@
             font-size: 25px;  
     
             &:hover {
-                @extend %hover;
                 color: #7ab5ff;
             }
         }
@@ -41,14 +40,36 @@
             
             &:hover {                      
                 color: transparent; 
-                @extend %hover;
                 &:after {
-                    
                     visibility: visible;  
                 }
             }
         }
     }
+    .userBox, .loginBox{
+        @extend %flex-center;
+        left: 40%;
+        font-size: 25px;
+
+        .loginWord, .userName,.userLogout,.userLogin{
+            @extend %link-font;
+        }
+        .loginWord{
+            margin-right: 10px;
+
+        }
+        .userLogout, .userLogin{
+            margin-left: 20px;
+            @extend %link-font;
+            font-size: 25px;  
+
+            &:hover {
+                color: #7ab5ff;
+            }
+        }
+    }
+
+    
     
 
 }    

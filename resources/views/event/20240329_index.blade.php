@@ -43,15 +43,39 @@
         </div>
     </div>
     <div class="mask"></div>
+    
     <div class="wrap" id="wrap">
         <div class="topBar">
             <div class="topBox">
-                <a class="topBtn" href="" target="_blank" >Mobile事前預約</a>
+                <a class="topBtn" href="https://cbm.digeam.com/prereg" target="_blank" >Mobile事前預約</a>
                 <p class="topLine">|</p>
-                <a class="topBtn" href="" target="_blank" >聯動活動</a>
+                <a class="topBtn" href="https://cbm.digeam.com/jointAct" target="_blank" >聯動活動</a>
                 <p class="topLine">|</p>
-                <a class="topBtn_h" href="https://cbo.digeam.com/20240329" target="_blank" >涅瓦雷斯人才招募中心​</a>
-            </div>            
+                <a class="topBtn_h" href="https://cbo.digeam.com/20240329">涅瓦雷斯人才招募中心​</a>
+            </div>  
+            <!-- 判斷登入 -->
+            @if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null)
+            <form id="logout-form" action="https://www.digeam.com/logout" method="POST" style="display: none;">
+                <input type="hidden" name="return_url" id="return_url" value={{ base64_encode('https://cbo.digeam.com/20240329') }}>
+            </form>
+            <div class="userBox">
+                <div class="loginWord">當前帳號 : </div>
+                <div class="userName">{{ $_COOKIE['StrID'] }}</div>
+                <a href="javascript:logout_dg();">
+                    <div class="userLogout">登出</div>
+                </a>
+            </div>
+            @else
+            <form id="logout-form" action="https://www.digeam.com/logout" method="POST" style="display: none;">
+                <input type="hidden" name="return_url" id="return_url" value={{ base64_encode('https://cbo.digeam.com/20240329') }}>
+            </form>
+            <div class="loginBox">
+                <div class="userName"></div>
+                <a href="https://www.digeam.com/login">
+                    <div class="userLogin">登入</div>
+                </a>
+            </div>
+            @endif          
         </div>
         <div class="section01">
             <img class="s1Tit" src="img/event/20240329/s1Tit.png" >
@@ -74,9 +98,6 @@
                 </div>
                 <div class="s2Container">
                     <div class="actBox">
-                        @if(isset($_COOKIE['StrID']))
-                        <p class="loginUser" style="display: none">{{ $_COOKIE['StrID'] }}</p>
-                        @endif
                         <p class="s2FontBlue">【EVENT 1　這小老弟我罩的】</p>
                         <p class="s2FontRed">綁定活躍玩家，立即領取專屬獎勵！</p>
                         <div class="s2BtnBox">
@@ -139,8 +160,8 @@
     <script src="js/event/base/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="js/event/20240329/view.js?v=1.19"></script>    
-    <script src="js/event/20240329/main.js?v=1.24"></script>    
+    <script src="js/event/20240329/view.js?v=1.20"></script>    
+    <script src="js/event/20240329/main.js?v=1.25"></script>    
     <script>
         $(function(){
             AOS.init();
