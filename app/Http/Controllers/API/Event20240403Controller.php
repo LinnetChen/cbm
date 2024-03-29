@@ -6,10 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Event240403BindingLog;
 use App\Models\event240403GetLog;
 use App\Models\Event20240403User;
+use App\Models\giftGetLog;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-use App\Models\giftGetLog;
 
 class Event20240403Controller extends Controller
 {
@@ -27,6 +27,8 @@ class Event20240403Controller extends Controller
             $result = Event20240403Controller::gift($request);
         } elseif ($request->type == 'wing_gift') {
             $result = Event20240403Controller::wing_gift($request);
+        } elseif ($request->type == 'skill_get_gift') {
+            $result = Event20240403Controller::skill_get_gift($request);
         } else {
             return 0;
         }
@@ -50,7 +52,7 @@ class Event20240403Controller extends Controller
             // 第一次進入頁面,判斷玩家類型
             // 以下待上線後撰寫搜尋login DB
             $client = new Client(['verify' => false]);
-            $res = $client->request('POST', 'https://digeam.com/api/get_cbo_user_login?user='.$_COOKIE['StrID']);
+            $res = $client->request('POST', 'https://digeam.com/api/get_cbo_user_login?user=' . $_COOKIE['StrID']);
             $reqbody = $res->getBody();
             $reqbody = json_decode($reqbody);
 
@@ -74,31 +76,29 @@ class Event20240403Controller extends Controller
             'status' => 1,
         ]);
     }
-    private function qualify($request)
-    {
+    // private function qualify($request)
+    // {
 
-        $check = Event20240403User::where('user_id', $_COOKIE['StrID'])->first();
-        if ($check['user_type'] == 'skillful') {
-            return response()->json([
-                'status' => -99,
-            ]);
-        }
-        $info = json_decode($check['info']);
-        if (count($info) >= 3) {
-            return response()->json([
-                'status' => -98,
-            ]);
-        } else {
-            return response()->json([
-                'status' => 1,
-            ]);
-        }
-    }
+    //     $check = Event20240403User::where('user_id', $_COOKIE['StrID'])->first();
+    //     if ($check['user_type'] == 'skillful') {
+    //         return response()->json([
+    //             'status' => -99,
+    //         ]);
+    //     }
+    //     $info = json_decode($check['info']);
+    //     if (count($info) >= 3) {
+    //         return response()->json([
+    //             'status' => -98,
+    //         ]);
+    //     } else {
+    //         return response()->json([
+    //             'status' => 1,
+    //         ]);
+    //     }
+    // }
     // 綁定
     private function binding($request)
     {
-
-
         if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
             $real_ip = $_SERVER["HTTP_CF_CONNECTING_IP"];
         } else {
@@ -114,7 +114,7 @@ class Event20240403Controller extends Controller
         }
         if ($check['user_type'] == 'skillful') {
             return response()->json([
-                'status' => -99,
+                'status' => -94,
             ]);
         }
         // 確認是否被綁定
@@ -139,7 +139,7 @@ class Event20240403Controller extends Controller
                 'status' => -97,
             ]);
         }
-        
+
         // 確認伺服器
         if ($request->server_id == 'server00') {
             return response()->json([
@@ -150,7 +150,12 @@ class Event20240403Controller extends Controller
                 'status' => -96,
             ]);
         }
-
+        if($request->server_id == 'server02'){
+            $checkBinding->server_01_code ='已被綁定';
+        }else{
+            $checkBinding->server_02_code ='已被綁定';
+        }
+        $checkBinding->save();
         $info[count($info)] = $request->binding_id;
         $check->info = $info;
         $check->save();
@@ -161,6 +166,7 @@ class Event20240403Controller extends Controller
         $newBindingLog->binding = $request->binding_id;
         $newBindingLog->ip = $real_ip;
         $newBindingLog->save();
+        Event20240403Controller::binding_gift($_COOKIE['StrID'], $request->binding_id,$real_ip);
 
         return response()->json([
             'status' => 1,
@@ -169,30 +175,30 @@ class Event20240403Controller extends Controller
     // 立即領獎
     private function send_gift($request)
     {
-        $send_result = ['n','n','n','n','n']; 
+        $send_result = ['n', 'n', 'n', 'n', 'n'];
         $check_gift_record_1 = event240403GetLog::where('user', $_COOKIE['StrID'])->where('gift', 'gift01')->whereBetween('created_at', [Carbon::now()->format('Y-m-d 00:00:00'), Carbon::tomorrow()->format('Y-m-d 23:59:59')])->first();
         $check_gift_record_2 = event240403GetLog::where('user', $_COOKIE['StrID'])->where('gift', 'gift02')->whereBetween('created_at', [Carbon::now()->format('Y-m-d 00:00:00'), Carbon::tomorrow()->format('Y-m-d 23:59:59')])->first();
         $check_gift_record_3 = event240403GetLog::where('user', $_COOKIE['StrID'])->where('gift', 'gift03')->first();
         $check_gift_record_4 = event240403GetLog::where('user', $_COOKIE['StrID'])->where('gift', 'gift04')->whereBetween('created_at', [Carbon::now()->format('Y-m-d 00:00:00'), Carbon::tomorrow()->format('Y-m-d 23:59:59')])->first();
         $check_gift_record_5 = event240403GetLog::where('user', $_COOKIE['StrID'])->where('gift', 'gift05')->first();
         $check_gift_record_6 = event240403GetLog::where('user', $_COOKIE['StrID'])->where('gift', 'gift06')->first();
-        if($check_gift_record_1){
-            $send_result[0]='y';
+        if ($check_gift_record_1) {
+            $send_result[0] = 'y';
         }
-        if($check_gift_record_2){
-            $send_result[1]='y';
+        if ($check_gift_record_2) {
+            $send_result[1] = 'y';
         }
-        if($check_gift_record_3){
-            $send_result[2]='y';
+        if ($check_gift_record_3) {
+            $send_result[2] = 'y';
         }
-        if($check_gift_record_4){
-            $send_result[3]='y';
+        if ($check_gift_record_4) {
+            $send_result[3] = 'y';
         }
-        if($check_gift_record_5){
-            $send_result[4]='y';
+        if ($check_gift_record_5) {
+            $send_result[4] = 'y';
         }
-        if($check_gift_record_6){
-            $send_result[5]='y';
+        if ($check_gift_record_6) {
+            $send_result[5] = 'y';
         }
         return response()->json([
             'status' => 1,
@@ -202,12 +208,14 @@ class Event20240403Controller extends Controller
     // 立即領獎
     private function gift($request)
     {
+        if (isset($request->user)) {
+            $_COOKIE['StrID'] = $request->user;
+        }
         if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
             $real_ip = $_SERVER["HTTP_CF_CONNECTING_IP"];
         } else {
             $real_ip = $_SERVER["REMOTE_ADDR"];
         }
-
         $hasGuild = false;
         $send = false;
         $login = false;
@@ -232,17 +240,16 @@ class Event20240403Controller extends Controller
         }
         // 確認是否有角色
         $client = new Client(['verify' => false]);
-        $res = $client->request('GET', 'http://c1twapi.global.estgames.com/game/character/searchByCharacterId?userId=' . $_COOKIE['StrID'] . '&serverCode='.$request->server_id);
+        $res = $client->request('GET', 'http://c1twapi.global.estgames.com/game/character/searchByCharacterId?userId=' . $_COOKIE['StrID'] . '&serverCode=' . $request->server_id);
         $check_char = $res->getBody();
         $check_char = json_decode($check_char);
-        
         if (count($check_char->data) <= 0) {
             return response()->json([
                 'status' => -96,
             ]);
         } else {
             foreach ($check_char->data as $value) {
-                if (json_encode($value->guildName) != null) {
+                if (json_encode($value->guildName) != 'null') {
                     $hasGuild = true;
                 }
                 if (json_encode($value->lev) > $max_level) {
@@ -256,7 +263,7 @@ class Event20240403Controller extends Controller
         $res = $client->request('GET', 'http://c1twapi.global.estgames.com/user/getUserDetailByUserId?userId=' . $_COOKIE['StrID']);
         $check_login = $res->getBody();
         $check_login = json_decode($check_login);
-        if ($check_login->data->Login ==1) {
+        if ($check_login->data->Login == 1) {
             $login = 1;
         }
 
@@ -270,6 +277,7 @@ class Event20240403Controller extends Controller
             } else {
                 $send = true;
                 $count = 30;
+                $title = '簽到';
             }
         } elseif ($request->gift_id == 'gift02') {
             $check_gift_record = event240403GetLog::where('user', $_COOKIE['StrID'])->where('gift', 'gift02')->whereBetween('created_at', [Carbon::now()->format('Y-m-d 06:00:00'), Carbon::tomorrow()->format('Y-m-d 05:59:59')])->first();
@@ -281,6 +289,7 @@ class Event20240403Controller extends Controller
                 if ($login == true) {
                     $send = true;
                     $count = 10;
+                    $title = '保持在線';
                 }
             }
         } elseif ($request->gift_id == 'gift03') {
@@ -293,6 +302,7 @@ class Event20240403Controller extends Controller
                 if ($hasGuild == true) {
                     $send = true;
                     $count = 30;
+                    $title = '加入公會';
                 }
             }
         } elseif ($request->gift_id == 'gift04') {
@@ -305,7 +315,8 @@ class Event20240403Controller extends Controller
                 if ($max_level >= 100) {
                     $send = true;
                     $count = 50;
-                }else{
+                    $title = '消費';
+                } else {
                     return response()->json([
                         'status' => -95,
                     ]);
@@ -321,7 +332,8 @@ class Event20240403Controller extends Controller
                 if ($max_level >= 100) {
                     $send = true;
                     $count = 50;
-                }else{
+                    $title = '達到100級';
+                } else {
                     return response()->json([
                         'status' => -98,
                     ]);
@@ -337,7 +349,8 @@ class Event20240403Controller extends Controller
                 if ($max_level >= 170) {
                     $send = true;
                     $count = 80;
-                }else{
+                    $title = '達到170級';
+                } else {
                     return response()->json([
                         'status' => -98,
                     ]);
@@ -349,8 +362,12 @@ class Event20240403Controller extends Controller
             ]);
         }
 
-
         if ($send == true) {
+            if ($request->server_id == 'server01') {
+                $server = 1;
+            } else {
+                $server = 2;
+            }
             $newGetLog = new event240403GetLog();
             $newGetLog->user = $_COOKIE['StrID'];
             $newGetLog->ip = $real_ip;
@@ -365,15 +382,15 @@ class Event20240403Controller extends Controller
 
             $client = new Client();
             $data = [
-                "userNum" => 206953,
+                "userNum" => $reqbody->data,
                 "deliveryTime" => "2024-03-01 00:00:00",
                 "expirationTime" => "2024-04-30 12:00:00",
                 "itemKind" => 33560906,
-                "itemOption" => $count  ,
+                "itemOption" => $count,
                 "itemPeriod" => 0,
                 "count" => 1,
-                "title" => "test",
-                "serverIdx" => 2,
+                "title" => $title,
+                "serverIdx" => $server,
             ];
 
             $headers = [
@@ -385,8 +402,13 @@ class Event20240403Controller extends Controller
                 'headers' => $headers,
                 'json' => $data,
             ]);
+            Event20240403Controller::skill_get_gift($_COOKIE['StrID'],$request->gift_id);
             return response()->json([
                 'status' => 1,
+            ]);
+        } else {
+            return response()->json([
+                'status' => -99,
             ]);
         }
     }
@@ -422,8 +444,8 @@ class Event20240403Controller extends Controller
                 'status' => -96,
             ]);
         }
-        $check_get =event240403GetLog::where('user',$_COOKIE['StrID'])->where('gift','VIP啟動道具：白金之翼(30日')->first();
-        if($check_get){
+        $check_get = event240403GetLog::where('user', $_COOKIE['StrID'])->where('gift', 'VIP啟動道具：白金之翼(30日')->first();
+        if ($check_get) {
             return response()->json([
                 'status' => -97,
             ]);
@@ -497,7 +519,7 @@ class Event20240403Controller extends Controller
         } else {
 
             $count_number_log = giftGetLog::count();
-            $tranNo = 'event-'  . $count_number_log . date('YmdHis');
+            $tranNo = 'event-' . $count_number_log . date('YmdHis');
 
             $client = new Client();
             $data = [
@@ -531,6 +553,13 @@ class Event20240403Controller extends Controller
                 foreach ($info as $value) {
                     $findUser = Event20240403User::where('server_01_code', $value)->orWhere('server_02_code', $value)->first();
                     if ($findUser) {
+                        $newGetLog = new event240403GetLog();
+                        $newGetLog->user = $findUser['user_id'];
+                        $newGetLog->ip = 0;
+                        $newGetLog->server_id = 0;
+                        $newGetLog->gift = '白金之翼(30日)75折折扣券';
+                        $newGetLog->save();
+
                         $client = new Client();
                         $data = [
                             "masterId" => 126,
@@ -569,5 +598,141 @@ class Event20240403Controller extends Controller
         . substr($charid, 8, 4);
 
         return $uuid_01 . '/' . $uuid_02;
+    }
+    private function binding_gift($user_id, $bind,$ip)
+    {
+        // 派送此次獎勵
+        // 派獎給新手/回歸玩家
+        $client = new Client(['verify' => false]);
+        $res = $client->request('GET', 'http://c1twapi.global.estgames.com/user/userNum?userId=' . $user_id);
+        $reqbody = $res->getBody();
+        $reqbody = json_decode($reqbody);
+        $new_Item =
+            [
+            ['item' => 'GM的祝福(Lv3)聖水 x 10', 'id' => 33559694, 'option' => 10],
+            ['item' => '指令藥水(特大) x 5', 'id' => 33560906, 'option' => 5],
+            // ['item'=>'鍛鍊的煉金藥(131級以上)(10億) x 2','id'=>33561067,'option'=>65536000000002],
+            ['item' => '鍛鍊的煉金藥(131級以上)(10億) x 2', 'id' => 33561067, 'option' => 1],
+        ];
+        
+
+
+        for ($i = 0; $i < 3; $i++) {
+
+            $newGetLog = new event240403GetLog();
+            $newGetLog->user = $user_id;
+            $newGetLog->ip = $ip;
+            $newGetLog->server_id = 0;
+            $newGetLog->gift = '新手/回歸玩家綁定禮-'.$new_Item[$i]['item'];
+            $newGetLog->save();
+
+            $client = new Client();
+            $data = [
+                "userNum" => $reqbody->data,
+                "deliveryTime" => "2024-03-01 00:00:00",
+                "expirationTime" => "2024-04-30 12:00:00",
+                "itemKind" => $new_Item[$i]['id'],
+                "itemOption" => $new_Item[$i]['option'],
+                "itemPeriod" => 0,
+                "count" => 1,
+                "title" => $new_Item[$i]['item'],
+                "serverIdx" => 1,
+            ];
+
+            $headers = [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+            ];
+
+            $res = $client->request('POST', 'http://c1twapi.global.estgames.com/event/user/giveItemUserEventInventoryByUserNumAndItemInfo', [
+                'headers' => $headers,
+                'json' => $data,
+            ]);
+        }
+
+        // 派獎給活耀玩家
+        $findUserskillful = Event20240403User::where('server_01_code', $bind)->orWhere('server_02_code', $bind)->first();
+        if ($bind == $findUserskillful->server_01_code) {
+            $server = 1;
+        } else {
+            $server = 2;
+        }
+        $skillful_Item =
+            [
+            ['item' => 'GM的祝福(Lv4)聖水 x 10', 'id' => 33559694, 'option' => 10],
+            ['item' => '指令藥水(特大) x 5', 'id' => 33560906, 'option' => 5],
+            ['item' => '神秘寶箱(稀有) x 2', 'id' => 33560451, 'option' => 2],
+        ];
+
+        for ($i = 0; $i < 3; $i++) {
+
+            $newGetLog = new event240403GetLog();
+            $newGetLog->user = $findUserskillful['user_id'];
+            $newGetLog->ip = $ip;
+            $newGetLog->server_id = $server;
+            $newGetLog->gift = '新手/回歸玩家綁定禮-'.$skillful_Item[$i]['item'];
+            $newGetLog->save();
+
+            $client = new Client();
+            $data = [
+                "userNum" => $reqbody->data,
+                "deliveryTime" => "2024-03-01 00:00:00",
+                "expirationTime" => "2024-04-30 12:00:00",
+                "itemKind" => $skillful_Item[$i]['id'],
+                "itemOption" => $skillful_Item[$i]['option'],
+                "itemPeriod" => 0,
+                "count" => 1,
+                "title" => $skillful_Item[$i]['item'],
+                "serverIdx" => $server,
+            ];
+
+            $headers = [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+            ];
+
+            $res = $client->request('POST', 'http://c1twapi.global.estgames.com/event/user/giveItemUserEventInventoryByUserNumAndItemInfo', [
+                'headers' => $headers,
+                'json' => $data,
+            ]);
+        }
+
+        // 確認玩家是否有領過白金之翼,有領過則補送coupon給後來綁定的玩家
+        $check_vip = event240403GetLog::where('user', $user_id)->where('gift', 'VIP啟動道具：白金之翼(30日')->first();
+        if ($check_vip) {
+            $check = Event20240403User::where('user_id', $user_id)->first();
+            $info = json_decode($check->info);
+            foreach ($info as $value) {
+                // 查找序號隸屬的活耀玩家
+                $findUser = Event20240403User::where('server_01_code', $value)->orWhere('server_02_code', $value)->first();
+                $check_already_get = event240403GetLog::where('user_id', $findUser['user_id'])->where('gift', '白金之翼(30日)75折折扣券')->first();
+                if (!$check_already_get) {
+                    $newGetLog = new event240403GetLog();
+                    $newGetLog->user = $findUser['user_id'];
+                    $newGetLog->ip = 0;
+                    $newGetLog->server_id = 0;
+                    $newGetLog->gift = '白金之翼(30日)75折折扣券';
+                    $newGetLog->save();
+
+                    $client = new Client();
+                    $data = [
+                        "masterId" => 126,
+                        "userId" => $findUser['user_id'],
+                    ];
+                    $headers = [
+                        'Content-Type' => 'application/json',
+                        'Accept' => 'application/json',
+                    ];
+                    $res = $client->request('POST', 'http://c1twapi.global.estgames.com/coupon/master/give', [
+                        'headers' => $headers,
+                        'json' => $data,
+                    ]);
+                }
+            }
+        }
+    }
+    // private function skill_get_gift($user_id,$gift_id){
+    private function skill_get_gift($request){
+        dd($request);
     }
 }

@@ -9,105 +9,69 @@ var data_api = '/api/event240403_api';
 
 get_setting();
 
-function get_setting(){
-    $(function(){
+function get_setting() {
+    $(function () {
         var checklock = true;
         //點擊按鈕後檢查是否登入
-        $("#event01, #event02, #event03").on("click",  function(){
+        $("#event01, #event02, #event03").on("click", function () {
             if (checklock == true) {
                 checklock = false;
                 let eventId = this.id;
                 $.post(data_api, {
                     type: "login",
-                }, function(_res) {
+                }, function (_res) {
                     var res = _res;
                     // let res = { status: resStatus.status[0] };
-                    if (res.status == 1){
-                        switch(eventId){
+                    if (res.status == 1) {
+                        switch (eventId) {
                             //綁定活躍玩家
                             case 'event01':
-                                $.post(data_api, {
-                                    type: "qualify",
-                                },function(_res) {
-                                    //檢查是否符合資格
-                                    var res = _res;
-                                    // let res = { status: resStatus.status[0] };
-                                    if (res.status == 1){
-                                        bindEventPop();
-                                    }
-                                    else if(res.status == -99){
-                                        $(".mask").fadeIn(200);
-                                        $(".popS").fadeIn(200);
-                                        $(".pop_wrapS").html(
-                                            `<div class="pop_contentS">
-                                                <p>您的帳號不符合新手/回歸玩家資格​<br>
-                                                活動對象：3/1後未登入過的舊玩家與新創帳號​</p>
-                                            </div>
-                                            <div class="popsBtnBox">
-                                                <button class="btn" onclick="close_pop()">確定</button>
-                                            </div>`
-                                        );
-                                    }
-                                    else if(res.status == -98){
-                                        $(".mask").fadeIn(200);
-                                        $(".popS").fadeIn(200);
-                                        $(".pop_wrapS").html(
-                                            `<div class="pop_contentS">
-                                                <p>您已完成綁定3名活躍玩家，​<br>
-                                                無法再綁定更多玩家。​</p>
-                                            </div>
-                                            <div class="popsBtnBox">
-                                                <button class="btn" onclick="close_pop()">確定</button>
-                                            </div>`
-                                        );
-                                    }
-                                })
-                                
-                            break;
-                        //獎勵領取
-                        case 'event02':
-                            sendGiftPop();
-                            break;
-                        //白金之翼
-                        case 'event03':
-                            wingPop();
-                            break;
-                    }
-                //未登入
-                } else if (res.status == -99){
-                    $(".mask").fadeIn();
-                    $(".popS").fadeIn();
-                    $(".pop_wrapS").html(
-                        `<div class="pop_contentS">
+                                bindEventPop();
+                                break;
+                            //獎勵領取
+                            case 'event02':
+                                sendGiftPop();
+                                break;
+                            //白金之翼
+                            case 'event03':
+                                wingPop();
+                                break;
+                        }
+                        //未登入
+                    } else if (res.status == -99) {
+                        $(".mask").fadeIn();
+                        $(".popS").fadeIn();
+                        $(".pop_wrapS").html(
+                            `<div class="pop_contentS">
                             <p>您尚未登入掘夢網帳號，是否現在登入？</p>
                         </div>
                         <div class="popsBtnBox">
-                            <a class="loginBtn" href="https://www.digeam.com/login" target="_blank">立即登入</a>
+                            <a class="loginBtn" href="https://www.digeam.com/login">立即登入</a>
                             <button class="btn" onclick="close_pop()">取消</button>
                         </div>`
-                    );
-                }
-            });
-                setTimeout(function() {
+                        );
+                    }
+                });
+                setTimeout(function () {
                     checklock = true;
                 }, 2000);
-                
-            
-        }  
-        
+
+
+            }
+
         })
     })
-    
+
 }
 
 //綁定視窗
-function bindEventPop(){
-    $(function(){
-            //彈窗內容
-            $(".mask").fadeIn(200);   
-            $(".pop").fadeIn(200);
-            $(".pop_wrap").html(
-                `
+function bindEventPop() {
+    $(function () {
+        //彈窗內容
+        $(".mask").fadeIn(200);
+        $(".pop").fadeIn(200);
+        $(".pop_wrap").html(
+            `
                 <div class="pop_content">
                 <div class="pop_title">STEP 1.選擇欲領取綁定禮的伺服器</div>
                     <div class="section server">
@@ -190,7 +154,7 @@ function bindEventPop(){
                         </li>
                         <li>
                             3.綁定後，獎勵將立即發送至活動背包。活躍玩家的獎勵則會發送至對<br>&nbsp;&nbsp;&nbsp;
-                            應綁定碼的伺服器中。玩家須於5/7維護前完成領取，否則獎勵將被<br>&nbsp;&nbsp;&nbsp;&nbsp;刪除。        
+                            應綁定碼的伺服器中。玩家須於5/7維護前完成領取，否則獎勵將被<br>&nbsp;&nbsp;&nbsp;&nbsp;刪除。
                         </li>
                         <li>
                             4.綁定過後即無法更改/解除綁定，請特別留意。
@@ -203,13 +167,13 @@ function bindEventPop(){
                         <li>
                             6.掘夢網保留變更、取消或終止本活動的權利，包括但不限於本活動條<br>&nbsp;&nbsp;&nbsp;款及活動辦法。
                         </li>
-                    </ol>        
+                    </ol>
                 </div>`
-            );
-            
+        );
+
     });
     //確定綁定彈窗
-    $(".pop_wrap").on("click", ".btn", function() {
+    $(".pop_wrap").on("click", ".btn", function () {
         $(".popS").fadeIn(200);
         $(".pop_wrapS").html(
             `<div class="pop_contentS">
@@ -220,25 +184,25 @@ function bindEventPop(){
                 <button class="sub">確定</button>
                 <button class="btn" onclick="close_popS()">取消</button>
             </div>`
-        
+
         );
         var checklock_bind = true;
-        $('.sub').on("click",  function(){
+        $('.sub').on("click", function () {
             console.log(166)
             if (checklock_bind == true) {
                 checklock_bind = false;
                 let bindingCode = $('.bindBox input[type="text"]').val();
-                let selectedServer = $('select[name="select_server"]').val(); 
+                let selectedServer = $('select[name="select_server"]').val();
                 console.log(selectedServer, bindingCode);
                 $.post(data_api, {
                     type: "binding",
                     binding_id: bindingCode,
                     server_id: selectedServer,
-                },function(_res) {
+                }, function (_res) {
                     var res = _res;
-                    // let res = { status: resStatus.status[5] };
-                    if(res.status == 1){
-                        $(".popS").fadeIn(200);
+                    $(".mask").fadeIn(200);
+                    $(".popS").fadeIn(200);
+                    if (res.status == 1) {
                         $(".pop_wrapS").html(
                             `<div class="pop_contentS">
                                 <p>綁定成功！​​</p>
@@ -248,9 +212,7 @@ function bindEventPop(){
                             </div>`
                         );
                     }
-                    else if(res.status == -99){
-                        $(".mask").fadeIn(200);
-                        $(".popS").fadeIn(200);
+                    else if (res.status == -99) {
                         $(".pop_wrapS").html(
                             `<div class="pop_contentS">
                                 <p>您已綁定3名活躍玩家，無法再綁定更多玩家。​</p>
@@ -260,9 +222,7 @@ function bindEventPop(){
                             </div>`
                         );
                     }
-                    else if(res.status == -98){
-                        $(".mask").fadeIn(200);
-                        $(".popS").fadeIn(200);
+                    else if (res.status == -98) {
                         $(".pop_wrapS").html(
                             `<div class="pop_contentS">
                                 <p>該玩家已被其他新手/回歸帳號綁定​</p>
@@ -272,9 +232,7 @@ function bindEventPop(){
                             </div>`
                         );
                     }
-                    else if(res.status == -97){
-                        $(".mask").fadeIn(200);
-                        $(".popS").fadeIn(200);
+                    else if (res.status == -97) {
                         $(".pop_wrapS").html(
                             `<div class="pop_contentS">
                                 <p>查無此綁定碼。​<br>
@@ -285,9 +243,7 @@ function bindEventPop(){
                             </div>`
                         );
                     }
-                    else if(res.status == -96){
-                        $(".mask").fadeIn(200);
-                        $(".popS").fadeIn(200);
+                    else if (res.status == -96) {
                         $(".pop_wrapS").html(
                             `<div class="pop_contentS">
                                 <p>未選擇欲領取綁定禮的伺服器​</p>
@@ -297,9 +253,7 @@ function bindEventPop(){
                             </div>`
                         );
                     }
-                    else if(res.status == -95){
-                        $(".mask").fadeIn(200);
-                        $(".popS").fadeIn(200);
+                    else if (res.status == -95) {
                         $(".pop_wrapS").html(
                             `<div class="pop_contentS">
                                 <p>所選伺服器無效。​<br>
@@ -310,29 +264,39 @@ function bindEventPop(){
                             </div>`
                         );
                     }
+                    else if (res.status == -94) {
+                        $(".pop_wrapS").html(
+                            `<div class="pop_contentS">
+                            <p>您是活躍玩家，請將綁定碼分享給新手/回歸玩家。​</p>
+                            </div>
+                            <div class="popsBtnBox">
+                                <button class="btn" onclick="close_popS()">確定</button>
+                            </div>`
+                        );
+                    }
                 });
-                setTimeout(function() {
+                setTimeout(function () {
                     checklock_bind = true;
                 }, 2000);
             }
         })
-            
+
     });
     //送出綁定碼
-    
-        
-    
+
+
+
 }
 
 //獎勵領取視窗
-function sendGiftPop(){
-    $(function(){
-    //彈窗內容
-            $(".mask").fadeIn(200);   
-            $(".pop").fadeIn(200);
-            // $('.pop_wrap').html();
-            $(".pop_wrap").html(
-                `<div class="pop_content">
+function sendGiftPop() {
+    $(function () {
+        //彈窗內容
+        $(".mask").fadeIn(200);
+        $(".pop").fadeIn(200);
+        // $('.pop_wrap').html();
+        $(".pop_wrap").html(
+            `<div class="pop_content">
                 <div class="pop_title">獎勵領取</div>
                     <div class="section server">
                         <select name="select_server" value= 'server00'>
@@ -365,7 +329,7 @@ function sendGiftPop(){
                                     <td>
                                         <button class="giftBtn" value="gift02" data-id="gift_1">領取</button>
                                     </td>
-                                </tr> 
+                                </tr>
                                 <tr>
                                     <td>加入公會(x30)</td>
                                     <td>帳號內至少有一隻角色已加入公會。</td>
@@ -398,167 +362,157 @@ function sendGiftPop(){
                         </table>
                     </div>
                 </div>`
-            );
+        );
 
-            $(".giftBtn").on('click',function(){
-                let selectedServer = $('select[name="select_server"]').val();
-                if (selectedServer == "server00") {
-                    $(".mask").fadeIn(200);
-                    $(".popS").fadeIn(200);
-                    $(".pop_wrapS").html(
-                        `<div class="pop_contentS">
+        $(".giftBtn").on('click', function () {
+            let selectedServer = $('select[name="select_server"]').val();
+            if (selectedServer == "server00") {
+                $(".mask").fadeIn(200);
+                $(".popS").fadeIn(200);
+                $(".pop_wrapS").html(
+                    `<div class="pop_contentS">
                             <p>請選擇伺服器</p>
                         </div>
                         <div class="popsBtnBox">
                             <button class="btn" onclick="close_popS()">確定</button>
                         </div>`
-                    );
-            }else{
-                let giftId = $(this).val(); 
+                );
+            } else {
+                let giftId = $(this).val();
                 updateGift(giftId);
             }
-            });
+        });
     });
 }
-function updateGift(giftId){
+function updateGift(giftId) {
     //server00時更新介面，跳出彈窗
     let selectedServer = $('select[name="select_server"]').val();
-        // 選擇server01或server02時
+    // 選擇server01或server02時
+    // $.post(data_api, {
+    //     type: "send_gift",
+    //     server_id: selectedServer,
+    // }, function (_res) {
+    //     var res = _res;
+    //     for ($i = 0; $i < res.length; $i++) {
+    //         if (res[$i] == 'y') {
+    //             $('.giftBtn').attr('data-id', 'gift_0' + $i)
+    //             i.prop('disabled', true)
+    //                 .text('已領獎')
+    //                 .addClass('giftBtnN');
+    //         }
+    //         else {
+    //             i.prop('disabled', false)
+    //                 .text('領取')
+    //                 .removeClass('giftBtnN');
+    //         }
+    //     }
+    // })
+    //領獎判定
+    var checklock_gift = true;
+    if (checklock_gift == true) {
+        checklock_gift = false;
+        // let giftId = $('.giftBtn').val();
+        let selectedServer = $('select[name="select_server"]').val();
         $.post(data_api, {
-            type: "send_gift",
+            type: "gift",
             server_id: selectedServer,
-        },function(_res) {
-            var res = _res;  
-            for( $i=0; $i < res.length;$i++){
-                if(res[$i]=='y'){
-                    $('.giftBtn').attr('data-id','gift_0' + $i)
-                    i.prop('disabled', true)
-                        .text('已領獎')
-                        .addClass('giftBtnN'); 
-                }
-                else {
-                    i.prop('disabled', false)
-                        .text('領取')
-                        .removeClass('giftBtnN'); 
-            }
-        }
-    })
-            //領獎判定
-            var checklock_gift = true;
-                if (checklock_gift == true) {
-                    checklock_gift = false;
-                    // let giftId = $('.giftBtn').val();
-                    let selectedServer = $('select[name="select_server"]').val();
-                    $.post(data_api, {
-                        type: "gift",
-                        server_id: selectedServer,
-                        gift_id: giftId,
-                    },function(_res) {
-                        var res = _res;
-                        // let res = { status: resStatus.status[0] };
-                        if(res.status == 1){ 
-                            $(".mask").fadeIn(200);
-                            $(".popS").fadeIn(200);
-                            $(".pop_wrapS").html(
-                                `<div class="pop_contentS">
+            gift_id: giftId,
+        }, function (_res) {
+            var res = _res;
+            // let res = { status: resStatus.status[0] };
+            $(".mask").fadeIn(200);
+            $(".popS").fadeIn(200);
+            if (res.status == 1) {
+                $(".pop_wrapS").html(
+                    `<div class="pop_contentS">
                                     <p>獎勵領取成功，請查看活動背包。</p>
                                 </div>
                                 <div class="popsBtnBox">
                                     <button class="btn" onclick="close_popS()">確定</button>
                                 </div>`
-                            );
-                            giftId.prop('disabled', true).text('已領獎').addClass('giftBtnN');
-                            
-                        }
-                        else if(res.status == -99){
-                            $(".mask").fadeIn(200);
-                            $(".popS").fadeIn(200);
-                            $(".pop_wrapS").html(
-                                `<div class="pop_contentS">
+                );
+                giftId.prop('disabled', true).text('已領獎').addClass('giftBtnN');
+
+            }
+            else if (res.status == -99) {
+                $(".pop_wrapS").html(
+                    `<div class="pop_contentS">
                                     <p>您不符合領獎資格(非新手/回歸玩家)。​</p>
                                 </div>
                                 <div class="popsBtnBox">
                                     <button class="btn" onclick="close_popS()">確定</button>
                                 </div>`
-                            );
-                        }
-                        else if(res.status == -98){
-                            $(".mask").fadeIn(200);
-                            $(".popS").fadeIn(200);
-                            $(".pop_wrapS").html(
-                                `<div class="pop_contentS">
+                );
+            }
+            else if (res.status == -98) {
+                $(".pop_wrapS").html(
+                    `<div class="pop_contentS">
                                     <p>您不符合領獎資格(未達成條件)。​​</p>
                                 </div>
                                 <div class="popsBtnBox">
                                     <button class="btn" onclick="close_popS()">確定</button>
                                 </div>`
-                            );
-                        }
-                        else if(res.status == -97){
-                            $(".mask").fadeIn(200);
-                            $(".popS").fadeIn(200);
-                            $(".pop_wrapS").html(
-                                `<div class="pop_contentS">
+                );
+            }
+            else if (res.status == -97) {
+                $(".pop_wrapS").html(
+                    `<div class="pop_contentS">
                                     <p>請選擇伺服器​​​</p>
                                 </div>
                                 <div class="popsBtnBox">
                                     <button class="btn" onclick="close_popS()">確定</button>
                                 </div>`
-                            );
-                        }
-                        else if(res.status == -96){
-                            $(".mask").fadeIn(200);
-                            $(".popS").fadeIn(200);
-                            $(".pop_wrapS").html(
-                                `<div class="pop_contentS">
+                );
+            }
+            else if (res.status == -96) {
+                $(".pop_wrapS").html(
+                    `<div class="pop_contentS">
                                     <p>所選伺服器無效。​<br>
                                     請先於所選伺服器中創建角色再進行。​​​</p>
                                 </div>
                                 <div class="popsBtnBox">
                                     <button class="btn" onclick="close_popS()">確定</button>
                                 </div>`
-                            );
-                        }
-                        else if(res.status == -95){
-                            $(".mask").fadeIn(200);
-                            $(".popS").fadeIn(200);
-                            $(".pop_wrapS").html(
-                                `<div class="pop_contentS">
+                );
+            }
+            else if (res.status == -95) {
+                $(".pop_wrapS").html(
+                    `<div class="pop_contentS">
                                     <p>您已領取過該獎勵。​​​</p>
                                 </div>
                                 <div class="popsBtnBox">
                                     <button class="btn" onclick="close_popS()">確定</button>
                                 </div>`
-                            );
-                        }
-                    });
-                    setTimeout(function() {
-                        checklock_gift = true;
-                    }, 1000);
+                );
             }
-    
+        });
+        setTimeout(function () {
+            checklock_gift = true;
+        }, 1000);
+    }
+
     // 切換不同伺服器時更新
     // var checklock_update = true;
     // $('select[name="select_server"] ').on('change',function(){
     //     if(checklock_update == true) {
-    //         checklock_update = false; 
+    //         checklock_update = false;
     //         updateGift();
     //         checklock_update = true;
     //     }
     // });
-    
+
 }
 //白金之翼領獎
-function wingPop(){
-    $(function(){
+function wingPop() {
+    $(function () {
         var checklock_wing = true;
         if (checklock_wing == true) {
             checklock_wing = false;
             $.post(data_api, {
                 type: "wing_gift",
-            },function(_res) {
+            }, function (_res) {
                 var res = _res;
-                // let res = { status: resStatus.status[2] }; 
+                // let res = { status: resStatus.status[2] };
                 if (res.status == 1) {
                     $(".mask").fadeIn(200);
                     $(".popS").fadeIn(200);
@@ -606,9 +560,9 @@ function wingPop(){
                 }
             });
         }
-        
-        })
-        
+
+    })
+
 }
 
 
