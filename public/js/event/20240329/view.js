@@ -9,9 +9,10 @@ $(function() {
     $('.act01').on("click", function() {
         const content = `
             <div class="pop_content">
-            <div class="pop_title">活躍玩家如何獲取綁定碼？</div>
-            <p>活躍玩家資格：於2024/3/1至3/31間，有《黑色契約》遊戲登入紀錄的玩家。<br>
-            綁定碼取得方式：<br></p>
+            <div class="pop_title">活躍玩家如何獲取綁定碼？ </div>
+            <p>活躍玩家資格：於2024/3/1至3/31間，有《黑色契約》遊戲登入紀錄的玩家。<br></p>
+            <div style="padding: 0 0 10px;"></div>
+            <p>綁定碼取得方式：<br></p>
             <ol>
                 <li>
                 1.活動期間內，活躍玩家可前往<a style="color: #6493ff;" href="https://cbo.digeam.com/giftContent/21" target="_blank">領獎專區</a>，領取「活躍玩家簽到禮」。            
@@ -35,10 +36,13 @@ $(function() {
         <div class="pop_title">活動說明</div>
         <ol>
             <li>
-            1. 4/2維護後至4/30 12:00前，每日達成以下條件，即可於活動頁面領<br>&nbsp;&nbsp;&nbsp;補給卡。取「資源補給卡」。資源補給卡可透過血色冰峰的活動執行<br>&nbsp;&nbsp;&nbsp;員猶珥兌換補給卡。GM的祝福藥水、祝福寶珠等實用道具。
+            1.4/2維護後至4/30 12:00前，每日達成以下條件，即可於活動頁面領<br>&nbsp;&nbsp;&nbsp;
+            取「資源補給卡」。資源補給卡可透過血色冰峰的活動執行員猶珥兌<br>&nbsp;&nbsp;&nbsp;
+            換GM的祝福藥水、祝福寶珠等實用道具。
             </li>
         </ol>
-        <p><領獎條件></p>
+        <div style="padding: 0 0 10px;"></div>
+        <p style=" text-align: center;">領獎條件</p>
         <div class="actTableBox">
             <table >
                 <thead>
@@ -60,8 +64,8 @@ $(function() {
                         <td>10</td>
                     </tr>
                     <tr>
-                        <td>VIP</td>
-                        <td>啟動任意VIP服務。​</td>
+                        <td>加入公會</td>
+                        <td>帳號內至少有一隻角色已加入公會。​</td>
                         <td>30</td>
                     </tr>
                     <tr>
@@ -82,8 +86,8 @@ $(function() {
                 </tbody>
             </table>
         </div>
-
-        <p><資源補給卡可兌換獎勵></p>
+        <div style="padding: 0 0 10px;"></div>
+        <p style=" text-align: center;">資源補給卡可兌換獎勵</p>
         <div class="actTableBox">
             <table >
                 <thead>
@@ -96,43 +100,43 @@ $(function() {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>祝福寶珠 - 經驗值增加(80%) 2小時</td>
+                        <td>祝福寶珠 - 經驗值增加(80%) 2小時 x 1</td>
                         <td>帳號​</td>
                         <td>15</td>
                         <td>7日</td>
                     </tr>
                     <tr>
-                        <td>祝福寶珠 - Wexp增加(75%) 2小時</td>
+                        <td>祝福寶珠 - Wexp增加(75%) 2小時 x 1</td>
                         <td>帳號​</td>
                         <td>15</td>
                         <td>7日</td>
                     </tr>
                     <tr>
-                        <td>副本入場道具寶箱_1</td>
+                        <td>副本入場道具寶箱</td>
                         <td>-​</td>
                         <td>20</td>
                         <td>無限制</td>
                     </tr>
                     <tr>
-                        <td>GM的祝福(Lv4)聖水 * 1</td>
+                        <td>GM的祝福(Lv4)聖水 x 1</td>
                         <td>帳號​</td>
                         <td>40</td>
                         <td>7日</td>
                     </tr>
                     <tr>
-                        <td>祝福寶珠 - 掉落率增加(50%) 2小時</td>
+                        <td>祝福寶珠 - 掉落率增加(50%) 2小時 x 1</td>
                         <td>帳號​</td>
                         <td>50</td>
                         <td>7日</td>
                     </tr>
                     <tr>
-                        <td>祝福寶珠 - 寶箱掉落率增加(100%) 2小時</td>
+                        <td>祝福寶珠 - 寶箱掉落率增加(100%) 2小時 x 1</td>
                         <td>帳號​</td>
                         <td>60</td>
                         <td>7日</td>
                     </tr>
                     <tr>
-                        <td>活動兌換券 x 200</td>
+                        <td>特殊兌換券 x 200</td>
                         <td>帳號​</td>
                         <td>80</td>
                         <td>7日</td>
@@ -144,7 +148,7 @@ $(function() {
                         <td>無限制</td>
                     </tr>
                     <tr>
-                        <td>[服裝]軍事黑制服</td>
+                        <td>[服裝]軍事黑制服 x 1</td>
                         <td>帳號​</td>
                         <td>100</td>
                         <td>1日</td>
@@ -156,49 +160,49 @@ $(function() {
                         <td>無限制</td>
                     </tr>
                     <tr>
-                        <td>鍛鍊的煉金藥(131級以上) 1000萬</td>
+                        <td>鍛鍊的煉金藥(131級以上) 1000萬 x 1</td>
                         <td>帳號​</td>
-                        <td>105</td>
+                        <td>100</td>
                         <td>無限制</td>
                     </tr>
                     <tr>
-                        <td>犧牲的誓約(1小時) x 5</td>
-                        <td>帳號​</td>
-                        <td>200</td>
-                        <td>無限制</td>
-                    </tr>
-                    <tr>
-                        <td>保護的誓約(1小時) x 5</td>
+                        <td>犧牲的誓約(5小時) x 1</td>
                         <td>帳號​</td>
                         <td>200</td>
                         <td>無限制</td>
                     </tr>
                     <tr>
-                        <td>防止強化等級下降輔助劑(高級)</td>
+                        <td>保護的誓約(5小時) x 1</td>
+                        <td>帳號​</td>
+                        <td>200</td>
+                        <td>無限制</td>
+                    </tr>
+                    <tr>
+                        <td>防止強化等級下降輔助劑(高級) x 1</td>
                         <td>帳號​</td>
                         <td>450</td>
                         <td>1個月</td>
                     </tr>
                     <tr>
-                        <td>完美磁心(高級)</td>
+                        <td>完美磁心(高級) x 1</td>
                         <td>帳號​</td>
                         <td>800</td>
                         <td>1個月</td>
                     </tr>
                     <tr>
-                        <td>插槽擴充器(中級飛車)</td>
+                        <td>插槽擴充器(中級飛車) x 1</td>
                         <td>帳號​</td>
                         <td>1500</td>
                         <td>無限制</td>
                     </tr>
                     <tr>
-                        <td>封印的暴君戒指</td>
+                        <td>封印的暴君戒指 x 1</td>
                         <td>帳號​</td>
                         <td>1500</td>
                         <td>無限制</td>
                     </tr>
                     <tr>
-                        <td>星際飛車卡 - BLUE</td>
+                        <td>星際飛車卡 - BLUE x 1</td>
                         <td>角色​</td>
                         <td>2000</td>
                         <td>無限制</td>
@@ -206,6 +210,7 @@ $(function() {
                 </tbody>                        
             </table>
             </div>
+            <div style="padding: 0 0 10px;"></div>
             <ol>
                 <li>
                     2.新手/回歸玩家每次領獎時，被綁定的帳號亦可同時獲得一半的資源<br>&nbsp;&nbsp;&nbsp;補給卡。
@@ -237,22 +242,22 @@ $(function() {
         <div class="pop_title">活動說明</div>
         <ol>
                 <li>
-                    1.4/30前，回歸/新手玩家只要於商城小舖購買「白金之翼(30日)」，<br>&nbsp;&nbsp;
+                    1.4/30前，回歸/新手玩家只要於契約小舖購買「白金之翼(30日)」，<br>&nbsp;&nbsp;
                     即可於活動頁面再領取一個「VIP啟動道具：白金之翼(30日)(不可交<br>&nbsp;&nbsp;
                     易)」。回歸/新手玩家領取獎勵後，所有綁定的活躍玩家皆可同時獲<br>&nbsp;&nbsp;
                     得一個「白金之翼(30日)75折折扣券」。
                 </li>
                 <li>
                     2.活動獎勵「VIP啟動道具：白金之翼(30日)」將發送至Cash背包中。<br>&nbsp;&nbsp;
-                    折扣券則可透過商城小舖中的「Coupon」圖示查看。
+                    折扣券則可透過契約小舖中的「Coupon」圖示查看。
                 </li>
                 <li>
                     3.於回歸/新手玩家領獎後才綁定的活躍玩家，亦會在綁定當下補發折<br>&nbsp;&nbsp;&nbsp;扣券。
                 </li>
                 <li>
                     4.本活動僅限購買「白金之翼(30日)」的新手/回歸玩家符合領獎資格<br>&nbsp;&nbsp;
-                    。非新手/回歸玩家，或購買「VIP啟動道具：白金之翼(30日)」皆不<br>&nbsp;&nbsp;
-                    符合領獎資格，請特別留意。
+                    。非新手/回歸玩家購買「白金之翼(30日)」，或購買「VIP啟動道<br>&nbsp;&nbsp;
+                    具：白金之翼(30日)」皆不符合領獎資格，請特別留意。
                 </li>
                 <li>
                     5.所有獎勵皆不可交易。
@@ -278,6 +283,7 @@ $(function() {
         活動時間：4/2 12:00~4/30 12:00<br>
         活動說明：<br>
         </p>
+        <div style="padding: 0 0 10px;"></div>
         <ol>
             <li>
                 1.活動期間內160級以下角色，可全天候享有經驗值300%加成。
@@ -304,11 +310,11 @@ $(function() {
                     <tr>
                         <td rowspan="2">Lv.20</td>
                         <td>MP藥水(中) x100​</td>
-                        <td>使用後可恢復350的HP。</td>
+                        <td>使用後可恢復350的MP。</td>
                     </tr>
                     <tr>
                         <td>HP藥水(中) x100​</td>
-                        <td>使用後可恢復350的MP。</td>
+                        <td>使用後可恢復350的HP。</td>
                     </tr>
                     <tr>
                         <td rowspan="2">Lv.30</td>
@@ -345,7 +351,7 @@ $(function() {
                     </tr>
                     <tr>
                         <td>守護的赤焰護肩 (7天)​</td>
-                        <td>裝備後防禦力+25，防禦率+30，迴避+150，HP+150，傷害減少+5</td>
+                        <td>裝備後防禦力+25，防禦率+30，迴避+150，HP+150，傷害減少+5。</td>
                     </tr>
                     <tr>
                         <td rowspan="2">Lv.80</td>
@@ -378,7 +384,7 @@ $(function() {
                     <tr>
                         <td>Lv.120</td>
                         <td>[服裝]新手冒險家小雞坐騎(14天)​</td>
-                        <td>致命傷害+3%、貫穿+20、HP+200</td>
+                        <td>致命傷害+3%、貫穿+20、HP+200。</td>
                     </tr>
                     <tr>
                         <td>Lv.130</td>
@@ -404,6 +410,7 @@ $(function() {
             <li>
                 註：活動開始前，已超出指定等級的角色，不會再獲得獎勵。
             </li>
+            <div style="padding: 0 0 10px;"></div>
             <li>
                 4.角色達到指定等級後，獎勵將透過遊戲內郵件發送。玩家須於一周內<br>&nbsp;&nbsp;
                 領取完畢。若未及時領取，郵件將被刪除。

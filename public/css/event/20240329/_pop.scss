@@ -7,6 +7,17 @@
     z-index: 9997;
     display: none;
 }
+.loading{
+    position: fixed;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    z-index: 9998;
+    @extend %link-font;
+    font-size: 25px;
+
+
+}
 .pop{
     position: fixed;
     display: none;

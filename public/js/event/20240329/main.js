@@ -4,6 +4,11 @@
 // };
 // var resGift = ['y','n','y','n','n','y'];
 
+// 登出
+function logout_dg() {
+    $("#logout-form").submit();
+}
+
 
 var data_api = '/api/event240403_api';
 
@@ -14,12 +19,16 @@ function get_setting() {
         var checklock = true;
         //點擊按鈕後檢查是否登入
         $("#event01, #event02, #event03").on("click", function () {
+            $(".mask").fadeIn();
+            $(".loading").html(`載入中......`).fadeIn();
             if (checklock == true) {
                 checklock = false;
                 let eventId = this.id;
                 $.post(data_api, {
                     type: "login",
                 }, function (_res) {
+                    $(".mask").fadeOut();
+                    $(".loading").html(`載入中......`).fadeOut();
                     var res = _res;
                     // let res = { status: resStatus.status[0] };
                     if (res.status == 1) {
@@ -87,28 +96,9 @@ function bindEventPop() {
                         <button class="btn">確定</button>
                     </div>
                     <div class="pop_title">綁定說明</div>
-                    <p>1.完成綁定後，新手/回歸玩家與活躍玩家可獲得以下獎勵。​<br>
-                    ※活躍玩家簽到禮</p>
-                    <div class="actTableBox">
-                        <table >
-                            <thead>
-                                <tr>
-                                    <th>道具名稱​</th>
-                                    <th>綁定</th>
-                                    <th>綁定​</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>祝福寶珠 - AXP增加(100%)(1小時)</td>
-                                    <td>帳號​</td>
-                                    <td>帳號</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <p>註：「活躍玩家簽到禮」需於領獎當日23:59前從活動背包完成領取，否則道具將會被刪除。<br>
-                    ※綁定禮</p>
+                    <p>1.完成綁定後，新手/回歸玩家與活躍玩家可獲得以下獎勵。</p>
+                    <div style="padding: 0 0 10px;"></div>
+                    <p>※綁定禮</p>
                     <div class="actTableBox">
                         <table >
                             <thead>
@@ -140,7 +130,7 @@ function bindEventPop() {
                                     <td>指令藥水(特大) x 5</td>
                                 </tr>
                                 <tr>
-                                    <td>鍛鍊的煉金藥(131級以上)(10億) x 2</td>
+                                    <td>活力聖水 x 10</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -150,6 +140,7 @@ function bindEventPop() {
                             註：綁定禮需於4/30 23:59前從活動背包完成領取，否則道具將會被刪除。
                         </li>
                         <li>
+                        <div style="padding: 0 0 10px;"></div>
                         2.每個新手/回歸玩家可綁定最多3名活躍玩家；每個活躍玩家最多僅能<br>&nbsp;&nbsp;&nbsp;&nbsp;被綁定1次。
                         </li>
                         <li>
@@ -186,19 +177,22 @@ function bindEventPop() {
             </div>`
 
         );
+        //送出綁定碼
         var checklock_bind = true;
         $('.sub').on("click", function () {
-            console.log(166)
+            $(".mask").fadeIn();
+            $(".loading").html(`載入中......`).fadeIn();
             if (checklock_bind == true) {
                 checklock_bind = false;
                 let bindingCode = $('.bindBox input[type="text"]').val();
                 let selectedServer = $('select[name="select_server"]').val();
-                console.log(selectedServer, bindingCode);
                 $.post(data_api, {
                     type: "binding",
                     binding_id: bindingCode,
                     server_id: selectedServer,
                 }, function (_res) {
+                    $(".mask").fadeOut();
+                    $(".loading").html(`載入中......`).fadeOut();
                     var res = _res;
                     $(".mask").fadeIn(200);
                     $(".popS").fadeIn(200);
@@ -267,7 +261,8 @@ function bindEventPop() {
                     else if (res.status == -94) {
                         $(".pop_wrapS").html(
                             `<div class="pop_contentS">
-                            <p>您是活躍玩家，請將綁定碼分享給新手/回歸玩家。​</p>
+                            <p>您是活躍玩家。​<br>
+                            請將綁定碼分享給新手/回歸玩家。​</p>
                             </div>
                             <div class="popsBtnBox">
                                 <button class="btn" onclick="close_popS()">確定</button>
@@ -282,7 +277,7 @@ function bindEventPop() {
         })
 
     });
-    //送出綁定碼
+
 
 
 
@@ -409,6 +404,8 @@ function updateGift(giftId) {
     // })
     //領獎判定
     var checklock_gift = true;
+    $(".mask").fadeIn();
+    $(".loading").html(`載入中......`).fadeIn();
     if (checklock_gift == true) {
         checklock_gift = false;
         // let giftId = $('.giftBtn').val();
@@ -418,8 +415,9 @@ function updateGift(giftId) {
             server_id: selectedServer,
             gift_id: giftId,
         }, function (_res) {
+            $(".mask").fadeOut();
+            $(".loading").html(`載入中......`).fadeOut();
             var res = _res;
-            // let res = { status: resStatus.status[0] };
             $(".mask").fadeIn(200);
             $(".popS").fadeIn(200);
             if (res.status == 1) {
@@ -506,11 +504,15 @@ function updateGift(giftId) {
 function wingPop() {
     $(function () {
         var checklock_wing = true;
+        $(".mask").fadeIn();
+        $(".loading").html(`載入中......`).fadeIn();
         if (checklock_wing == true) {
             checklock_wing = false;
             $.post(data_api, {
                 type: "wing_gift",
             }, function (_res) {
+                $(".mask").fadeOut();
+                $(".loading").html(`載入中......`).fadeOut();
                 var res = _res;
                 // let res = { status: resStatus.status[2] };
                 if (res.status == 1) {
