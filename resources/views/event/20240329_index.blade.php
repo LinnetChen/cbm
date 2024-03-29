@@ -20,11 +20,11 @@
     <title>《黑色契約CABAL Online》涅瓦雷斯人才招募中心啟動</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/vue3-slick-carousel@1.0.6/src/slick-theme.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/event/20240329/style.css">
+    <link rel="stylesheet" href="css/event/20240329/style.css?v1.2">
 </head>
 <body>
+    <div class="loading" style="display: none">載入中......</div>
     <div class="pop">
         <div class="pop_wrap">
             
@@ -159,8 +159,8 @@
     <script src="js/event/base/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="js/event/20240329/view.js?v=1.22"></script>    
-    <script src="js/event/20240329/main.js?v=1.27"></script>    
+    <script src="js/event/20240329/view.js?v=1.23"></script>    
+    <script src="js/event/20240329/main.js?v=1.28"></script>    
     <script>
         $(function(){
             AOS.init();
