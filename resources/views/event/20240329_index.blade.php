@@ -21,7 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/event/20240329/style.css?v1.2">
+    <link rel="stylesheet" href="css/event/20240329/style.css?v1.4">
 </head>
 <body>
     <div class="loading" style="display: none">載入中......</div>
@@ -57,9 +57,11 @@
             <form id="logout-form" action="https://www.digeam.com/logout" method="POST" style="display: none;">
                 <input type="hidden" name="return_url" id="return_url" value={{ base64_encode('https://cbo.digeam.com/20240329') }}>
             </form>
-            <div class="userBox">
-                <div class="loginWord">當前帳號 : </div>
-                <div class="userName">{{ $_COOKIE['StrID'] }}</div>
+            <div class="wordBox">
+                <div class="userBox">
+                    <div class="loginWord">當前帳號 : </div>
+                    <div class="userName">{{ $_COOKIE['StrID'] }}</div>
+                </div>
                 <a href="javascript:logout_dg();">
                     <div class="userLogout">登出</div>
                 </a>
@@ -69,11 +71,11 @@
                 <input type="hidden" name="return_url" id="return_url" value={{ base64_encode('https://cbo.digeam.com/20240329') }}>
             </form>
             <div class="loginBox">
-                <div class="userName"></div>
-                <a href="https://www.digeam.com/login">
-                    <div class="userLogin">登入</div>
-                </a>
+                <div class="userName" style="display: none">1234567897891236</div>
             </div>
+            <a href="https://www.digeam.com/login">
+                <div class="userLogin">登入</div>
+            </a>
             @endif          
         </div>
         <div class="section01">
@@ -159,8 +161,8 @@
     <script src="js/event/base/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="js/event/20240329/view.js?v=1.23"></script>    
-    <script src="js/event/20240329/main.js?v=1.28"></script>    
+    <script src="js/event/20240329/view.js?v=1.24"></script>    
+    <script src="js/event/20240329/main.js?v=1.29"></script>    
     <script>
         $(function(){
             AOS.init();

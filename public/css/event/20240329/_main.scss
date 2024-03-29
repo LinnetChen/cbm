@@ -46,25 +46,32 @@
             }
         }
     }
-    .userBox, .loginBox{
+    .wordBox{
         @extend %flex-center;
-        left: 700px;
-        font-size: 25px;
-        .loginWord, .userName,.userLogout,.userLogin{
-            @extend %link-font;
-        }
-        .loginWord{
-            margin-right: 10px;
+        left: 550px;
+        .userBox, .loginBox{
+            margin-right: 20px;
+            display: flex;
+            font-size: 25px;
+            .loginWord, .userName,.userLogout,.userLogin{
+                @extend %link-font;
+            }
+            .loginWord{
+                margin-right: 10px;
+            }
         }
         .userLogout, .userLogin{
-            margin-left: 20px;
+            display: flex;
+            margin-left: 10px;
             @extend %link-font;
             font-size: 25px;  
             &:hover {
                 color: #7ab5ff;
             }
         }
+        
     }
+    
 
     
     
