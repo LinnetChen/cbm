@@ -138,7 +138,7 @@ function bindEventPop() {
                     </div>
                     <ol>
                         <li>
-                            註：綁定禮需於4/30 23:59前從活動背包完成領取，否則道具將會被刪除。
+                            註：綁定禮需於5/7 23:59前從活動背包完成領取，否則道具將會被刪除。
                         </li>
                         <li>
                         <div style="padding: 0 0 10px;"></div>
@@ -302,7 +302,6 @@ function sendGiftPop() {
         //彈窗內容
         $(".mask").fadeIn(200);
         $(".pop").fadeIn(200);
-        // $('.pop_wrap').html();
         $(".pop_wrap").html(
             `<div class="pop_content">
                 <div class="pop_title">獎勵領取</div>
@@ -340,7 +339,7 @@ function sendGiftPop() {
                                 </tr>
                                 <tr>
                                     <td>加入公會(x30)</td>
-                                    <td>帳號內至少有一隻角色已加入公會。</td>
+                                    <td>所選伺服器內至少有一隻角色已加入公會。</td>
                                     <td>
                                         <button class="giftBtn" value="gift03" data-id="gift_2">領取</button>
                                     </td>
@@ -354,14 +353,14 @@ function sendGiftPop() {
                                 </tr>
                                 <tr>
                                     <td>達到100級(x50)</td>
-                                    <td>帳號內有任一角色達到100級以上。​​​</td>
+                                    <td>所選伺服器內有任一角色達到100級以上。​​​</td>
                                     <td>
                                         <button class="giftBtn" value="gift05" data-id="gift_4">領取</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>達到170級(x80)</td>
-                                    <td>帳號內有任一角色達到170級以上。​​</td>
+                                    <td>所選伺服器內有任一角色達到170級以上。​​</td>
                                     <td>
                                         <button class="giftBtn" value="gift06" data-id="gift_5">領取</button>
                                     </td>

@@ -4,8 +4,8 @@
     position: fixed;
     width: 100%;
     min-width: 1920px;
-    height: 75px;
-    padding-left: 200px;
+    height: 60px;
+    padding-left:145px;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 99;
     overflow-x: auto;
@@ -17,12 +17,13 @@
         align-items: center;
         .topBox{
             @extend %flex-center;
+            justify-content: space-evenly;
                 .topLine{
                     white-space: pre;
                     font-family:'Noto Sans TC', sans-serif;
-                    color: white;
-                    font-size: 28.8px;  
-                    margin:  20px;     
+                    color: hsla(0,0%,100%,.51);
+                    font-size: 24.96px;  
+                    margin: 0 35px;     
                 }  
             
                 .topBtn{
@@ -32,7 +33,7 @@
                     font-size: 28.8px;  
             
                     &:hover {
-                        color: #7ab5ff;
+                        color: #00b4ff;
                     }
                 }
                 .topBtn_h{
@@ -42,8 +43,8 @@
                     font-size: 28.8px;
                     
                     &:after {
-                        content: '限時新手&回歸活動(PC專屬)';
-                        color: #7ab5ff;
+                        content: '限時新手&回歸活動';
+                        color: #00b4ff;
                         visibility: hidden;  
                         white-space: nowrap;  
                         position: absolute;
@@ -83,7 +84,7 @@
                     color: white;
                     font-size: 28.8px;  
                     &:hover {
-                        color: #7ab5ff;
+                        color: #00b4ff;
                     }
                 }
                 
@@ -96,7 +97,7 @@
                 color: white;
                 font-size: 28.8px;  
                 &:hover {
-                    color: #7ab5ff;
+                    color: #00b4ff;
                 }
             }
         

@@ -112,7 +112,7 @@ $(function() {
                         <td>7日</td>
                     </tr>
                     <tr>
-                        <td>副本入場道具寶箱</td>
+                        <td>副本入場道具寶箱 x 1</td>
                         <td>-​</td>
                         <td>20</td>
                         <td>無限制</td>
@@ -430,6 +430,24 @@ $(function() {
         
     </div>`;
         infoPopUp(content);
+    });
+});
+//敬請期待視窗
+$(function(){
+    $('#cbmRes, #cbmInt').on("click", function() {
+        event.preventDefault();
+        $(".mask").fadeIn(200);
+        $(".popS").fadeIn(200);
+        $(".pop_wrapS").html(
+            `<div class="pop_contentS">
+                <p>敬請期待。​</p>
+            </div>
+            <div class="popsBtnBox">
+                <button class="btn" onclick="close_pop()">確定</button>
+            </div>`
+        );
+
+
     });
 });
 function close_popS() {

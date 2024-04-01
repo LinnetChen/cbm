@@ -21,7 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/event/20240329/style.css?v1.6">
+    <link rel="stylesheet" href="css/event/20240329/style.css?v1.7">
 </head>
 <body>
     <div class="loading" style="display: none">載入中......</div>
@@ -47,9 +47,9 @@
         <div class="topBar">
             <div class="topBarContent">
                 <div class="topBox">
-                    <a class="topBtn" href="https://cbm.digeam.com/prereg" target="_blank" >Mobile事前預約</a>
+                    <a class="topBtn" href="https://cbm.digeam.com/prereg" target="_blank" id="cbmRes">Mobile事前預約</a>
                     <p class="topLine">|</p>
-                    <a class="topBtn" href="https://cbm.digeam.com/jointAct" target="_blank" >聯動活動</a>
+                    <a class="topBtn" href="https://cbm.digeam.com/jointAct" target="_blank" id="cbmInt">聯動活動</a>
                     <p class="topLine">|</p>
                     <a class="topBtn_h" href="https://cbo.digeam.com/20240329">涅瓦雷斯人才招募中心​</a>
                 </div>
@@ -162,8 +162,8 @@
     <script src="js/event/base/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="js/event/20240329/view.js?v=1.26"></script>    
-    <script src="js/event/20240329/main.js?v=1.32"></script>    
+    <script src="js/event/20240329/view.js?v=1.27"></script>    
+    <script src="js/event/20240329/main.js?v=1.33"></script>    
     <script>
         $(function(){
             AOS.init();
