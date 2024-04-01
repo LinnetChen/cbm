@@ -2,83 +2,104 @@
     display: flex;
     align-items: center;
     position: fixed;
-    max-width: 100%;
+    width: 100%;
     min-width: 1920px;
     height: 75px;
     padding-left: 200px;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 99;
-    .topBox{
-        @extend %flex-center;
-        .topLine{
-            white-space: pre;
-            font-family:'Noto Sans TC', sans-serif;
-            color: white;
-            font-size: 28.8px;  
-            margin:  20px;     
-        }  
-    
-        .topBtn{
-            white-space: pre;
-            font-family:'Noto Sans TC', sans-serif;
-            color: white;
-            font-size: 28.8px;  
-    
-            &:hover {
-                color: #7ab5ff;
-            }
-        }
-        .topBtn_h{
-            white-space: pre;
-            font-family:'Noto Sans TC', sans-serif;
-            color: white;
-            font-size: 28.8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    .topBarContent{
+        display: flex;
+        width: auto;
+        min-width: 1920px;
+        align-items: center;
+        .topBox{
+            @extend %flex-center;
+                .topLine{
+                    white-space: pre;
+                    font-family:'Noto Sans TC', sans-serif;
+                    color: white;
+                    font-size: 28.8px;  
+                    margin:  20px;     
+                }  
             
-            &:after {
-                content: '限時新手&回歸活動(PC專屬)';
-                color: #7ab5ff;
-                visibility: hidden;  
-                white-space: nowrap;  
-                position: absolute;
-                right: 5px;
-                left: 1px;
-            }
+                .topBtn{
+                    white-space: pre;
+                    font-family:'Noto Sans TC', sans-serif;
+                    color: white;
+                    font-size: 28.8px;  
             
-            &:hover {                      
-                color: transparent; 
-                &:after {
-                    visibility: visible;  
+                    &:hover {
+                        color: #7ab5ff;
+                    }
+                }
+                .topBtn_h{
+                    white-space: pre;
+                    font-family:'Noto Sans TC', sans-serif;
+                    color: white;
+                    font-size: 28.8px;
+                    
+                    &:after {
+                        content: '限時新手&回歸活動(PC專屬)';
+                        color: #7ab5ff;
+                        visibility: hidden;  
+                        white-space: nowrap;  
+                        position: absolute;
+                        right: 5px;
+                        left: 1px;
+                    }
+                    
+                    &:hover {                      
+                        color: transparent; 
+                        &:after {
+                            visibility: visible;  
+                        }
+                    }
                 }
             }
-        }
-    }
-    .wordBox{
-        @extend %flex-center;
-        left: 400px;
-        .userBox, .loginBox{
-            margin-right: 20px;
-            display: flex;
-            font-size: 28.8px;
-            .loginWord, .userName,.userLogout,.userLogin{
+            .wordBox{
+                @extend %flex-center;
+                right: -250px;
+                .userBox{
+                    margin-right: 20px;
+                    display: flex;
+                    font-size: 28.8px;
+                    .loginWord, .userName,.userLogout{
+                        white-space: pre;
+                        font-family:'Noto Sans TC', sans-serif;
+                        color: white;
+                    }
+                    .loginWord{
+                        margin-right: 10px;
+                    }
+                }
+                .userLogout{
+                    display: flex;
+                    margin-left: 10px;
+                    white-space: pre;
+                    font-family:'Noto Sans TC', sans-serif;
+                    color: white;
+                    font-size: 28.8px;  
+                    &:hover {
+                        color: #7ab5ff;
+                    }
+                }
+                
+            }
+            .userLogin{
+                display: flex;
+                margin-left: 700px;
                 white-space: pre;
                 font-family:'Noto Sans TC', sans-serif;
                 color: white;
+                font-size: 28.8px;  
+                &:hover {
+                    color: #7ab5ff;
+                }
             }
-            .loginWord{
-                margin-right: 10px;
-            }
-        }
-        .userLogout, .userLogin{
-            display: flex;
-            margin-left: 10px;
-            white-space: pre;
-            font-family:'Noto Sans TC', sans-serif;
-            color: white;
-            font-size: 28.8px;  
-            &:hover {
-                color: #7ab5ff;
-            }
-        }
+        
         
     }
     
@@ -298,4 +319,3 @@ a.logo_rw {
         }
     }
 }
-
