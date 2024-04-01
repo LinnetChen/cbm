@@ -90,12 +90,16 @@ class DailyAffairsController extends Controller
             if (!$check_already) {
                 $getItem = newGiftContent::where('gift_group_id', $result['gift'])->where('serverIdx',$result['server_id'])->get();
                 foreach ($getItem as $value) {
+                    if($result['gift'] == 69){
+                        $check
+                    }else{
+                    $title = $value['title'];
+                    }
                     $client = new Client(['verify' => false]);
                     $res = $client->request('GET', 'http://c1twapi.global.estgames.com/user/userNum?userId=' . $result['user']);
                     $reqbody = $res->getBody();
                     $reqbody = json_decode($reqbody);
                     if ($reqbody->data) {
-                    Log::info('有進來這邊');
                         $client = new Client();
                         $data = [
                             "userNum" => $reqbody->data,
@@ -105,7 +109,7 @@ class DailyAffairsController extends Controller
                             "itemOption" => $value['itemOption'],
                             "itemPeriod" => $value['itemPeriod'],
                             "count" => $value['count'],
-                            "title" => $value['title'],
+                            "title" => $title,
                             "serverIdx" => $value['serverIdx'],
                         ];
 

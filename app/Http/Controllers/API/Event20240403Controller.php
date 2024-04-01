@@ -818,27 +818,27 @@ class Event20240403Controller extends Controller
             switch ($gift_id) {
                 case 'gift01';
                     $count = 15;
-                    $title = '新手/回歸玩家-簽到獎勵';
+                    $title = '綁定玩家-簽到獎勵';
                     break;
                 case 'gift02';
                     $count = 5;
-                    $title = '新手/回歸玩家-保持在線​';
+                    $title = '綁定玩家-保持在線​';
                     break;
                 case 'gift03';
                     $count = 15;
-                    $title = '新手/回歸玩家-加入公會';
+                    $title = '綁定玩家-加入公會';
                     break;
                 case 'gift04';
                     $count = 25;
-                    $title = '新手/回歸玩家-消費​';
+                    $title = '綁定玩家-消費​';
                     break;
                 case 'gift05';
                     $count = 25;
-                    $title = '新手/回歸玩家-達到100級​';
+                    $title = '綁定玩家-達到100級​';
                     break;
                 case 'gift06';
                     $count = 40;
-                    $title = '新手/回歸玩家-達到170級​';
+                    $title = '綁定玩家-達到170級​';
                     break;
             }
             foreach ($info as $value) {

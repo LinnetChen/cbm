@@ -4,11 +4,12 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\giftContent;
-use App\Models\newGiftContent;
 use App\Models\giftCreate;
 use App\Models\giftGetLog;
 use App\Models\giftGroup;
 use App\Models\MsgBoard;
+use App\Models\newGiftContent;
+use App\Models\Event20240403User;
 use App\Models\PreregUser;
 use App\Models\serial_item;
 use App\Models\serial_number;
@@ -137,7 +138,7 @@ class frontController extends Controller
     // 領獎專區-活動背包
     public function active_gift(Request $request)
     {
-        $server_id =  $request->server_id;
+        $server_id = $request->server_id;
         $type = 'active';
         if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
             $real_ip = $_SERVER["HTTP_CF_CONNECTING_IP"];
@@ -181,7 +182,7 @@ class frontController extends Controller
             ]);
         }
         // 確認是否領過,排除可重複領取的
-        $repeat = [];
+        $repeat = [69];
 
         if (!in_array($request->gift_id, $repeat)) {
             $check = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->first();
@@ -191,9 +192,46 @@ class frontController extends Controller
                 ]);
             }
         }
+        // 以下領獎邏輯撰寫
+        if ($request->gift_id == 69) {
+            $check = Event20240403User::where('user_id', $_COOKIE['StrID'])->first();
+            if (!$check) {
+                $client = new Client(['verify' => false]);
+                $res = $client->request('POST', 'https://digeam.com/api/get_cbo_user_login?user=' . $_COOKIE['StrID']);
+                $reqbody = $res->getBody();
+                $reqbody = json_decode($reqbody);
+                $user_type = $reqbody->status;
+                if ($user_type == 'skillful') {
+                    $info = [];
+                    // 以上待上線後撰寫搜尋login DB
+                    $user = new Event20240403User();
+                    $user->user_id = $_COOKIE['StrID'];
+                    $user->user_type = $user_type;
+                    $user->info = json_encode($info);
+                    $getCode = frontController::set_code();
+                    $code = explode('/', $getCode);
+                    $user->server_01_code = $code[0];
+                    $user->server_02_code = $code[1];
+                    $user->save();
+                }
+            } else {
+                if ($check->user_type != 'skillful') {
+                    return response()->json([
+                        'status' => -90,
+                    ]);
+                }
+            }
+            $checkTodayGet = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->whereBetween('created_at', [date('Y-m-d 00:00:00'), date('Y-m-d 23:59:59')])->first();
+            if ($checkTodayGet) {
+                return response()->json([
+                    'status' => -90,
+                ]);
+            }
+
+        }
         // 以上領獎邏輯撰寫
         // 無誤就派獎
-        frontController::giftSendItem($_COOKIE['StrID'], $request->gift_id, $real_ip,$type, $server_id);
+        frontController::giftSendItem($_COOKIE['StrID'], $request->gift_id, $real_ip, $type, $server_id);
         return response()->json([
             'status' => 1,
         ]);
@@ -227,7 +265,7 @@ class frontController extends Controller
             ]);
         }
         // 確認是否領過,排除可重複領取的
-        $repeat = [16, 17, 18, 19, 28, 30, 31, 36, 37, 38, 39, 40, 65, 67,70];
+        $repeat = [16, 17, 18, 19, 28, 30, 31, 36, 37, 38, 39, 40, 65, 67, 70];
 
         if (!in_array($request->gift_id, $repeat)) {
             $check = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->first();
@@ -277,9 +315,9 @@ class frontController extends Controller
             $vipItem = ['練功幫手', '奪寶大師', '白金服務', '白金之翼', '練功大師'];
             $already_buy = [];
             for ($i = 0; $i < 6; $i++) {
-                if($i>4){
+                if ($i > 4) {
                     $date = 20240397;
-                }else{
+                } else {
                     $date = 20240327;
                 }
                 if (isset($result->data->list->{$date + $i})) {
@@ -300,7 +338,7 @@ class frontController extends Controller
                     }
                 }
             }
-            if($_COOKIE['StrID'] =='jacky0996'){
+            if ($_COOKIE['StrID'] == 'jacky0996') {
                 $total = 1000;
             }
             if ($total < 250) {
@@ -311,15 +349,15 @@ class frontController extends Controller
             $canGet = floor($total / 250);
             // 計算共領了多少,並判斷是否能繼續領
             $already_get_count = giftGetLog::where('user', $_COOKIE['StrID'])->where('gift', $request->gift_id)->count();
-            $already_get_count= floor($already_get_count / 2);
+            $already_get_count = floor($already_get_count / 2);
             if ($already_get_count >= $canGet) {
                 return response()->json([
                     'status' => -90,
                 ]);
-            }else{
-                $run = $canGet-$already_get_count;
-                if($run > 0){
-                    for($i = 0 ;$i<$run;$i++){
+            } else {
+                $run = $canGet - $already_get_count;
+                if ($run > 0) {
+                    for ($i = 0; $i < $run; $i++) {
                         frontController::giftSendItem($_COOKIE['StrID'], $request->gift_id, $real_ip, 'cash', 0);
                     }
                 }
@@ -650,8 +688,6 @@ class frontController extends Controller
                     }
                 }
             }
-
-
 
             if ($_COOKIE['StrID'] == 'a29817922') {
                 $total -= 1000;
@@ -1678,16 +1714,16 @@ class frontController extends Controller
     // 領獎專區送獎
     private function giftSendItem($user, $gift_id, $ip, $type, $server_id)
     {
-        if($type == 'active'){
-            $getItem = newGiftContent::where('gift_group_id', $gift_id)->where('serverIdx',$server_id)->get();
-        }else{
+        if ($type == 'active') {
+            $getItem = newGiftContent::where('gift_group_id', $gift_id)->where('serverIdx', $server_id)->get();
+        } else {
             $getItem = giftContent::where('gift_group_id', $gift_id)->get();
         }
         foreach ($getItem as $key => $value) {
             $count_number_log = giftGetLog::count();
-            if($type == 'active'){
+            if ($type == 'active') {
                 $tranNo = 'active-' . $gift_id . '-' . $key . '-' . $count_number_log . date('YmdHis');
-            }else{
+            } else {
                 $tranNo = 'gift-' . $gift_id . '-' . $key . '-' . $count_number_log . date('YmdHis');
             }
             // 撰寫紀錄
@@ -1772,7 +1808,7 @@ class frontController extends Controller
         $res = $client->request('GET', 'http://c1twapi.global.estgames.com/game/character/searchByCharacterId?userId=jacky0996&serverCode=server02');
         $check_02 = $res->getBody();
         $check_02 = json_decode($check_02);
-        dd($check_01,$check_02);
+        dd($check_01, $check_02);
         if (count($check_01->data) > 0) {
             $hasChar_01 = true;
         } else {
@@ -1817,4 +1853,19 @@ class frontController extends Controller
         $reqbody = json_decode($reqbody);
     }
 
+    // 產碼
+    private function set_code()
+    {
+        $charid = strtoupper(md5(uniqid(rand(), true)));
+        $uuid_01 = substr($charid, 0, 4)
+        . substr($charid, 4, 4)
+        . substr($charid, 8, 4);
+
+        $charid = strtoupper(md5(uniqid(rand(), true)));
+        $uuid_02 = substr($charid, 0, 4)
+        . substr($charid, 4, 4)
+        . substr($charid, 8, 4);
+
+        return $uuid_01 . '/' . $uuid_02;
+    }
 }
