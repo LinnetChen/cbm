@@ -21,7 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/event/20240329/style.css?v1.5">
+    <link rel="stylesheet" href="css/event/20240329/style.css?v1.6">
 </head>
 <body>
     <div class="loading" style="display: none">載入中......</div>
@@ -45,38 +45,39 @@
     
     <div class="wrap" id="wrap">
         <div class="topBar">
-            <div class="topBox">
-                <a class="topBtn" href="https://cbm.digeam.com/prereg" target="_blank" >Mobile事前預約</a>
-                <p class="topLine">|</p>
-                <a class="topBtn" href="https://cbm.digeam.com/jointAct" target="_blank" >聯動活動</a>
-                <p class="topLine">|</p>
-                <a class="topBtn_h" href="https://cbo.digeam.com/20240329">涅瓦雷斯人才招募中心​</a>
-            </div>  
-            <!-- 判斷登入 -->
-            @if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null)
-            <form id="logout-form" action="https://www.digeam.com/logout" method="POST" style="display: none;">
-                <input type="hidden" name="return_url" id="return_url" value={{ base64_encode('https://cbo.digeam.com/20240329') }}>
-            </form>
-            <div class="wordBox">
-                <div class="userBox">
-                    <div class="loginWord">當前帳號 : </div>
-                    <div class="userName">{{ $_COOKIE['StrID'] }}</div>
+            <div class="topBarContent">
+                <div class="topBox">
+                    <a class="topBtn" href="https://cbm.digeam.com/prereg" target="_blank" >Mobile事前預約</a>
+                    <p class="topLine">|</p>
+                    <a class="topBtn" href="https://cbm.digeam.com/jointAct" target="_blank" >聯動活動</a>
+                    <p class="topLine">|</p>
+                    <a class="topBtn_h" href="https://cbo.digeam.com/20240329">涅瓦雷斯人才招募中心​</a>
                 </div>
-                <a href="javascript:logout_dg();">
-                    <div class="userLogout">登出</div>
+                <!-- 判斷登入 -->
+                @if (isset($_COOKIE['StrID']) && isset($_COOKIE['StrID']) != null)
+                <form id="logout-form" action="https://www.digeam.com/logout" method="POST" style="display: none;">
+                    <input type="hidden" name="return_url" id="return_url" value={{ base64_encode('https://cbo.digeam.com/20240329') }}>
+                </form>
+                <div class="wordBox">
+                    <div class="userBox">
+                        <div class="loginWord">當前帳號 : </div>
+                        <div class="userName">{{ $_COOKIE['StrID'] }}</div>
+                    </div>
+                    <a href="javascript:logout_dg();">
+                        <div class="userLogout">登出</div>
+                    </a>
+                </div>
+                @else
+                <form id="logout-form" action="https://www.digeam.com/logout" method="POST" style="display: none;">
+                    <input type="hidden" name="return_url" id="return_url" value={{ base64_encode('https://cbo.digeam.com/20240329') }}>
+                </form>
+                <a href="https://www.digeam.com/login" >
+                    <div class="userLogin">登入</div>
                 </a>
-            </div>
-            @else
-            <form id="logout-form" action="https://www.digeam.com/logout" method="POST" style="display: none;">
-                <input type="hidden" name="return_url" id="return_url" value={{ base64_encode('https://cbo.digeam.com/20240329') }}>
-            </form>
-            <div class="loginBox">
-                <div class="userName" style="display: none">1234567897891236</div>
-            </div>
-            <a href="https://www.digeam.com/login">
-                <div class="userLogin">登入</div>
-            </a>
-            @endif          
+                @endif 
+                
+            </div>  
+            
         </div>
         <div class="section01">
             <img class="s1Tit" src="img/event/20240329/s1Tit.png" >
@@ -161,8 +162,8 @@
     <script src="js/event/base/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="js/event/20240329/view.js?v=1.25"></script>    
-    <script src="js/event/20240329/main.js?v=1.30"></script>    
+    <script src="js/event/20240329/view.js?v=1.26"></script>    
+    <script src="js/event/20240329/main.js?v=1.31"></script>    
     <script>
         $(function(){
             AOS.init();

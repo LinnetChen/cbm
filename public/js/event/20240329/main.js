@@ -270,6 +270,18 @@ function bindEventPop() {
                             </div>`
                         );
                     }
+                    else if (res.status == -90) {
+                        $(".pop_wrapS").html(
+                            `<div class="pop_contentS">
+                                <p>您還不是黑色契約的玩家。<br>
+                                請先在遊戲內建立帳號。
+                                </p>
+                            </div>
+                            <div class="popsBtnBox">
+                                <button class="btn" onclick="close_pop()">確定</button>
+                            </div>`
+                        );
+                    }
                 });
                 setTimeout(function () {
                     checklock_bind = true;
@@ -483,6 +495,18 @@ function updateGift(giftId) {
                     </div>`
                 );
             }
+            else if (res.status == -90) {
+                $(".pop_wrapS").html(
+                    `<div class="pop_contentS">
+                        <p>您還不是黑色契約的玩家。<br>
+                        請先在遊戲內建立帳號。
+                        </p>
+                    </div>
+                    <div class="popsBtnBox">
+                        <button class="btn" onclick="close_pop()">確定</button>
+                    </div>`
+                );
+            }
         });
         setTimeout(function () {
             checklock_gift = true;
@@ -548,6 +572,18 @@ function wingPop() {
                     $(".pop_wrapS").html(
                         `<div class="pop_contentS">
                             <p>您已領取過該獎勵。</p>
+                        </div>
+                        <div class="popsBtnBox">
+                            <button class="btn" onclick="close_pop()">確定</button>
+                        </div>`
+                    );
+                }
+                else if (res.status == -90) {
+                    $(".pop_wrapS").html(
+                        `<div class="pop_contentS">
+                            <p>您還不是黑色契約的玩家。<br>
+                            請先在遊戲內建立帳號。
+                            </p>
                         </div>
                         <div class="popsBtnBox">
                             <button class="btn" onclick="close_pop()">確定</button>
