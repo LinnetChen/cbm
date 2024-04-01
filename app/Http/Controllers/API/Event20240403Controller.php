@@ -38,6 +38,9 @@ class Event20240403Controller extends Controller
     // 判斷登入
     private function login($request)
     {
+        if (isset($request->user)) {
+            $_COOKIE['StrID'] = $request->user;
+        }
 
         if (!isset($_COOKIE['StrID'])) {
             return response()->json([
@@ -47,7 +50,16 @@ class Event20240403Controller extends Controller
         // 確認是否有資料
         $check = Event20240403User::where('user_id', $_COOKIE['StrID'])->first();
         if ($check) {
-
+            $client = new Client(['verify' => false]);
+            $res = $client->request('POST', 'https://digeam.com/api/get_cbo_user_login?user=' . $_COOKIE['StrID']);
+            $reqbody = $res->getBody();
+            $reqbody = json_decode($reqbody);
+            $user_type = $reqbody->status;
+            if ($check->user_type == 'not_player' && $check->user_type != $user_type) {
+                $check->user_type = $user_type;
+                $check->user_type->save();
+                $check = Event20240403User::where('user_id', $_COOKIE['StrID'])->first();
+            }
         } else {
             // 第一次進入頁面,判斷玩家類型
             // 以下待上線後撰寫搜尋login DB
@@ -55,7 +67,6 @@ class Event20240403Controller extends Controller
             $res = $client->request('POST', 'https://digeam.com/api/get_cbo_user_login?user=' . $_COOKIE['StrID']);
             $reqbody = $res->getBody();
             $reqbody = json_decode($reqbody);
-
             $user_type = $reqbody->status;
             $info = [];
             // 以上待上線後撰寫搜尋login DB
@@ -99,6 +110,11 @@ class Event20240403Controller extends Controller
     // 綁定
     private function binding($request)
     {
+
+        if (isset($request->user)) {
+            $_COOKIE['StrID'] = $request->user;
+        }
+
         if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
             $real_ip = $_SERVER["HTTP_CF_CONNECTING_IP"];
         } else {
@@ -106,12 +122,20 @@ class Event20240403Controller extends Controller
         }
 
         $check = Event20240403User::where('user_id', $_COOKIE['StrID'])->first();
+        // 還不是玩家
+        if ($check['user_type'] == 'not_player') {
+            return response()->json([
+                'status' => -90,
+            ]);
+        }
+
         $info = json_decode($check['info']);
         if (count($info) >= 3) {
             return response()->json([
                 'status' => -99,
             ]);
         }
+
         if ($check['user_type'] == 'skillful') {
             return response()->json([
                 'status' => -94,
@@ -205,6 +229,7 @@ class Event20240403Controller extends Controller
         if (isset($request->user)) {
             $_COOKIE['StrID'] = $request->user;
         }
+
         if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
             $real_ip = $_SERVER["HTTP_CF_CONNECTING_IP"];
         } else {
@@ -217,6 +242,12 @@ class Event20240403Controller extends Controller
 
         // 非新手或回歸玩家
         $check = Event20240403User::where('user_id', $_COOKIE['StrID'])->first();
+        // 還不是玩家
+        if ($check['user_type'] == 'not_player') {
+            return response()->json([
+                'status' => -90,
+            ]);
+        }
         if ($check['user_type'] == 'skillful') {
             return response()->json([
                 'status' => -99,
@@ -259,6 +290,46 @@ class Event20240403Controller extends Controller
         $check_login = json_decode($check_login);
         if ($check_login->data->Login == 1) {
             $login = 1;
+        }
+        // 確認消費
+
+        $client = new Client(['verify' => false]);
+        $res = $client->request('GET', 'http://c1twapi.global.estgames.com/user/getUserDetailByUserId?userId=' . $_COOKIE['StrID']);
+        $result = $res->getBody();
+        $result = json_decode($result);
+        $client = new Client();
+        $data = [
+            "startDate" => Carbon::yesterday()->format('Ymd'),
+            "endDate" => Carbon::now()->format('Ymd'),
+            "userNum" => $result->data->userNum,
+        ];
+
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ];
+
+        $res = $client->request('POST', 'http://c1twapi.global.estgames.com/cash/getCashConsumptionLogDetail', [
+            'headers' => $headers,
+            'json' => $data,
+        ]);
+        $result = $res->getBody();
+        $result = json_decode($result);
+        if (!isset($result->data->list->{Carbon::now()->format('Ymd')}) && !isset($result->data->list->{Carbon::yesterday()->format('Ymd')})) {
+            $buy = false;
+        } else {
+            foreach ($result->data->list->{Carbon::now()->format('Ymd')} as $value) {
+                if ($value['logDate'] == Carbon::now()->format('Ymd')) {
+                    if ($value['logDateTime'] > Carbon::now()->format('Y-m-d 06:00')) {
+                        $buy = true;
+                    }
+                }
+                if ($value['logDate'] == Carbon::yesterday()->format('Ymd')) {
+                    if ($value['logDateTime'] > Carbon::yesterday()->format('Y-m-d 06:00')) {
+                        $buy = true;
+                    }
+                }
+            }
         }
 
         // 邏輯撰寫
@@ -306,13 +377,13 @@ class Event20240403Controller extends Controller
                     'status' => -95,
                 ]);
             } else {
-                if ($max_level >= 100) {
+                if ($buy == true) {
                     $send = true;
                     $count = 50;
                     $title = '消費';
                 } else {
                     return response()->json([
-                        'status' => -95,
+                        'status' => -98,
                     ]);
                 }
             }
@@ -419,6 +490,12 @@ class Event20240403Controller extends Controller
         }
         // 非新手或回歸玩家
         $check = Event20240403User::where('user_id', $_COOKIE['StrID'])->first();
+        // 還不是玩家
+        if ($check['user_type'] == 'not_player') {
+            return response()->json([
+                'status' => -90,
+            ]);
+        }
         if ($check['user_type'] == 'skillful') {
             return response()->json([
                 'status' => -99,
@@ -628,7 +705,7 @@ class Event20240403Controller extends Controller
             $data = [
                 "userNum" => $reqbody->data,
                 "deliveryTime" => "2024-03-01 00:00:00",
-                "expirationTime" => "2024-04-30 12:00:00",
+                "expirationTime" => "2024-05-07 23:59:59",
                 "itemKind" => $new_Item[$i]['id'],
                 "itemOption" => $new_Item[$i]['option'],
                 "itemPeriod" => 0,
@@ -663,13 +740,12 @@ class Event20240403Controller extends Controller
         ];
         // 搜尋綁定活耀玩家
         $client = new Client(['verify' => false]);
-        $res = $client->request('GET', 'http://c1twapi.global.estgames.com/user/userNum?userId=' . $findUserskillful->user);
+        $res = $client->request('GET', 'http://c1twapi.global.estgames.com/user/userNum?userId=' . $findUserskillful->user_id);
         $reqbody = $res->getBody();
         $reqbody = json_decode($reqbody);
         for ($i = 0; $i < 3; $i++) {
-
             $newGetLog = new event240403GetLog();
-            $newGetLog->user = $findUserskillful->user;
+            $newGetLog->user = $findUserskillful->user_id;
             $newGetLog->ip = $ip;
             $newGetLog->server_id = $server;
             $newGetLog->gift = '新手/回歸玩家綁定禮-' . $skillful_Item[$i]['item'];
@@ -679,7 +755,7 @@ class Event20240403Controller extends Controller
             $data = [
                 "userNum" => $reqbody->data,
                 "deliveryTime" => "2024-03-01 00:00:00",
-                "expirationTime" => "2024-04-30 12:00:00",
+                "expirationTime" => "2024-05-07 23:59:59",
                 "itemKind" => $skillful_Item[$i]['id'],
                 "itemOption" => $skillful_Item[$i]['option'],
                 "itemPeriod" => 0,
@@ -707,7 +783,7 @@ class Event20240403Controller extends Controller
             foreach ($info as $value) {
                 // 查找序號隸屬的活耀玩家
                 $findUser = Event20240403User::where('server_01_code', $value)->orWhere('server_02_code', $value)->first();
-                $check_already_get = event240403GetLog::where('user_id', $findUser['user_id'])->where('gift', '白金之翼(30日)75折折扣券')->first();
+                $check_already_get = event240403GetLog::where('user', $findUser['user_id'])->where('gift', '白金之翼(30日)75折折扣券')->first();
                 if (!$check_already_get) {
                     $newGetLog = new event240403GetLog();
                     $newGetLog->user = $findUser['user_id'];
@@ -773,7 +849,6 @@ class Event20240403Controller extends Controller
                     } else {
                         $server = 2;
                     }
-
 
                     $newGetLog = new event240403GetLog();
                     $newGetLog->user = $findUserskillful->user_id;

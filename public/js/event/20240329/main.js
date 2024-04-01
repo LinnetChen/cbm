@@ -447,7 +447,7 @@ function updateGift(giftId) {
             else if (res.status == -99) {
                 $(".pop_wrapS").html(
                     `<div class="pop_contentS">
-                                    <p>您不符合領獎資格(非新手/回歸玩家)。​</p>
+                                    <p>您不符合領獎資格<br>或不是新手/回歸玩家。</p>
                                 </div>
                                 <div class="popsBtnBox">
                                     <button class="btn" onclick="close_popS()">確定</button>
@@ -553,7 +553,7 @@ function wingPop() {
                 } else if (res.status == -99) {
                     $(".pop_wrapS").html(
                         `<div class="pop_contentS">
-                            <p>您不符合領獎資格(非新手/回歸玩家)。</p>
+                            <p>您不符合領獎資格<br>或不是新手/回歸玩家。</p>
                         </div>
                         <div class="popsBtnBox">
                             <button class="btn" onclick="close_pop()">確定</button>
