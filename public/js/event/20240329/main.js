@@ -19,16 +19,16 @@ function get_setting() {
         var checklock = true;
         //點擊按鈕後檢查是否登入
         $("#event01, #event02, #event03").on("click", function () {
-            $(".mask").fadeIn();
-            $(".loading").html(`載入中......`).fadeIn();
+            $(".mask").fadeIn(200);
+            $(".loading").fadeIn(200);
             if (checklock == true) {
                 checklock = false;
                 let eventId = this.id;
                 $.post(data_api, {
                     type: "login",
                 }, function (_res) {
-                    $(".mask").fadeOut();
-                    $(".loading").html(`載入中......`).fadeOut();
+                    $(".mask").fadeOut(200);
+                    $(".loading").fadeOut(200);
                     var res = _res;
                     // let res = { status: resStatus.status[0] };
                     if (res.status == 1) {
@@ -60,6 +60,7 @@ function get_setting() {
                         </div>`
                         );
                     }
+                    
                 });
                 setTimeout(function () {
                     checklock = true;
@@ -180,8 +181,8 @@ function bindEventPop() {
         //送出綁定碼
         var checklock_bind = true;
         $('.sub').on("click", function () {
-            $(".mask").fadeIn();
-            $(".loading").html(`載入中......`).fadeIn();
+            $(".mask").fadeIn(200);
+            $(".loading").fadeIn(200);
             if (checklock_bind == true) {
                 checklock_bind = false;
                 let bindingCode = $('.bindBox input[type="text"]').val();
@@ -192,7 +193,7 @@ function bindEventPop() {
                     server_id: selectedServer,
                 }, function (_res) {
                     $(".mask").fadeOut();
-                    $(".loading").html(`載入中......`).fadeOut();
+                    $(".loading").fadeOut();
                     var res = _res;
                     $(".mask").fadeIn(200);
                     $(".popS").fadeIn(200);
@@ -381,7 +382,7 @@ function sendGiftPop() {
 }
 function updateGift(giftId) {
     //server00時更新介面，跳出彈窗
-    let selectedServer = $('select[name="select_server"]').val();
+    // let selectedServer = $('select[name="select_server"]').val();
     // 選擇server01或server02時
     // $.post(data_api, {
     //     type: "send_gift",
@@ -404,19 +405,18 @@ function updateGift(giftId) {
     // })
     //領獎判定
     var checklock_gift = true;
-    $(".mask").fadeIn();
-    $(".loading").html(`載入中......`).fadeIn();
+    $(".mask").fadeIn(200);
+    $(".loading").fadeIn(200);
     if (checklock_gift == true) {
         checklock_gift = false;
-        // let giftId = $('.giftBtn').val();
         let selectedServer = $('select[name="select_server"]').val();
         $.post(data_api, {
             type: "gift",
             server_id: selectedServer,
             gift_id: giftId,
         }, function (_res) {
-            $(".mask").fadeOut();
-            $(".loading").html(`載入中......`).fadeOut();
+            $(".mask").fadeOut(200);
+            $(".loading").fadeOut(200);
             var res = _res;
             $(".mask").fadeIn(200);
             $(".popS").fadeIn(200);
@@ -445,42 +445,42 @@ function updateGift(giftId) {
             else if (res.status == -98) {
                 $(".pop_wrapS").html(
                     `<div class="pop_contentS">
-                                    <p>您不符合領獎資格(未達成條件)。​​</p>
-                                </div>
-                                <div class="popsBtnBox">
-                                    <button class="btn" onclick="close_popS()">確定</button>
-                                </div>`
+                        <p>您不符合領獎資格(未達成條件)。​​</p>
+                    </div>
+                    <div class="popsBtnBox">
+                        <button class="btn" onclick="close_popS()">確定</button>
+                    </div>`
                 );
             }
             else if (res.status == -97) {
                 $(".pop_wrapS").html(
                     `<div class="pop_contentS">
-                                    <p>請選擇伺服器​​​</p>
-                                </div>
-                                <div class="popsBtnBox">
-                                    <button class="btn" onclick="close_popS()">確定</button>
-                                </div>`
+                        <p>請選擇伺服器​​​</p>
+                    </div>
+                    <div class="popsBtnBox">
+                        <button class="btn" onclick="close_popS()">確定</button>
+                    </div>`
                 );
             }
             else if (res.status == -96) {
                 $(".pop_wrapS").html(
                     `<div class="pop_contentS">
-                                    <p>所選伺服器無效。​<br>
-                                    請先於所選伺服器中創建角色再進行。​​​</p>
-                                </div>
-                                <div class="popsBtnBox">
-                                    <button class="btn" onclick="close_popS()">確定</button>
-                                </div>`
+                        <p>所選伺服器無效。​<br>
+                        請先於所選伺服器中創建角色再進行。​​​</p>
+                    </div>
+                    <div class="popsBtnBox">
+                        <button class="btn" onclick="close_popS()">確定</button>
+                    </div>`
                 );
             }
             else if (res.status == -95) {
                 $(".pop_wrapS").html(
                     `<div class="pop_contentS">
-                                    <p>您已領取過該獎勵。​​​</p>
-                                </div>
-                                <div class="popsBtnBox">
-                                    <button class="btn" onclick="close_popS()">確定</button>
-                                </div>`
+                        <p>您已領取過該獎勵。​​​</p>
+                    </div>
+                    <div class="popsBtnBox">
+                        <button class="btn" onclick="close_popS()">確定</button>
+                    </div>`
                 );
             }
         });
@@ -503,21 +503,21 @@ function updateGift(giftId) {
 //白金之翼領獎
 function wingPop() {
     $(function () {
+        $(".mask").fadeIn(200);
+        $(".loading").fadeIn(200);
         var checklock_wing = true;
-        $(".mask").fadeIn();
-        $(".loading").html(`載入中......`).fadeIn();
         if (checklock_wing == true) {
             checklock_wing = false;
             $.post(data_api, {
                 type: "wing_gift",
             }, function (_res) {
-                $(".mask").fadeOut();
-                $(".loading").html(`載入中......`).fadeOut();
+                $(".mask").fadeOut(200);
+                $(".loading").fadeOut(200);
                 var res = _res;
                 // let res = { status: resStatus.status[2] };
+                $(".mask").fadeIn(200);
+                $(".popS").fadeIn(200);
                 if (res.status == 1) {
-                    $(".mask").fadeIn(200);
-                    $(".popS").fadeIn(200);
                     $(".pop_wrapS").html(
                         `<div class="pop_contentS">
                             <p>獎勵領取成功，請查看CASH背包。</p>
@@ -527,8 +527,6 @@ function wingPop() {
                         </div>`
                     );
                 } else if (res.status == -99) {
-                    $(".mask").fadeIn(200);
-                    $(".popS").fadeIn(200);
                     $(".pop_wrapS").html(
                         `<div class="pop_contentS">
                             <p>您不符合領獎資格(非新手/回歸玩家)。</p>
@@ -538,8 +536,6 @@ function wingPop() {
                         </div>`
                     );
                 } else if (res.status == -98) {
-                    $(".mask").fadeIn(200);
-                    $(".popS").fadeIn(200);
                     $(".pop_wrapS").html(
                         `<div class="pop_contentS">
                             <p>您不符合領獎資格(未達成條件)。</p>
@@ -549,8 +545,6 @@ function wingPop() {
                         </div>`
                     );
                 } else if (res.status == -97) {
-                    $(".mask").fadeIn(200);
-                    $(".popS").fadeIn(200);
                     $(".pop_wrapS").html(
                         `<div class="pop_contentS">
                             <p>您已領取過該獎勵。</p>
